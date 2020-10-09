@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DemoCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemoCtrl.Designer.cs">
+      <DependentUpon>DemoCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
