@@ -10,7 +10,7 @@ namespace Sunny
         private static int Init(string argument)
         {
             Hubble.OnBindCLRObjToWebPage += Cosmos_OnBindCLRObjToWebPage;
-            //Hubble.OnGetSubObjForWebPage += Tangram_OnGetSubObjForWebPage;
+            Hubble.OnGetSubObjForWebPage += Tangram_OnGetSubObjForWebPage;
             Hubble.OnHubbleMsg += Cosmos_OnHubbleMsg;
             Hubble.OnCustomizedDOMElement += Cosmos_OnCustomizedDOMElement;
             Hubble.OnHubbleMsgReceived += Cosmos_OnHubbleMsgReceived;
