@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunny", "Sunny\Sunny.csproj", "{CFAC881E-FD36-4EE7-AEDC-38D78BA057DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunny", "src\Sunny\Sunny.csproj", "{CFAC881E-FD36-4EE7-AEDC-38D78BA057DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainForm", "MainForm\MainForm.csproj", "{23A63C9B-B691-4123-95A2-A686A1F73EE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainForm", "src\MainForm\MainForm.csproj", "{23A63C9B-B691-4123-95A2-A686A1F73EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
