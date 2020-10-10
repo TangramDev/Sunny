@@ -1,4 +1,4 @@
-﻿namespace DemoComponents
+﻿namespace Sunny
 {
     partial class ucButtonsAndTextBoxes
     {

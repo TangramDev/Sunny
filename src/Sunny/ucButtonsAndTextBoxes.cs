@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DemoComponents
+namespace Sunny
 {
     public partial class ucButtonsAndTextBoxes : UserControl
     {
