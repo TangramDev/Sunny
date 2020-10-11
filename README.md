@@ -58,4 +58,17 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 -   d. Ecology based on COM/C++;
 -   e. Office-based ecology
 
+## Sunny从以下几个方面重新调整开发者对.NET桌面应用的认知：
+1、	每个.NET桌面应用应该有任意多个运行时状态；
+2、	每个.NET桌面应用都有一个无限大的对象模型；
+3、	每个.NET桌面应用都是互联网内容的访问入口
+4、	每个.NET桌面应用，都有其自己的Office文档生态链
+5、	每个.NET桌面应用都有其私有模型以及共享一组公共模型
+## Sunny readjusts developers' understanding of .Net desktop applications from the following aspects:
+1. Each. Net desktop application should have any number of runtime states;
+2. Each. Net desktop application has an infinite object model;
+3. Every. Net desktop application is an access to Internet content
+4. Each. Net desktop application has its own office document ecological chain
+5. Each. Net desktop application has its own private model and shares a common set of models
+Sunny与VBA的对比
 
