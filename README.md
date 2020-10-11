@@ -36,16 +36,6 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 2.	A VBR integration mode that conforms to the habits of developers, enabling the host .NET application to have an application content ecological chain based on Web technology;
 3.	Make the host program directly become the Eclipse Launcher, so that the host .NET application has a Java content ecological chain based on Eclipse technology;
 
-## Sunny has the following mission:
-
-1.	Each. Net desktop application is a dynamic content service portal;
-2.	Every. Net desktop application is an Internet browser. Sunny creates a trend that browsers are ubiquitous. At the same time, it will weaken the exclusive mode of browser applications, making browser features change from individuality to generality, and then gradually disappear. When more and more applications are browsers, the unique position of browsers will be shaken.
-3.	Each. Net desktop application is a customized version of full-featured eclipse, similar to a browser. Eventually, sunny will dilute eclipse's unique position and turn it into a public service.
-
-## Sunny has three missions: 
-1. Every .NET desktop application is a dynamic content service portal;
-2. Every .NET desktop application is an Internet browser. Sunny has created a ubiquitous browser trend. At the same time, it also downplays the exclusive mode of browser applications, so that browser characteristics from personality to commonality, and then gradually disappear, when more and more applications are browsers, the unique position of the browser will be shaken;
-3. Every .NET desktop application is a customized version of the fully functional Eclipse, similar to Sunny's attitude toward browsers, Sunny will reduce Eclipse's unique position and transform it into a public service. 
 
 ## Sunny has the following four missions:
 1. Every .NET desktop application is a dynamic content service portal;
@@ -65,10 +55,10 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 4、	每个.NET桌面应用，都有其自己的Office文档生态链
 5、	每个.NET桌面应用都有其私有模型以及共享一组公共模型
 ## Sunny readjusts developers' understanding of .Net desktop applications from the following aspects:
-1. Each. Net desktop application should have any number of runtime states;
-2. Each. Net desktop application has an infinite object model;
-3. Every. Net desktop application is an access to Internet content
-4. Each. Net desktop application has its own office document ecological chain
-5. Each. Net desktop application has its own private model and shares a common set of models
+1. Every.Net desktop application should have any number of runtime states;
+2. Every.Net desktop application has an infinite object model;
+3. Every.Net desktop application is an access to Internet content
+4. Every.Net desktop application has its own office document ecological chain
+5. Every.Net desktop application has its own private model and shares a common set of models
 Sunny与VBA的对比
 
