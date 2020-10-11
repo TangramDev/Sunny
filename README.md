@@ -58,8 +58,8 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 ## Sunny readjusts developers' understanding of .Net desktop applications from the following aspects:
 1. Every.Net desktop application should have any number of runtime states;
 2. Every.Net desktop application has an infinite object model;
-3. Every.Net desktop application is an access to Internet content
-4. Every.Net desktop application has its own office document ecological chain
+3. Every.Net desktop application is the entrance to Internet content;
+4. Every.Net desktop application has its own office document ecological chain;
 5. Every.Net desktop application has its own private model and shares a common set of models
 
 Sunny与VBA的对比
