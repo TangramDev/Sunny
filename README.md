@@ -48,14 +48,14 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 3. Every .NET desktop application is a customized version of the fully functional Eclipse, similar to Sunny's attitude toward browsers, Sunny will reduce Eclipse's unique position and transform it into a public service. 
 
 ## Sunny has the following four missions:
-1 Every .NET desktop application is a dynamic content service portal;
-2 Every .NET desktop application is an Internet browser. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
-3 Every .NET desktop application is a fully functional customized version of Eclipse, similar to Sunny's attitude towards browsers, Sunny will reduce the unique position of Eclipse and turn it into a public service.
-4 Each .NET desktop application has its own application ecology. Developers can use various mature technologies to produce ecological content including the following aspects:
-4.1 Ecosystem based on Web pages;
-4.2 Based on the ecology of .NET itself;
-4.3 Java-based ecology;
-4.4 Ecology based on COM/C++;
-4.5 Office-based ecology
+1. Every .NET desktop application is a dynamic content service portal;
+2. Every .NET desktop application is an Internet browser. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
+3. Every .NET desktop application is a fully functional customized version of Eclipse, similar to Sunny's attitude towards browsers, Sunny will reduce the unique position of Eclipse and turn it into a public service.
+4. Each .NET desktop application has its own application ecology. Developers can use various mature technologies to produce ecological content including the following aspects:
+4.1. Ecosystem based on Web pages;
+4.2. Based on the ecology of .NET itself;
+4.3. Java-based ecology;
+4.4. Ecology based on COM/C++;
+4.5. Office-based ecology
 
 
