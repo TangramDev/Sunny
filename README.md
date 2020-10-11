@@ -1,7 +1,7 @@
 # Sunny: You are the girl just I want most
 In the spring of 2018, a girl broke into my world, perhaps by accident, perhaps by a certain destiny, this girl attracted me deeply from all angles, and made me fascinated and excited about her all day long. From that moment on, my work was deeply imprinted on her... After more than two years, she finally became a beautiful girl. Can she attract the elite of this world with her unique charm? Will it be a flash in the pan? With these excitement and uneasiness, I opened the curtain that belongs to her... 
 
-## What is Sunny?
+## Why develop Sunny?
 
 I have been engaged in software development for almost 30 years, and I have been looking forward to forming a software architecture that I am satisfied with, especially during the prevalence of the Internet. I shoulder the expectations of my family and many friends from all walks of life. These years, I have been happy to create something that I am satisfied with. Sunny is a flash of light: If your thoughts are so beautiful and excite you, what kind of fantastic ideas should it be? If this idea is worth looking forward to, is it a good idea to carve it into an extraordinary and slim girl? Sunny is a girl full of inspiration, shoulders a set of missions that make **Desktop Software** a **disruptor in the Internet age.**
 
@@ -30,4 +30,14 @@ The Virtual Web Browser Engine is a **dynamic link library version** of the Goog
 ## Virtual Eclipse Engine(VEE, Eclipse for Application)
 The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse Project. It contains all the code of the Eclipse Project. The goal is to make windows desktop applications implement the Built-in Eclipse Model according to a consistent scheme and make the host desktop software naturally become a **Eclipse Launcher**. Different from the traditional eclipse, the application integrated with VEE (Virtual Eclipse Engine) has its own application object model, since all functions of the eclipse part are provided based on dll mode, VEE does not know in advance what the host application is and what object model the host application contains, VEE solves the connection problem between the host model and the eclipse standard model, so "virtual" here means that the real eclipse model can only be determined after a specific host application is defined. At the same time, the OSGi model of the host application will be larger than the OSGi model of a standard eclipse. In other words, the host application system will provide a key part of the real model that is not available in standard eclipse. The actual OSGi model of the host application may include members that are not part of the standard eclipse OSGi model, which means that the host application supports both standard eclipse components and application-based eclipse components, and there is no application-based eclipse components in the standard browser mode. Because the host application has all the functions of the Eclipse project built-in, application developers can develop new application content for the host application based on Eclipse technology, so that the host application becomes a Software Ecosystem based on Java Technology.
 
+## What is Sunny?
+
+1.	A new subversive .NET dynamic integration technology enables .NET applications to integrate VLE in the best way. Through VLE and Sunny, the application software can support WinForm, Usercontrol, and WPF components to the maximum extent at runtime;
+2.	A VBR integration mode that conforms to the habits of developers, enabling the host .NET application to have an application content ecological chain based on Web technology;
+3.	Make the host program directly become the Eclipse Launcher, so that the host .NET application has a Java content ecological chain based on Eclipse technology;
+
+## Sunny has the following mission:
+1、	Each. Net desktop application is a dynamic content service portal;
+2、	Every. Net desktop application is an Internet browser. Sunny creates a trend that browsers are ubiquitous. At the same time, it will weaken the exclusive mode of browser applications, making browser features change from individuality to generality, and then gradually disappear. When more and more applications are browsers, the unique position of browsers will be shaken.
+3、	Each. Net desktop application is a customized version of full-featured eclipse, similar to a browser. Eventually, sunny will dilute eclipse's unique position and turn it into a public service.
 
