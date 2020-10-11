@@ -42,3 +42,9 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 2.	Every. Net desktop application is an Internet browser. Sunny creates a trend that browsers are ubiquitous. At the same time, it will weaken the exclusive mode of browser applications, making browser features change from individuality to generality, and then gradually disappear. When more and more applications are browsers, the unique position of browsers will be shaken.
 3.	Each. Net desktop application is a customized version of full-featured eclipse, similar to a browser. Eventually, sunny will dilute eclipse's unique position and turn it into a public service.
 
+## Sunny has three missions: 
+1. Every .NET desktop application is a dynamic content service portal;
+2. Every .NET desktop application is an Internet browser. Sunny has created a ubiquitous browser trend. At the same time, it also downplays the exclusive mode of browser applications, so that browser characteristics from personality to commonality, and then gradually disappear, when more and more applications are browsers, the unique position of the browser will be shaken;
+3. Every .NET desktop application is a customized version of the fully functional Eclipse, similar to Sunny's attitude toward browsers, Sunny will reduce Eclipse's unique position and transform it into a public service. 
+
+
