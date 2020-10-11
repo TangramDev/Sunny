@@ -13,9 +13,9 @@ I have been engaged in software development for almost 30 years, and I have been
 从事软件开发快30年了，一直期待着形成一款自己满意的软件架构，特别是互联网盛行的阶段，肩负着家人、诸多各界朋友的期望，这些年一直乐此不疲的打造自己满意的东西。Sunny是灵光一现的想法：如果自己的想法非常之美，是那么令自己为之激动，应该是一种什么样的奇思妙想呢？如果这个构想值得期待，那么就将其雕琢成一个超凡脱俗、亭亭玉立的姑娘，是不是一个好主意？Sunny是一个充满灵光的女孩，肩负着一组使命，这个使命使得桌面软件成为互联网时代的颠覆者。
 
 ## In order to clearly state our basic vision, we need 3 basic concepts: 
-- the first is **VLE**(Virtual Layout Engine), 
-- the second is **VBE**(Virtual Web Browser Engine), 
-- the third is **VEE**(Virtual Eclipse Engine).
+- The first is **Virtual Layout Engine** (VLE), 
+- The second is **Virtual Web Browser Engine** (VBE), 
+- The third is **Virtual Eclipse Engine** (VEE).
 
 ## Virtual Layout Engine(VLE) 
 The Virtual Layout Engine is a multi-level, gridded, nestable and easy to describe UI layout description engine. The so-called gridding refers to a window matrix with m rows and n columns(a grid with 1 row and n columns can be interpreted as a tabbed window with n tabs), while nestable refers to that each lattice in the matrix can dynamically nest multiple grid layers, and only one layer is visible at runtime. Here, "virtual" means that a certain layout may be uncertain at design time and can be generated dynamically at runtime, different dynamic matching may be made due to different scenarios, permissions and other factors. In fact, a flexible layout is the result of dynamic change of multi-layer grid. 
