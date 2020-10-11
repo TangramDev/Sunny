@@ -40,6 +40,10 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 2.	A VBR integration mode that conforms to the habits of developers, enabling the host .NET application to have an application content ecological chain based on Web technology;
 3.	Make the host program directly become the Eclipse Launcher, so that the host .NET application has a Java content ecological chain based on Eclipse technology;
 
+What is Sunny? 
+1.	A **New Disruptive .NET Dynamic Integration Technology** enables .NET desktop applications to optimally integrate VLE. Through VLE and Sunny, the .NET application system can maximize support for WinForm, Usercontrol and WPF components and other .NET components at runtime 
+2.	A Unique VBE Integration Pattern that enables Make the host .NET application directly become a modern web browser, and then have an application content ecological chain based on Web-Desktop hybrid technology;
+3.	A unique VEE integration mode makes the host application system directly become the Eclipse launcher, and then has a Java content ecological chain based on Eclipse technology;
 
 ## Sunny has the following four missions:
 1. Every .NET desktop application is a dynamic content service portal;
