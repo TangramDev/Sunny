@@ -35,8 +35,7 @@ Sunny is a **productivity-oriented** and highly innovative **software runtime su
 
 ## Viewing Sunny Program Structure from the Perspective of CSharp
 
-**最简单的Sunny程序代码**
-The smallest Sunny program structure based on C# should have only one program.cs file, the specific code is as follows:
+**The smallest Sunny program structure based on C#** should have only one program.cs file, the specific code is as follows:
 ```csharp
 using System;
 using System.Windows.Forms;
