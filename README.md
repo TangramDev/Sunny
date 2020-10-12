@@ -33,6 +33,32 @@ Sunny is a **productivity-oriented** and highly innovative **software runtime su
 - In the Internet era, desktop software will inevitably be affected by Web software. Whether it is expressiveness or full use of Internet network services, Internet browsers dwarf desktop software. Change is imperative. Sunny's core vision is to make full use of web technology to control the core backbone of desktop software and the software ecosystem of the software itself, this idea is the key to connecting desktop software and Internet services. In terms of .NET desktop development, Sunny’s strategy is to make full use of open source technology instead of competing with browsers, and build the desktop software ecosystem directly on the basis of the browser framework while **retaining the advantages of desktop software.** This idea is the original vision of **VBR** (Virtual Web Browser Engine), and it is also Sunny's core issue.
 - Another key issue for Sunny is to provide **a complete software ecosystem construction solution** for .Net desktop applications. Considering that .NET, Java and Web Technology almost cover the mainstream developer community, through the integration of **VEE (Virtual Eclipse Engine)**, Sunny provides a solution for the Java ecological chain construction mechanism of .Net desktop software, thereby making the ecological construction technology of .Net desktop software more complete.
 
+## Viewing Sunny Program Structure from the Perspective of CSharp
+
+**最简单的Sunny程序代码**
+The smallest Sunny program structure based on C# should have only one program.cs file, the specific code is as follows:
+```csharp
+using System;
+using System.Windows.Forms;
+using Cosmos;
+
+namespace Sunny
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Hubble.Run();
+        }
+    }
+}
+
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
 2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
