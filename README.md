@@ -48,7 +48,7 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 
 - 在以互联网为中心的软件体系之中，桌面软件势必受到Web软件的冲击，无论在表现力上，还是在充分利用网络服务等诸多方面上考虑，互联网浏览器的许多方面都使得桌面软件看上去相形见绌，改变这一现状势在必行。用Web技术控制桌面软件的主干部分及其软件生态是Sunny的核心愿景，是Sunny实现衔接桌面软件与互联网服务的关键所在。
 - 在.NET 桌面开发方面，Sunny的策略是与其与浏览器竞争，不如充分利用开源技术，将桌面软件生态构建在保留桌面软件优势的前提下直接建立在浏览器框架基础之上，这一构想就是VBR (Virtual Web Browser Engine)的最初愿景，也是Sunny的核心问题。
-- sunny的另一个关键问题是为.Net桌面应用程序提供一个完整的软件生态构建解决方案。考虑到主流开发者社区已经基本被.Net、Java和web所覆盖，给.NET桌面软件提供一个Java生态链构造机制，是Sunny给出的一个方案，这一方案使得.NET桌面软件的生态构造技术弥补了缺失的环节。
+- Sunny的另一个关键问题是为.Net桌面应用程序提供一个完整的软件生态构建解决方案。考虑到主流开发者社区已经基本被.Net、Java和web所覆盖，给.NET桌面软件提供一个Java生态链构造机制，是Sunny给出的一个方案，这一方案使得.NET桌面软件的生态构造技术弥补了缺失的环节。
 
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
