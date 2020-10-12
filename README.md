@@ -41,8 +41,8 @@ This is one of the most common C# WinForm applications, and the starting point o
 Sunny only supports 64 bit applications, which needs to be made clear.
 #### Step 2: Add "app.mainfest" to this project
 ![markdown](https://blog.tangram.dev/assets/AddManifestFile.png "markdown")
-As shown in the figure above, we need to use this Wizard to add a manifest file to the created project. This step is an indispensable step.
-Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. We need to modify the manifest file as follows:
+As shown in the figure above, ***we need to use this Wizard to add a manifest file to the created project***. This step is an indispensable step.
+Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. ***We need to modify the manifest file as follows***:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
