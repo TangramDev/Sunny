@@ -1,5 +1,5 @@
 # Sunny: You Are the Girl just I Want Most
-In the spring of 2018, a girl broke into my world, perhaps by accident, perhaps by a certain destiny, this girl attracted me deeply from all angles, and made me fascinated and excited about her every day. From that moment on, she became a brand, deeply engraved in my work. After more than two years, she finally became a beautiful girl. Can she attract the elite of this world with her unique charm? Will it be a flash in the pan? With these excitement and uneasiness, I opened the curtain that belongs to her...
+In the spring of 2018, a girl broke into my world, perhaps by accident, perhaps by a certain destiny, she attracted me deeply from all angles, and made me fascinated and excited about her every day. From that moment on, she became a brand, deeply engraved in my work. More than two years later, she finally became a beautiful and elegant girl. Can she attract the elite of this world with her unique charm? Will it be a flash in the pan? With these excitement and uneasiness, I opened the curtain that belongs to her...
 
 ## Why Develop Sunny?
 
