@@ -46,7 +46,7 @@ Sunny needs to add an application manifest file to the current project. Please r
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
-  ........Omitted paragraph.........
+  ........***Omitted paragraph***.........
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
       <!-- A list of the Windows versions that this application has been tested on
