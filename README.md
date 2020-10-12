@@ -14,8 +14,7 @@ I have been engaged in software development for almost 30 years, and I have been
 
 Sunny是一创新度极高的产品线，其关键特征之一就是直接让一款基于.NET的产品具备软件生态，这一点确保了相关产品做为互联网服务的可行性。
 
-Sunny is a highly innovative product line. One of its key features is to directly enable a product based on .NET to have a software ecosystem, which ensures the feasibility of related products as Internet services.
-
+Sunny is a highly innovative product line. One of its key features is to directly enable a .NET-based product to have an Internet Software Ecosystem, which ensures the feasibility of related products as Internet Services..
 
 ## In order to express our vision clearly, we need three basic concepts.: 
 - The first is **Virtual Layout Engine** (VLE), 
