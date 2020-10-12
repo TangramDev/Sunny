@@ -42,11 +42,14 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 ## What is the Core Issue of Sunny?
 - In the Internet-centric software system, desktop software is bound to be impacted by Web software. No matter in terms of expressiveness or taking full advantage of network services, many aspects of Internet browsers make desktop software look It pales in comparison, and it is imperative to change this status quo. **Using Web technology to control the backbone of the Desktop Software and it's Software Ecosystem** is Sunny's core vision, and is the key to Sunny's realization of connecting desktop software and Internet services. 
 - In terms of .NET desktop development, Sunny’s strategy is to make full use of open source technology instead of competing with browsers, and build the desktop software ecosystem directly on the basis of the browser framework while retaining the advantages of desktop software. This idea is The original vision of VBR (Virtual Web Browser Engine), and **it is also Sunny's core issue.**
+- Another key issue of Sunny is to provide a complete software ecosystem construction solution for .Net desktop applications. Considering that the mainstream developer community has been basically covered by .Net, Java and the web, sunny gave a solution to the construction mechanism of the Java ecological chain for .Net desktop software, making the ecological construction technology of .Net desktop software more complete.
 
 ## Sunny的核心问题是什么？
 
 - 在以互联网为中心的软件体系之中，桌面软件势必受到Web软件的冲击，无论在表现力上，还是在充分利用网络服务等诸多方面上考虑，互联网浏览器的许多方面都使得桌面软件看上去相形见绌，改变这一现状势在必行。用Web技术控制桌面软件的主干部分及其软件生态是Sunny的核心愿景，是Sunny实现衔接桌面软件与互联网服务的关键所在。
 - 在.NET 桌面开发方面，Sunny的策略是与其与浏览器竞争，不如充分利用开源技术，将桌面软件生态构建在保留桌面软件优势的前提下直接建立在浏览器框架基础之上，这一构想就是VBR (Virtual Web Browser Engine)的最初愿景，也是Sunny的核心问题。
+- sunny的另一个关键问题是为.Net桌面应用程序提供一个完整的软件生态构建解决方案。考虑到主流开发者社区已经基本被.Net、Java和web所覆盖，给.NET桌面软件提供一个Java生态链构造机制，是Sunny给出的一个方案，这一方案使得.NET桌面软件的生态构造技术弥补了缺失的环节。
+
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
 2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
