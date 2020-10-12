@@ -37,9 +37,9 @@ Sunny is a **productivity-oriented** and highly innovative **software runtime su
 ## Create your first Sunny Application
 ### Open Visual Studio 2019, creating a C# WinForm Application
 This is one of the most common C# WinForm applications, and the starting point of the Sunny project starts here.
-#### Step 1: Add reference to Cosmos.dll
+#### Step 1: Add reference to "Cosmos.dll"
 Sunny only supports 64 bit applications, which needs to be made clear.
-#### Step 2: Add app.mainfest to this project
+#### Step 2: Add "app.mainfest" to this project
 Use "Add Item Wizard" to add a "manifest" file in the current project，
 Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. We need to modify the manifest file as follows:
 ```xml
@@ -137,7 +137,7 @@ namespace Sunny
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Hubble.Run();
+            Hubble.Run();//Modified by Sunny
         }
     }
 }
