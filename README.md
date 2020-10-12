@@ -33,9 +33,91 @@ Sunny is a **productivity-oriented** and highly innovative **software runtime su
 - In the Internet era, desktop software will inevitably be affected by Web software. Whether it is expressiveness or full use of Internet network services, Internet browsers dwarf desktop software. Change is imperative. Sunny's core vision is to make full use of web technology to control the core backbone of desktop software and the software ecosystem of the software itself, this idea is the key to connecting desktop software and Internet services. In terms of .NET desktop development, Sunny’s strategy is to make full use of open source technology instead of competing with browsers, and build the desktop software ecosystem directly on the basis of the browser framework while **retaining the advantages of desktop software.** This idea is the original vision of **VBR** (Virtual Web Browser Engine), and it is also Sunny's core issue.
 - Another key issue for Sunny is to provide **a complete software ecosystem construction solution** for .Net desktop applications. Considering that .NET, Java and Web Technology almost cover the mainstream developer community, through the integration of **VEE (Virtual Eclipse Engine)**, Sunny provides a solution for the Java ecological chain construction mechanism of .Net desktop software, thereby making the ecological construction technology of .Net desktop software more complete.
 
-## Viewing Sunny Program Structure from the Perspective of CSharp
+> In fact, although the above code is "the ***smallest*** Sunny application", at the same time, it is almost equivalent to the most complete Sunny application.
+## Create your first Sunny Application
+### Open Visual Studio 2019, creating a C# WinForm Application
+This is one of the most common C# WinForm applications, and the starting point of the Sunny project starts here.
+#### Step 1: Add reference to Cosmos.dll
+#### Step 2: Add app.mainfest to this project
+Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. We need to modify the manifest file as follows:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="Sunny.app"/>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
 
-**The** ***Smallest*** **Sunny program structure based on C#** should have only one program.cs file, the specific code is as follows:
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
+
+      <!-- Windows Vista -->
+      <supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />
+
+      <!-- Windows 7 -->
+      <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />
+
+      <!-- Windows 8 -->
+      <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />
+
+      <!-- Windows 8.1 -->
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />
+
+      <!-- Windows 10 -->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+
+    </application>
+  </compatibility>
+
+  <!-- Indicates that the application is DPI-aware and will not be automatically scaled by Windows at higher
+       DPIs. Windows Presentation Foundation (WPF) applications are automatically DPI-aware and do not need 
+       to opt in. Windows Forms applications targeting .NET Framework 4.6 that opt into this setting, should 
+       also set the 'EnableWindowsFormsHighDpiAutoResizing' setting to 'true' in their app.config. -->
+
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
+    </windowsSettings>
+  </application>
+
+  
+  <!-- Enable themes for Windows common controls and dialogs (Windows XP and later) -->
+
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+          type="win32"
+          name="Microsoft.Windows.Common-Controls"
+          version="6.0.0.0"
+          processorArchitecture="*"
+          publicKeyToken="6595b64144ccf1df"
+          language="*"
+        />
+    </dependentAssembly>
+  </dependency>
+  
+</assembly>
+```
+#### Step 3: modify the program.cs file
 ```csharp
 using System;
 using System.Windows.Forms;
@@ -58,14 +140,7 @@ namespace Sunny
     }
 }
 ```
-> In fact, although the above code is "the ***smallest*** Sunny application", at the same time, it is almost equivalent to the most complete Sunny application.
-## Create your first Sunny Application
-### Open Visual Studio 2019, creating a C# WinForm Application
-This is one of the most common C# WinForm applications, and the starting point of the Sunny project starts here.
-#### 第一步：添加Cosmos.dll的引用
-#### 第二步：添加app.mainfest到这个工程
-#### 第三步：修改program.cs文件
-#### 第四步：Run
+#### Step 4: Run
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
 2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
