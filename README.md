@@ -39,6 +39,13 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 2.	A **Unique VBE Integration Pattern** that enables the host .NET application directly to become a **Modern Web Browser**, and then have an **Application Content Ecological Chain** based on **Web-Desktop Hybrid Technology**;
 3.	A **Unique VEE Integration Mode** makes the host application system directly to become an **Eclipse Launcher**, and then has a **Java Content Ecological Chain** based on **Eclipse Technology**;
 
+## What is the Core Issue of Sunny?
+Using Web technology to control the backbone of the desktop software and the software ecosystem is Sunny's core vision, and is the key to Sunny's realization of connecting desktop software and Internet services.
+
+## Sunny的核心问题是什么？
+
+用Web技术控制桌面软件的主干部分以及软件生态是Sunny的核心愿景，是Sunny实现衔接桌面软件与互联网服务的关键所在。
+
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
 2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
