@@ -40,6 +40,7 @@ This is one of the most common C# WinForm applications, and the starting point o
 #### Step 1: Add reference to "Cosmos.dll"
 Sunny only supports 64 bit applications, which needs to be made clear.
 #### Step 2: Add "app.mainfest" to this project
+![markdown](https://blog.tangram.dev/assets/AddManifestFile.png "markdown")
 Use "Add Item Wizard" to add a "manifest" file in the current project，
 Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. We need to modify the manifest file as follows:
 ```xml
