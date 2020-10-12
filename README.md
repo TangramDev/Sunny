@@ -38,6 +38,7 @@ Sunny is a **productivity-oriented** and highly innovative **software runtime su
 ### Open Visual Studio 2019, creating a C# WinForm Application
 This is one of the most common C# WinForm applications, and the starting point of the Sunny project starts here.
 #### Step 1: Add reference to Cosmos.dll
+Sunny only supports 64 bit applications, which needs to be made clear.
 #### Step 2: Add app.mainfest to this project
 Sunny needs to add an application manifest file to the current project. Please refer to the standard .NET document for the specific steps of adding the manifest file. We need to modify the manifest file as follows:
 ```xml
@@ -140,7 +141,7 @@ namespace Sunny
     }
 }
 ```
-#### Step 4: Run
+#### Step 4: Compile and Run
 ## Sunny has the following four missions:
 1. Enable every .NET desktop application is a dynamic content service portal;
 2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
