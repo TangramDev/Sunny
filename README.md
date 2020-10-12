@@ -13,10 +13,11 @@ I have been engaged in software development for almost 30 years, and I have been
 从事软件开发快30年了，一直期待着形成一款自己满意的软件架构，特别是互联网盛行的阶段，肩负着家人、诸多各界朋友的期望，这些年一直乐此不疲的打造自己满意的东西。Sunny是灵光一现的想法：如果自己的想法非常之美，是那么令自己为之激动，应该是一种什么样的奇思妙想呢？如果这个构想值得期待，那么就将其雕琢成一个超凡脱俗、亭亭玉立的姑娘，是不是一个好主意？Sunny是一个充满灵光的女孩，肩负着一组使命，这个使命使得桌面软件成为互联网时代的颠覆者。
 
 Sunny是一创新度极高的产品线，其关键特征之一就是直接让一款基于.NET的产品具备软件生态，这一点确保了相关产品做为互联网服务的可行性。
+
 Sunny is a highly innovative product line. One of its key features is to directly enable a product based on .NET to have a software ecosystem, which ensures the feasibility of related products as Internet services.
 
 
-## In order to clearly state our basic vision, we need 3 basic concepts: 
+## In order to express our vision clearly, we need three basic concepts.: 
 - The first is **Virtual Layout Engine** (VLE), 
 - The second is **Virtual Web Browser Engine** (VBE), 
 - The third is **Virtual Eclipse Engine** (VEE).
