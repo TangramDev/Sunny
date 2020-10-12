@@ -27,7 +27,6 @@ namespace Sunny
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             Hubble.Run();
         }
     }

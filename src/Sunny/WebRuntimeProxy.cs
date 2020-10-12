@@ -63,7 +63,7 @@ namespace Sunny
                     break;
                 case "OnMyCustomClick":
                     {
-                        DemoComponents.ucButtonsAndTextBoxes ucButtonsAndTextBoxes = SourceObj as DemoComponents.ucButtonsAndTextBoxes;
+                        Sunny.ucButtonsAndTextBoxes ucButtonsAndTextBoxes = SourceObj as Sunny.ucButtonsAndTextBoxes;
                         if (ucButtonsAndTextBoxes != null)
                         {
                             ucButtonsAndTextBoxes.MyCustomClick += UcButtonsAndTextBoxes_MyCustomClick;
@@ -79,7 +79,7 @@ namespace Sunny
             }
         }
 
-        private static void UcButtonsAndTextBoxes_MyCustomClick(object sender, DemoComponents.ucButtonsAndTextBoxes.MyEventArgs e)
+        private static void UcButtonsAndTextBoxes_MyCustomClick(object sender, Sunny.ucButtonsAndTextBoxes.MyEventArgs e)
         {
             if (Cosmos.Hubble.Wormholes.TryGetValue(sender, out Wormhole thisWormhole))
             {
