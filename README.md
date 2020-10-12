@@ -11,11 +11,6 @@ I have been engaged in software development for almost 30 years, and I have been
 ## 为什么开发"艳阳"（Sunny）？
 
 从事软件开发快30年了，一直期待着形成一款自己满意的软件架构，特别是互联网盛行的阶段，肩负着家人、诸多各界朋友的期望，这些年一直乐此不疲的打造自己满意的东西。Sunny是灵光一现的想法：如果自己的想法非常之美，是那么令自己为之激动，应该是一种什么样的奇思妙想呢？如果这个构想值得期待，那么就将其雕琢成一个超凡脱俗、亭亭玉立的姑娘，是不是一个好主意？Sunny是一个充满灵光的女孩，肩负着一组使命，这个使命使得桌面软件成为互联网时代的颠覆者。
-
-Sunny是一创新度极高的产品线，其关键特征之一就是直接让一款基于.NET的产品具备软件生态，这一点确保了相关产品做为互联网服务的可行性。
-
-Sunny is a highly innovative product line. One of its key features is to directly enable a .NET-based product to have an Internet Software Ecosystem, which ensures the feasibility of related products as Internet Services..
-
 ## In order to express our vision clearly, we need three basic concepts.: 
 - The first is **Virtual Layout Engine** (VLE), 
 - The second is **Virtual Web Browser Engine** (VBE), 
@@ -40,6 +35,7 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 3.	A **Unique VEE Integration Mode** makes the host application system directly to become an **Eclipse Launcher**, and then has a **Java Content Ecological Chain** based on **Eclipse Technology**;
 
 ## What is the Core Issue of Sunny?
+Sunny is a **productivity-oriented** and highly innovative **software operation support environment**. Its purpose is to enable .NET-based Desktop Software Products to have an **Internet Software Ecosystem**, which is embodied in the following aspects:
 - In the Internet era, desktop software will inevitably be affected by Web software. Whether it is expressiveness or full use of Internet network services, Internet browsers dwarf desktop software. Change is imperative. Sunny's core vision is to make full use of web technology to control the core backbone of desktop software and the software ecosystem of the software itself, this idea is the key to connecting desktop software and Internet services. In terms of .NET desktop development, Sunny’s strategy is to make full use of open source technology instead of competing with browsers, and build the desktop software ecosystem directly on the basis of the browser framework while **retaining the advantages of desktop software.** This idea is the original vision of **VBR** (Virtual Web Browser Engine), and it is also Sunny's core issue.
 - Another key issue for Sunny is to provide **a complete software ecosystem construction solution** for .Net desktop applications. Considering that .NET, Java and Web Technology almost cover the mainstream developer community, through the integration of **VEE (Virtual Eclipse Engine)**, Sunny provides a solution for the Java ecological chain construction mechanism of .Net desktop software, thereby making the ecological construction technology of .Net desktop software more complete.
 
