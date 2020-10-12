@@ -40,10 +40,10 @@ The Virtual Eclipse Engine is a **dynamic link library version** of the Eclipse 
 3.	A **Unique VEE Integration Mode** makes the host application system directly become a **Eclipse Launcher**, and then has a **Java Content Ecological Chain** based on **Eclipse Technology**;
 
 ## Sunny has the following four missions:
-1. Every .NET desktop application is a dynamic content service portal;
-2. Every .NET desktop application is an Internet browser. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
-3. Every .NET desktop application is a fully functional customized version of Eclipse, similar to Sunny's attitude towards browsers, Sunny will reduce the unique position of Eclipse and turn it into a public service.
-4. Each .NET desktop application has its own application ecology. Developers can use various mature technologies to produce ecological content including the following aspects:
+1. Enable every .NET desktop application is a dynamic content service portal;
+2. Enable every .NET desktop application is an **Internet Browser**. Sunny has created a ubiquitous browser trend. At the same time, it also dilutes the exclusive mode of browser applications, making the characteristics of the browser change from individuality to commonality, and then gradually disappear. When more and more applications are browsers, the unique status of the browser will be shaken;
+3. Enable every .NET desktop application is a **fully functional customized version of Eclipse**, similar to Sunny's attitude towards browsers, Sunny will reduce the unique position of Eclipse and turn it into a public service.
+4. Enable each .NET desktop application has its own **Application Ecology**. Developers can use various mature technologies to produce ecological content including the following aspects:
 -   a. Ecosystem based on Web pages;
 -   b. Based on the ecology of .NET itself;
 -   c. Java-based ecology;
