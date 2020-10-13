@@ -1,6 +1,6 @@
 ﻿namespace Sunny
 {
-    partial class Form1
+    partial class SunnyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(164, 159);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1162, 510);
+            this.listView1.Size = new System.Drawing.Size(1279, 510);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -63,9 +63,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Location = new System.Drawing.Point(95, 105);
+            this.panel1.Location = new System.Drawing.Point(47, 105);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1534, 892);
+            this.panel1.Size = new System.Drawing.Size(1651, 1014);
             this.panel1.TabIndex = 2;
             // 
             // Form1

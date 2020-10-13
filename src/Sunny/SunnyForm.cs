@@ -11,9 +11,9 @@ using Cosmos;
 
 namespace Sunny
 {
-    public partial class Form1 : Form
+    public partial class SunnyForm : Form
     {
-        public Form1()
+        public SunnyForm()
         {
             InitializeComponent();this.Dock = DockStyle.Fill;
         }

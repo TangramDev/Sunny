@@ -67,11 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="SunnyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SunnyForm.Designer.cs">
+      <DependentUpon>SunnyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NavControl.cs">
       <SubType>UserControl</SubType>
@@ -93,9 +93,9 @@
     <Compile Include="ucButtonsAndTextBoxes.designer.cs">
       <DependentUpon>ucButtonsAndTextBoxes.cs</DependentUpon>
     </Compile>
-    <Compile Include="WebRuntimeProxy.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Sunny.cs" />
+    <EmbeddedResource Include="SunnyForm.resx">
+      <DependentUpon>SunnyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NavControl.resx">
       <DependentUpon>NavControl.cs</DependentUpon>
