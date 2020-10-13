@@ -36,12 +36,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 29);
+            this.label1.Location = new System.Drawing.Point(31, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 65);
+            this.label1.Size = new System.Drawing.Size(602, 65);
             this.label1.TabIndex = 0;
-            this.label1.Text = "My Menu Tree";
+            this.label1.Text = "A New DOM-.NET World";
             // 
             // treeView1
             // 
@@ -50,9 +50,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Font = new System.Drawing.Font("Baskerville Old Face", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(42, 138);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(402, 806);
+            this.treeView1.Size = new System.Drawing.Size(636, 806);
             this.treeView1.TabIndex = 1;
             // 
             // NavControl
@@ -62,9 +62,9 @@
             this.BackColor = System.Drawing.Color.IndianRed;
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "NavControl";
-            this.Size = new System.Drawing.Size(492, 981);
+            this.Size = new System.Drawing.Size(726, 981);
             this.ResumeLayout(false);
             this.PerformLayout();
 

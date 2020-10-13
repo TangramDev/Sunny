@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Your First Cloud Application</title>
+    <title>I am Sunny, 我的中文名字：艳阳</title>
     <link rel="stylesheet" href="./assets/github-markdown.css">
     <style type="text/css">
         .markdown-body {
@@ -143,7 +143,7 @@
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
         the Sunny.MDIParent1 class in the current executable program. -->
-    <mainWindow objid="Sunny.form1,Sunny" caption="My Windows Forms App" width="1200" height="800">
+    <mainWindow objid="Sunny.form1,Sunny" caption="I'm Sunny, you can call me 艳阳" width="1200" height="800">
         <mainclient id="mainworkclient">
             <default>
                 <layout>
@@ -177,16 +177,23 @@
                 <treeView1_tag name="content"></treeView1_tag>
                 <node1 treenode="true" text="New Web New Application World"></node1>
                 <node1_tag name="content1"></node1_tag>
-                <node2 treenode="true" text="Grid grid layout"></node2>
-                <node2_tag name="content2"></node2_tag>
-                <node3 treenode="true" text="Nested Grid layout"></node3>
-                <node3_tag name="content3"></node3_tag>
-                <node4 treenode="true" text="Tabbed grid layout"></node4>
-                <node4_tag name="content4"></node4_tag>
-                <node5 treenode="true" text="Nested grid layout"></node5>
-                <node5_tag name="content5"></node5_tag>
-                <node6 treenode="true" text="More Complex Nested grid layout"></node6>
-                <node6_tag name="content6"></node6_tag>
+                <node_vle treenode="true" text="About Virtual Layout Engine">
+                    <node2 treenode="true" text="Grid layout"></node2>
+                    <node2_tag name="content2"></node2_tag>
+                    <node3 treenode="true" text="Nested Grid layout"></node3>
+                    <node3_tag name="content3"></node3_tag>
+                    <node4 treenode="true" text="Tabbed Grid layout"></node4>
+                    <node4_tag name="content4"></node4_tag>
+                    <node5 treenode="true" text="Nested Grid layout"></node5>
+                    <node5_tag name="content5"></node5_tag>
+                    <node6 treenode="true" text="More Complex Nested Grid layout"></node6>
+                    <node6_tag name="content6"></node6_tag>
+                </node_vle>
+                <node_vle_tag name="content_vle"></node_vle_tag>
+                <node_vbe treenode="true" text="About Virtual Web Browser Engine"></node_vbe>
+                <node_vbe_tag name="content_vbe"></node_vbe_tag>
+                <node_vee treenode="true" text="About Virtual Eclipse Engine"></node_vee>
+                <node_vee_tag name="content_vee"></node_vee_tag>
             </uidata>
         </treeView1>
     </gridTemplate>
@@ -220,9 +227,11 @@
 
     <div class="contents">
         <article class="show content markdown-body">
-            <h1>Web Runtime for Application</h1>
-            <p>Web Runtime for Application is a software runtime service that enables developers to organize software in the form of Web pages, it extends Java, COM, .NET, Win32 components into DOM elements of Web pages, allowing developers to develop application-oriented-web-page, each specific function of the application software is embodied in one or a group of application-oriented-web-pages, consumers can access each specific application function by accessing the URL.</p>
-            <p>This is a New and Dynamic Desktop Software World where you can combine most of the existing component frameworks, such as .NET, Java, COM, C++, Web and Office etc. ...</p>
+            <h1>Hi, I'm Sunny, 您可以称我为“艳阳”</h1>
+            <p>我是您的互联网桌面软件开发助手，我的责任是协助您用.Net Framework开发基于互联网生态的桌面软件</p>
+            <p>在我的世界里，一个软件本身就是一个某种类型的宇宙，其内容体系十分丰满，我会为您配置一台哈勃望远镜，让您漫游您的宇宙，领略其浩瀚、深邃、多姿多彩……</p>
+            <p>今天是我第一次进入软件开发领域，我是您的向导，将配合您进入一个全新的WinForm世界，去领略一下WinForm世界里面目前还不为人所知的、动态、有待于挖掘的新天地…</p>
+            <p>重塑您的.NET桌面软件，是我的使命之一，颠覆一个旧的模式，是我内心里面的一个心愿，我相信，一个全新的世界在等着您，一个面向互联网的创新之路，正在开启…</p>
             <content target="mainClient">
                 <layout>
                     <grid style="39">
@@ -233,7 +242,8 @@
             </content>
         </article>
         <article class="hidden content1 markdown-body">
-            <h1>New Web, New Application World!</h1>
+            <h1>艳阳的.NET新世界：DOM定义.NET</h1>
+            <h2>New Web, New Application World! DOM Define Anything……</h2>
             <p>Web runtime for application constructs a new mixed world of native UI elements and web elements. In this world, a new web page is defined. While taking into account the standard web page, the ability to use native components as DOM elements is added ...</p>
             <content1 target="mainClient">
                 <layout>
@@ -244,6 +254,36 @@
                     </grid>
                 </layout>
             </content1>
+        </article>
+        <article class="hidden content_vle markdown-body">
+            <h1>艳阳的.NET新世界：关于虚拟布局引擎</h1>
+            <h2>The Virtual Layout Engine is a Multi-Level, Gridded, Nestable and Easy to Describe UI Layout Description Engine. </h2>
+            <p>The so-called gridding refers to a window matrix with m rows and n columns(a grid with 1 row and n columns can be interpreted as a tabbed window with n tabs), while nestable refers to that each lattice in the matrix can dynamically nest multiple grid layers, and only one layer is visible at runtime. Here, "virtual" means that a certain layout may be uncertain at design time and can be generated dynamically at runtime, different dynamic matching may be made due to different scenarios, permissions and other factors. In fact, a flexible layout is the result of dynamic change of multi-layer grid.</p>
+            <content_vle target="mainClient">
+                <layout>
+                    <grid gridtype="nucleus"></grid>
+                </layout>
+            </content_vle>
+        </article>
+        <article class="hidden content_vee markdown-body">
+            <h1>艳阳的.NET新世界：关于虚拟Eclipse引擎</h1>
+            <h2>The Virtual Layout Engine is a Multi-Level, Gridded, Nestable and Easy to Describe UI Layout Description Engine. </h2>
+            <p>The Virtual Eclipse Engine is a dynamic link library version of the Eclipse Project. It contains all the code of the Eclipse Project. The goal is to make windows desktop applications implement the Built-in Eclipse Model according to a consistent scheme and make the host desktop software naturally become a Eclipse Launcher. Different from the traditional eclipse, the application integrated with VEE (Virtual Eclipse Engine) has its own application object model, since all functions of the eclipse part are provided based on dll mode, VEE does not know in advance what the host application is and what object model the host application contains, VEE solves the connection problem between the host model and the eclipse standard model, so "virtual" here means that the real eclipse model can only be determined after a specific host application is defined. At the same time, the OSGi model of the host application will be larger than the OSGi model of a standard eclipse. In other words, the host application system will provide a key part of the real model that is not available in standard eclipse. The actual OSGi model of the host application may include members that are not part of the standard eclipse OSGi model, which means that the host application supports both standard eclipse components and application-based eclipse components, and there is no application-based eclipse components in the standard browser mode. Because the host application has all the functions of the Eclipse project built-in, application developers can develop new application content for the host application based on Eclipse technology, so that the host application becomes a Software Ecosystem based on Java Technology.</p>
+            <content_vee target="mainClient">
+                <layout>
+                    <grid gridtype="nucleus"></grid>
+                </layout>
+            </content_vee>
+        </article>
+        <article class="hidden content_vbe markdown-body">
+            <h1>艳阳的.NET新世界：关于虚拟浏览器引擎</h1>
+            <h2>The Virtual Web Browser Engine is a dynamic link library version of the Google Chromium Project.</h2>
+            <p>VBE contains all the code of the Chromium Project. The goal is to make Windows Desktop Applications implement the Built-in Modern Browser Model according to a consistent scheme and make the host desktop software naturally become a modern web browser. Different from the traditional browser, the application integrated with VBE (Virtual Web Browser Engine) has its own application object model, since all functions of the browser part are provided based on dll mode, VBE does not know in advance what the host application is and what object model the host application contains, VBE solves the connection problem between the host model and the browser standard model, so "virtual" here means that the real browser model can only be determined after a specific host application is defined. At the same time, the DOM model of the host application will be larger than the DOM model of a standard browser. In other words, the host application system will provide a key part of the real model that is not available in standard browsers. The actual DOM model of the host application may include members that are not part of the standard browser DOM model, which means that the host application supports both standard web pages and application-based web pages, and there is no application-based web page in the standard browser mode. Because the host application has all the functions of the Chromium project built-in, application developers can develop new application content for the host application based on Web technology, so that the host application becomes a Software Ecosystem based on Web Technology.</p>
+            <content_vbe target="mainClient">
+                <layout>
+                    <grid gridtype="nucleus"></grid>
+                </layout>
+            </content_vbe>
         </article>
         <article class="hidden content2 markdown-body">
             <h1>About Grid grid</h1>
