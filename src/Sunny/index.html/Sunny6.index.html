@@ -123,7 +123,7 @@
         <ntp>
             <layout>
                 <grid id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
-                    <grid gridtype="nucleus"></grid>
+                    <grid objid="nucleus"></grid>
                     <grid objid="Sunny.ntpctrl,Sunny6"></grid>
                 </grid>
             </layout>
@@ -131,7 +131,7 @@
         <defaultworkbench>
             <layout>
                 <grid style="18">
-                    <grid id='tangramtabctrl_Page2' gridtype="nucleus" caption='Page 1'></grid>
+                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
                     <grid id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></grid>
                     <grid id='test2 y' caption='Page 3'></grid>
                     <grid id='test3 z' caption='Page 4'></grid>
@@ -148,7 +148,7 @@
                 <layout>
                     <grid style="18" activepage="1">
                         <grid caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
-                            <grid gridtype="nucleus"></grid>
+                            <grid objid="nucleus"></grid>
                             <grid objid="Sunny.ntpctrl,Sunny6" id="Sunny_ntpctrl"></grid>
                         </grid>
                         <grid caption="Virtual Web Browser Runtime for Application" url="host"></grid>
@@ -187,7 +187,7 @@
         <layout>
             <grid rows="1" cols="2" width="750,">
                 <grid objid="navDetails" id="navCtrl"></grid>
-                <grid gridtype="nucleus" id="mainClient"></grid>
+                <grid objid="nucleus" id="mainClient"></grid>
             </grid>
         </layout>
     </webViewport>
@@ -195,7 +195,7 @@
     <form1 id="mainwindow_1">
         <layout>
             <grid id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                <grid id='tangramtabctrl_Page2' gridtype="nucleus" caption=''></grid>
+                <grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>
                 <grid id='test1'></grid>
             </grid>
         </layout>
@@ -203,7 +203,7 @@
     <form id="mainwindow_2">
         <layout>
             <grid style="18">
-                <grid id='tangramtabctrl_Page2' gridtype="nucleus" caption='Page 1'></grid>
+                <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
                 <grid id='test1' caption='Page 2'></grid>
                 <grid id='test2' caption='Page 3'></grid>
                 <grid id='test3' caption='Page 4'></grid>
@@ -221,7 +221,7 @@
             <content target="mainClient">
                 <layout>
                     <grid style="39">
-                        <grid caption="Virtual Web Browser Engine for Application" gridtype="nucleus"></grid>
+                        <grid caption="Virtual Web Browser Engine for Application" objid="nucleus"></grid>
                         <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Customize your own WebBrowser"></grid>
                     </grid>
                 </layout>
@@ -234,7 +234,7 @@
             <content1 target="mainClient">
                 <layout>
                     <grid style="18">
-                        <grid caption="The mixed world of web and native UI" gridtype="nucleus"></grid>
+                        <grid caption="The mixed world of web and native UI" objid="nucleus"></grid>
                         <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Second Page"></grid>
                         <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Third Page"></grid>
                     </grid>
@@ -247,7 +247,7 @@
             <p>The so-called gridding refers to a <b><i>window matrix</i></b> with <b>m</b> rows and <b>n</b> columns(a grid with 1 row and n columns can be interpreted as a <b>tabbed window</b> with n tabs), while nestable refers to that each lattice in the matrix can dynamically nest multiple grid layers, and only one layer is visible at runtime. Here, "virtual" means that a certain layout may be uncertain at design time and can be generated dynamically at runtime, different dynamic matching may be made due to different scenarios, permissions and other factors. In fact, a flexible layout is the result of dynamic change of multi-layer grid.</p>
             <content_vle target="mainClient">
                 <layout>
-                    <grid gridtype="nucleus"></grid>
+                    <grid objid="nucleus"></grid>
                 </layout>
             </content_vle>
         </article>
@@ -259,7 +259,7 @@
             <p>The actual OSGi model of the host application may include members that are not part of the standard eclipse OSGi model, which means that the host application supports both standard eclipse components and application-based eclipse components, and there is no application-based eclipse components in the standard browser mode. Because the host application has all the functions of the Eclipse project built-in, application developers can develop new application content for the host application based on Eclipse technology, so that the host application becomes a Software Ecosystem based on Java Technology.</p>
             <content_vee target="mainClient">
                 <layout>
-                    <grid gridtype="nucleus"></grid>
+                    <grid objid="nucleus"></grid>
                 </layout>
             </content_vee>
         </article>
@@ -270,7 +270,7 @@
             <p>At the same time, the DOM model of the host application will be larger than the DOM model of a standard browser. In other words, the host application system will provide a key part of the real model that is not available in standard browsers. The actual DOM model of the host application may include members that are not part of the standard browser DOM model, which means that the host application supports both standard web pages and application-based web pages, and there is no application-based web page in the standard browser mode. Because the host application has all the functions of the Chromium project built-in, application developers can develop new application content for the host application based on Web technology, so that the host application becomes a Software Ecosystem based on Web Technology.</p>
             <content_vbe target="mainClient">
                 <layout>
-                    <grid gridtype="nucleus"></grid>
+                    <grid objid="nucleus"></grid>
                 </layout>
             </content_vbe>
         </article>
@@ -284,7 +284,7 @@
                         <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
                         <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
                         <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid gridtype="nucleus"></grid>
+                        <grid objid="nucleus"></grid>
                         <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                         <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                         <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
@@ -305,7 +305,7 @@
                             <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                            <grid gridtype="nucleus"></grid>
+                            <grid objid="nucleus"></grid>
                             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
@@ -321,7 +321,7 @@
             <content4 target="mainClient">
                 <layout>
                     <grid style="23">
-                        <grid caption="Introduction to Tabbed Grid" gridtype="nucleus"></grid>
+                        <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
                         <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Second Page"></grid>
                         <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
                     </grid>
@@ -339,7 +339,7 @@
                             <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                            <grid gridtype="nucleus"></grid>
+                            <grid objid="nucleus"></grid>
                             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
@@ -364,7 +364,7 @@
                             <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
                             <grid style="18" activepage="1">
                                 <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                                <grid gridtype="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                                <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
                                 <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
                             </grid>
                             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
