@@ -62,7 +62,7 @@
                             for (var i = 0; i < list.length; i++) {
                                 var target = list[i].getAttribute("target");
                                 if (target != null) {
-                                    e.grid.parentGrid.ObserveEx(target, list[i].outerHTML, 0, 1);
+                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
                                 }
                             }
                             var contentElements = document.getElementsByClassName("contents")[0].children;
