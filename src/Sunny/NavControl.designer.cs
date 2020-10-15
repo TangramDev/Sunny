@@ -39,9 +39,9 @@
             this.label1.Location = new System.Drawing.Point(31, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(469, 71);
+            this.label1.Size = new System.Drawing.Size(508, 71);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sunny .Net World";
+            this.label1.Text = "Sunny\'s .Net World";
             // 
             // treeView1
             // 

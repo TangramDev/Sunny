@@ -177,7 +177,7 @@
                     <node2_tag name="content2"></node2_tag>
                     <node3 treenode="true" text="嵌套网格布局（Nested Grid Layout）"></node3>
                     <node3_tag name="content3"></node3_tag>
-                    <node4 treenode="true" text="标签化网格（Tabbed Grid Layout）"></node4>
+                    <node4 treenode="true" text="标签（选项卡）网格（Tabbed Grid Layout）"></node4>
                     <node4_tag name="content4"></node4_tag>
                     <node5 treenode="true" text="标签嵌套（Nested Tabbed-Grid Layout）"></node5>
                     <node5_tag name="content5"></node5_tag>
@@ -320,7 +320,7 @@
         </grid>
     </layout>
 </content2>
-</xmp>
+                </xmp>
             </h1>
             <p>一个没有子节点的网格，可以承载具体的可编程对象，或者运行时承载一个新的网格结构，取决于具体的编程需求。当我们明确需要一个网格可以承载具体对象的时候，我们需要指定对象的“objid”属性。</p>
             <p>当前Sunny可以支持几类可编程对象，具体包括：1、.NET UI对象；2、ActiveX控件对象；3、符合一定规范的C++对象；4、Web页面.</p>
@@ -369,15 +369,15 @@
         </grid>
     </layout>
 </content3>
-</xmp>
+                </xmp>
             </h1>
         </article>
 
         <article class="hidden content4 markdown-body">
             <h1>Tabbed Grid</h1>
-            <p>A Tabbed Grid is a container grid which include a group of “tab structures". A tabbed grid with n tabs is equivalent to a "1 row and n columns" Grid ...</p>
-            <p>选项卡网格是包含一组“选项卡结构”的容器网格。一个有n个标签的标签网格相当于一个“1行n列”的网格...</p>
-            <p>在Web页面上，可以按照如下方式描述一个Tabbed Grid：</p>
+            <h3>如果一个grid元素包含子grid节点，同时这个节点没有“rows”属性，Sunny将其解释为一个“Tabbd Grid”，其选项卡个数就是其子节点个数。</h3>
+            <p>A Tabbed Grid is a container grid which include a group of “tab structures". A Tabbed Grid with n tabs is equivalent to a "1 row and n columns" Grid.</p>
+            <p>选项卡网格是包含一组“选项卡结构”的容器网格，一个有n个标签的标签网格相当于一个“1行n列”的网格。</p>
             <content4 target="mainClient">
                 <layout>
                     <grid style="23">
@@ -387,7 +387,26 @@
                     </grid>
                 </layout>
             </content4>
-            <h1><xmp><content4 target="mainClient">
+            <figcaption>
+                <strong>标签运行时呈现风格</strong>
+                <p>
+                    选项卡的风格用style属性设定，style="mn",
+                    其中m的值可以为1、2、3、4，分别对应"左"、"顶"、"右"、"底"四个边；
+                    n的值可以取0-9，对应10种不同的选项卡显示样式。
+                </p>
+            </figcaption>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Tabbed Layout
+                        <th> 描述
+                <tbody>
+                    <tr>
+                        <td> <img src="image/tabbed.png" width="300" height="280" />
+                        <td>
+                            <b>这里给出的是拥有3个标签的标签化布局结构，由于显示风格 style="23"，这个标签是上侧标签</b>
+                            <p>在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：</p>
+                            <h3><xmp><content4 target="mainClient">
     <layout>
         <grid style="23">
             <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
@@ -396,8 +415,42 @@
         </grid>
     </layout>
 </content4>
-</xmp>
-            </h1>
+                                </xmp>
+
+                            </h3>
+                    <tr>
+                        <td> <img src="image/tabbed19.png" width="300" height="280" />
+                        <td>
+                            <b>这里给出的是拥有3个标签的标签化布局结构，由于显示风格 style="19"，这个标签是上侧标签</b>
+                            <p>在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：</p>
+                            <h3><xmp><content4 target="mainClient">
+    <layout>
+        <grid style="19">
+            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
+    </layout>
+</content4>
+                                </xmp>
+                            </h3>
+                    <tr>
+                        <td> <img src="image/tabbed18.png" width="300" height="280" />
+                        <td>
+                            <b>这里给出的是拥有3个标签的标签化布局结构，由于显示风格 style="18"，这个标签是上侧标签</b>
+                            <p>在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：</p>
+                            <h3><xmp><content4 target="mainClient">
+    <layout>
+        <grid style="18">
+            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
+    </layout>
+</content4>
+                                </xmp>
+                            </h3>
+            </table>
         </article>
         <article class="hidden content5 markdown-body">
             <h1>Compound Grid: Tabbed Grid with a Grid as a Child Grid</h1>
@@ -442,7 +495,7 @@
         </grid>
     </layout>
 </content5>
-</xmp>
+                </xmp>
             </h1>
         </article>
         <article class="hidden content6 markdown-body">
@@ -495,7 +548,7 @@
         </grid>
     </layout>
 </content6>
-</xmp>
+                </xmp>
             </h1>
         </article>
     </div>
