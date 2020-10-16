@@ -138,17 +138,17 @@
 
         function CompositeGrid3() {
             if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0,1).Observe("layout_3", document.getElementById("layout_3").outerHTML);
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_3", document.getElementById("layout_3").outerHTML);
             }
         }
 
         function CompositeGrid4() {
             if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0,1).Observe("layout_4", document.getElementById("layout_4").outerHTML);
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_4", document.getElementById("layout_4").outerHTML);
             }
         }
 
-       //**********************************************
+        //**********************************************
         function DynLayout() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
@@ -248,40 +248,37 @@
                 <node1 treenode="true" text="这里是一个全新的.NET应用世界"></node1>
                 <node1_tag name="content1"></node1_tag>
                 <node_organize_app_tag name="content_organize_app"></node_organize_app_tag>
-                <virtual_browser_rt treenode="true" text="虚拟布局引擎（Virtual Layout Engine）">
+                <virtuallayoutengine treenode="true" text="虚拟布局引擎（Virtual Layout Engine）">
                     <grid treenode="true" text="网格(Grid)"></grid>
                     <grid_tag name="content_grid"></grid_tag>
                     <tab treenode="true" text="标签(选项卡)(Tabbed Window)"></tab>
                     <tab_tag name="tab"></tab_tag>
                     <node6 treenode="true" text="多层网格嵌套(Multi-Level Grid)"></node6>
                     <node6_tag name="compositegrid"></node6_tag>
-                </virtual_browser_rt>
-                <virtual_browser_rt_tag name="content_browser_rt"></virtual_browser_rt_tag>
-                <virtual_vbr treenode="true" text="虚拟浏览器运行时（VBR）">
-                    <node_browser treenode="true" text="使用内置浏览器"></node_browser>
-                    <node_browser_tag name="content_using_browser"></node_browser_tag>
-                    <node_js treenode="true" text="使用JavaScript"></node_js>
-                    <node_js_tag name="content_using_js"></node_js_tag>
-                </virtual_vbr>
-                <virtual_vbr_tag name="content_vbr"></virtual_vbr_tag>
-                <virtual_clr treenode="true" text="虚拟.NET运行时(VCLR)">
-                    <node_form treenode="true" text="使用WinForm"></node_form>
-                    <node_form_tag name="content_using_winform"></node_form_tag>
-                    <node_mdi treenode="true" text="使用MDI WinForm"></node_mdi>
-                    <node_mdi_tag name="content_using_mdiwinform"></node_mdi_tag>
-                    <node_usercontrol treenode="true" text="使用.Net用户控件"></node_usercontrol>
-                    <node_usercontrol_tag name="content_using_usercontrol"></node_usercontrol_tag>
-                    <node_wpf treenode="true" text="使用WPF"></node_wpf>
-                    <node_wpf_tag name="content_using_wpf"></node_wpf_tag>
-                </virtual_clr>
-                <virtual_clr_tag name="content_virtual_clr"></virtual_clr_tag>
-                <virtual_ver treenode="true" text="虚拟Eclipse运行时（VER）">
+                </virtuallayoutengine>
+                <virtuallayoutengine_tag name="content_vle_rt"></virtuallayoutengine_tag>
+                <openwebruntime treenode="true" text="Open WebRuntime(OWR)">
+                    <usingbuiltbrowser treenode="true" text="使用内置浏览器"></usingbuiltbrowser>
+                    <usingbuiltbrowser_tag name="content_using_browser"></usingbuiltbrowser_tag>
+                    <usingjs treenode="true" text="使用JavaScript"></usingjs>
+                    <usingjs_tag name="content_using_js"></usingjs_tag>
+                    <usingwinform treenode="true" text="使用WinForm"></usingwinform>
+                    <usingwinform_tag name="content_using_winform"></usingwinform_tag>
+                    <usingmdiform treenode="true" text="使用MDI WinForm"></usingmdiform>
+                    <usingmdiform_tag name="content_using_mdiwinform"></usingmdiform_tag>
+                    <usingusercontrol treenode="true" text="使用.Net UserControl"></usingusercontrol>
+                    <usingusercontrol_tag name="content_using_usercontrol"></usingusercontrol_tag>
+                    <usingwpf treenode="true" text="使用WPF"></usingwpf>
+                    <usingwpf_tag name="content_using_wpf"></usingwpf_tag>
+                </openwebruntime>
+                <openwebruntime_tag name="content_owr"></openwebruntime_tag>
+                <openeclipseruntime treenode="true" text="Open EclipseRuntime（OER）">
                     <node_workbench treenode="true" text="使用WorkBench"></node_workbench>
                     <node_workbench_tag name="content_using_workbench"></node_workbench_tag>
                     <node_swt treenode="true" text="使用SWT"></node_swt>
                     <node_swt_tag name="content_using_swt"></node_swt_tag>
-                </virtual_ver>
-                <virtual_ver_tag name="content_vee"></virtual_ver_tag>
+                </openeclipseruntime>
+                <openeclipseruntime_tag name="content_oer"></openeclipseruntime_tag>
             </uidata>
         </treeView1>
     </gridTemplate>
@@ -456,8 +453,9 @@
     <div class="contents">
         <article class="show content markdown-body">
             <h1>Hi, I'm Sunny(艳阳)</h1>
-            <p>我是您的<b>互联网<i>桌面软件</i></b>开发助手，我的责任是协助您用.Net Framework开发具有<b>互联网软件生态</b>的桌面应用系统……</p>
-            <p>今天是我第一次进入软件开发领域，我是您的向导，将配合您进入一个全新的WinForm世界，去领略一下<b>目前还不为人所知的</b>、<b>动态</b>、<b><i>有待于挖掘的新天地</i></b>…</p>
+            <h3>我是您的<b>互联网<i>桌面软件</i></b>开发助手艳阳，我来了，意味着一个<b>颠覆式</b>、<b>面向软件生态</b>、<b>立足于现代互联网技术</b>的桌面软件技术出现了……</h3>
+            <p>我的<b>责任</b>是协助您用.Net Framework开发具有<b>互联网软件生态</b>的桌面应用系统……</p>
+            <p>做为您的向导，艳阳将配合您进入一个全新的WinForm世界，去领略一下<b>目前还不为人所知的</b>、<b>动态</b>、<b><i>有待于挖掘的新天地</i></b>…</p>
             <p>在我的世界里，一个软件本身就是一个某种类型的<b>宇宙</b>，其内容体系十分丰满，我会为您配置一台<b><i>哈勃</i></b>望远镜，让您漫游您的宇宙，领略其<b><i>浩瀚、深邃、多姿多彩</i></b>……</p>
             <p>我的使命是重塑您的.NET桌面<b>软件观</b>，我内心里面的一个心愿是<b>颠覆一个旧的模式</b>，我相信，一个<b>全新的世界</b>在等着您，一个面向<b>互联网的创新</b>之路正在开启…</p>
             <content target="mainClient">
@@ -472,7 +470,10 @@
         <article class="hidden content1 markdown-body">
             <h1>艳阳的.NET新世界：DOM定义.NET</h1>
             <h2>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借着Web页面给应用系统增加新元素</h2>
-            <p>VBR constructs a new mixed world of native UI elements and web elements. In this world, a new web page is defined. While taking into account the standard web page, the ability to use native components as DOM elements is added ...</p>
+            <p>Sunny充分利用成熟的软件技术，用颠覆式的观点重新定义了.NET桌面应用，</p>
+            <p>Sunny引进了如下几个基本概念：1、虚拟布局引擎；2、Open WebBrowser运行时；3、虚拟CLR运行时；4、Open Eclipse运行时。</p>
+            <p>Sunny定义了一个简单的.NET软件结构，使得软件团队以如上四个基本概念为基础，构建自己的具有互联网生态的应用系统。</p>
+            <p>Open WebRuntime constructs a new mixed world of native UI elements and web elements. In this world, a new web page is defined. While taking into account the standard web page, the ability to use native components as DOM elements is added ...</p>
             <content1 target="mainClient">
                 <layout>
                     <g style="18">
@@ -483,17 +484,17 @@
                 </layout>
             </content1>
         </article>
-        <article class="hidden content_browser_rt markdown-body">
+        <article class="hidden content_vle_rt markdown-body">
             <h1>艳阳的.NET新世界：关于虚拟布局引擎</h1>
             <h3>虚拟布局引擎是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</h3>
             <p>所谓<b>网格</b>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），而可嵌套是指矩阵中的每个“格”可以动态嵌套多个网格层，运行时只有一层可见。</p>
             <p>这里，“虚拟”是指某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，可能会进行不同的动态匹配。实际上，柔性布局是多层网格动态变化的结果。</p>
             <p>可描述，一般说来有两种描述方式。其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的DOM元素，这个方案的优势是易于与主流的互联网技术衔接。</p>
-            <content_browser_rt target="mainClient">
+            <content_vle_rt target="mainClient">
                 <layout>
                     <g objid="nucleus"></g>
                 </layout>
-            </content_browser_rt>
+            </content_vle_rt>
             <button onclick="DynLayout()">动态布局一</button>
             <button onclick="DynLayout1()">动态布局二</button>
             <button onclick="DynLayout2()">动态布局三</button>
@@ -522,24 +523,22 @@
                 </layout>
             </content_grid>
             <p>在一个具体的页面内或者一个XML文档中，可以用如下格式定义一个与“网格”对应的DOM元素，这里给出一个3行3列的网格结构对应的DOM描述，具体请参考Sunny.index.html</p>
-            <h1>
-                <xmp>
-                    <content_grid target="mainClient">
-                        <layout>
-                            <g rows="3" cols="3" width="150,100,100" height="200,180,100">
-                                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                                <g objid="nucleus"></g>
-                                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                            </g>
-                        </layout>
-                    </content_grid>
-                </xmp>
+            <h1><xmp><content_grid target="mainClient">
+    <layout>
+        <g rows="3" cols="3" width="150,100,100" height="200,180,100">
+            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+            <g objid="nucleus"></g>
+            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+        </g>
+    </layout>
+</content_grid>
+</xmp>
             </h1>
             <p>一个没有子节点的网格，可以承载具体的可编程对象，或者运行时承载一个新的网格结构，取决于具体的编程需求。当我们明确需要一个网格可以承载具体对象的时候，我们需要指定对象的“objid”属性。</p>
             <p>当前Sunny可以支持几类可编程对象，具体包括：1、.NET UI对象；2、ActiveX控件对象；3、符合一定规范的C++对象；4、Web页面.</p>
@@ -579,18 +578,16 @@
                             <td>
                                 <b>这里给出的是拥有3个标签的标签布局结构，显示风格style="23"表明标签是左侧标签</b>
                                 <p>在Web页面上或者XML中，可以按照如下方式描述一个标签(选项卡)：</p>
-                                <h3>
-                                    <xmp>
-                                        <tab target="mainClient">
-                                            <layout>
-                                                <g style="23">
-                                                    <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-                                                    <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                                    <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                                </g>
-                                            </layout>
-                                        </tab>
-                                    </xmp>
+                                <h3><xmp><tab target="mainClient">
+    <layout>
+        <g style="23">
+            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+        </g>
+    </layout>
+</tab>
+</xmp>
 
                                 </h3>
                         <tr>
@@ -598,36 +595,32 @@
                             <td>
                                 <b>这里给出的是拥有3个标签的标签布局结构，显示风格style="19"表明标签是上侧标签</b>
                                 <p>在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：</p>
-                                <h3>
-                                    <xmp>
-                                        <tab target="mainClient">
-                                            <layout>
-                                                <g style="19">
-                                                    <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-                                                    <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                                    <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                                </g>
-                                            </layout>
-                                        </tab>
-                                    </xmp>
+                                <h3><xmp><tab target="mainClient">
+    <layout>
+        <g style="19">
+            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+        </g>
+    </layout>
+</tab>
+</xmp>
                                 </h3>
                         <tr>
                             <td> <img src="image/tabbed18.png" width="300" height="280" />
                             <td>
                                 <b>这里给出的是拥有3个标签的标签布局结构，显示风格style="18"表明标签是抽屉式标签</b>
                                 <p>在Web页面上或者XML中，可以按照如下方式描述一个标签结构：</p>
-                                <h3>
-                                    <xmp>
-                                        <tab target="mainClient">
-                                            <layout>
-                                                <g style="18">
-                                                    <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-                                                    <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                                    <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                                </g>
-                                            </layout>
-                                        </tab>
-                                    </xmp>
+                                <h3><xmp><tab target="mainClient">
+    <layout>
+        <g style="18">
+            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+        </g>
+    </layout>
+</tab>
+</xmp>
                                 </h3>
                 </table>
             </center>
@@ -667,54 +660,57 @@
                     </g>
                 </layout>
             </compositegrid>
-            <h1>
-                <xmp>
-                    <compositegrid target="mainClient">
-                        <layout>
-                            <g style="23">
-                                <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                                    <g objid="SunnyForms.Form1,SunnyForms"></g>
-                                    <g style="18" activepage="1">
-                                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                                        <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                                    </g>
-                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                                </g>
-                                <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                                <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                            </g>
-                        </layout>
-                    </compositegrid>
-                </xmp>
+            <h1><xmp><compositegrid target="mainClient">
+    <layout>
+        <g style="23">
+            <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                <g objid="SunnyForms.Form1,SunnyForms"></g>
+                <g style="18" activepage="1">
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                    <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                </g>
+                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+            </g>
+            <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+        </g>
+    </layout>
+</compositegrid>
+</xmp>
             </h1>
         </article>
-        <article class="hidden content_vbr markdown-body">
-            <h1>艳阳的.NET新世界：关于虚拟浏览器运行时</h1>
-            <h3>虚拟Web浏览器运行时（Virtual Web Browser Runtime, VBR）是Google Chromium项目的动态链接库版本</h3>
+        <article class="hidden content_owr markdown-body">
+            <h1>艳阳的.NET新世界：Open WebRuntime</h1>
+            <h3>Open WebRuntime是Google Chromium项目的动态链接库版本</h3>
             <p>
-                VBR包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，使宿主桌面软件自然成为现代web浏览器。
-                与传统浏览器不同的是，与VBR（虚拟Web浏览器运行时）集成的应用程序有自己的应用对象模型，由于浏览器部分的所有功能都是基于dll模式提供的，
-                VBR事先并不知道宿主应用程序是什么，也不清楚宿主应用程序包含什么对象模型，VBR解决了主机模型和浏览器标准模型之间的连接问题，因此这里的“虚拟”是
-                指只有在定义了特定的主机应用程序之后才能确定真正的浏览器模型。
+                Open WebRuntime包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，
+                使宿主桌面软件自然成为现代web浏览器。与传统浏览器不同的是，与Open WebRuntime集成的应用程序有自己的应用对象模型，
+                由于浏览器部分的所有功能都是基于dll模式提供的，Open WebRuntime事先并不知道宿主应用程序是什么，也不清楚宿主应用
+                程序包含什么对象模型，Open WebRuntime解决了主机模型和浏览器标准模型之间的连接问题，因此只有在定义了特定的宿主应用
+                程序之后才能确定真正的浏览器模型。
             </p>
             <p>
-                宿主应用程序的DOM模型将是标准浏览器的DOM模型的一个超集。换句话说，宿主应用程序系统将提供标准浏览器中无法提供的应用模型部分。
-                宿主应用程序的实际DOM模型可能包括不属于标准浏览器DOM模型的成员，这意味着宿主应用程序同时支持标准网页和基于应用程序的网页
-                （标准浏览器模式下没有基于应用程序的网页）。由于宿主应用程序内置了Chromium项目的所有功能，应用程序开发人员可以基于Web技术为
-                宿主应用程序开发新的应用程序内容，使宿主应用程序成为基于Web技术的软件生态系统。
+                宿主应用程序的DOM模型将是标准浏览器的DOM模型的一个超集。换句话说，宿主应用程序系统将提供标准浏览器中无法提供的应用
+                模型部分。宿主应用程序的实际DOM模型可能包括不属于标准浏览器DOM模型的成员，这意味着宿主应用程序同时支持标准网页和基于
+                应用程序的网页（标准浏览器模式下没有基于应用程序的网页）。由于宿主应用程序内置了Chromium项目的所有功能，应用程序开发
+                人员可以基于Web技术为宿主应用程序开发新的应用程序内容，使宿主应用程序成为基于Web技术的软件生态系统。
             </p>
-            <content_vbr target="mainClient">
+            <p>
+                Open WebRuntime在DOM方面，增加了.NET Framework的支持，允许在Web页面上用DOM的规则写针对.NET UI的DOM元素，也就是说
+                WinForm、Usercontrol、WPF等对象可以做为页面元素的一部分体现在实际的开发之中，这一点对形成应用生态非常重要。
+            </p>
+            <content_owr target="mainClient">
                 <layout>
                     <g objid="nucleus"></g>
                 </layout>
-            </content_vbr>
+            </content_owr>
         </article>
         <article class="hidden content_using_browser markdown-body">
             <h1>使用浏览器窗口</h1>
@@ -742,19 +738,19 @@
                 </layout>
             </content_using_js>
         </article>
-        <article class="hidden content_vee markdown-body">
-            <h1>艳阳的.NET新世界：关于虚拟Eclipse运行时</h1>
-            <h3>虚拟Eclipse运行时是Eclipse项目的动态链接库版本</h3>
+        <article class="hidden content_oer markdown-body">
+            <h1>艳阳的.NET新世界：关于Open Eclipse运行时</h1>
+            <h3>Open Eclipse运行时是Eclipse项目的动态链接库版本</h3>
             <p>
                 它包含Eclipse项目的所有代码。其目标是使windows桌面应用程序按照一致的方案实现内置的Eclipse模型，
                 使宿主桌面软件自然成为Eclipse的启动程序。
             </p>
             <p>
-                与传统的eclipse不同的是，与VER（Virtual Eclipse Runtime, 虚拟eclipse运行时）集成的应用程序有自己的应用程序对象模型，
-                由于eclipse部分的所有功能都是基于dll模式提供的，因此VEE事先不知道主机应用程序是什么，宿主应用程序
-                包含什么对象模型，VEE解决了主机模型和eclipse标准模型之间的连接问题，因此这里的“虚拟”意味着只有在定义
-                了特定的主机应用程序之后才能确定真正的eclipse模型。同时，宿主应用程序的OSGi模型将比标准eclipse的OSGi模型
-                更大。换句话说，宿主应用程序系统将提供标准eclipse中没有提供的应用模型部分。
+                与传统的eclipse不同的是，与OER（Open Eclipse Runtime, Open Eclipse运行时）集成的应用程序有自己的应用程序对象模型，
+                由于eclipse部分的所有功能都是基于dll模式提供的，因此OER事先不知道主机应用程序是什么，宿主应用程序
+                包含什么对象模型，OER解决了主机模型和eclipse标准模型之间的连接问题，因此只有在明确宿主应用程序之后才能确定真正的
+                eclipse模型。同时，宿主应用程序的OSGi模型将比标准eclipse的OSGi模型更大。换句话说，宿主应用程序系统将提供标准eclipse中
+                没有提供的应用模型部分。
             </p>
             <p>
                 宿主应用程序的实际OSGi模型可能包括不属于标准eclipse OSGi模型的成员，这意味着宿主应用程序同时支持标准eclipse组件
@@ -762,11 +758,11 @@
                 的所有功能，应用程序开发人员可以基于Eclipse技术为宿主应用程序开发新的应用程序内容，从而使宿主应用程序成为一个基于Java技术
                 的软件生态系统。
             </p>
-            <content_vee target="mainClient">
+            <content_oer target="mainClient">
                 <layout>
                     <g objid="nucleus"></g>
                 </layout>
-            </content_vee>
+            </content_oer>
         </article>
         <article class="hidden content_using_workbench markdown-body">
             <h1>使用WorkBench窗口</h1>
@@ -822,9 +818,9 @@
             </content_using_mdiwinform>
         </article>
         <article class="hidden content_using_usercontrol markdown-body">
-            <h1>使用Unsrcontrol</h1>
+            <h1>使用UserControl</h1>
             <p>Here is how to express a "three-level composition" grid structure on a web page or in XML (in fact, any level of composition can be supported). Because the "tab structure" can have multiple "styles", each specific sub grid can carry a variety of programmable objects. On this basis, a <b>more general and comprehensive layout structure</b> can be formed. Due to the flexible and powerful description mechanism of HTML, the web page presents a <b>dual</b> advantage of both <b>native application</b> and <b>web application.</b></p>
-            <content_using_ctrl target="mainClient">
+            <content_using_usercontrol target="mainClient">
                 <layout>
                     <g style="18">
                         <g objid="nucleus" caption="Using Dot Net Control"></g>
@@ -832,11 +828,11 @@
                         <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
                     </g>
                 </layout>
-            </content_using_ctrl>
+            </content_using_usercontrol>
         </article>
         <article class="hidden content_using_wpf markdown-body">
             <h1>使用WPF</h1>
-            <content_using_ctrl target="mainClient">
+            <content_using_wpf target="mainClient">
                 <layout>
                     <g style="18">
                         <g objid="nucleus" caption="Using WPF Control"></g>
@@ -844,26 +840,7 @@
                         <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
                     </g>
                 </layout>
-            </content_using_ctrl>
-        </article>
-        <article class="hidden content_virtual_clr markdown-body">
-            <h1>虚拟.Net运行时</h1>
-            <p>
-                虚拟.NET运行时是Common Language Runtime运行时的一种Web延展，我们认为，每一个.NET对象，
-                应该有基于Web的扩展模式，由于Web部分是“可描述的”，所以Web延展是“虚拟”的，可以依据场景不同、身份不同、领域
-                不同进行各种可控制的延展。当一个应用程序集成了VBR，事实上就具备了应用对象模型与Web互操作的基础。
-                在Sunny的世界里面，几乎所有的.NET对象都是“虚”的，就是说，Sunny使得一个.NET对象在运行时可以“额外”
-                附加很多对象，以.NET WinForm为例，通过VLE，WinForm对象的许多子元素，都被动态的“网格化了”……
-            </p>
-            <content_virtual_clr target="mainClient">
-                <layout>
-                    <g style="27">
-                        <g objid="nucleus" caption="Using 虚拟.NET运行时"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
-                </layout>
-            </content_virtual_clr>
+            </content_using_wpf>
         </article>
     </div>
 </body>
