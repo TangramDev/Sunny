@@ -39,6 +39,7 @@
     </style>
     <script type="text/javascript">
         var treegrid = null;
+        var mainClient_= null;
         var CompositeGrid_Splitter_ = null;
         hubble.onWinFormCreated = function (e) {
             e.xobj.addEventListener("SizeChanged", function (x) {
@@ -84,6 +85,11 @@
                                 classList.add(bContains ? "show" : "hidden");
                             }
                         });
+                    }
+                    break;
+                case "mainClient":
+                    {
+                        mainClient_ = e.grid;
                     }
                     break;
                 case "CompositeGrid_Splitter":
@@ -152,42 +158,56 @@
         function DynLayout() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_1").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_1").outerHTML;
             }
         }
 
         function DynLayout1() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_2", document.getElementById("layout_2").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_2").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_2").outerHTML;
             }
         }
 
         function DynLayout2() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_3", document.getElementById("layout_3").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_3").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_3").outerHTML;
             }
         }
 
         function DynLayout3() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_4", document.getElementById("layout_4").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_4").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_4").outerHTML;
             }
         }
 
         function DynLayout4() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_5", document.getElementById("layout_5").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_5").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_5").outerHTML;
             }
         }
 
         function DynLayout5() {
             if (treegrid) {
                 treegrid.parentGrid.ObserveEx("layout_6", document.getElementById("layout_6").outerHTML, 0, 1);
-                document.getElementById("textarea_sunny").value = document.getElementById("layout_6").outerHTML;
+                document.getElementById("tbcommentcontent").value = document.getElementById("layout_6").outerHTML;
+            }
+        }
+
+        function OnSubversion() {
+            if (mainClient_) {
+                mainClient_.parentGrid.ObserveEx("mainClient_", document.getElementById("layout_5").outerHTML, 0, 1);
+                var name = "content_Subversion";
+                var contentElements = document.getElementsByClassName("contents")[0].children;
+                for (var i = 0; i < contentElements.length; i++) {
+                    var classList = contentElements[i].classList;
+                    var bContains = classList.contains(name);
+                    classList.remove(bContains ? "hidden" : "show");
+                    classList.add(bContains ? "show" : "hidden");
+                }
             }
         }
     </script>
@@ -226,7 +246,7 @@
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
         the Sunny.MDIParent1 class in the current executable program. -->
-    <mainWindow objid="Sunny.SunnyForm,Sunny" caption="I'm Sunny(艳阳)" width="2000" height="1600">
+    <mainWindow objid="Sunny.SunnyForm,Sunny" caption="Sunny" width="2000" height="1600">
         <panel1 id="mainworkclient">
             <default>
                 <layout>
@@ -235,7 +255,7 @@
                             <g objid="nucleus"></g>
                             <g objid="Sunny.ntpctrl,Sunny" id="Sunny_ntpctrl"></g>
                         </g>
-                        <g caption="Virtual Web Browser Runtime for Application" url="host"></g>
+                        <g caption="Open Web Runtime for Application" url="host"></g>
                     </g>
                 </layout>
             </default>
@@ -429,50 +449,72 @@
                 </g>
             </layout>
         </layout_6>
-    </layout>
 
-    <form1 id="mainwindow_1">
-        <layout>
-            <g id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
-                <g id='test1'></g>
-            </g>
-        </layout>
-    </form1>
-    <form id="mainwindow_2">
-        <layout>
-            <g style="18">
-                <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
-                <g id='test1' caption='Page 2'></g>
-                <g id='test2' caption='Page 3'></g>
-                <g id='test3' caption='Page 4'></g>
-            </g>
-        </layout>
-    </form>
+        <form1 id="mainwindow_1">
+            <layout>
+                <g id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                    <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
+                    <g id='test1'></g>
+                </g>
+            </layout>
+        </form1>
+        <form id="mainwindow_2">
+            <layout>
+                <g style="18">
+                    <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
+                    <g id='test1' caption='Page 2'></g>
+                    <g id='test2' caption='Page 3'></g>
+                    <g id='test3' caption='Page 4'></g>
+                </g>
+            </layout>
+        </form>
+    </layout>
 
     <div class="contents">
         <article class="show content markdown-body">
-            <h1>Hi, I'm Sunny(艳阳)</h1>
-            <h3>我是您的<b>互联网<i>桌面软件</i></b>开发助手艳阳，我来了，意味着一个<b>颠覆式</b>、<b>面向软件生态</b>、<b>立足于现代互联网技术</b>的桌面软件技术出现了……</h3>
-            <p>我的<b>责任</b>是协助您用.Net Framework开发具有<b>互联网软件生态</b>的桌面应用系统……</p>
-            <p>做为您的向导，艳阳将配合您进入一个全新的WinForm世界，去领略一下<b>目前还不为人所知的</b>、<b>动态</b>、<b><i>有待于挖掘的新天地</i></b>…</p>
-            <p>在我的世界里，一个软件本身就是一个某种类型的<b>宇宙</b>，其内容体系十分丰满，我会为您配置一台<b><i>哈勃</i></b>望远镜，让您漫游您的宇宙，领略其<b><i>浩瀚、深邃、多姿多彩</i></b>……</p>
-            <p>我的使命是重塑您的.NET桌面<b>软件观</b>，我内心里面的一个心愿是<b>颠覆一个旧的模式</b>，我相信，一个<b>全新的世界</b>在等着您，一个面向<b>互联网的创新</b>之路正在开启…</p>
+            <h1>Hi, I'm Sunny！</h1>
+            <h3>您的<b>互联网<i>桌面软件</i></b>开发助手，我来了，意味着一个<b>颠覆式</b>、<b>面向软件生态</b>、<b>立足于现代互联网服务</b>的桌面软件技术破壳而出……</h3>
+            <p>
+                我的<b>责任</b>是协助您用.Net Framework开发具有<b>互联网软件生态</b>的桌面应用系统，做为您的向导，
+                艳阳将配合您去探索一个<b>目前还鲜为人知的</b>、<b>动态</b>、<b><i>有待开拓的新世界</i></b>…，
+                在那里，一个软件本身就是一个<b>宇宙</b>，其内容体系十分丰满，我会为您配置一台<b><i>哈勃</i></b>，
+                陪伴您漫游寰宇，领略其<b><i>浩瀚、深邃、多姿多彩</i></b>……
+            </p>
+            <p>
+                我的使命是<b>颠覆一个旧的模式</b>进而重塑您的.NET桌面<b>软件开发观念</b>，我相信，一个<b>全新的世界</b>在
+                等着您，一个面向<b>互联网的创新</b>之路正在开启…
+            </p>
+            <p>Sunny定义了一个基本规则，遵循这个规则开发的.NET桌面应用，具备以下几个关键特征：</p>
+            <ol>
+                <li><b>支持Virtual Layout Engine</b></li>
+                <li><b>支持Open WebRuntime</b></li>
+                <li><b>支持Open Eclipse Runtime</b></li>
+            </ol>
+            <p>有这3方面的支持，.NET桌面应用可以从<b>.NET</b>、<b>Java</b>、<b>Web</b>三个方面形成软件生态，当然，也可以将三个方面的内容融合在一起，进一步形成更加丰富的软件内容.</p>
             <content target="mainClient">
                 <layout>
-                    <g style="39">
-                        <g caption="Virtual Web Browser Engine for Application" objid="nucleus"></g>
-                        <g caption="Customize your own WebBrowser" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                    <g>
+                        <g caption="New Web, New Desktop World" objid="nucleus"></g>
+                        <g caption="New Start point" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
                     </g>
                 </layout>
             </content>
+            <button onclick="OnSubversion()">那么，颠覆的入口在哪呢？</button>
+        </article>
+        <article class="hidden content_Subversion markdown-body">
+            <h1>Sunny颠覆了什么？</h1>
+            <ol>
+                <li><b>Web-Desktop混合技术实现</b></li>
+                <li><b>.NET UI对象动态化</b></li>
+                <li><b>Web为中心驱动桌面软件</b></li>
+            </ol>
         </article>
         <article class="hidden content1 markdown-body">
             <h1>艳阳的.NET新世界：DOM定义.NET</h1>
-            <h2>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借着Web页面给应用系统增加新元素</h2>
+            <h2>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借助Web页面给应用系统增加新元素</h2>
             <p>Sunny充分利用成熟的软件技术，用颠覆式的观点重新定义了.NET桌面应用，</p>
-            <p>Sunny引进了如下几个基本概念：1、虚拟布局引擎；2、Open WebBrowser运行时；3、虚拟CLR运行时；4、Open Eclipse运行时。</p>
-            <p>Sunny定义了一个简单的.NET软件结构，使得软件团队以如上四个基本概念为基础，构建自己的具有互联网生态的应用系统。</p>
+            <p>Sunny引进了如下几个基本概念：1、虚拟布局引擎；2、Open Web Runtime；3、Open Eclipse Runtime。</p>
+            <p>Sunny定义了一个简单的.NET软件结构，使得软件团队以如上三个基本概念为基础，构建自己的具有互联网生态的应用系统。</p>
             <p>Open WebRuntime constructs a new mixed world of native UI elements and web elements. In this world, a new web page is defined. While taking into account the standard web page, the ability to use native components as DOM elements is added ...</p>
             <content1 target="mainClient">
                 <layout>
@@ -501,8 +543,8 @@
             <button onclick="DynLayout3()">动态布局四</button>
             <button onclick="DynLayout4()">动态布局五</button>
             <button onclick="DynLayout5()">动态布局六</button>
-            <textarea class="comments" id="textarea_sunny" height="200"></textarea>
-            <!--<textarea class="comments" style="height:expression((this.scrollHeight>150)?'150px':(this.scrollHeight+5)+'px');overflow:auto;" id="textarea_sunny"></textarea>-->
+            <h3>动态布局DOM描述（按某个按钮看DOM输出）：</h3>
+            <center><textarea name="tbcommentcontent" id="tbcommentcontent" class="tb" disabled="disabled" style="width: 96%; height: 300px; margin: 0px;"></textarea></center>
         </article>
         <article class="hidden content_grid markdown-body">
             <h1><center>网格：Grid</center></h1>
@@ -711,6 +753,7 @@
                     <g objid="nucleus"></g>
                 </layout>
             </content_owr>
+            <center><img src="image/chrome.png" width="750" height="500" /></center>
         </article>
         <article class="hidden content_using_browser markdown-body">
             <h1>使用浏览器窗口</h1>
@@ -767,6 +810,7 @@
         <article class="hidden content_using_workbench markdown-body">
             <h1>使用WorkBench窗口</h1>
             <p>Here is how to express a "three-level composition" grid structure on a web page or in XML (in fact, any level of composition can be supported). Because the "tab structure" can have multiple "styles", each specific sub grid can carry a variety of programmable objects. On this basis, a <b>more general and comprehensive layout structure</b> can be formed. Due to the flexible and powerful description mechanism of HTML, the web page presents a <b>dual</b> advantage of both <b>native application</b> and <b>web application.</b></p>
+            <center><img src="image/eclipse.png" width="900" height="450" /></center>
             <content_using_workbench target="mainClient">
                 <layout>
                     <g style="29">
