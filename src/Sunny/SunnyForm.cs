@@ -35,16 +35,17 @@ namespace Sunny
         {
             string xml = "<content1>" +
                 "<layout>" +
-                    "<grid objid=\"TabbedWnd\" style=\"13\">" +
-                        "<grid id='tangramtabctrl_Page2 www' gridtype=\"nucleus\" caption='Page 1'></grid>" +
-                        "<grid id='test1' caption='Page 2 eee'></grid>" +
-                        "<grid id='test2' caption='Page 3'></grid>" +
-                        "<grid id='test3' caption='Page 4'></grid>" +
-                    "</grid>" +
+                    "<g style=\"13\">" +
+                        "<g id='tangramtabctrl_Page2 www' objid=\"nucleus\" caption='Page 1'></g>" +
+                        "<g id='test1' caption='Page 2 eee'></g>" +
+                        "<g id='test2' caption='Page 3'></g>" +
+                        "<g id='test3' caption='Page 4'></g>" +
+                    "</g>" +
                 "</layout>" +
               "</content1>";
             Grid node = Hubble.Observe(listView1, "test", xml);
-            node.OnTabChange += Node_OnTabChange1; node.OnIPCMessageReceived += Node_OnIPCMessageReceived; ;
+            if(node!=null)
+                node.OnTabChange += Node_OnTabChange1; node.OnIPCMessageReceived += Node_OnIPCMessageReceived; ;
         }
 
         private void Node_OnIPCMessageReceived(string strFrom, string strTo, string strMsgId, string strPayload, string strExtra)
