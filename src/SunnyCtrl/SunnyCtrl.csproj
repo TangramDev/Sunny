@@ -64,11 +64,11 @@
     <Compile Include="UserControl3.Designer.cs">
       <DependentUpon>UserControl3.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl4.cs">
+    <Compile Include="DemoCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl4.Designer.cs">
-      <DependentUpon>UserControl4.cs</DependentUpon>
+    <Compile Include="DemoCtrl.Designer.cs">
+      <DependentUpon>DemoCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl5.cs">
       <SubType>UserControl</SubType>
@@ -78,6 +78,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DemoCtrl.resx">
+      <DependentUpon>DemoCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>

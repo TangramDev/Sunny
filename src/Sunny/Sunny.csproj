@@ -146,6 +146,12 @@
     <Content Include="Sunny.index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebPage\webdesktop.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WebPage\webdesktop2.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="yanyang64.ico" />
     <Content Include="yanyang_128.ico" />
   </ItemGroup>

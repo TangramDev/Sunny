@@ -23,9 +23,9 @@ using System.Windows.Forms;
 
 namespace SunnyCtrl
 {
-    public partial class UserControl4 : UserControl
+    public partial class DemoCtrl : UserControl
     {
-        public UserControl4()
+        public DemoCtrl()
         {
             InitializeComponent();
         }

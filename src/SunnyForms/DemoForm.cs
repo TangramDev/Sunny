@@ -23,9 +23,9 @@ using System.Windows.Forms;
 
 namespace SunnyForms
 {
-    public partial class Form5 : Form
+    public partial class DemoForm : Form
     {
-        public Form5()
+        public DemoForm()
         {
             InitializeComponent();
         }

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Common Layout Engine 与 Dock属性</title>
+    <script type="text/javascript">
+        function OnTestDockProperty() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "xx", "", document.getElementById("dockpropertydemo").outerHTML);
+            document.getElementById("testbtn").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <define tagName="mainWindow"></define>
+    <define tagName="application"></define>
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
+    <h2>Dock属性，.Net桌面软件通向Web的入口</h2>
+    <button id="testbtn" onclick="OnTestDockProperty()">点击这里，体验WinForm以及Usercontrol中的Dock属性带来的变化</button>
+    <h5>
+        缺乏文本级别的可描述性，或许是桌面软件与web软件相比相形见绌的具体表现，如果这个问题得以解决，那么桌面软件Web化
+        就会被推进一步，Common Layout Engine就是一种针对性的设计，其要点就是二进制组件与文本可描述方案之间的一个平衡。
+        我们知道，每一个.NET UI对象(WinForm、Usercontrol、WPF、UWP……)，都有Dock属性，这个属性有六个值，分别是“DockStyle.None”、
+        “DockStyle.Fill”以及“DockStyle.Left，DockStyle.Top，DockStyle.Right，DockStyle.Bottom”。CLE(Common Layout Engine)
+        最初的设计目标就是针对.NET UI对象的Dock属性考虑的，当一个.NET UI的Dock属性的值为“DockStyle.None”或者“DockStyle.Fill”
+        的时候，动态设计就变得可能。
+    </h5>
+    <dockpropertydemo id="dockpropertydemo">
+        <layout>
+            <g activepage="1" style="17">
+                <g objid="nucleus" id="mainClient" caption="WebContent"></g>
+                <g id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Dock Property in Usercontrol"></g>
+                <g id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Dock Property in WinForm"></g>
+                <g id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Java Script driven Usercontrol"></g>
+                <g id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Java Script driven WinForm"></g>
+                <g id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="更加复杂的 Usercontrol"></g>
+                <g id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="更加复杂的  WinForm"></g>
+            </g>
+        </layout>
+    </dockpropertydemo>
+</body>
+</html>
