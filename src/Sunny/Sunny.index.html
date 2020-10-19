@@ -37,6 +37,18 @@
             display: block;
         }
     </style>
+
+    <style type="text/css">
+        table.sunnysolution, td.sunnysolution, th.sunnysolution {
+            border: 1px solid blue;
+        }
+
+        td.sunnysolution {
+            height: 50px;
+            vertical-align: top;
+        }
+    </style>
+
     <script type="text/javascript">
         var treegrid = null;
         var mainClient_ = null;
@@ -210,6 +222,20 @@
                 }
             }
         }
+
+        function OnThreeProblem() {
+            if (mainClient_) {
+                mainClient_.parentGrid.ObserveEx("threeproblem", document.getElementById("threeproblem").outerHTML, 0, 1);
+                var name = "startup";
+                var contentElements = document.getElementsByClassName("contents")[0].children;
+                for (var i = 0; i < contentElements.length; i++) {
+                    var classList = contentElements[i].classList;
+                    var bContains = classList.contains(name);
+                    classList.remove(bContains ? "hidden" : "show");
+                    classList.add(bContains ? "show" : "hidden");
+                }
+            }
+        }
         //function OnSubversion() {
         //    if (mainClient_) {
         //        mainClient_.parentGrid.ObserveEx("mainClient_", document.getElementById("layout_5").outerHTML, 0, 1);
@@ -320,6 +346,9 @@
             <g rows="1" cols="2" width="750,">
                 <g objid="navDetails" id="navCtrl"></g>
                 <g objid="nucleus" id="mainClient"></g>
+                <!--<g rows="2" cols="1" height="100,500">
+                    <g url="host:webpage\mainproblem.html"></g>
+                </g>-->
             </g>
         </layout>
     </webViewport>
@@ -487,17 +516,25 @@
                     <g objid="nucleus"></g>
                     <g url="host:WebPage\webdesktop.html"></g>
                 </g>
-
             </layout>
         </subversion>
+        <threeproblem id="threeproblem">
+            <layout>
+                <g rows="2" cols="1" height="400,500">
+                    <g objid="nucleus"></g>
+                    <g url="host:WebPage\mainproblem.html"></g>
+                </g>
+
+            </layout>
+        </threeproblem>
     </layout>
 
     <div class="contents">
         <article class="show startup markdown-body">
             <strong style="font-size:48px; color:black">Hi, I'm <i style="font-size:48px; color:blue">Sunny </i>(艳阳)!</strong>
             <h3>
-                您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<b>现代互联网服务</b>、<b>面向软件生态</b>，
-                进入一个<b>颠覆式</b>的桌面软件开发模式……
+                您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b  style="font-weight:bold; color:orangered">面向软件生态</b>，
+                进入一个<b  style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
             </h3>
             <h3>
                 做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b>动态的</b>、<b><i>有待开拓的新世界</i></b>…，
@@ -505,23 +542,63 @@
                 陪伴您漫游寰宇，领略其<b><i>浩瀚、深邃、多姿多彩</i></b>……
             </h3>
             <h3>
-                我的使命是<b>颠覆一个旧的模式</b>进而重塑您的.NET桌面<b>软件开发观念</b>，我们将看到，一个<b>全新的世界</b>在
-                等着您，一个面向<b>互联网的创新</b>之路正在开启…
+                我的使命是<b>颠覆一个旧的模式</b>进而重塑您的.NET桌面<b>软件开发观念</b>，我们将看到，一个<b>全新的世界</b>在等着您，
+                一个面向<b>互联网的创新</b>之路正在开启…
             </h3>
+            <p>
+                <h1><b style="font-size: 24px; font-weight:bold; color:chocolate"><a href="WebPage/newweb.html" target="_blank">颠覆性的变化从这里开始...</a></b></h1>
+            </p>
             <center>
-                <h1><b style="font-size: 30px; font-weight:bold; color:chocolate"><a href="WebPage/newweb.html" target="_blank">颠覆性的变化从这里开始...</a></b></h1>
+                <table class="sunnysolution" border="1" cellpadding="10">
+                    <thead>
+                        <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
+                            <th> 现代桌面软件面临的三个问题
+                            <th> 艳阳的解决方案
+                        </tr>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                    <li>
+                                        缺乏与之适配的软件生态，这一点直接导致大量成熟的软件组件积累以及广泛的软件人力资源无法
+                                        根据对应的软件形成有针对性的软件增值服务，会在根本上制约软件成为互联网服务的前端环节，
+                                        更难以为之建立具有服务性质的后端服务；
+                                    </li>
+                                    <li>
+                                        与主流开源项目缺乏对接，软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
+                                        例，由于是开源的，拥有了天然的社区支持，使得软件本身的发展会变得良性、有持续生存的依据；
+                                    </li>
+                                    <li>
+                                        现代浏览器本身就是一款桌面软件，由于支持html文档，使得内容生态变得非常丰富。毋庸置疑，浏览
+                                        器软件的很多品质局限于浏览器本身是对软件生产力的一种禁锢，而浏览器本身的很多优势恰恰是桌面
+                                        软件缺乏的，就是说，桌面软件缺乏浏览器内在的结构，使得其适应互联网的发展方面显得力不从心。
+                                    </li>
+                                </ol>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                                    <p style="font-size: 18px; font-weight:bold; color:blueviolet">
+                                        Sunny定义了一个应用程序的<i style="font-size: 18px; font-weight:bold; color:brown">基础结构</i>，
+                                        给出了一站式的解决方案，一步到位的将：
+                                    </p>
+                                    <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                        <li><b>软件生态链(面向.NET组件资源、Java资源、Web资源的内容生态链)</b></li>
+                                        <li><b>主流开源项目对接（Chromium Project、Eclipse、.NET Core等开源项目）</b></li>
+                                        <li><b>集成现代浏览器全部功能（全功能Built-in WebBrowser 支持）</b></li>
+                                    </ol>
+                                    <p style="font-size: 18px; font-weight:bold; color:blueviolet">
+                                        通过一个单一的技术架构，一次性的提供给软件架构者，使得每一款基于Sunny技术开发
+                                        的.NET桌面应用，直接具备以下几个关键特征：
+                                    </p>
+                                    <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                        <li><b>支持<a href="webpage/CLE.html" target="_blank">Common Layout Engine</a></b></li>
+                                        <li><b>支持<a href="webpage/CWR.html" target="_blank">Common Web Runtime</a></b></li>
+                                        <li><b>支持<a href="webpage/CER.html" target="_blank">Common Eclipse Runtime</a></b></li>
+                                    </ol>
+                            </td>
+                    </tbody>
+                </table>
             </center>
 
-            <center>
-                <button onclick="OnSubversion()"><h3>那么，颠覆性的入口在哪呢？</h3></button>
-            </center>
-            <p style="font-size: 30px; font-weight:bold; color:blueviolet">Sunny定义了一个基本规则，遵循这个规则开发的.NET桌面应用，具备以下几个关键特征：</p>
-            <ol style="font-size: 24px; font-weight:bold; color:midnightblue">
-                <li><b>支持<a href="WebPage/CLE.html" target="_blank">Common Layout Engine</a></b></li>
-                <li><b>支持<a href="WebPage/CWR.html" target="_blank">Common Web Runtime</a></b></li>
-                <li><b>支持<a href="WebPage/CER.html" target="_blank">Common Eclipse Runtime</a></b></li>
-            </ol>
-            <h4>有这3方面的支持，.NET桌面应用可以从<b>.NET</b>、<b>Java</b>、<b>Web</b>三个方面形成软件生态，当然，也可以将三个方面的内容融合在一起，进一步形成更加丰富的软件内容.</h4>
             <startup target="mainClient">
                 <layout>
                     <g>
@@ -621,21 +698,22 @@
                 <b style="font-size:24px; color:black">
                     在一个具体的页面内或者一个XML文档中，可以用如下格式定义一个与“网格”对应的DOM元素，
                     这里给出一个3行3列的网格结构对应的DOM描述，具体请参考Sunny.index.html
-                    <xmp style="font-size:28px; color:red"><content_grid target="mainClient">
-    <layout>
-        <g rows="3" cols="3" width="150,100,100" height="200,180,100">
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="nucleus"></g>
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
-    </layout>
-</content_grid>
+                    <xmp style="font-size:28px; color:red">
+                        <content_grid target="mainClient">
+                            <layout>
+                                <g rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                                    <g objid="nucleus"></g>
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                </g>
+                            </layout>
+                        </content_grid>
                     </xmp>
                 </b>
             </p>
@@ -704,15 +782,16 @@
                                     显示风格style="23"表明标签是左侧标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签(选项卡)：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <g style="23">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <layout>
+                                                    <g style="23">
+                                                        <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+                                                        <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                                        <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                                    </g>
+                                                </layout>
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -723,15 +802,16 @@
                                     显示风格style="19"表明标签是上侧标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <g style="19">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <layout>
+                                                    <g style="19">
+                                                        <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+                                                        <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                                        <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                                    </g>
+                                                </layout>
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -742,15 +822,16 @@
                                     显示风格style="18"表明标签是抽屉式标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签结构：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <g style="18">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <layout>
+                                                    <g style="18">
+                                                        <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
+                                                        <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                                        <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                                    </g>
+                                                </layout>
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -764,29 +845,30 @@
                 承载各种可编程对象，以此为基础可以形成更加一般化、综合的布局结构，宿主应用系统可以通过网
                 页呈现出<b>兼具原生应用与web应用的双重优势的网页应用生态</b>。这里显示的是Web页面上或者xml
                 中如何表达一个“三级复合”网格的DOM结构：
-                <xmp  style=" font-size: 24px; font-weight: 900; color: blue"><compositegrid target="mainClient">
-    <layout>
-        <g style="23">
-            <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                <g objid="SunnyForms.Form1,SunnyForms"></g>
-                <g style="18" activepage="1">
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                    <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                </g>
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-            </g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-        </g>
-    </layout>
-</compositegrid>
+                <xmp style=" font-size: 24px; font-weight: 900; color: blue">
+                    <compositegrid target="mainClient">
+                        <layout>
+                            <g style="23">
+                                <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                                    <g objid="SunnyForms.Form1,SunnyForms"></g>
+                                    <g style="18" activepage="1">
+                                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                                        <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                                    </g>
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                                </g>
+                                <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                                <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                            </g>
+                        </layout>
+                    </compositegrid>
                 </xmp>
             </p>
             <compositegrid target="mainClient">
@@ -821,15 +903,15 @@
             </center>
         </article>
         <article class="hidden content_cwr markdown-body">
-            <p style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
-            <center style="font-size:40px; color:orangered"><h2>Common Web Runtime</h2></center>
-            <p style="font-size:32px; color:crimson">Common Web Runtime(CWR)是<strong><i style="font-size:32px; color:fuchsia">Google Chromium </i>项目的动态链接库版本</strong></p>
+            <p style="font-size:40px; color:forestgreen">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
+            <center style="font-size:40px; color:tomato"><h2>Common Web Runtime</h2></center>
+            <p style="font-size:32px; color:darkblue">Common Web Runtime(CWR)是<strong><i style="font-size:32px; color:darkviolet">Google Chromium </i>项目的动态链接库版本</strong></p>
             <p>
-                <b style="font-size:20px; color:blueviolet">
+                <b style="font-size:20px; color:Highlight">
                     CWR包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，
                     使宿主桌面软件自然成为现代web浏览器。与传统浏览器不同的是，与CWR集成的应用程序有自己的应用对象模型，
                     由于浏览器部分的所有功能都是基于dll模式提供的，CWR事先并不知道宿主应用程序是什么，也不清楚宿主应用
-                    程序包含什么对象模型，CWR解决了主机模型和浏览器标准模型之间的连接问题，因此只有在定义了特定的宿主应用
+                    程序包含什么对象模型，CWR解决了宿主模型和浏览器标准模型之间的连接问题，因此只有在定义了特定的宿主应用
                     程序之后才能确定真正的浏览器模型。
                 </b>
             </p>
@@ -859,7 +941,7 @@
             <center><img src="image/chrome.png" width="750" height="500" /></center>
         </article>
         <article class="hidden content_using_browser markdown-body">
-            <h1>使用浏览器窗口</h1>
+            <strong style="font-size:40px; color:navy">使用<i style="font-size:40px; color:fuchsia">浏览器 </i>窗口</strong>
             <content_using_browser target="mainClient">
                 <layout>
                     <g style="43">
@@ -871,9 +953,7 @@
             </content_using_browser>
         </article>
         <article class="hidden content_using_js markdown-body">
-            <h1>使用JavaScript</h1>
-            <p>
-            </p>
+            <strong style="font-size:40px; color:blue">使用<i style="font-size:40px; color:fuchsia">JavaScript </i>开发应用</strong>
             <content_using_js target="mainClient">
                 <layout>
                     <g style="13">
@@ -885,7 +965,7 @@
             </content_using_js>
         </article>
         <article class="hidden content_cer markdown-body">
-            <p style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
+            <p style="font-size:40px; color:blue">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
             <center style="font-size:40px; color:blue"><h2>Common Eclipse Runtime</h2></center>
             <p style="font-size:32px; color:crimson">Common Eclipse Runtime(CER)是<strong><i style="font-size:32px; color:fuchsia">Eclipse </i>项目的动态链接库版本</strong></p>
             <h3>
@@ -894,14 +974,14 @@
             </h3>
             <h3>
                 与传统的eclipse不同的是，与CER(Common Eclipse Runtime)集成的应用程序有自己的应用程序对象模型，
-                由于eclipse部分的所有功能都是基于dll模式提供的，因此CER事先不知道主机应用程序是什么，宿主应用程序
-                包含什么对象模型，CER解决了主机模型和eclipse标准模型之间的连接问题，因此只有在明确宿主应用程序之后才能确定真正的
+                由于eclipse部分的所有功能都是基于dll模式提供的，因此CER事先不知道宿主应用程序是什么，宿主应用程序
+                包含什么对象模型，CER解决了宿主模型和eclipse标准模型之间的连接问题，因此只有在明确宿主应用程序之后才能确定真正的
                 eclipse模型。同时，宿主应用程序的OSGi模型将比标准eclipse的OSGi模型更大。换句话说，宿主应用程序系统将提供标准eclipse中
                 没有提供的应用模型部分。
             </h3>
             <h3>
                 宿主应用程序的实际OSGi模型可能包括不属于标准eclipse OSGi模型的成员，这意味着宿主应用程序同时支持标准eclipse组件
-                和基于应用程序的eclipse组件，并且在标准浏览器模式下没有基于应用程序的eclipse组件。由于宿主应用程序内置了Eclipse项目
+                和基于应用程序的eclipse组件，并且在标准Eclipse模式下没有提供面向具体应用程序的eclipse组件。由于宿主应用程序内置了Eclipse项目
                 的所有功能，应用程序开发人员可以基于Eclipse技术为宿主应用程序开发新的应用程序内容，从而使宿主应用程序成为一个基于Java技术
                 的软件生态系统。
             </h3>
@@ -912,7 +992,7 @@
             </content_cer>
         </article>
         <article class="hidden content_using_workbench markdown-body">
-            <h1>使用WorkBench窗口</h1>
+            <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">WorkBench </i>窗口</strong></p>
             <center><img src="image/eclipse.png" width="900" height="450" /></center>
             <content_using_workbench target="mainClient">
                 <layout>
@@ -925,7 +1005,7 @@
             </content_using_workbench>
         </article>
         <article class="hidden content_using_swt markdown-body">
-            <h1>使用SWT</h1>
+            <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">SWT </i>Form</strong></p>
             <content_using_swt target="mainClient">
                 <layout>
                     <g style="18">
@@ -938,7 +1018,7 @@
         </article>
 
         <article class="hidden content_using_winform markdown-body">
-            <h1>使用WinForm窗口</h1>
+            <p style="font-size:40px; color:darkgreen">使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
             <content_using_winform target="mainClient">
                 <layout>
                     <g style="29">
@@ -950,7 +1030,7 @@
             </content_using_winform>
         </article>
         <article class="hidden content_using_mdiwinform markdown-body">
-            <h1>使用WinMDIForm窗口</h1>
+            <p style="font-size:40px; color:indigo">使用<strong><i style="font-size:40px; color:fuchsia">WinMDIForm </i>窗口</strong></p>
             <content_using_mdiwinform target="mainClient">
                 <layout>
                     <g style="29">
@@ -962,7 +1042,7 @@
             </content_using_mdiwinform>
         </article>
         <article class="hidden content_using_usercontrol markdown-body">
-            <h1>使用UserControl</h1>
+            <p style="font-size:40px; color:cadetblue">使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
             <content_using_usercontrol target="mainClient">
                 <layout>
                     <g style="18">
@@ -974,7 +1054,7 @@
             </content_using_usercontrol>
         </article>
         <article class="hidden content_using_wpf markdown-body">
-            <h1>使用WPF</h1>
+            <p style="font-size:40px; color:cornflowerblue">使用<strong><i style="font-size:40px; color:fuchsia">WPF </i>控件</strong></p>
             <content_using_wpf target="mainClient">
                 <layout>
                     <g style="18">

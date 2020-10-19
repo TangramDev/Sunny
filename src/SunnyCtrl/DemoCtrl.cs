@@ -20,14 +20,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cosmos;
 
 namespace SunnyCtrl
 {
     public partial class DemoCtrl : UserControl
     {
+        string m_strStartXml = "";
         public DemoCtrl()
         {
             InitializeComponent();
+        }
+
+        private void StartBtn_Click(object sender, EventArgs e)
+        {
+            Button bt = sender as Button;
+            Hubble.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
+        }
+
+        private void StartBtn1_Click(object sender, EventArgs e)
+        {
+            Button bt = sender as Button;
+            Hubble.Observe(panel1, bt.Name, "..\\xml\\"+bt.Name+".xml");
+        }
+
+        private void StartBtn2_Click(object sender, EventArgs e)
+        {
+            Button bt = sender as Button;
+            Hubble.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
         }
     }
 }
