@@ -4,6 +4,42 @@
 <head>
     <meta charset="utf-8" />
     <title>New Web, New World</title>
+    <style type="text/css">
+        table.dock, td.sunnysolution, th.sunnysolution {
+            border: 5px solid blue
+        }
+
+        table.dock2 {
+            border: 1px solid blue;
+            border-collapse: collapse;
+/*            padding: 0;
+            margin: 0;
+*/        }
+
+        .outTable {
+            width: 100%;
+            height: auto;
+        }
+
+        .inTable {
+            width: 100%;
+            height: 100%;
+        }
+
+        .outTable td {
+            border: 1px solid #ccc;
+        }
+
+        .div {
+            width: 600px;
+            height: auto;
+        }
+
+        td.dotnetuitype {
+            height: 50px;
+            vertical-align: top;
+        }
+    </style>
     <script type="text/javascript">
         function OnDockdemo() {
             hubble.sendMessage("TANGRAM_UI_MESSAGE", "xx", "", document.getElementById("dockdemo").outerHTML);
@@ -20,7 +56,7 @@
         这个属性一直都存在。长年以来，我们已经习惯了Dock属性的<i style="font-weight:bold; color:red">约定成熟 </i>的使用方式，进而思维陷入了惯性，
         形成了盲点。一般说来，Dock属性将UI对象分为两大类，如右侧的表所示。
         <center>
-            <table border="5">
+            <table class="dock" border="5">
                 <thead>
                     <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
                         <th> 关于Dock属性
@@ -41,9 +77,9 @@
         </ul>
     </p>
     </td>
-    <td>
+    <td class="dotnetuitype">
         <center>
-            <table border="1">
+            <table border="1" frame="void" class="dock2">
                 <thead>
                     <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
                         <th> 第一类Dock属性值
@@ -51,13 +87,13 @@
                     </tr>
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="dotnetuitype">
                             <ol style="font-size: 20px; font-weight:900; color:darkblue">
                                 <li>DockStyle.None</li>
                                 <li>DockStyle.Fill</li>
                             </ol>
                         </td>
-                        <td>
+                        <td class="dotnetuitype">
                             <ol style="font-size: 18px; font-weight:900; color:mediumvioletred">
                                 <li>DockStyle.Left</li>
                                 <li>DockStyle.Top</li>
