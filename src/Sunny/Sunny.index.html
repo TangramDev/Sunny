@@ -514,7 +514,7 @@
     </layout>
     <div class="contents">
         <article class="show startup markdown-body">
-            <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi,</i> I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
+            <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi, </i>I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
             <h3>
                 您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
                 进入一个<b style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
@@ -670,16 +670,16 @@
         <article class="hidden content_cle markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
             <center style="font-size:40px; color:green"><h2>Common Layout Engine</h2></center>
-            <h3>Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</h3>
-            <p>
-                所谓<b>网格</b>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
+            <p style="font-size: 28px;font-weight: bold; color: black">Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</p>
+            <p style="font-size: 24px;font-weight: bold; color: blue">
+                所谓<i style="color:brown">网格</i>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
                 而可嵌套是指矩阵中的每个“格”可以动态嵌套多个网格层，运行时只有一层可见。
             </p>
-            <p>
+            <p style="font-size: 24px;font-weight: bold; color:cornflowerblue">
                 一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
                 可能会进行不同的动态匹配。实际上，柔性布局是多层网格动态变化的结果。
             </p>
-            <p>
+            <p style="font-size: 24px;font-weight: bold; color:burlywood">
                 网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
                 DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
             </p>
@@ -688,12 +688,12 @@
                     <g objid="nucleus"></g>
                 </layout>
             </content_cle>
-            <button onclick="DynLayout()">动态布局一</button>
-            <button onclick="DynLayout1()">动态布局二</button>
-            <button onclick="DynLayout2()">动态布局三</button>
-            <button onclick="DynLayout3()">动态布局四</button>
-            <button onclick="DynLayout4()">动态布局五</button>
-            <button onclick="DynLayout5()">动态布局六</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout3()">动态布局四</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout4()">动态布局五</button>
+            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout5()">动态布局六</button>
             <h3>动态布局DOM描述（按某个按钮看DOM输出）：</h3>
             <center><textarea name="dynlayoutdomelement" id="dynlayoutdomelement" class="tb" disabled="disabled" style="width: 96%; height: 300px; margin: 0px;"></textarea></center>
         </article>
@@ -800,8 +800,8 @@
                     <thead>
                         <tr>
                             <th> Tabbed Layout
-                            <th>
-                                描述
+                            <th> 描述
+
                     <tbody>
                         <tr>
                             <td> <img src="image/tabbed.png" width="300" height="280" />
