@@ -40,7 +40,7 @@
 
     <style type="text/css">
         table.sunnysolution, td.sunnysolution, th.sunnysolution {
-            border: 2px solid blue;
+            border: 2px solid chocolate;
         }
 
         td.sunnysolution {
@@ -236,19 +236,6 @@
                 }
             }
         }
-        //function OnSubversion() {
-        //    if (mainClient_) {
-        //        mainClient_.parentGrid.ObserveEx("mainClient_", document.getElementById("layout_5").outerHTML, 0, 1);
-        //        var name = "content_Subversion";
-        //        var contentElements = document.getElementsByClassName("contents")[0].children;
-        //        for (var i = 0; i < contentElements.length; i++) {
-        //            var classList = contentElements[i].classList;
-        //            var bContains = classList.contains(name);
-        //            classList.remove(bContains ? "hidden" : "show");
-        //            classList.add(bContains ? "show" : "hidden");
-        //        }
-        //    }
-        //}
     </script>
 </head>
 <body background="image/sunny.jpg">
@@ -285,7 +272,7 @@
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
         the Sunny.MDIParent1 class in the current executable program. -->
-    <mainWindow objid="Sunny.SunnyForm,Sunny" caption="Sunny" width="2000" height="1600">
+    <mainWindow objid="Sunny.SunnyForm,Sunny" caption="Sunny" width="2400" height="1600">
         <panel1 id="mainworkclient">
             <default>
                 <layout>
@@ -525,22 +512,21 @@
             </layout>
         </threeproblem>
     </layout>
-
     <div class="contents">
         <article class="show startup markdown-body">
-            <strong style="font-size:48px; color:black">Hi, I'm <i style="font-size:48px; color:blue">Sunny </i>(艳阳)!</strong>
+            <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi,</i> I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
             <h3>
                 您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
                 进入一个<b style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
-            </h3>
-            <h3>
+                <br />
+                <br />
                 做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b><i style="font-weight:bold; color:indianred">动态的</i></b>、<b>有待开拓的<i style="font-weight:bold; color:blue">新世界</i></b>…，
-                在那里，一个软件本身就拥有一个<b>宇宙</b>结构，其内容体系十分丰满，我会为您配置一台<b><i>哈勃</i></b>，
-                陪伴您漫游寰宇，领略其<b><i>浩瀚、深邃、多姿多彩</i></b>……
+                在那里，一个软件本身就拥有一个<i style="color:coral">宇宙 </i>结构，其内容体系十分丰满，我会为您配置一台<i style="color:fuchsia">哈勃</i>，
+                陪伴您漫游寰宇，领略其<b><i style="color:coral">浩瀚、深邃、多姿多彩</i></b>……
             </h3>
             <h3>
-                我的使命是<b>颠覆一个旧的模式</b>进而重塑您的.NET桌面<b>软件开发观念</b>，我们将看到，一个<b>全新的世界</b>在等着您，
-                一个面向<b>互联网的创新</b>之路正在开启…
+                我的使命是<b style="color:fuchsia">颠覆一个旧的模式</b>进而重塑您的.NET桌面<b style="color:fuchsia">软件开发观念</b>，我们将看到，一个<b style="font-weight:bold; color:indianred">全新的世界</b>在等着您，
+                一个面向<b style="color:firebrick">互联网的创新</b>之路正在开启…
             </h3>
             <p>
                 <h1><b style="font-size: 24px; font-weight:bold; color:chocolate"><a href="WebPage/newweb.html" target="_blank">颠覆性的变化从这里开始...</a></b></h1>
@@ -549,7 +535,7 @@
                 <table class="sunnysolution" border="1" cellpadding="10">
                     <thead>
                         <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
-                            <th> 现代桌面软件面临的三个问题
+                            <th> 现代桌面软件面临的三个关键问题
                             <th> 艳阳的解决方案
                         </tr>
                     <tbody>
@@ -557,33 +543,37 @@
                             <td class="sunnysolution" width="50%">
                                 <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        缺乏与之适配的软件生态，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
+                                        缺乏与之适配的<i style="font-weight:bold;font-style:oblique; color:chocolate">软件生态</i>，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
                                         以及广泛的软件人力资源难以根据对应的软件形成有针对性的软件增值服务，
-                                        会在根本上制约软件成为互联网服务的前端环节，更难以为之建立具有服务性质的后端服务；
+                                        会在根本上制约软件成为互联网服务的<i style="font-weight:bold;color:orangered">前端环节</i>，更难以为之建立具有服务性质的<i style="font-weight:bold;color:fuchsia">后端服务</i>；
                                     </li>
                                     <li>
-                                        与主流开源项目缺乏对接，使得软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
+                                        与<i style="font-weight:bold; color:chocolate">主流开源项目 </i>缺乏对接，使得软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
                                         例，由于是开源的，拥有了天然的社区支持，使得软件本身的发展会变得良性、有持续生存的依据；
                                     </li>
                                     <li>
                                         现代浏览器本身就是一款桌面软件，由于支持html文档，使得内容生态变得非常丰富。毋庸置疑，
                                         浏览器软件的很多品质局限于浏览器本身是对软件生产力的一种禁锢，
-                                        而浏览器本身的很多优势恰恰是桌面软件缺乏的，就是说，桌面软件缺乏浏览器内在的结构，
+                                        而浏览器本身的很多优势恰恰是桌面软件缺乏的，就是说，桌面软件缺乏<i style="font-weight:bold; color:chocolate">浏览器内在的结构</i>，
                                         使得其适应互联网的发展方面显得力不从心。
                                     </li>
                                 </ol>
                                 <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    从技术、人力等角度看，以上三个问题，极大的超越了一个软件团队的技术驾驭范围以及人力基础能够承载的界限，
+                                    从技术、人力等角度看，以上三个问题，<i style="font-weight:bold; color:chocolate">极大的超越了一个软件团队的技术驾驭范围以及人力基础能够承载的界限</i>，
                                     也就是说，很难想象一个团队可以同时系统的面对如上三个问题。桌面软件发展至今有接近30年的历史了，来自.NET、
-                                    Java、COM、C++、Web等领域的成熟技术是海量的，有没有一个通用的技术途径，使得软件团队可以规避整体的技术、人力储备局限，
+                                    Java、COM、C++、Web等领域的成熟技术是海量的，有没有一个<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件团队可以规避整体的技术、人力储备局限，
                                     直接将成熟的技术用于他们关注的软件服务本身，这个问题是一个富有挑战性的问题。
                                 </p>
                                 <p style="font-size: 18px; font-weight:bold; color:blueviolet">
                                     从软件复用的角度看，软件服务团队，不应该将精力放在如何实现大范围整合的具体技术上，
-                                    事实上，应该有一种通用的技术途径，使得软件服务团队专注于如何用成熟的软件资源内容“组织”软件服务，这一点需要在宏观上解决一个合理的、
-                                    通用的适配问题，也就是说，大环境需要一类简单的技术，使得应用程序在基础结构的根基环节，
-                                    一次性的（与技术相对无关的）解决好一个桌面软件与“Web、.NET、Java”等主流技术的基于生态技术的衔接问题，
-                                    这个衔接对软件服务团队而言是一致的、几乎无门槛的、可以最大限度利用软件组件资源以及人力资源的“一站式”解决方案。
+                                    事实上，应该有一种<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件服务团队专注于如何用成熟的软件资源内容“组织”软件服务，这一点需要在宏观上解决一个合理的、
+                                    通用的适配问题，也就是说，<b style="font-size: 18px; font-weight:bold; color:darkblue">
+                                        <ins>
+                                            当前大环境需要一类简单的技术，使得应用程序在基础结构的根基环节，
+                                            一次性的（与技术相对无关的）解决好一个桌面软件与“Web、.NET、Java”等主流技术的基于生态技术的衔接问题，
+                                            这个衔接对软件服务团队而言是一致的、几乎无门槛的、可以最大限度利用软件组件资源以及人力资源的“一站式”解决方案
+                                        </ins>
+                                    </b>。
                                 </p>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
@@ -603,7 +593,7 @@
                                 <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
                                     <li>
                                         <b>支持<a href="webpage/CLE.html" target="_blank">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
-                                        将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。
+                                        将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。<br />
                                         <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
                                         <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
                                         <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
@@ -623,8 +613,15 @@
                                     </li>
                                 </ol>
                                 <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    Synny试图通过一个单一的技术架构，整合Microsoft .NET(Core)、Google Chromium、IBM Eclipse等三个主流技术，使得软件生态、
-                                    充分利用互联网服务成为桌面软件的基础部分，开发者只需充分利用，而不用担心衔接问题。
+                                    Sunny试图通过一个单一的技术架构，整合:
+                                    <ul style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                        <li><b>Microsoft .NET(Core)</b></li>
+                                        <li><b>Google Chromium</b></li>
+                                        <li><b>IBM Eclipse</b></li>
+                                    </ul>
+                                </p>
+                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
+                                    使得软件生态可以建立在庞大技术社区基础之上，同时使得<i style="color:brown">互联网服务 </i>成为桌面软件的基础部分，开发者只需充分利用，而不用担心衔接问题。
                                 </p>
                             </td>
                     </tbody>
@@ -672,7 +669,7 @@
         </article>
         <article class="hidden content_cle markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
-            <center style="font-size:40px; color:green"><h2>Common Layout Runtime</h2></center>
+            <center style="font-size:40px; color:green"><h2>Common Layout Engine</h2></center>
             <h3>Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</h3>
             <p>
                 所谓<b>网格</b>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
@@ -799,7 +796,7 @@
                 </p>
             </figcaption>
             <center>
-                <table border="1">
+                <table border="1" cellpadding="10">
                     <thead>
                         <tr>
                             <th> Tabbed Layout
