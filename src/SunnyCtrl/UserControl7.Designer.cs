@@ -1,6 +1,6 @@
 ﻿namespace SunnyCtrl
 {
-    partial class UserControl5
+    partial class UserControl7
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // UserControl5
+            // UserControl7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Name = "UserControl5";
+            this.BackColor = System.Drawing.Color.Blue;
+            this.Name = "UserControl7";
             this.ResumeLayout(false);
 
         }

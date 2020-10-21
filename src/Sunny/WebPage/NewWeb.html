@@ -42,14 +42,25 @@
     </style>
     <script type="text/javascript">
         function OnDockdemo() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "xx", "", document.getElementById("dockdemo").outerHTML);
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo", "", document.getElementById("dockdemo").outerHTML);
             document.getElementById("testbtn").style.display = "none";
+        }
+        function OnDockdemo2() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo2", "", document.getElementById("dockdemo2").outerHTML);
+        }
+        function OnDockdemo3() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo3", "", document.getElementById("dockdemo3").outerHTML);
         }
     </script>
 </head>
 <body background="newworld.jpg">
     <x style="font-size:40px; color:indianred">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
     <p><center><strong style="font-size:36px; color:blue">一个全新的Web在这里拉开了帷幕...</strong></center></p>
+    <p>
+        <button style="font-size: 18px; font-weight:bold; color:darkgreen; height:36px" onclick="OnDockdemo()"><i>Press me to continus</i>...</button>
+        <button style="font-size: 18px; font-weight:bold; color:crimson; height:36px" onclick="OnDockdemo2()"><i>看看艳阳如何动态组织WinForm对象</i>...</button>
+        <button style="font-size: 18px; font-weight:bold; color:darkmagenta; height:36px" onclick="OnDockdemo3()"><i>看看艳阳如何组织Usercontrol对象</i>...</button>
+    </p>
     <strong style="font-size:32px; color:darkred">Dock：既熟悉又陌生的属性</strong>
     <p style="font-size: 20px; font-weight:bold; color:midnightblue">
         每一个.NET UI(WinForm、Usercontrol、WPF)对象都拥有Dock属性，自从.NET Framework诞生以来，
@@ -109,13 +120,10 @@
     </tbody>
     </table>
     </center>
-
+    <br />
     <strong style="font-size:32px; color:darkblue">动态编程、可描述的编程模式从第一类控件开始...</strong>
     <p style="font-size: 20px; font-weight:bold; color:midnightblue">
         一般情况下，一个WinForm窗体，会至少包含一个第一类.NET UI对象，让我们看看，Dock属性究竟隐藏了什么？
-    </p>
-    <p>
-        <button style="font-size: 40px; font-weight:bold; color:orangered; height:60px" onclick="OnDockdemo()"><i>Press me to continus</i>...</button>
     </p>
 
     <layout>
@@ -131,6 +139,56 @@
                             <g caption="Using WinForm"></g>
                             <g caption="Using WPF Control"></g>
                             <g caption="Using UserControl"></g>
+                        </g>
+                    </g>
+                </g>
+            </layout>
+        </dockdemo>
+        <dockdemo id="dockdemo2">
+            <layout>
+                <g style="17">
+                    <g rows="1" cols="2" width="400,600" caption="New Web,New World">
+                        <g style="18" caption="Introduction to Open Universe">
+                            <g objid="SunnyForms.Form1,SunnyForms" caption="SunnyForm-Form1"></g>
+                            <g objid="SunnyForms.Form2,SunnyForms" caption="SunnyForm-Form2"></g>
+                            <g objid="SunnyForms.Form3,SunnyForms" caption="SunnyForm-Form3"></g>
+                            <g objid="SunnyForms.Form4,SunnyForms" caption="SunnyForm-Form4"></g>
+                            <g objid="SunnyForms.Form5,SunnyForms" caption="SunnyForm-Form5"></g>
+                        </g>
+                        <g rows="2" cols="1" height="400,600">
+                            <g objid="nucleus"></g>
+                            <g style="37">
+                                <g objid="SunnyForms.Form6,SunnyForms" caption="SunnyForm-Form6"></g>
+                                <g objid="SunnyForms.Form7,SunnyForms" caption="SunnyForm-Form7"></g>
+                                <g objid="SunnyForms.Form8,SunnyForms" caption="SunnyForm-Form8"></g>
+                                <g objid="SunnyForms.Form9,SunnyForms" caption="SunnyForm-Form9"></g>
+                                <g objid="SunnyForms.Form10,SunnyForms" caption="SunnyForm-Form10"></g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </layout>
+        </dockdemo>
+        <dockdemo id="dockdemo3">
+            <layout>
+                <g style="17">
+                    <g rows="1" cols="2" width="200,600" caption="New Web,New World">
+                        <g rows="2" cols="1" height="300,600">
+                            <g objid="nucleus"></g>
+                            <g style="33">
+                                <g objid="SunnyCtrl.Usercontrol6,SunnyCtrl" caption="SunnyCtrl-UserControl6"></g>
+                                <g objid="SunnyCtrl.Usercontrol7,SunnyCtrl" caption="SunnyCtrl-UserControl7"></g>
+                                <g objid="SunnyCtrl.Usercontrol8,SunnyCtrl" caption="SunnyCtrl-UserControl8"></g>
+                                <g objid="SunnyCtrl.Usercontrol9,SunnyCtrl" caption="SunnyCtrl-UserControl9"></g>
+                                <g objid="SunnyCtrl.Usercontrol10,SunnyCtrl" caption="SunnyCtrl-UserControl10"></g>
+                            </g>
+                        </g>
+                        <g style="18" caption="Introduction to Open Universe">
+                            <g objid="SunnyCtrl.Usercontrol1,SunnyCtrl" caption="SunnyCtrl-UserControl1"></g>
+                            <g objid="SunnyCtrl.Usercontrol2,SunnyCtrl" caption="SunnyCtrl-UserControl2"></g>
+                            <g objid="SunnyCtrl.Usercontrol3,SunnyCtrl" caption="SunnyCtrl-UserControl3"></g>
+                            <g objid="SunnyCtrl.Usercontrol4,SunnyCtrl" caption="SunnyCtrl-UserControl4"></g>
+                            <g objid="SunnyCtrl.Usercontrol5,SunnyCtrl" caption="SunnyCtrl-UserControl5"></g>
                         </g>
                     </g>
                 </g>

@@ -40,11 +40,10 @@
 
     <style type="text/css">
         table.sunnysolution, td.sunnysolution, th.sunnysolution {
-            border: 2px solid chocolate;
+            border: 2px solid midnightblue;
         }
 
         td.sunnysolution {
-            height: 50px;
             vertical-align: top;
         }
     </style>
@@ -142,12 +141,29 @@
 
         //****************************************************************
 
+        function OpenNewWebURL() {
+            hubble.openUrl("host:WebPage/newweb.html",2);
+        }
+
+        function OpenCLEURL() {
+            hubble.openUrl("host:webpage/CLE.html", 2);
+        }
+
+        function OpenCWRURL() {
+            hubble.openUrl("host:webpage/CWR.html", 2);
+        }
+
+        function OpenCERURL() {
+            hubble.openUrl("host:webpage/CER.html", 2);
+        }
+
         function CompositeGrid1() {
             if (CompositeGrid_Splitter_) {
                 CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_1", document.getElementById("layout_1").outerHTML);
                 //CompositeGrid_Splitter_.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
             }
         }
+
         function CompositeGrid2() {
             if (CompositeGrid_Splitter_) {
                 CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_2", document.getElementById("layout_2").outerHTML);
@@ -515,33 +531,31 @@
     <div class="contents">
         <article class="show startup markdown-body">
             <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi, </i>I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
-            <h3>
-                您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
+            <p style="font-size: 18px; font-weight:bold; color:black">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我是您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
                 进入一个<b style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
                 <br />
-                <br />
-                做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b><i style="font-weight:bold; color:indianred">动态的</i></b>、<b>有待开拓的<i style="font-weight:bold; color:blue">新世界</i></b>…，
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b><i style="font-weight:bold; color:indianred">动态的</i></b>、<b>有待开拓的<i style="font-weight:bold; color:blue">新世界</i></b>…，
                 在那里，一个软件本身就拥有一个<i style="color:coral">宇宙 </i>结构，其内容体系十分丰满，我会为您配置一台<i style="color:fuchsia">哈勃</i>，
                 陪伴您漫游寰宇，领略其<b><i style="color:coral">浩瀚、深邃、多姿多彩</i></b>……
-            </h3>
-            <h3>
-                我的使命是<b style="color:fuchsia">颠覆一个旧的模式</b>进而重塑您的.NET桌面<b style="color:fuchsia">软件开发观念</b>，我们将看到，一个<b style="font-weight:bold; color:indianred">全新的世界</b>在等着您，
+                <br />
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我的使命是<b style="color:fuchsia">颠覆一个旧的模式</b>进而重塑您的.NET桌面<b style="color:fuchsia">软件开发观念</b>，我们将看到，一个<b style="font-weight:bold; color:indianred">全新的世界</b>在等着您，
                 一个面向<b style="color:firebrick">互联网的创新</b>之路正在开启…
-            </h3>
+            </p>
             <p>
-                <h1><b style="font-size: 24px; font-weight:bold; color:chocolate"><a href="WebPage/newweb.html" target="_blank">颠覆性的变化从这里开始...</a></b></h1>
+                <h1><b style="font-size: 32px; font-weight:bold; color:chocolate"><a href="#" onclick="OpenNewWebURL();" ><i  style="font-size:40px; color:darkgreen">点击这里 </i>看看颠覆性的变化是怎么开始的...</a></b></h1>
             </p>
             <center>
                 <table class="sunnysolution" border="1" cellpadding="10">
                     <thead>
-                        <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
-                            <th> 现代桌面软件面临的三个关键问题
+                        <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
+                            <th> 现代桌面软件面临的<i style="color:crimson">三个关键问题</i>
                             <th> 艳阳的解决方案
                         </tr>
                     <tbody>
                         <tr>
                             <td class="sunnysolution" width="50%">
-                                <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
                                         缺乏与之适配的<i style="font-weight:bold;font-style:oblique; color:chocolate">软件生态</i>，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
                                         以及广泛的软件人力资源难以根据对应的软件形成有针对性的软件增值服务，
@@ -558,16 +572,16 @@
                                         使得其适应互联网的发展方面显得力不从心。
                                     </li>
                                 </ol>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    从技术、人力等角度看，以上三个问题，<i style="font-weight:bold; color:chocolate">极大的超越了一个软件团队的技术驾驭范围以及人力基础能够承载的界限</i>，
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp从技术、人力等角度看，以上三个问题，<i style="font-weight:bold; color:chocolate">极大的超越了一个软件团队的技术驾驭范围以及人力基础能够承载的界限</i>，
                                     也就是说，很难想象一个团队可以同时系统的面对如上三个问题。桌面软件发展至今有接近30年的历史了，来自.NET、
                                     Java、COM、C++、Web等领域的成熟技术是海量的，有没有一个<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件团队可以规避整体的技术、人力储备局限，
                                     直接将成熟的技术用于他们关注的软件服务本身，这个问题是一个富有挑战性的问题。
                                 </p>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    从软件复用的角度看，软件服务团队，不应该将精力放在如何实现大范围整合的具体技术上，
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp从软件复用的角度看，软件服务团队，不应该将精力放在如何实现大范围整合的具体技术上，
                                     事实上，应该有一种<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件服务团队专注于如何用成熟的软件资源内容“组织”软件服务，这一点需要在宏观上解决一个合理的、
-                                    通用的适配问题，也就是说，<b style="font-size: 18px; font-weight:bold; color:darkblue">
+                                    通用的适配问题，也就是说，<b style="font-size: 16px; font-weight:bold; color:darkblue">
                                         <ins>
                                             当前大环境需要一类简单的技术，使得应用程序在基础结构的根基环节，
                                             一次性的（与技术相对无关的）解决好一个桌面软件与“Web、.NET、Java”等主流技术的基于生态技术的衔接问题，
@@ -577,50 +591,50 @@
                                 </p>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    Sunny定义了一个应用程序的<i style="font-size: 18px; font-weight:bold; color:brown">基础结构</i>，
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny定义了一个应用程序的<i style="font-size: 16px; font-weight:bold; color:brown">基础结构</i>，
                                     给出了一站式的解决方案，一步到位的将：
                                 </p>
-                                <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
-                                    <li><b>软件生态链(面向.NET组件资源、Java资源、Web资源的内容生态链)</b></li>
+                                <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
+                                    <li><b style="color:chocolate">软件生态链</b>(面向.NET组件资源、Java资源、Web资源的内容生态链)</li>
                                     <li><b>主流开源项目对接（Chromium Project、Eclipse、.NET Core等开源项目）</b></li>
                                     <li><b>集成现代浏览器全部功能（全功能Built-in WebBrowser 支持）</b></li>
                                 </ol>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    通过一个单一的技术架构，一次性的提供给软件架构者，使得每一款基于Sunny技术开发
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp通过一个单一的技术架构，一次性的提供给软件架构者，使得每一款基于Sunny技术开发
                                     的.NET桌面应用，直接具备以下几个关键特征：
                                 </p>
-                                <ol style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        <b>支持<a href="webpage/CLE.html" target="_blank">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
+                                        <b>支持<a href="#" onclick="OpenCLEURL();">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
                                         将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。<br />
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout3()">动态布局四</button>
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout4()">动态布局五</button>
-                                        <button style="font-size: 18px; font-weight:bold; color:chocolate" onclick="DynLayout5()">动态布局六</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout3()">动态布局四</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout4()">动态布局五</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout5()">动态布局六</button>
                                     </li>
                                     <li>
-                                        <b>支持<a href="webpage/CWR.html" target="_blank">Common Web Runtime</a></b>：独特的Built-in浏览器技术，
+                                        <b>支持<a href="#" onclick="OpenCWRURL();">Common Web Runtime</a></b>：独特的Built-in浏览器技术，
                                         使得您可以以各种灵活的方式驾驭"Web-Desktop"混合内容，您的桌面软件可以最大限度、最灵活的方式适应互联网各种服务，一个更大的DOM，
                                         允许您实现Web端对桌面端最佳的控制，使得应用页面化成为现实，进而使得软件可以基于Web技术构建互联网内容生态。
                                     </li>
                                     <li>
-                                        <b>支持<a href="webpage/CER.html" target="_blank">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
+                                        <b>支持<a href="#" onclick="OpenCERURL();">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
                                         使得您可以自由驾驭Java组件，将Java、.Net、JavaScript巧妙的融合在一起，实现强大的“Web-桌面端”的互操作。
                                         结合Eclipse本身的生态技术，Sunny借助于CER，使得应用开发者可以构建以Java基础的应用生态。
                                     </li>
                                 </ol>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
-                                    Sunny试图通过一个单一的技术架构，整合:
-                                    <ul style="font-size: 18px; font-weight:bold; color:midnightblue">
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny试图通过一个单一的技术架构，整合:
+                                    <ul style="font-size: 16px; font-weight:bold; color:midnightblue">
                                         <li><b>Microsoft .NET(Core)</b></li>
                                         <li><b>Google Chromium</b></li>
                                         <li><b>IBM Eclipse</b></li>
                                     </ul>
                                 </p>
-                                <p style="font-size: 18px; font-weight:bold; color:blueviolet">
+                                <p style="font-size: 16px; font-weight:bold; color:blueviolet">
                                     使得软件生态可以建立在庞大技术社区基础之上，同时使得<i style="color:brown">互联网服务 </i>成为桌面软件的基础部分，开发者只需充分利用，而不用担心衔接问题。
                                 </p>
                             </td>
@@ -647,11 +661,8 @@
         </article>
         <article class="hidden content1 markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
-            <center><h2>DOM定义.NET</h2></center>
+            <center><p style="font-size: 32px; font-weight: bold; color: blue"><i style="color:brown">DOM </i>定义.NET</p></center>
             <h4>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借助Web页面给应用系统增加新元素</h4>
-            <p>Sunny充分利用成熟的软件技术，用颠覆式的观点重新定义了.NET桌面应用，</p>
-            <p>Sunny引进了如下几个基本概念：1、Common Layout Engine；2、Common Web Runtime；3、Common Eclipse Runtime。</p>
-            <p>Sunny定义了一个简单的.NET软件结构，使得软件团队以如上三个基本概念为基础，构建自己的具有互联网生态的应用系统。</p>
             <p>
                 Common WebRuntime constructs a new mixed world of native UI elements and web elements.
                 In this world, a new web page is defined. While taking into account the standard web page,
@@ -672,15 +683,15 @@
             <center style="font-size:40px; color:green"><h2>Common Layout Engine</h2></center>
             <p style="font-size: 28px;font-weight: bold; color: black">Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</p>
             <p style="font-size: 24px;font-weight: bold; color: blue">
-                所谓<i style="color:brown">网格</i>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp所谓<i style="color:brown">网格</i>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
                 而可嵌套是指矩阵中的每个“格”可以动态嵌套多个网格层，运行时只有一层可见。
             </p>
             <p style="font-size: 24px;font-weight: bold; color:cornflowerblue">
-                一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
                 可能会进行不同的动态匹配。实际上，柔性布局是多层网格动态变化的结果。
             </p>
             <p style="font-size: 24px;font-weight: bold; color:burlywood">
-                网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
                 DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
             </p>
             <content_cle target="mainClient">
@@ -866,7 +877,7 @@
         <article class="hidden compositegrid markdown-body">
             <center style="font-size: 36px; font-weight: 900; color: blue"><b>Multi-Level Grid Layout</b></center>
             <p style="font-size: 24px; font-weight: 900; color: black">
-                网格布局结构支持任意级别的“网格复合“，因为“tab结构”可以有多种“样式”，每个特定的子网格可以
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格布局结构支持任意级别的“网格复合“，因为“tab结构”可以有多种“样式”，每个特定的子网格可以
                 承载各种可编程对象，以此为基础可以形成更加一般化、综合的布局结构，宿主应用系统可以通过网
                 页呈现出<b>兼具原生应用与web应用的双重优势的网页应用生态</b>。这里显示的是Web页面上或者xml
                 中如何表达一个“三级复合”网格的DOM结构：
@@ -932,7 +943,7 @@
             <p style="font-size:32px; color:darkblue">Common Web Runtime(CWR)是<strong><i style="font-size:32px; color:darkviolet">Google Chromium </i>项目的动态链接库版本</strong></p>
             <p>
                 <b style="font-size:20px; color:Highlight">
-                    CWR包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCWR包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，
                     使宿主桌面软件自然成为现代web浏览器。与传统浏览器不同的是，与CWR集成的应用程序有自己的应用对象模型，
                     由于浏览器部分的所有功能都是基于dll模式提供的，CWR事先并不知道宿主应用程序是什么，也不清楚宿主应用
                     程序包含什么对象模型，CWR解决了宿主模型和浏览器标准模型之间的连接问题，因此只有在定义了特定的宿主应用
@@ -941,7 +952,7 @@
             </p>
             <p>
                 <b style="font-size:20px; color:blue">
-                    宿主应用程序的DOM模型将是标准浏览器的DOM模型的一个超集。换句话说，宿主应用程序系统将提供标准浏览器中无法提供的应用
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp宿主应用程序的DOM模型将是标准浏览器的DOM模型的一个超集。换句话说，宿主应用程序系统将提供标准浏览器中无法提供的应用
                     模型部分。宿主应用程序的实际DOM模型可能包括不属于标准浏览器DOM模型的成员，这意味着宿主应用程序同时支持标准网页和基于
                     应用程序的网页（标准浏览器模式下没有基于应用程序的网页）。由于宿主应用程序内置了Chromium项目的所有功能，应用程序开发
                     人员可以基于Web技术为宿主应用程序开发新的应用程序内容，使宿主应用程序成为基于Web技术的软件生态系统。
@@ -949,7 +960,7 @@
             </p>
             <p>
                 <b style="font-size:20px; color:black">
-                    CWR在DOM方面，增加了.NET Framework的支持，允许在Web页面上用DOM的规则写针对.NET UI的DOM元素，也就是说
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCWR在DOM方面，增加了.NET Framework的支持，允许在Web页面上用DOM的规则写针对.NET UI的DOM元素，也就是说
                     WinForm、Usercontrol、WPF等对象可以做为页面元素的一部分体现在实际的开发之中，这一点对形成应用生态非常重要。
                 </b>
             </p>
@@ -993,18 +1004,18 @@
             <center style="font-size:40px; color:blue"><h2>Common Eclipse Runtime</h2></center>
             <p style="font-size:32px; color:crimson">Common Eclipse Runtime(CER)是<strong><i style="font-size:32px; color:fuchsia">Eclipse </i>项目的动态链接库版本</strong></p>
             <h3>
-                它包含Eclipse项目的所有代码。其目标是使windows桌面应用程序按照一致的方案实现内置的Eclipse模型，
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp它包含Eclipse项目的所有代码。其目标是使windows桌面应用程序按照一致的方案实现内置的Eclipse模型，
                 使宿主桌面软件自然成为Eclipse的启动程序。
             </h3>
             <h3>
-                与传统的eclipse不同的是，与CER(Common Eclipse Runtime)集成的应用程序有自己的应用程序对象模型，
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp与传统的eclipse不同的是，与CER(Common Eclipse Runtime)集成的应用程序有自己的应用程序对象模型，
                 由于eclipse部分的所有功能都是基于dll模式提供的，因此CER事先不知道宿主应用程序是什么，宿主应用程序
                 包含什么对象模型，CER解决了宿主模型和eclipse标准模型之间的连接问题，因此只有在明确宿主应用程序之后才能确定真正的
                 eclipse模型。同时，宿主应用程序的OSGi模型将比标准eclipse的OSGi模型更大。换句话说，宿主应用程序系统将提供标准eclipse中
                 没有提供的应用模型部分。
             </h3>
             <h3>
-                宿主应用程序的实际OSGi模型可能包括不属于标准eclipse OSGi模型的成员，这意味着宿主应用程序同时支持标准eclipse组件
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp宿主应用程序的实际OSGi模型可能包括不属于标准eclipse OSGi模型的成员，这意味着宿主应用程序同时支持标准eclipse组件
                 和基于应用程序的eclipse组件，并且在标准Eclipse模式下没有提供面向具体应用程序的eclipse组件。由于宿主应用程序内置了Eclipse项目
                 的所有功能，应用程序开发人员可以基于Eclipse技术为宿主应用程序开发新的应用程序内容，从而使宿主应用程序成为一个基于Java技术
                 的软件生态系统。

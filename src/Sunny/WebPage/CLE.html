@@ -4,6 +4,32 @@
 <head>
     <meta charset="utf-8" />
     <title>Common Layout Engine</title>
+    <script type="text/javascript">        
+        function DynLayout() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_1", "", document.getElementById("layout_1").outerHTML);
+        }
+
+        function DynLayout1() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_2", "", document.getElementById("layout_2").outerHTML);
+        }
+
+        function DynLayout2() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_3", "", document.getElementById("layout_3").outerHTML);
+        }
+
+        function DynLayout3() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_4", "", document.getElementById("layout_4").outerHTML);
+        }
+
+        function DynLayout4() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_5", "", document.getElementById("layout_5").outerHTML);
+        }
+
+        function DynLayout5() {
+            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_6", "", document.getElementById("layout_6").outerHTML);
+        }
+
+</script>
 </head>
 <body background="clebk.jpg">
     <p style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
@@ -11,17 +37,158 @@
     <h3>Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</h3>
     <h3>
         <p>
-            所谓<b>网格</b>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp所谓<b>网格</b>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
             而可嵌套是指矩阵中的每个“格”可以动态嵌套多个网格层，运行时只有一层可见。
         </p>
         <p>
-            一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
             可能会进行不同的动态匹配。实际上，柔性布局是多层网格动态变化的结果。
         </p>
         <p>
-            网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
             DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
         </p>
     </h3>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout3()">动态布局四</button>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout4()">动态布局五</button>
+    <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout5()">动态布局六</button>
+    <layout>
+        <layout_1 id="layout_1">
+            <layout>
+                <g style="18">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form2,SunnyForms"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="39" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g objid="SunnyForms.Form3,SunnyForms"></g>
+                        <g objid="SunnyForms.Form2,SunnyForms"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_1>
+        <layout_2 id="layout_2">
+            <layout>
+                <g style="33">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_2>
+        <layout_3 id="layout_3">
+            <layout>
+                <g style="23">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_3>
+        <layout_4 id="layout_4">
+            <layout>
+                <g style="43">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="29" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_4>
+        <layout_5 id="layout_5">
+            <layout>
+                <g style="37">
+                    <g caption="Start Page" rows="2" cols="2" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="19" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_5>
+        <layout_6 id="layout_6">
+            <layout>
+                <g style="23">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g objid="SunnyForms.Form7,SunnyForms"></g>
+                        <g objid="SunnyForms.Form3,SunnyForms"></g>
+                        <g objid="SunnyForms.Form2,SunnyForms"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_6>
+    </layout>
 </body>
 </html>

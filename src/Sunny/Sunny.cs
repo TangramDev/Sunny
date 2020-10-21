@@ -19,8 +19,11 @@ namespace Sunny
 
         private static void Cosmos_OnHubbleMsgReceived(Wormhole cloudWormhole)
         {
-            string strMsgID = cloudWormhole.GetString("msgID");
-            IntPtr nHandle = (IntPtr)cloudWormhole.GetInt64("nodehandle");
+            if(cloudWormhole!=null)
+            {
+                string strMsgID = cloudWormhole.GetString("msgID");
+                IntPtr nHandle = (IntPtr)cloudWormhole.GetInt64("nodehandle");
+            }
         }
 
         private static object Tangram_OnGetSubObjForWebPage(object SourceObj, string subObjName)
