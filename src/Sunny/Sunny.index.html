@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8" />
     <title>欢迎您进入一个全新的.NET世界, 我是您的朋友艳阳</title>
-    <link rel="stylesheet" href="./assets/github-markdown.css">
+    <link rel="icon" href="webpage/yanyang_128.png" sizes="32x32">
+    <!--<link rel="stylesheet" href="./assets/github-markdown.css">-->
     <style type="text/css">
         .comments {
             width: 100%; /*自动适应父布局宽度*/
@@ -142,7 +143,7 @@
         //****************************************************************
 
         function OpenNewWebURL() {
-            hubble.openUrl("host:WebPage/newweb.html",2);
+            hubble.openUrl("host:WebPage/newweb.html", 2);
         }
 
         function OpenCLEURL() {
@@ -284,7 +285,10 @@
                 </g>
             </layout>
         </defaultworkbench>
-        <urls><url url="https://www.tangram.dev"></url></urls>
+        <urls>
+            <url url="https://www.tangram.dev"></url>
+            <url url="host:WebPage\sunny.html"></url>
+        </urls>
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
         the Sunny.MDIParent1 class in the current executable program. -->
@@ -318,8 +322,8 @@
                     <node6 treenode="true" text="多层网格嵌套(Multi-Level Grid)"></node6>
                     <node6_tag name="compositegrid"></node6_tag>
                 </virtuallayoutengine>
-                <virtuallayoutengine_tag name="content_cle"></virtuallayoutengine_tag>
-                <openwebruntime treenode="true" text="Common WebRuntime(CWR)">
+                <virtuallayoutengine_tag name="contentcle"></virtuallayoutengine_tag>
+                <openwebruntime treenode="true" text="Common Web Runtime(CWR)">
                     <usingbuiltbrowser treenode="true" text="使用内置浏览器"></usingbuiltbrowser>
                     <usingbuiltbrowser_tag name="content_using_browser"></usingbuiltbrowser_tag>
                     <usingjs treenode="true" text="使用JavaScript"></usingjs>
@@ -530,20 +534,14 @@
     </layout>
     <div class="contents">
         <article class="show startup markdown-body">
-            <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi, </i>I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
-            <p style="font-size: 18px; font-weight:bold; color:black">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我是您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
-                进入一个<b style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
-                <br />
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b><i style="font-weight:bold; color:indianred">动态的</i></b>、<b>有待开拓的<i style="font-weight:bold; color:blue">新世界</i></b>…，
-                在那里，一个软件本身就拥有一个<i style="color:coral">宇宙 </i>结构，其内容体系十分丰满，我会为您配置一台<i style="color:fuchsia">哈勃</i>，
-                陪伴您漫游寰宇，领略其<b><i style="color:coral">浩瀚、深邃、多姿多彩</i></b>……
-                <br />
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我的使命是<b style="color:fuchsia">颠覆一个旧的模式</b>进而重塑您的.NET桌面<b style="color:fuchsia">软件开发观念</b>，我们将看到，一个<b style="font-weight:bold; color:indianred">全新的世界</b>在等着您，
-                一个面向<b style="color:firebrick">互联网的创新</b>之路正在开启…
+            <strong style="font-size:32px; color:black">欢迎<i style="color:fuchsia">您来到</i><i style="color:blue">Sunny的 </i><b style="color:coral">.NET桌面编程世界</b>!</strong>
+            <p style="font-size: 20px; font-weight:bold; color:black">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny是一款<i style="font-weight:bold; color:chocolate">颠覆式的、面向互联网的 </i>桌面软件开发框架，
+                其关键特点是通过整合<i style="font-weight:bold; color:orangered">Microsoft .NET、Chromium Project以及IBM Eclipse</i>三个开源项目，
+                使得.NET桌面应用可以按照一致的方式同时支持.NET、Java、Web软件生态链。
             </p>
             <p>
-                <h1><b style="font-size: 32px; font-weight:bold; color:chocolate"><a href="#" onclick="OpenNewWebURL();" ><i  style="font-size:40px; color:darkgreen">点击这里 </i>看看颠覆性的变化是怎么开始的...</a></b></h1>
+                <h1><b style="font-size: 20px; color:chocolate"><a href="#" onclick="OpenNewWebURL();" ><i  style="font-size:24px; color:darkgreen">点击这里 </i>看看颠覆性的变化是怎么开始的...</a></b></h1>
             </p>
             <center>
                 <table class="sunnysolution" border="1" cellpadding="10">
@@ -606,7 +604,7 @@
                                 </p>
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        <b>支持<a href="#" onclick="OpenCLEURL();">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
+                                        <b>支持<a href="#" onclick="OpenCLEURL();" style="font-size: 20px; color:forestgreen">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
                                         将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。<br />
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
@@ -616,12 +614,12 @@
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout5()">动态布局六</button>
                                     </li>
                                     <li>
-                                        <b>支持<a href="#" onclick="OpenCWRURL();">Common Web Runtime</a></b>：独特的Built-in浏览器技术，
+                                        <b>支持<a href="#" onclick="OpenCWRURL();" style="font-size: 20px; color:forestgreen">Common Web Runtime</a></b>：独特的Built-in浏览器技术，
                                         使得您可以以各种灵活的方式驾驭"Web-Desktop"混合内容，您的桌面软件可以最大限度、最灵活的方式适应互联网各种服务，一个更大的DOM，
                                         允许您实现Web端对桌面端最佳的控制，使得应用页面化成为现实，进而使得软件可以基于Web技术构建互联网内容生态。
                                     </li>
                                     <li>
-                                        <b>支持<a href="#" onclick="OpenCERURL();">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
+                                        <b>支持<a href="#" onclick="OpenCERURL();"  style="font-size: 20px; color:forestgreen">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
                                         使得您可以自由驾驭Java组件，将Java、.Net、JavaScript巧妙的融合在一起，实现强大的“Web-桌面端”的互操作。
                                         结合Eclipse本身的生态技术，Sunny借助于CER，使得应用开发者可以构建以Java基础的应用生态。
                                     </li>
@@ -678,7 +676,7 @@
                 </layout>
             </content1>
         </article>
-        <article class="hidden content_cle markdown-body">
+        <article class="hidden contentcle markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
             <center style="font-size:40px; color:green"><h2>Common Layout Engine</h2></center>
             <p style="font-size: 28px;font-weight: bold; color: black">Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</p>
@@ -694,11 +692,11 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
                 DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
             </p>
-            <content_cle target="mainClient">
+            <contentcle target="mainClient">
                 <layout>
                     <g objid="nucleus"></g>
                 </layout>
-            </content_cle>
+            </contentcle>
             <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
             <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
             <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>

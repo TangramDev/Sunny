@@ -1,0 +1,488 @@
+﻿<!-- This is "index.html". Normally, it is named "ProjectName.index.html". This webpage is the real entry point of the HTML-driven App. -->
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>关于艳阳</title>
+    <link rel="icon" href="yanyang_128.png" sizes="32x32">
+    <!--<link rel="stylesheet" href="./assets/github-markdown.css">-->
+    <style type="text/css">
+        .comments {
+            width: 100%; /*自动适应父布局宽度*/
+            height: auto;
+            overflow: auto;
+            word-break: break-all;
+        }
+
+        <style type="text/css" >
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+
+    <style type="text/css">
+        table.sunnysolution, td.sunnysolution, th.sunnysolution {
+            border: 2px solid midnightblue;
+        }
+
+        td.sunnysolution {
+            vertical-align: top;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var treegrid = null;
+        var mainClient_ = null;
+        var CompositeGrid_Splitter_ = null;
+        hubble.onWinFormCreated = function (e) {
+            e.xobj.addEventListener("SizeChanged", function (x) {
+                //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
+            });
+        };
+
+        hubble.onGridCreated = function (e) {
+            switch (e.grid.name) {
+                case "Sunny_ntpctrl":
+                    {
+                        e.grid.addEventListener("button1", "OnClick", function (e) {
+                            e.grid.Observe("key1", document.getElementById("mainwindow_1").outerHTML);
+                            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
+                                e.grid.parentGrid.ObserveEx("key1", document.getElementById("mainwindow_2").outerHTML);
+                            }
+                        });
+                        e.grid.addEventListener("button2", "OnClick", function (e) {
+                            e.grid.Observe("key2", document.getElementById("mainwindow_2").outerHTML);
+                            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
+                                e.grid.parentGrid.ObserveEx("key2", document.getElementById("mainwindow_1").outerHTML);
+                            }
+                        });
+                    }
+                    break;
+                case "navCtrl":
+                    {
+                        treegrid = e.grid;
+                        e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
+                            var name = e.getStr("name");
+                            var list = document.getElementsByTagName(name);
+                            for (var i = 0; i < list.length; i++) {
+                                var target = list[i].getAttribute("target");
+                                if (target != null) {
+                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
+                                }
+                            }
+                            var contentElements = document.getElementsByClassName("contents")[0].children;
+                            for (var i = 0; i < contentElements.length; i++) {
+                                var classList = contentElements[i].classList;
+                                var bContains = classList.contains(name);
+                                classList.remove(bContains ? "hidden" : "show");
+                                classList.add(bContains ? "show" : "hidden");
+                            }
+                        });
+                    }
+                    break;
+                case "mainClient":
+                    {
+                        mainClient_ = e.grid;
+                    }
+                    break;
+                case "CompositeGrid_Splitter":
+                    {
+                        CompositeGrid_Splitter_ = e.grid;
+                    }
+                    break;
+            }
+        }
+
+        hubble.onHubbleMessageReceived = function (e) {
+            switch (e.xobj.getStr("msgID")) {
+                case "TANGRAMAPP_READY":
+                    {
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        hubble.onMessageReceived = function (e) {
+            if (e.param3 != null) {
+                switch (e.param3) {
+                    case "MainMdiForm:ActiveClient":
+                        {
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        hubble.onBindCLRObject = function (e) {
+            //alert(e.name);alert(e.objtype);alert(e.hwnd);//
+        }
+
+        //****************************************************************
+
+        function OpenNewWebURL() {
+            hubble.openUrl("host:WebPage/newweb.html", 2);
+        }
+
+        function OpenCLEURL() {
+            hubble.openUrl("host:webpage/CLE.html", 2);
+        }
+
+        function OpenCWRURL() {
+            hubble.openUrl("host:webpage/CWR.html", 2);
+        }
+
+        function OpenCERURL() {
+            hubble.openUrl("host:webpage/CER.html", 2);
+        }
+
+        function CompositeGrid1() {
+            if (CompositeGrid_Splitter_) {
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_1", document.getElementById("layout_1").outerHTML);
+                //CompositeGrid_Splitter_.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
+            }
+        }
+
+        function CompositeGrid2() {
+            if (CompositeGrid_Splitter_) {
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_2", document.getElementById("layout_2").outerHTML);
+            }
+        }
+
+        function CompositeGrid3() {
+            if (CompositeGrid_Splitter_) {
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_3", document.getElementById("layout_3").outerHTML);
+            }
+        }
+
+        function CompositeGrid4() {
+            if (CompositeGrid_Splitter_) {
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_4", document.getElementById("layout_4").outerHTML);
+            }
+        }
+
+        //**********************************************
+        function DynLayout() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_1").outerHTML;
+            }
+        }
+
+        function DynLayout1() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_2", document.getElementById("layout_2").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_2").outerHTML;
+            }
+        }
+
+        function DynLayout2() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_3", document.getElementById("layout_3").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_3").outerHTML;
+            }
+        }
+
+        function DynLayout3() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_4", document.getElementById("layout_4").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_4").outerHTML;
+            }
+        }
+
+        function DynLayout4() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_5", document.getElementById("layout_5").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_5").outerHTML;
+            }
+        }
+
+        function DynLayout5() {
+            if (treegrid) {
+                treegrid.parentGrid.ObserveEx("layout_6", document.getElementById("layout_6").outerHTML, 0, 1);
+                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_6").outerHTML;
+            }
+        }
+
+        function OnSubversion() {
+            if (mainClient_) {
+                mainClient_.parentGrid.ObserveEx("subversion", document.getElementById("subversion").outerHTML, 0, 1);
+                var name = "startup";
+                var contentElements = document.getElementsByClassName("contents")[0].children;
+                for (var i = 0; i < contentElements.length; i++) {
+                    var classList = contentElements[i].classList;
+                    var bContains = classList.contains(name);
+                    classList.remove(bContains ? "hidden" : "show");
+                    classList.add(bContains ? "show" : "hidden");
+                }
+            }
+        }
+
+        function OnThreeProblem() {
+            if (mainClient_) {
+                mainClient_.parentGrid.ObserveEx("threeproblem", document.getElementById("threeproblem").outerHTML, 0, 1);
+                var name = "startup";
+                var contentElements = document.getElementsByClassName("contents")[0].children;
+                for (var i = 0; i < contentElements.length; i++) {
+                    var classList = contentElements[i].classList;
+                    var bContains = classList.contains(name);
+                    classList.remove(bContains ? "hidden" : "show");
+                    classList.add(bContains ? "show" : "hidden");
+                }
+            }
+        }
+    </script>
+</head>
+<body background="sunny.jpg">
+    <!-- Define new DOM elements -->
+    <define tagName="mainWindow"></define>
+    <define tagName="application"></define>
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
+    <!-- End Define new DOM elements -->
+    <!-- The "application" element is required, it can provide application-level configuration. -->
+    <application>
+        <modules>
+            <module libname="Sunny.exe" objname="Sunny.WebDelegate" functionname="Init"></module>
+        </modules>
+        <ntp>
+            <layout>
+                <g id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
+                    <g objid="nucleus"></g>
+                    <g objid="Sunny.ntpctrl,Sunny"></g>
+                </g>
+            </layout>
+        </ntp>
+        <defaultworkbench>
+            <layout>
+                <g style="18">
+                    <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
+                    <g id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></g>
+                    <g id='test2 y' caption='Page 3'></g>
+                    <g id='test3 z' caption='Page 4'></g>
+                </g>
+            </layout>
+        </defaultworkbench>
+        <urls><url url="https://www.tangram.dev"></url></urls>
+    </application>
+    <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
+        the Sunny.MDIParent1 class in the current executable program. -->
+    <layout>
+        <layout_1 id="layout_1">
+            <layout>
+                <g style="18">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="39" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_1>
+        <layout_2 id="layout_2">
+            <layout>
+                <g style="33">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_2>
+        <layout_3 id="layout_3">
+            <layout>
+                <g style="23">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_3>
+        <layout_4 id="layout_4">
+            <layout>
+                <g style="43">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="29" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_4>
+        <layout_5 id="layout_5">
+            <layout>
+                <g style="37">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="19" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_5>
+        <layout_6 id="layout_6">
+            <layout>
+                <g style="18">
+                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyForms.Form1,SunnyForms"></g>
+                        <g style="18" activepage="1">
+                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
+                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
+                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
+                        </g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
+                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
+                    </g>
+                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
+                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
+                </g>
+            </layout>
+        </layout_6>
+
+        <form1 id="mainwindow_1">
+            <layout>
+                <g id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                    <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
+                    <g id='test1'></g>
+                </g>
+            </layout>
+        </form1>
+        <form id="mainwindow_2">
+            <layout>
+                <g style="18">
+                    <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
+                    <g id='test1' caption='Page 2'></g>
+                    <g id='test2' caption='Page 3'></g>
+                    <g id='test3' caption='Page 4'></g>
+                </g>
+            </layout>
+        </form>
+        <subversion id="subversion">
+            <layout>
+                <g rows="2" cols="1" height="400,500">
+                    <g objid="nucleus"></g>
+                    <g url="host:WebPage\webdesktop.html"></g>
+                </g>
+            </layout>
+        </subversion>
+        <threeproblem id="threeproblem">
+            <layout>
+                <g rows="2" cols="1" height="400,500">
+                    <g objid="nucleus"></g>
+                    <g url="host:WebPage\mainproblem.html"></g>
+                </g>
+
+            </layout>
+        </threeproblem>
+    </layout>
+    <div class="contents">
+        <article class="show startup markdown-body">
+            <strong style="font-size:48px; color:black"><i style="font-size:48px; color:fuchsia">Hi, </i>I'm <i style="font-size:48px; color:blue">Sunny </i><b style="font-size:48px; color:coral">(艳阳)</b>!</strong>
+            <p style="font-size: 18px; font-weight:bold; color:black">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我是您的<b>互联网<i style="font-weight:bold; color:chocolate">桌面软件</i></b> 开发助手，我的职责是协助您立足<i style="font-weight:bold; color:orangered">现代互联网服务</i>、<b style="font-weight:bold; color:orangered">面向软件生态</b>，
+                进入一个<b style="font-weight:bold; color:orangered">颠覆式</b>的桌面软件开发模式……
+                <br />
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp做为您的助手，艳阳将与您一起去探索一个<b>目前还鲜为人知的</b>、<b><i style="font-weight:bold; color:indianred">动态的</i></b>、<b>有待开拓的<i style="font-weight:bold; color:blue">新世界</i></b>…，
+                在那里，一个软件本身就拥有一个<i style="color:coral">宇宙 </i>结构，其内容体系十分丰满，我会为您配置一台<i style="color:fuchsia">哈勃</i>，
+                陪伴您漫游寰宇，领略其<b><i style="color:coral">浩瀚、深邃、多姿多彩</i></b>……
+                <br />
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp我的使命是<b style="color:fuchsia">颠覆一个旧的模式</b>进而重塑您的.NET桌面<b style="color:fuchsia">软件开发观念</b>，我们将看到，一个<b style="font-weight:bold; color:indianred">全新的世界</b>在等着您，
+                一个面向<b style="color:firebrick">互联网的创新</b>之路正在开启…
+            </p>
+            <p>
+                <h1><b style="font-size: 32px; color:chocolate"><a href="#" onclick="OpenNewWebURL();"><i style="font-size:32px; color:darkgreen">点击这里 </i>看看颠覆性的变化是怎么开始的...</a></b></h1>
+            </p>
+        </article>
+    </div>
+</body>
+</html>
