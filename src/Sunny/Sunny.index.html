@@ -154,6 +154,60 @@
             hubble.openUrl("host:webpage/CLE.html", 2);
         }
 
+        function OpenAppURL() {
+            hubble.openUrl("host:sunny2.html", 100);
+        }
+
+        function OnCreate_Form1_SunnyForms2() {
+            var xform = hubble.createWinForm(document.getElementById("create_form_1").outerHTML,
+                0,
+                function (x) {
+                    x.form.addEventListener("button1", "OnClick", function (e) {
+                        x.form.xobj.setStr("textBox1", "fill textbox by javascript: " + x.form.handle);
+                    });
+                    x.form.SyncCtrlTextChange("textBox1;button1", function (e) {
+                        //alert("hi" + "  --  " + e.getStr("textBox1"));
+                    });
+                });
+        }
+
+        function OnCreate_Form2_SunnyForms2() {
+            var xform = hubble.createWinForm(document.getElementById("create_form_2").outerHTML,
+                0,
+                function (x) {
+                   x.form.addEventListener("button1", "OnClick", function (e) {
+                        alert("hi" + "  --  " + x.form.handle);
+                        //x.form.xobj.setStr("textBox1", "test modify textbox");
+                    });
+                });
+        }
+
+        function OnCreate_Form3_SunnyForms2() {
+            var xform = hubble.createWinForm(document.getElementById("create_form_3").outerHTML,
+                0,
+                function (x) {
+                    x.form.addEventListener("button1", "OnClick", function (e) {
+                        alert("hi" + "  --  " + x.form.handle);
+                        //x.form.xobj.setStr("textBox1", "test modify textbox");
+                    });
+                });
+        }
+
+        function OnCreate_Form4_SunnyForms2() {
+            var xform = hubble.createWinForm(document.getElementById("create_form_4").outerHTML,
+                0,
+                function (x) {
+                    x.form.addEventListener("button1", "OnClick", function (e) {
+                        alert("hi" + "  --  " + x.form.handle);
+                        //x.form.xobj.setStr("textBox1", "test modify textbox");
+                    });
+                });
+        }
+
+        function OpenAppURL2() {
+            hubble.openUrl("host:webpage/newweb.html", 100);
+        }
+
         function OpenCWRURL() {
             hubble.openUrl("host:webpage/CWR.html", 2);
         }
@@ -259,8 +313,8 @@
         <ntp>
             <layout>
                 <g id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
-                    <g objid="nucleus"></g>
                     <g objid="Sunny.ntpctrl,Sunny"></g>
+                    <g objid="nucleus"></g>
                 </g>
             </layout>
         </ntp>
@@ -281,14 +335,14 @@
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
         the Sunny.MDIParent1 class in the current executable program. -->
-    <mainWindow objid="Sunny.SunnyForm,Sunny" caption="Sunny" width="2400" height="1600">
+    <mainWindow objid="Sunny.SunnyForm,host" caption="Sunny" width="2400" height="1600">
         <panel1 id="mainworkclient">
             <default>
                 <layout>
                     <g style="39" activepage="1">
                         <g caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
                             <g objid="nucleus"></g>
-                            <g objid="Sunny.ntpctrl,Sunny" id="Sunny_ntpctrl"></g>
+                            <g objid="Sunny.ntpctrl,host" id="Sunny_ntpctrl"></g>
                         </g>
                         <g caption="Common Web Runtime for Application" url="host"></g>
                     </g>
@@ -296,7 +350,7 @@
             </default>
         </panel1>
     </mainWindow>
-    <gridTemplate type="usercontrol" objid="Sunny.NavControl,Sunny" uikey="navDetails">
+    <gridTemplate type="usercontrol" objid="Sunny.NavControl,host" uikey="navDetails">
         <treeView1>
             <uidata key="uidata" treenode="true" text="欢迎您来到Sunny的.NET新世界...">
                 <treeView1_tag name="startup"></treeView1_tag>
@@ -533,7 +587,7 @@
                     <thead>
                         <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
                             <th> 现代桌面软件面临的<i style="color:crimson">三个关键问题</i>
-                            <th> 艳阳的解决方案
+                            <th> Sunny的解决方案
                         </tr>
                     <tbody>
                         <tr>
@@ -952,6 +1006,8 @@
         </article>
         <article class="hidden content_using_browser markdown-body">
             <strong style="font-size:40px; color:navy">使用<i style="font-size:40px; color:fuchsia">浏览器 </i>窗口</strong>
+            <h4><a href="#" onclick="OpenAppURL();" style="font-size:32px;color:forestgreen">Web App 1</a></h4>
+            <h4><a href="#" onclick="OpenAppURL2();" style="font-size:32px;color:forestgreen">Web App 2</a></h4>
             <content_using_browser target="mainClient">
                 <layout>
                     <g style="43">
@@ -1038,6 +1094,10 @@
                     </g>
                 </layout>
             </content_using_winform>
+            <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form1_SunnyForms2()">Form App 1</button>
+            <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form2_SunnyForms2()">Form App 2</button>
+            <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form3_SunnyForms2()">Form App 3</button>
+            <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form4_SunnyForms2()">Form App 4</button>
         </article>
         <article class="hidden content_using_mdiwinform markdown-body">
             <p style="font-size:40px; color:indigo">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinMDIForm </i>窗口</strong></p>
@@ -1052,7 +1112,7 @@
             </content_using_mdiwinform>
         </article>
         <article class="hidden content_using_usercontrol markdown-body">
-            <p style="font-size:40px; color:cadetblue">web页面中使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
+            <p style="font-size:40px; color:cadetblue">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
             <content_using_usercontrol target="mainClient">
                 <layout>
                     <g style="18">
@@ -1076,5 +1136,125 @@
             </content_using_wpf>
         </article>
     </div>
+    <Forms>
+        <object type="winform" objid="sunnyForms2.Form1,sunnyForms2" caption="Form1@SunnyForm2" id="create_form_1" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <g id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                            <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
+                            <g id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2"></g>
+                        </g>
+                    </layout>
+                </default>
+            </mainpanel>
+            <treeView1>
+                <uidata key="ntpdata" treenode="true" width="0" height="0" text="Welcome to the World of Tangram!">
+                    <featurelist treenode="true" text="Feature Lists">
+                        <node1 treenode="true" text="Welcome to the New Cloud-Desktop Mixed World"></node1>
+                        <node1_tag action="openurl" onafterselect="maincontent">
+                        </node1_tag>
+                        <node2 treenode="true" text="ChromeRuntime Support"></node2>
+                        <node2_tag target="test1" onafterselect="$safeprojectname_lower$">
+                        </node2_tag>
+                        <node3 treenode="true" text="JavaRuntime Support"></node3>
+                        <node3_tag action="doubleclick" target="test3">
+                        </node3_tag>
+                        <node4 treenode="true" text="CLR Support"></node4>
+                        <node4_tag action="openurl">
+                            <openurl url="http://www.tangram.dev"></openurl>
+                        </node4_tag>
+                        <node5 treenode="true" text="COM Support"></node5>
+                        <node5_tag action="openurl">
+                            <openurl url="http://www.tangram.dev"></openurl>
+                        </node5_tag>
+                        <node6 treenode="true" text="C++ Support"></node6>
+                        <node6_tag action="openurl">
+                            <openurl url="http://www.tangram.dev"></openurl>
+                        </node6_tag>
+                        <node7 treenode="true" text="Office Support"></node7>
+                        <node7_tag action="openurl">
+                            <openurl url="http://www.tangram.dev"></openurl>
+                        </node7_tag>
+                    </featurelist>
+                    <Samples treenode="true" text="Samples for Tangram">
+                        <sample1 treenode="true" text="Tangram Sample1(doubleclick me)"></sample1>
+                        <sample1_tag action="openurl">
+                            <openurl url="http://www.tangram.dev/sample/sample1.html"></openurl>
+                        </sample1_tag>
+                        <sample2 treenode="true" text="Tangram Sample2(doubleclick me)"></sample2>
+                        <sample2_tag action="openurl">
+                            <openurl url="http://www.tangram.dev/sample/sample2.html"></openurl>
+                        </sample2_tag>
+                        <sample3 treenode="true" text="Tangram Sample3(doubleclick me)"></sample3>
+                        <sample3_tag action="openurl">
+                            <openurl url="http://www.tangram.dev/sample/sample3.html"></openurl>
+                        </sample3_tag>
+                        <sample4 treenode="true" text="Tangram Sample4(doubleclick me)"></sample4>
+                        <sample4_tag action="openurl">
+                            <openurl url="http://www.tangram.dev/sample/sample4.html"></openurl>
+                        </sample4_tag>
+                    </Samples>
+                </uidata>
+                <default>
+                    <layout>
+                        <g id='properties' rows='1' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                            <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
+                            <g id='test1'></g>
+                        </g>
+                    </layout>
+                </default>
+            </treeView1>
+        </object>
+        <object type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <g>
+                            <g id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,sunnyForms2" caption='Form3'></g>
+                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,sunnyForms2" caption='Form4'></g>
+                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,sunnyForms2" caption='Form5'></g>
+                        </g>
+                    </layout>
+                </default>
+            </mainpanel>
+        </object>
+        <object type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <g>
+                            <g id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,sunnyForms2" caption='Form3'></g>
+                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,sunnyForms2" caption='Form4'></g>
+                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,sunnyForms2" caption='Form5'></g>
+                        </g>
+                    </layout>
+                </default>
+            </mainpanel>
+        </object>
+        <object type="winform" objid="sunnyForms2.Form3,sunnyForms2" caption="Form3@SunnyForm2" id="create_form_3" width="2000" height="1600">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <g id='tangramtabctrl_Page1' url="host:webpage\cwr.html|host:sunny2.html" caption='Form3'></g>
+                    </layout>
+                </default>
+            </mainpanel>
+        </object>
+        <object type="winform" objid="sunnyForms2.Form4,sunnyForms2" caption="Form4@SunnyForm2" id="create_form_4" width="2000" height="1600">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <g rows="1" cols="2" width="500,200" masterrow="0" mastercol="0">
+                            <g rows="2" cols="1" height="400,200" masterrow="0" mastercol="0">
+                                <g id='Page1' url="host:webpage\cwr.html|host:sunny2.html"></g>
+                            </g>
+                            <g id='Page2' caption='Form3'></g>
+                        </g>
+                    </layout>
+                </default>
+            </mainpanel>
+        </object>
+    </Forms>
 </body>
 </html>

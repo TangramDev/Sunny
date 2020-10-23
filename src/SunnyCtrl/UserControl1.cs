@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.4							*
+*					Sunny - version 1.0.0.5							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -44,8 +44,11 @@ namespace SunnyCtrl
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            hostGrid = Hubble.CreatingGrid;
-            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+            if (Hubble.CreatingGrid != null)
+            {
+                hostGrid = Hubble.CreatingGrid;
+                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+            }
         }
 
         private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)

@@ -21,8 +21,11 @@ namespace SunnyForms
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            hostGrid = Hubble.CreatingGrid;
-            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+            if (Hubble.CreatingGrid != null)
+            {
+                hostGrid = Hubble.CreatingGrid;
+                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+            }
         }
 
         private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
