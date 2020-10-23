@@ -48,8 +48,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 60);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Press me!!";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserControl1
             // 
@@ -60,6 +61,7 @@
             this.Controls.Add(this.button1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(775, 566);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);
 
         }

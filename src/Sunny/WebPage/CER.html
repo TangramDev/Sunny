@@ -4,8 +4,51 @@
 <head>
     <meta charset="utf-8" />
     <title>Common Eclipse Runtime</title>
+    <link rel="icon" href="eclipse48.png" sizes="32x32">
+    <style type="text/css">
+        .comments {
+            width: 100%; /*自动适应父布局宽度*/
+            height: auto;
+            overflow: auto;
+            word-break: break-all;
+        }
+
+        <style type="text/css" >
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript"></script>
 </head>
 <body background="cerbk.jpg">
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
+    <webViewport>
+        <layout>
+            <g rows="1" cols="2" width="550,">
+                <g objid="SunnyCtrl.CERCtrl,SunnyCtrl" id="navCtrl"></g>
+                <g objid="nucleus" id="mainClient"></g>
+            </g>
+        </layout>
+    </webViewport>
     <p style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
     <center style="font-size:40px; color:blue"><h2>Common Eclipse Runtime</h2></center>
     <p style="font-size:32px; color:crimson">Common Eclipse Runtime(CER)是<strong><i style="font-size:32px; color:fuchsia">Eclipse </i>项目的动态链接库版本</strong></p>

@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
 
 namespace SunnyForms
 {
-    public partial class Form10 : Form
+    public partial class CWBForm : Form
     {
-        public Form10()
+        public CWBForm()
         {
             InitializeComponent();
+        }
+
+        private void CWBForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

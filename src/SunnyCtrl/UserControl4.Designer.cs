@@ -60,6 +60,7 @@
             this.Controls.Add(this.button1);
             this.Name = "UserControl4";
             this.Size = new System.Drawing.Size(720, 596);
+            this.Load += new System.EventHandler(this.UserControl4_Load);
             this.ResumeLayout(false);
 
         }

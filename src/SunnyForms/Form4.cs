@@ -20,14 +20,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cosmos;
 
 namespace SunnyForms
 {
     public partial class Form4 : Form
     {
+        Grid thisGrid = null;
         public Form4()
         {
             InitializeComponent();
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            thisGrid = Hubble.CreatingGrid;
+            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+        }
+
+        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        {
         }
     }
 }

@@ -6,7 +6,7 @@
     <title>Common Layout Engine 与 Dock属性</title>
     <script type="text/javascript">
         function OnTestDockProperty() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "xx", "", document.getElementById("dockpropertydemo").outerHTML);
+            hubble.Observe("xx",document.getElementById("dockpropertydemo").outerHTML);
             document.getElementById("testbtn").style.display = "none";
         }
     </script>

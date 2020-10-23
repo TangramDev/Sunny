@@ -5,8 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>欢迎您进入一个全新的.NET世界, 我是您的朋友艳阳</title>
-    <link rel="icon" href="webpage/yanyang_128.png" sizes="32x32">
-    <!--<link rel="stylesheet" href="./assets/github-markdown.css">-->
+    <link rel="icon" href="webpage/app.png" sizes="32x32">
     <style type="text/css">
         .comments {
             width: 100%; /*自动适应父布局宽度*/
@@ -63,40 +62,14 @@
             switch (e.grid.name) {
                 case "Sunny_ntpctrl":
                     {
-                        e.grid.addEventListener("button1", "OnClick", function (e) {
-                            e.grid.Observe("key1", document.getElementById("mainwindow_1").outerHTML);
-                            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
-                                e.grid.parentGrid.ObserveEx("key1", document.getElementById("mainwindow_2").outerHTML);
-                            }
-                        });
-                        e.grid.addEventListener("button2", "OnClick", function (e) {
-                            e.grid.Observe("key2", document.getElementById("mainwindow_2").outerHTML);
-                            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
-                                e.grid.parentGrid.ObserveEx("key2", document.getElementById("mainwindow_1").outerHTML);
-                            }
-                        });
+                        e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
+                        e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
                     }
                     break;
                 case "navCtrl":
                     {
                         treegrid = e.grid;
-                        e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
-                            var name = e.getStr("name");
-                            var list = document.getElementsByTagName(name);
-                            for (var i = 0; i < list.length; i++) {
-                                var target = list[i].getAttribute("target");
-                                if (target != null) {
-                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
-                                }
-                            }
-                            var contentElements = document.getElementsByClassName("contents")[0].children;
-                            for (var i = 0; i < contentElements.length; i++) {
-                                var classList = contentElements[i].classList;
-                                var bContains = classList.contains(name);
-                                classList.remove(bContains ? "hidden" : "show");
-                                classList.add(bContains ? "show" : "hidden");
-                            }
-                        });
+                        e.grid.addEventListener("treeView1", "OnAfterSelect", navCtrl_treeView1_OnAfterSelect);
                     }
                     break;
                 case "mainClient":
@@ -141,6 +114,37 @@
         }
 
         //****************************************************************
+        function Sunny_ntpctrl_Button_OnClick(e) {
+            e.grid.Observe("key1", document.getElementById("mainwindow_1").outerHTML);
+            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
+                e.grid.parentGrid.ObserveEx("key1", document.getElementById("mainwindow_2").outerHTML);
+            }
+        }
+
+        function Sunny_ntpctrl_Button2_OnClick(e) {
+            e.grid.Observe("key2", document.getElementById("mainwindow_2").outerHTML);
+            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
+                e.grid.parentGrid.ObserveEx("key2", document.getElementById("mainwindow_1").outerHTML);
+            }
+        }
+
+        function navCtrl_treeView1_OnAfterSelect(e) {
+            var name = e.getStr("name");
+            var list = document.getElementsByTagName(name);
+            for (var i = 0; i < list.length; i++) {
+                var target = list[i].getAttribute("target");
+                if (target != null) {
+                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
+                }
+            }
+            var contentElements = document.getElementsByClassName("contents")[0].children;
+            for (var i = 0; i < contentElements.length; i++) {
+                var classList = contentElements[i].classList;
+                var bContains = classList.contains(name);
+                classList.remove(bContains ? "hidden" : "show");
+                classList.add(bContains ? "show" : "hidden");
+            }
+        }
 
         function OpenNewWebURL() {
             hubble.openUrl("host:WebPage/newweb.html", 2);
@@ -161,7 +165,6 @@
         function CompositeGrid1() {
             if (CompositeGrid_Splitter_) {
                 CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_1", document.getElementById("layout_1").outerHTML);
-                //CompositeGrid_Splitter_.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
             }
         }
 
@@ -287,7 +290,7 @@
         </defaultworkbench>
         <urls>
             <url url="https://www.tangram.dev"></url>
-            <url url="host:WebPage\sunny.html"></url>
+            <url url="host:WebPage/sunny.html"></url>
         </urls>
     </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
@@ -522,26 +525,22 @@
                 </g>
             </layout>
         </subversion>
-        <threeproblem id="threeproblem">
-            <layout>
-                <g rows="2" cols="1" height="400,500">
-                    <g objid="nucleus"></g>
-                    <g url="host:WebPage\mainproblem.html"></g>
-                </g>
-
-            </layout>
-        </threeproblem>
     </layout>
     <div class="contents">
         <article class="show startup markdown-body">
             <strong style="font-size:32px; color:black">欢迎<i style="color:fuchsia">您来到</i><i style="color:blue">Sunny的 </i><b style="color:coral">.NET桌面编程世界</b>!</strong>
             <p style="font-size: 20px; font-weight:bold; color:black">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny是一款<i style="font-weight:bold; color:chocolate">颠覆式的、面向互联网的 </i>桌面软件开发框架，
-                其关键特点是通过整合<i style="font-weight:bold; color:orangered">Microsoft .NET、Chromium Project以及IBM Eclipse</i>三个开源项目，
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny是一款<i style="color:chocolate">颠覆式的、面向互联网的 </i>开源桌面软件开发框架，
+                其关键特点是通过整合<i style="color:orangered">Microsoft .NET、Chromium Project以及IBM Eclipse</i>三个开源项目，
                 使得.NET桌面应用可以按照一致的方式同时支持.NET、Java、Web软件生态链。
             </p>
             <p>
-                <h1><b style="font-size: 20px; color:chocolate"><a href="#" onclick="OpenNewWebURL();" ><i  style="font-size:24px; color:darkgreen">点击这里 </i>看看颠覆性的变化是怎么开始的...</a></b></h1>
+                <h1 style="font-size: 16px; color:chocolate">
+                    <a href="#" onclick="OpenNewWebURL();"><i style="font-size:32px; color:darkgreen">点击</i>这里开始...</a>
+                    <a href="#" onclick="OpenCLEURL();" style="color:forestgreen">Common Layout Engine</a>
+                    <a href="#" onclick="OpenCWRURL();" style="color:forestgreen">Common Web Runtime</a>
+                    <a href="#" onclick="OpenCERURL();" style="color:forestgreen">Common Eclipse Runtime</a>
+                </h1>
             </p>
             <center>
                 <table class="sunnysolution" border="1" cellpadding="10">
@@ -555,18 +554,18 @@
                             <td class="sunnysolution" width="50%">
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        缺乏与之适配的<i style="font-weight:bold;font-style:oblique; color:chocolate">软件生态</i>，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
+                                        缺乏与之适配的<i style="font-style:oblique; color:chocolate">软件生态</i>，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
                                         以及广泛的软件人力资源难以根据对应的软件形成有针对性的软件增值服务，
-                                        会在根本上制约软件成为互联网服务的<i style="font-weight:bold;color:orangered">前端环节</i>，更难以为之建立具有服务性质的<i style="font-weight:bold;color:fuchsia">后端服务</i>；
+                                        会在根本上制约软件成为互联网服务的<i style="color:orangered">前端环节</i>，更难以为之建立具有服务性质的<i style="color:fuchsia">后端服务</i>；
                                     </li>
                                     <li>
-                                        与<i style="font-weight:bold; color:chocolate">主流开源项目 </i>缺乏对接，使得软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
+                                        与<i style=" color:chocolate">主流开源项目 </i>缺乏对接，使得软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
                                         例，由于是开源的，拥有了天然的社区支持，使得软件本身的发展会变得良性、有持续生存的依据；
                                     </li>
                                     <li>
                                         现代浏览器本身就是一款桌面软件，由于支持html文档，使得内容生态变得非常丰富。毋庸置疑，
                                         浏览器软件的很多品质局限于浏览器本身是对软件生产力的一种禁锢，
-                                        而浏览器本身的很多优势恰恰是桌面软件缺乏的，就是说，桌面软件缺乏<i style="font-weight:bold; color:chocolate">浏览器内在的结构</i>，
+                                        而浏览器本身的很多优势恰恰是桌面软件缺乏的，就是说，桌面软件缺乏<i style="color:chocolate">浏览器内在的结构</i>，
                                         使得其适应互联网的发展方面显得力不从心。
                                     </li>
                                 </ol>
@@ -590,7 +589,7 @@
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny定义了一个应用程序的<i style="font-size: 16px; font-weight:bold; color:brown">基础结构</i>，
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny定义了一个应用程序的<i style="color:brown">基础结构</i>，
                                     给出了一站式的解决方案，一步到位的将：
                                 </p>
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
@@ -627,9 +626,9 @@
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
                                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny试图通过一个单一的技术架构，整合:
                                     <ul style="font-size: 16px; font-weight:bold; color:midnightblue">
-                                        <li><b>Microsoft .NET(Core)</b></li>
-                                        <li><b>Google Chromium</b></li>
-                                        <li><b>IBM Eclipse</b></li>
+                                        <li>Microsoft .NET(Core)</li>
+                                        <li>Google Chromium</li>
+                                        <li>IBM Eclipse</li>
                                     </ul>
                                 </p>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
@@ -649,20 +648,12 @@
                 </layout>
             </startup>
         </article>
-        <article class="hidden content_Subversion markdown-body">
-            <h1>Sunny颠覆了什么？</h1>
-            <ol>
-                <li><b>Web-Desktop混合技术实现</b></li>
-                <li><b>.NET UI对象动态化</b></li>
-                <li><b>Web为中心驱动桌面软件</b></li>
-            </ol>
-        </article>
         <article class="hidden content1 markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
             <center><p style="font-size: 32px; font-weight: bold; color: blue"><i style="color:brown">DOM </i>定义.NET</p></center>
             <h4>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借助Web页面给应用系统增加新元素</h4>
             <p>
-                Common WebRuntime constructs a new mixed world of native UI elements and web elements.
+                Common Web Runtime constructs a new mixed world of native UI elements and web elements.
                 In this world, a new web page is defined. While taking into account the standard web page,
                 the ability to use native components as DOM elements is added ...
             </p>

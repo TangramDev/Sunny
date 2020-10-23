@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CERCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CERCtrl.Designer.cs">
+      <DependentUpon>CERCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLECtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CLECtrl.Designer.cs">
+      <DependentUpon>CLECtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -118,6 +130,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CERCtrl.resx">
+      <DependentUpon>CERCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CLECtrl.resx">
+      <DependentUpon>CLECtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DemoCtrl.resx">
       <DependentUpon>DemoCtrl.cs</DependentUpon>
     </EmbeddedResource>

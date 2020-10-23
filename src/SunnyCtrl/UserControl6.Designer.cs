@@ -49,6 +49,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserControl6
             // 
@@ -59,6 +60,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "UserControl6";
             this.Size = new System.Drawing.Size(917, 570);
+            this.Load += new System.EventHandler(this.UserControl6_Load);
             this.ResumeLayout(false);
 
         }

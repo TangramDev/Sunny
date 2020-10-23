@@ -4,36 +4,78 @@
 <head>
     <meta charset="utf-8" />
     <title>Common Layout Engine</title>
-    <script type="text/javascript">        
+    <link rel="icon" href="tangram.png" sizes="32x32">
+    <style type="text/css">
+        .comments {
+            width: 100%; /*自动适应父布局宽度*/
+            height: auto;
+            overflow: auto;
+            word-break: break-all;
+        }
+
+        <style type="text/css" >
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
         function DynLayout() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_1", "", document.getElementById("layout_1").outerHTML);
+            hubble.Observe("layout_1", document.getElementById("layout_1").outerHTML);
         }
 
         function DynLayout1() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_2", "", document.getElementById("layout_2").outerHTML);
+            hubble.Observe("layout_2", document.getElementById("layout_2").outerHTML);
         }
 
         function DynLayout2() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_3", "", document.getElementById("layout_3").outerHTML);
+            hubble.Observe("layout_3", document.getElementById("layout_3").outerHTML);
         }
 
         function DynLayout3() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_4", "", document.getElementById("layout_4").outerHTML);
+            hubble.Observe("layout_4", document.getElementById("layout_4").outerHTML);
         }
 
         function DynLayout4() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_5", "", document.getElementById("layout_5").outerHTML);
+            hubble.Observe("layout_5", document.getElementById("layout_5").outerHTML);
         }
 
         function DynLayout5() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "layout_6", "", document.getElementById("layout_6").outerHTML);
+            hubble.Observe("layout_6", document.getElementById("layout_6").outerHTML);
         }
 
-</script>
+    </script>
 </head>
 <body background="clebk.jpg">
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
+    <webViewport>
+        <layout>
+            <g rows="1" cols="2" width="550,">
+                <g objid="SunnyCtrl.CLECtrl,SunnyCtrl" id="navCtrl"></g>
+                <g objid="nucleus" id="mainClient"></g>
+            </g>
+        </layout>
+    </webViewport>
     <p style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
-    <center style="font-size:36px; color:blue"><b>Common Layout Engine，互联网大环境之下，动态软件描述是必然的趋势……</b></center>
+    <center style="font-size:36px; color:blue"><b>Common Layout Engine，<br />互联网大环境之下，动态软件描述是必然的趋势……</br></center>
     <h3>Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</h3>
     <h3>
         <p>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cosmos;
 
 namespace SunnyForms
 {
@@ -15,6 +16,33 @@ namespace SunnyForms
         public Form5()
         {
             InitializeComponent();
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            thisGrid = Hubble.CreatingGrid;
+            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+        }
+
+        private void ThisGrid_OnCloudMessageReceived(Cosmos.Wormhole cloudSession)
+        {
+            string strMsgID = cloudSession.GetString("msgID");
+            switch (strMsgID)
+            {
+                case "testButtonClickCallback":
+                    string strVal = cloudSession.GetString("callbackval");
+                    if (!string.IsNullOrEmpty(strVal))
+                    {
+                        MessageBox.Show(strVal+ " CloudMessage Process by Form5");
+                        button1.Text = strVal;
+                    }
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,38 @@
 <head>
     <meta charset="utf-8" />
     <title>New Web, New World</title>
+    <link rel="icon" href="tangram.png" sizes="32x32">
+    <style type="text/css">
+        .comments {
+            width: 100%; /*自动适应父布局宽度*/
+            height: auto;
+            overflow: auto;
+            word-break: break-all;
+        }
+
+        <style type="text/css" >
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
     <style type="text/css">
         table.dock, td.sunnysolution, th.sunnysolution {
             border: 5px solid blue
@@ -12,9 +44,6 @@
         table.dock2 {
             border: 1px solid blue;
             border-collapse: collapse;
-            /*            padding: 0;
-                    margin: 0;
-        */
         }
 
         .outTable {
@@ -50,11 +79,12 @@
                 case "SunnyForm_Form3":
                 case "SunnyForm_Form5":
                     {
-                        switch (e.grid.name) {
-                            case "SunnyForm_Form1":
-                                alert("WinForm Created: " + e.grid.name);
-                                break;
-                        }
+                        //window.grids[e.grid.name] = e.grid;
+                        //switch (e.grid.name) {
+                        //    case "SunnyForm_Form1":
+                        //        alert("WinForm Created: " + e.grid.name);
+                        //        break;
+                        //}
                         e.grid.addEventListener("button1", "OnClick", function (e) {
                             switch (e.grid.name) {
                                 case "SunnyForm_Form1":
@@ -74,15 +104,6 @@
                                 case "SunnyForm_Form3":
                                     {
                                         e.grid.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
-                                        //var grid_ = window.grids['SunnyForm_Form6'];
-                                        //if (!!grid_) {
-                                        //    grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
-                                        //}
-
-                                        //grid_ = window.grids['SunnyForm_Form4'];
-                                        //if (!!grid_) {
-                                        //    grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_2").outerHTML);
-                                        //}
                                     }
                                     break;
                             }
@@ -90,11 +111,7 @@
                     }
                     break;
                 case "SunnyCtrl_UserControl4":
-                    //case "SunnyCtrl_UserControl6":
-                    //case "SunnyCtrl_UserControl8":
-                    {
-                        alert("UserControl Created: " + e.grid.name);
-                    }
+                    alert("UserControl Created: " + e.grid.name);
                     e.grid.addEventListener("button1", "OnClick", function (e) {
                         switch (e.grid.name) {
                             case "SunnyCtrl_UserControl4":
@@ -116,28 +133,69 @@
                     break;
             }
         }
+
+        hubble.onHubbleMessageReceived = function (e) {
+            switch (e.xobj.getStr("msgID")) {
+                case "TANGRAMAPP_READY":
+                    {
+                    }
+                    break;
+                case "testButton1_click":
+                    {
+                        var grid_ = window.grids['SunnyForm_Form10'];
+                        grid_ = window.grids['SunnyForm_Form10'];
+                        if (!!grid_) {
+                            grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
+                        }
+                        grid_ = window.grids['SunnyForm_Form5'];
+                        if (!!grid_) {
+
+                            grid_.xobj.setStr("msgID", "testButtonClickCallback");
+                            grid_.xobj.setStr("callbackval", "just a test");
+                            grid_.sendMessage(grid_.xobj);
+                        }
+                    }
+                    break;
+                case "UserControl1_testButton1_click":
+                    {
+                        var grid_ = window.grids['SunnyCtrl_UserControl6'];
+                        if (!!grid_) {
+
+                            grid_.xobj.setStr("msgID", "UserControl6_testButtonClickCallback");
+                            grid_.xobj.setStr("callbackval", "just a test");
+                            grid_.sendMessage(grid_.xobj);
+                        }
+                        grid_ = window.grids['SunnyCtrl_UserControl1'];
+                        if (!!grid_) {
+                            grid_.xobj.setStr("msgID", "UserControl6_testButtonClickCallback");
+                            grid_.xobj.setStr("callbackval", "just a test");
+                            grid_.sendMessage(grid_.xobj);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
         function OnDockdemo() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo", "", document.getElementById("dockdemo").outerHTML);
-            document.getElementById("testbtn").style.display = "none";
+            hubble.Observe("dockdemo", document.getElementById("dockdemo").outerHTML);
         }
         function OnDockdemo2() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo2", "", document.getElementById("dockdemo2").outerHTML);
+            hubble.Observe("dockdemo2", document.getElementById("dockdemo2").outerHTML);
         }
         function OnDockdemo3() {
-            hubble.sendMessage("TANGRAM_UI_MESSAGE", "dockdemo3", "", document.getElementById("dockdemo3").outerHTML);
+            hubble.Observe("dockdemo3", document.getElementById("dockdemo3").outerHTML);
         }
     </script>
 </head>
 <body background="newworld.jpg">
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
     <strong style="font-size:40px; color:indianred">艳阳的.NET<i style="color:fuchsia">新 </i>世界</strong>
     <p><center><strong style="font-size:36px; color:blue">一个全新的Web在这里拉开了帷幕...</strong></center></p>
     <p>
-        <button style="font-size: 18px; font-weight:bold; color:darkgreen" onclick="OnDockdemo()"><i>Press me to continus</i>...</button>
-    </p>
-    <p>
-        <button style="font-size: 18px; font-weight:bold; color:crimson" onclick="OnDockdemo2()"><i>看看艳阳如何动态组织 WinForm对象</i>...</button>
-    </p>
-    <p>
+        <button style="font-size: 18px; font-weight:bold; color:darkgreen" onclick="OnDockdemo()"><i>Press me to continus</i>...</button>&nbsp
+        <button style="font-size: 18px; font-weight:bold; color:crimson" onclick="OnDockdemo2()"><i>看看艳阳如何动态组织 WinForm对象</i>...</button>&nbsp
         <button style="font-size: 18px; font-weight:bold; color:darkmagenta" onclick="OnDockdemo3()"><i>看看艳阳如何组织 Usercontrol对象</i>...</button>
     </p>
     <br />
@@ -241,7 +299,7 @@
                                     <g objid="SunnyForms.Form5,SunnyForms" caption="SunnyForm-Form5" id="SunnyForm_Form5"></g>
                                 </g>
                             </g>
-                            <g style="37">
+                            <g style="17">
                                 <g objid="SunnyForms.Form6,SunnyForms" caption="SunnyForm-Form6" id="SunnyForm_Form6"></g>
                                 <g objid="SunnyForms.Form7,SunnyForms" caption="SunnyForm-Form7" id="SunnyForm_Form7"></g>
                                 <g objid="SunnyForms.Form8,SunnyForms" caption="SunnyForm-Form8" id="SunnyForm_Form8"></g>

@@ -26,7 +26,6 @@ namespace SunnyCtrl
 {
     public partial class DemoCtrl : UserControl
     {
-        string m_strStartXml = "";
         public DemoCtrl()
         {
             InitializeComponent();

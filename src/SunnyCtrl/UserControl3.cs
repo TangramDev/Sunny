@@ -20,14 +20,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cosmos;
 
 namespace SunnyCtrl
 {
     public partial class UserControl3 : UserControl
     {
+        Grid thisGrid = null;
         public UserControl3()
         {
             InitializeComponent();
+        }
+
+        private void UserControl3_Load(object sender, EventArgs e)
+        {
+            thisGrid = Hubble.CreatingGrid;
+            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+        }
+
+        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        {
         }
     }
 }
