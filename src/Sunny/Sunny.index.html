@@ -110,7 +110,7 @@
         }
 
         hubble.onBindCLRObject = function (e) {
-            //alert(e.name);alert(e.objtype);alert(e.hwnd);//
+            //alert(e.name);alert(e.objtype);alert(e.hwnd);
         }
 
         //****************************************************************
@@ -232,20 +232,6 @@
         function OnSubversion() {
             if (mainClient_) {
                 mainClient_.parentGrid.ObserveEx("subversion", document.getElementById("subversion").outerHTML, 0, 1);
-                var name = "startup";
-                var contentElements = document.getElementsByClassName("contents")[0].children;
-                for (var i = 0; i < contentElements.length; i++) {
-                    var classList = contentElements[i].classList;
-                    var bContains = classList.contains(name);
-                    classList.remove(bContains ? "hidden" : "show");
-                    classList.add(bContains ? "show" : "hidden");
-                }
-            }
-        }
-
-        function OnThreeProblem() {
-            if (mainClient_) {
-                mainClient_.parentGrid.ObserveEx("threeproblem", document.getElementById("threeproblem").outerHTML, 0, 1);
                 var name = "startup";
                 var contentElements = document.getElementsByClassName("contents")[0].children;
                 for (var i = 0; i < contentElements.length; i++) {
@@ -538,7 +524,7 @@
                 <h1 style="font-size: 16px; color:chocolate">
                     <a href="#" onclick="OpenNewWebURL();"><i style="font-size:64px; color:darkgreen">点击</i>这里开始...</a>
                     <a href="#" onclick="OpenCLEURL();" style="color:forestgreen">Common Layout Engine</a>
-                    <a href="#" onclick="OpenCWRURL();" style="color:forestgreen">Common Web Runtime</a>
+                    <a href="#" onclick="OpenCWRURL();" style="color:blue"><i  style="font-size: 20px;">Common Web Runtime</i></a>
                     <a href="#" onclick="OpenCERURL();" style="color:forestgreen">Common Eclipse Runtime</a>
                 </h1>
             </p>
@@ -1042,7 +1028,7 @@
         </article>
 
         <article class="hidden content_using_winform markdown-body">
-            <p style="font-size:40px; color:darkgreen">使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
+            <p style="font-size:40px; color:darkgreen">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
             <content_using_winform target="mainClient">
                 <layout>
                     <g style="29">
@@ -1054,7 +1040,7 @@
             </content_using_winform>
         </article>
         <article class="hidden content_using_mdiwinform markdown-body">
-            <p style="font-size:40px; color:indigo">使用<strong><i style="font-size:40px; color:fuchsia">WinMDIForm </i>窗口</strong></p>
+            <p style="font-size:40px; color:indigo">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinMDIForm </i>窗口</strong></p>
             <content_using_mdiwinform target="mainClient">
                 <layout>
                     <g style="29">
@@ -1066,7 +1052,7 @@
             </content_using_mdiwinform>
         </article>
         <article class="hidden content_using_usercontrol markdown-body">
-            <p style="font-size:40px; color:cadetblue">使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
+            <p style="font-size:40px; color:cadetblue">web页面中使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
             <content_using_usercontrol target="mainClient">
                 <layout>
                     <g style="18">
@@ -1078,7 +1064,7 @@
             </content_using_usercontrol>
         </article>
         <article class="hidden content_using_wpf markdown-body">
-            <p style="font-size:40px; color:cornflowerblue">使用<strong><i style="font-size:40px; color:fuchsia">WPF </i>控件</strong></p>
+            <p style="font-size:40px; color:cornflowerblue">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WPF </i>控件</strong></p>
             <content_using_wpf target="mainClient">
                 <layout>
                     <g style="18">

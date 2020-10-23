@@ -26,7 +26,7 @@ namespace SunnyForms
 {
     public partial class Form4 : Form
     {
-        Grid thisGrid = null;
+        Grid hostGrid = null;
         public Form4()
         {
             InitializeComponent();
@@ -34,11 +34,11 @@ namespace SunnyForms
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            thisGrid = Hubble.CreatingGrid;
-            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+            hostGrid = Hubble.CreatingGrid;
+            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
         }
 
-        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
     }

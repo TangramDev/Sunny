@@ -239,20 +239,6 @@
                 }
             }
         }
-
-        function OnThreeProblem() {
-            if (mainClient_) {
-                mainClient_.parentGrid.ObserveEx("threeproblem", document.getElementById("threeproblem").outerHTML, 0, 1);
-                var name = "startup";
-                var contentElements = document.getElementsByClassName("contents")[0].children;
-                for (var i = 0; i < contentElements.length; i++) {
-                    var classList = contentElements[i].classList;
-                    var bContains = classList.contains(name);
-                    classList.remove(bContains ? "hidden" : "show");
-                    classList.add(bContains ? "show" : "hidden");
-                }
-            }
-        }
     </script>
 </head>
 <body background="sunny.jpg">

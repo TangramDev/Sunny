@@ -13,7 +13,7 @@ namespace SunnyForms
 {
     public partial class Form8 : Form
     {
-        Grid thisGrid = null;
+        Grid hostGrid = null;
         public Form8()
         {
             InitializeComponent();
@@ -21,11 +21,11 @@ namespace SunnyForms
 
         private void Form8_Load(object sender, EventArgs e)
         {
-            thisGrid = Hubble.CreatingGrid;
-            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+            hostGrid = Hubble.CreatingGrid;
+            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
         }
 
-        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
 

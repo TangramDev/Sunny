@@ -13,7 +13,7 @@ namespace SunnyCtrl
 {
     public partial class UserControl6 : UserControl
     {
-        private Grid thisGrid = null;
+        private Grid hostGrid = null;
         public UserControl6()
         {
             InitializeComponent();
@@ -21,11 +21,11 @@ namespace SunnyCtrl
 
         private void UserControl6_Load(object sender, EventArgs e)
         {
-            thisGrid = Hubble.CreatingGrid;
-            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+            hostGrid = Hubble.CreatingGrid;
+            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
         }
 
-        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
         {
             string strMsgID = cloudSession.GetString("msgID");
             switch (strMsgID)
@@ -43,11 +43,11 @@ namespace SunnyCtrl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (thisGrid != null)
+            if (hostGrid != null)
             {
-                thisGrid.Wormhole.InsertString("msgID", "UserControl6_testButton1_click");
-                thisGrid.Wormhole.InsertString("testVal", "this is a test for Usercontrol");
-                thisGrid.Wormhole.SendMessage();
+                hostGrid.Wormhole.InsertString("msgID", "UserControl6_testButton1_click");
+                hostGrid.Wormhole.InsertString("testVal", "this is a test for Usercontrol");
+                hostGrid.Wormhole.SendMessage();
             }
         }
     }

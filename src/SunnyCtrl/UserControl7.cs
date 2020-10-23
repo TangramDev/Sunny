@@ -13,7 +13,7 @@ namespace SunnyCtrl
 {
     public partial class UserControl7 : UserControl
     {
-        Grid thisGrid = null;
+        Grid hostGrid = null;
         public UserControl7()
         {
             InitializeComponent();
@@ -21,11 +21,11 @@ namespace SunnyCtrl
 
         private void UserControl7_Load(object sender, EventArgs e)
         {
-            thisGrid = Hubble.CreatingGrid;
-            thisGrid.OnCloudMessageReceived += ThisGrid_OnCloudMessageReceived;
+            hostGrid = Hubble.CreatingGrid;
+            hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
         }
 
-        private void ThisGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
     }
