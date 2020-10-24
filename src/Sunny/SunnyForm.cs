@@ -35,12 +35,12 @@ namespace Sunny
         {
             string xml = "<content1>" +
                 "<layout>" +
-                    "<g style=\"13\">" +
-                        "<g id='tangramtabctrl_Page2 www' objid=\"nucleus\" caption='Page 1'></g>" +
-                        "<g id='test1' caption='Page 2 eee'></g>" +
-                        "<g id='test2' caption='Page 3'></g>" +
-                        "<g id='test3' caption='Page 4'></g>" +
-                    "</g>" +
+                    "<grid style=\"13\">" +
+                        "<grid id='tangramtabctrl_Page2 www' objid=\"nucleus\" caption='Page 1'></grid>" +
+                        "<grid id='test1' caption='Page 2 eee'></grid>" +
+                        "<grid id='test2' caption='Page 3'></grid>" +
+                        "<grid id='test3' caption='Page 4'></grid>" +
+                    "</grid>" +
                 "</layout>" +
               "</content1>";
             Grid node = Hubble.Observe(listView1, "test", xml);

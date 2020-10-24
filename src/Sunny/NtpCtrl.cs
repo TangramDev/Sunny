@@ -38,12 +38,12 @@ namespace Sunny
             //{
             //    string xml = "<content1 target=\"mainworkclient\">" +
             //        "<layout>" +
-            //            "<g id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>" +
-            //                "<g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>" +
-            //                "<g id='test1'></g>" +
-            //                "<g id='test2'></g>" +
-            //                "<g id='test3'></g>" +
-            //            "</g>" +
+            //            "<grid id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>" +
+            //                "<grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>" +
+            //                "<grid id='test1'></grid>" +
+            //                "<grid id='test2'></grid>" +
+            //                "<grid id='test3'></grid>" +
+            //            "</grid>" +
             //        "</layout>" +
             //      "</content1>";
 
@@ -57,12 +57,12 @@ namespace Sunny
             //{
             //    string xml = "<content1>" +
             //        "<layout>" +
-            //            "<g style=\"18\">" +
-            //                "<g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>" +
-            //                "<g id='test1' caption='Page 2'></g>" +
-            //                "<g id='test2' caption='Page 3'></g>" +
-            //                "<g id='test3' caption='Page 4'></g>" +
-            //            "</g>" +
+            //            "<grid style=\"18\">" +
+            //                "<grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>" +
+            //                "<grid id='test1' caption='Page 2'></grid>" +
+            //                "<grid id='test2' caption='Page 3'></grid>" +
+            //                "<grid id='test3' caption='Page 4'></grid>" +
+            //            "</grid>" +
             //        "</layout>" +
             //      "</content1>";
 
@@ -79,12 +79,12 @@ namespace Sunny
         {
             string xml = "<content1>" +
             "<layout>" +
-                "<g style=\"23\">" +
-                    "<g id='tangramtabctrl_Page2' objid=\"nucleus\" caption='Page 1'></g>" +
-                    "<g id='test1' caption='Page 2'></g>" +
-                    "<g id='test2' caption='Page 3'></g>" +
-                    "<g id='test3' caption='Page 4'></g>" +
-                "</g>" +
+                "<grid style=\"23\">" +
+                    "<grid id='tangramtabctrl_Page2' objid=\"nucleus\" caption='Page 1'></grid>" +
+                    "<grid id='test1' caption='Page 2'></grid>" +
+                    "<grid id='test2' caption='Page 3'></grid>" +
+                    "<grid id='test3' caption='Page 4'></grid>" +
+                "</grid>" +
             "</layout>" +
             "</content1>";
             Grid grid = Hubble.Observe(this, "test", xml);
@@ -94,12 +94,12 @@ namespace Sunny
         {
             string xml = "<content1>" +
                 "<layout>" +
-                    "<g style=\"43\">" +
-                        "<g id='tangramtabctrl_Page2' objid=\"nucleus\" caption='Page 1'></g>" +
-                        "<g id='test1' caption='Page 2'></g>" +
-                        "<g id='test2' caption='Page 3'></g>" +
-                        "<g id='test3' caption='Page 4'></g>" +
-                    "</g>" +
+                    "<grid style=\"43\">" +
+                        "<grid id='tangramtabctrl_Page2' objid=\"nucleus\" caption='Page 1'></grid>" +
+                        "<grid id='test1' caption='Page 2'></grid>" +
+                        "<grid id='test2' caption='Page 3'></grid>" +
+                        "<grid id='test3' caption='Page 4'></grid>" +
+                    "</grid>" +
                 "</layout>" +
               "</content1>";
             Grid grid = Hubble.Observe(treeView1, "test", xml);

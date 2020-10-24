@@ -175,7 +175,7 @@
             var xform = hubble.createWinForm(document.getElementById("create_form_2").outerHTML,
                 0,
                 function (x) {
-                   x.form.addEventListener("button1", "OnClick", function (e) {
+                    x.form.addEventListener("button1", "OnClick", function (e) {
                         alert("hi" + "  --  " + x.form.handle);
                         //x.form.xobj.setStr("textBox1", "test modify textbox");
                     });
@@ -312,20 +312,20 @@
         </modules>
         <ntp>
             <layout>
-                <g id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
-                    <g objid="Sunny.ntpctrl,Sunny"></g>
-                    <g objid="nucleus"></g>
-                </g>
+                <grid id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
+                    <grid objid="Sunny.ntpctrl,host"></grid>
+                    <grid objid="nucleus"></grid>
+                </grid>
             </layout>
         </ntp>
         <defaultworkbench>
             <layout>
-                <g style="18">
-                    <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
-                    <g id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></g>
-                    <g id='test2 y' caption='Page 3'></g>
-                    <g id='test3 z' caption='Page 4'></g>
-                </g>
+                <grid style="18">
+                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
+                    <grid id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></grid>
+                    <grid id='test2 y' caption='Page 3'></grid>
+                    <grid id='test3 z' caption='Page 4'></grid>
+                </grid>
             </layout>
         </defaultworkbench>
         <urls>
@@ -333,19 +333,19 @@
             <url url="host:WebPage/sunny.html"></url>
         </urls>
     </application>
-    <!-- Determine the main layout of the application, "Sunny.MDIParent1,Sunny" represents
+    <!-- Determine the main layout of the application, "Sunny.MDIParent1,host" represents
         the Sunny.MDIParent1 class in the current executable program. -->
     <mainWindow objid="Sunny.SunnyForm,host" caption="Sunny" width="2400" height="1600">
         <panel1 id="mainworkclient">
             <default>
                 <layout>
-                    <g style="39" activepage="1">
-                        <g caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
-                            <g objid="nucleus"></g>
-                            <g objid="Sunny.ntpctrl,host" id="Sunny_ntpctrl"></g>
-                        </g>
-                        <g caption="Common Web Runtime for Application" url="host"></g>
-                    </g>
+                    <grid style="39" activepage="1">
+                        <grid caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
+                            <grid objid="nucleus"></grid>
+                            <grid objid="Sunny.ntpctrl,host" id="Sunny_ntpctrl"></grid>
+                        </grid>
+                        <grid caption="Common Web Runtime for Application" url="host"></grid>
+                    </grid>
                 </layout>
             </default>
         </panel1>
@@ -393,179 +393,242 @@
     </gridTemplate>
     <webViewport>
         <layout>
-            <g rows="1" cols="2" width="750,">
-                <g objid="navDetails" id="navCtrl"></g>
-                <g objid="nucleus" id="mainClient"></g>
-            </g>
+            <grid rows="1" cols="2" width="750,">
+                <grid objid="navDetails" id="navCtrl"></grid>
+                <grid objid="nucleus" id="mainClient"></grid>
+            </grid>
         </layout>
     </webViewport>
     <layout>
         <layout_1 id="layout_1">
             <layout>
-                <g style="18">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="39" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="18">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="39" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_1>
         <layout_2 id="layout_2">
             <layout>
-                <g style="33">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="18" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="33">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="18" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_2>
         <layout_3 id="layout_3">
             <layout>
-                <g style="23">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="18" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="23">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="18" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_3>
         <layout_4 id="layout_4">
             <layout>
-                <g style="43">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="29" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="43">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="29" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_4>
         <layout_5 id="layout_5">
             <layout>
-                <g style="37">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="19" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="37">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="19" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_5>
         <layout_6 id="layout_6">
             <layout>
-                <g style="18">
-                    <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyForms.Form1,SunnyForms"></g>
-                        <g style="18" activepage="1">
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                            <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
-                    <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                </g>
+                <grid style="18">
+                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                        <grid style="18" activepage="1">
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
+                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
             </layout>
         </layout_6>
 
         <form1 id="mainwindow_1">
             <layout>
-                <g id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                    <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
-                    <g id='test1'></g>
-                </g>
+                <grid id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>
+                    <grid id='test1'></grid>
+                </grid>
             </layout>
         </form1>
         <form id="mainwindow_2">
             <layout>
-                <g style="18">
-                    <g id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></g>
-                    <g id='test1' caption='Page 2'></g>
-                    <g id='test2' caption='Page 3'></g>
-                    <g id='test3' caption='Page 4'></g>
-                </g>
+                <grid style="18">
+                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
+                    <grid id='test1' caption='Page 2'></grid>
+                    <grid id='test2' caption='Page 3'></grid>
+                    <grid id='test3' caption='Page 4'></grid>
+                </grid>
             </layout>
         </form>
         <subversion id="subversion">
             <layout>
-                <g rows="2" cols="1" height="400,500">
-                    <g objid="nucleus"></g>
-                    <g url="host:WebPage\webdesktop.html"></g>
-                </g>
+                <grid rows="2" cols="1" height="400,500">
+                    <grid objid="nucleus"></grid>
+                    <grid url="host:WebPage\webdesktop.html"></grid>
+                </grid>
             </layout>
         </subversion>
     </layout>
+    <Forms>
+        <Form1 type="winform" objid="sunnyForms2.Form1,sunnyForms2" caption="Form1@SunnyForm2" id="create_form_1" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                            <grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>
+                            <grid id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2"></grid>
+                        </grid>
+                    </layout>
+                </default>
+            </mainpanel>
+        </Form1>
+        <Form2 type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <grid>
+                            <grid id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,SunnyForms2" caption='Form3'></grid>
+                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,SunnyForms2" caption='Form4'></grid>
+                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,SunnyForms2" caption='Form5'></grid>
+                        </grid>
+                    </layout>
+                </default>
+            </mainpanel>
+        </Form2>
+        <Form3 type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <grid>
+                            <grid id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,sunnyForms2" caption='Form3'></grid>
+                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,sunnyForms2" caption='Form4'></grid>
+                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,sunnyForms2" caption='Form5'></grid>
+                        </grid>
+                    </layout>
+                </default>
+            </mainpanel>
+        </Form3>
+        <Form4 type="winform" objid="sunnyForms2.Form3,sunnyForms2" caption="Form3@SunnyForm2" id="create_form_3" width="2000" height="1600">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <grid id='tangramtabctrl_Page1' url="host:webpage\cwr.html" caption='Form3'></grid>
+                    </layout>
+                </default>
+            </mainpanel>
+        </Form4>
+        <object type="winform" objid="sunnyForms2.Form4,sunnyForms2" caption="Form4@SunnyForm2" id="create_form_4" width="2000" height="1600">
+            <mainpanel>
+                <default>
+                    <layout>
+                        <grid rows="1" cols="2" width="500,200" masterrow="0" mastercol="0">
+                            <grid rows="2" cols="1" height="400,200" masterrow="0" mastercol="0">
+                                <grid id='Page1' url="host:webpage\cwr.html|host:sunny2.html"></grid>
+                            </grid>
+                            <grid id='Page2' caption='Form3'></grid>
+                        </grid>
+                    </layout>
+                </default>
+            </mainpanel>
+        </object>
+    </Forms>
     <div class="contents">
         <article class="show startup markdown-body">
             <strong style="font-size:32px; color:black">欢迎<i style="color:fuchsia">您来到</i><i style="color:blue">Sunny的 </i><b style="color:coral">.NET桌面编程世界</b>!</strong>
@@ -578,7 +641,7 @@
                 <h1 style="font-size: 16px; color:chocolate">
                     <a href="#" onclick="OpenNewWebURL();"><i style="font-size:64px; color:darkgreen">点击</i>这里开始...</a>
                     <a href="#" onclick="OpenCLEURL();" style="color:forestgreen">Common Layout Engine</a>
-                    <a href="#" onclick="OpenCWRURL();" style="color:blue"><i  style="font-size: 20px;">Common Web Runtime</i></a>
+                    <a href="#" onclick="OpenCWRURL();" style="color:blue"><i style="font-size: 20px;">Common Web Runtime</i></a>
                     <a href="#" onclick="OpenCERURL();" style="color:forestgreen">Common Eclipse Runtime</a>
                 </h1>
             </p>
@@ -658,7 +721,7 @@
                                         允许您实现Web端对桌面端最佳的控制，使得应用页面化成为现实，进而使得软件可以基于Web技术构建互联网内容生态。
                                     </li>
                                     <li>
-                                        <b>支持<a href="#" onclick="OpenCERURL();"  style="font-size: 20px; color:forestgreen">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
+                                        <b>支持<a href="#" onclick="OpenCERURL();" style="font-size: 20px; color:forestgreen">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
                                         使得您可以自由驾驭Java组件，将Java、.Net、JavaScript巧妙的融合在一起，实现强大的“Web-桌面端”的互操作。
                                         结合Eclipse本身的生态技术，Sunny借助于CER，使得应用开发者可以构建以Java基础的应用生态。
                                     </li>
@@ -681,10 +744,10 @@
 
             <startup target="mainClient">
                 <layout>
-                    <g>
-                        <g caption="New Web, New Desktop World" objid="nucleus"></g>
-                        <g caption="New Start point" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                    </g>
+                    <grid>
+                        <grid caption="New Web, New Desktop World" objid="nucleus"></grid>
+                        <grid caption="New Start point" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                    </grid>
                 </layout>
             </startup>
         </article>
@@ -699,11 +762,11 @@
             </p>
             <content1 target="mainClient">
                 <layout>
-                    <g style="18">
-                        <g caption="The mixed world of web and native UI" objid="nucleus"></g>
-                        <g caption="Second Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g caption="Third Page" objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                    </g>
+                    <grid style="18">
+                        <grid caption="The mixed world of web and native UI" objid="nucleus"></grid>
+                        <grid caption="Second Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid caption="Third Page" objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                    </grid>
                 </layout>
             </content1>
         </article>
@@ -725,15 +788,15 @@
             </p>
             <contentcle target="mainClient">
                 <layout>
-                    <g objid="nucleus"></g>
+                    <grid objid="nucleus"></grid>
                 </layout>
             </contentcle>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout3()">动态布局四</button>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout4()">动态布局五</button>
-            <button  style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout5()">动态布局六</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout3()">动态布局四</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout4()">动态布局五</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout5()">动态布局六</button>
             <h3>动态布局DOM描述（按某个按钮看DOM输出）：</h3>
             <center><textarea name="dynlayoutdomelement" id="dynlayoutdomelement" class="tb" disabled="disabled" style="width: 96%; height: 300px; margin: 0px;"></textarea></center>
         </article>
@@ -750,17 +813,17 @@
             </p>
             <content_grid target="mainClient">
                 <layout>
-                    <g rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="nucleus"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
+                    <grid rows="3" cols="3" width="150,100,100" height="200,180,100">
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="nucleus"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
                 </layout>
             </content_grid>
             <p>
@@ -769,17 +832,17 @@
                     这里给出一个3行3列的网格结构对应的DOM描述，具体请参考Sunny.index.html
                     <xmp style="font-size:28px; color:red"><content_grid target="mainClient">
     <layout>
-        <g rows="3" cols="3" width="150,100,100" height="200,180,100">
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="nucleus"></g>
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
+        <grid rows="3" cols="3" width="150,100,100" height="200,180,100">
+            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+            <grid objid="nucleus"></grid>
+            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
     </layout>
 </content_grid>
                     </xmp>
@@ -807,7 +870,7 @@
                 例如，假设我们有一个.NET组件库xxx.dll，其中有一个FormX对象，其NameSpace是“MyNamespace”，
                 那么objid即为“MyNamespace.FormX,xxx”,对应的网格节点如下：
             </h3>
-            <b><xmp style="font-size:30px; color:blue"><g objid="MyNamespace.FormX,xxx"></g></xmp></b>
+            <b><xmp style="font-size:30px; color:blue"><grid objid="MyNamespace.FormX,xxx"></grid></xmp></b>
         </article>
         <article class="hidden tabgrid markdown-body">
             <center style="font-size:36px; color:blue"><b>标签（选项卡）</b></center>
@@ -819,11 +882,11 @@
             </p>
             <tabgrid target="mainClient">
                 <layout>
-                    <g>
-                        <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-                        <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                        <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                    </g>
+                    <grid>
+                        <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+                        <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                        <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                    </grid>
                 </layout>
             </tabgrid>
             <figcaption>
@@ -852,11 +915,11 @@
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签(选项卡)：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
-        <g style="23">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
+        <grid style="23">
+            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
     </layout>
 </tabgrid>
                                         </xmp>
@@ -871,11 +934,11 @@
                                         在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
-        <g style="19">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
+        <grid style="19">
+            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
     </layout>
 </tabgrid>
                                         </xmp>
@@ -890,11 +953,11 @@
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签结构：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
-        <g style="18">
-            <g caption="Introduction to Tabbed Grid" objid="nucleus"></g>
-            <g caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-            <g caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-        </g>
+        <grid style="18">
+            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
+            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+        </grid>
     </layout>
 </tabgrid>
                                         </xmp>
@@ -912,50 +975,50 @@
                 中如何表达一个“三级复合”网格的DOM结构：
                 <xmp style=" font-size: 24px; font-weight: 900; color: blue"><compositegrid target="mainClient">
     <layout>
-        <g style="23">
-            <g caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                <g objid="SunnyForms.Form1,SunnyForms"></g>
-                <g style="18" activepage="1">
-                    <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                    <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                    <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                </g>
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-            </g>
-            <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-            <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-        </g>
+        <grid style="23">
+            <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                <grid style="18" activepage="1">
+                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                    <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                    <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                </grid>
+                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+            </grid>
+            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+        </grid>
     </layout>
 </compositegrid>
                 </xmp>
             </p>
             <compositegrid target="mainClient">
                 <layout>
-                    <g style="23">
-                        <g caption="Start Page" id="CompositeGrid_Splitter" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                            <g objid="SunnyForms.Form1,SunnyForms"></g>
-                            <g style="18" activepage="1">
-                                <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></g>
-                                <g objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></g>
-                                <g objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></g>
-                            </g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                            <g objid="SunnyCtrl.UserControl1,SunnyCtrl"></g>
-                            <g objid="SunnyCtrl.UserControl3,SunnyCtrl"></g>
-                            <g objid="SunnyCtrl.UserControl2,SunnyCtrl"></g>
-                        </g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="23">
+                        <grid caption="Start Page" id="CompositeGrid_Splitter" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                            <grid objid="SunnyForms.Form1,SunnyForms"></grid>
+                            <grid style="18" activepage="1">
+                                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
+                                <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
+                                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
+                            </grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
+                            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
+                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
+                        </grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </compositegrid>
             <p style=" font-size: 24px; font-weight: 900; color: blue">更多的复合结构，可以点击以下按钮：</p>
@@ -995,11 +1058,11 @@
             </p>
             <content_cwr target="mainClient">
                 <layout>
-                    <g style="27">
-                        <g objid="nucleus" caption="Common WebBrowser Runtime"></g>
-                        <g caption="Page1"></g>
-                        <g caption="Page2"></g>
-                    </g>
+                    <grid style="27">
+                        <grid objid="nucleus" caption="Common WebBrowser Runtime"></grid>
+                        <grid caption="Page1"></grid>
+                        <grid caption="Page2"></grid>
+                    </grid>
                 </layout>
             </content_cwr>
             <center><img src="image/chrome.png" width="750" height="500" /></center>
@@ -1010,11 +1073,11 @@
             <h4><a href="#" onclick="OpenAppURL2();" style="font-size:32px;color:forestgreen">Web App 2</a></h4>
             <content_using_browser target="mainClient">
                 <layout>
-                    <g style="43">
-                        <g objid="nucleus" caption="Using Browser Window"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="43">
+                        <grid objid="nucleus" caption="Using Browser Window"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_browser>
         </article>
@@ -1022,11 +1085,11 @@
             <strong style="font-size:40px; color:blue">使用<i style="font-size:40px; color:fuchsia">JavaScript </i>开发应用</strong>
             <content_using_js target="mainClient">
                 <layout>
-                    <g style="13">
-                        <g objid="nucleus" caption="Using java script"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="13">
+                        <grid objid="nucleus" caption="Using java script"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_js>
         </article>
@@ -1053,7 +1116,7 @@
             </h3>
             <content_cer target="mainClient">
                 <layout>
-                    <g objid="nucleus"></g>
+                    <grid objid="nucleus"></grid>
                 </layout>
             </content_cer>
         </article>
@@ -1062,11 +1125,11 @@
             <center><img src="image/eclipse.png" width="900" height="450" /></center>
             <content_using_workbench target="mainClient">
                 <layout>
-                    <g style="29">
-                        <g objid="nucleus" caption="Using Eclipse Workbench"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="29">
+                        <grid objid="nucleus" caption="Using Eclipse Workbench"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_workbench>
         </article>
@@ -1074,11 +1137,11 @@
             <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">SWT </i>Form</strong></p>
             <content_using_swt target="mainClient">
                 <layout>
-                    <g style="18">
-                        <g objid="nucleus" caption="Using java swt"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="18">
+                        <grid objid="nucleus" caption="Using java swt"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_swt>
         </article>
@@ -1087,11 +1150,11 @@
             <p style="font-size:40px; color:darkgreen">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
             <content_using_winform target="mainClient">
                 <layout>
-                    <g style="29">
-                        <g objid="nucleus" caption="Using Window Form"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="29">
+                        <grid objid="nucleus" caption="Using Window Form"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_winform>
             <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form1_SunnyForms2()">Form App 1</button>
@@ -1103,11 +1166,11 @@
             <p style="font-size:40px; color:indigo">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinMDIForm </i>窗口</strong></p>
             <content_using_mdiwinform target="mainClient">
                 <layout>
-                    <g style="29">
-                        <g objid="nucleus" caption="Using Window MDI Form"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="29">
+                        <grid objid="nucleus" caption="Using Window MDI Form"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_mdiwinform>
         </article>
@@ -1115,11 +1178,11 @@
             <p style="font-size:40px; color:cadetblue">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">UserControl </i>对象</strong></p>
             <content_using_usercontrol target="mainClient">
                 <layout>
-                    <g style="18">
-                        <g objid="nucleus" caption="Using Dot Net Control"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="18">
+                        <grid objid="nucleus" caption="Using Dot Net Control"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_usercontrol>
         </article>
@@ -1127,134 +1190,14 @@
             <p style="font-size:40px; color:cornflowerblue">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WPF </i>控件</strong></p>
             <content_using_wpf target="mainClient">
                 <layout>
-                    <g style="18">
-                        <g objid="nucleus" caption="Using WPF Control"></g>
-                        <g objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></g>
-                        <g objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></g>
-                    </g>
+                    <grid style="18">
+                        <grid objid="nucleus" caption="Using WPF Control"></grid>
+                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
+                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
+                    </grid>
                 </layout>
             </content_using_wpf>
         </article>
     </div>
-    <Forms>
-        <object type="winform" objid="sunnyForms2.Form1,sunnyForms2" caption="Form1@SunnyForm2" id="create_form_1" width="1600" height="1200">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <g id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                            <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
-                            <g id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2"></g>
-                        </g>
-                    </layout>
-                </default>
-            </mainpanel>
-            <treeView1>
-                <uidata key="ntpdata" treenode="true" width="0" height="0" text="Welcome to the World of Tangram!">
-                    <featurelist treenode="true" text="Feature Lists">
-                        <node1 treenode="true" text="Welcome to the New Cloud-Desktop Mixed World"></node1>
-                        <node1_tag action="openurl" onafterselect="maincontent">
-                        </node1_tag>
-                        <node2 treenode="true" text="ChromeRuntime Support"></node2>
-                        <node2_tag target="test1" onafterselect="$safeprojectname_lower$">
-                        </node2_tag>
-                        <node3 treenode="true" text="JavaRuntime Support"></node3>
-                        <node3_tag action="doubleclick" target="test3">
-                        </node3_tag>
-                        <node4 treenode="true" text="CLR Support"></node4>
-                        <node4_tag action="openurl">
-                            <openurl url="http://www.tangram.dev"></openurl>
-                        </node4_tag>
-                        <node5 treenode="true" text="COM Support"></node5>
-                        <node5_tag action="openurl">
-                            <openurl url="http://www.tangram.dev"></openurl>
-                        </node5_tag>
-                        <node6 treenode="true" text="C++ Support"></node6>
-                        <node6_tag action="openurl">
-                            <openurl url="http://www.tangram.dev"></openurl>
-                        </node6_tag>
-                        <node7 treenode="true" text="Office Support"></node7>
-                        <node7_tag action="openurl">
-                            <openurl url="http://www.tangram.dev"></openurl>
-                        </node7_tag>
-                    </featurelist>
-                    <Samples treenode="true" text="Samples for Tangram">
-                        <sample1 treenode="true" text="Tangram Sample1(doubleclick me)"></sample1>
-                        <sample1_tag action="openurl">
-                            <openurl url="http://www.tangram.dev/sample/sample1.html"></openurl>
-                        </sample1_tag>
-                        <sample2 treenode="true" text="Tangram Sample2(doubleclick me)"></sample2>
-                        <sample2_tag action="openurl">
-                            <openurl url="http://www.tangram.dev/sample/sample2.html"></openurl>
-                        </sample2_tag>
-                        <sample3 treenode="true" text="Tangram Sample3(doubleclick me)"></sample3>
-                        <sample3_tag action="openurl">
-                            <openurl url="http://www.tangram.dev/sample/sample3.html"></openurl>
-                        </sample3_tag>
-                        <sample4 treenode="true" text="Tangram Sample4(doubleclick me)"></sample4>
-                        <sample4_tag action="openurl">
-                            <openurl url="http://www.tangram.dev/sample/sample4.html"></openurl>
-                        </sample4_tag>
-                    </Samples>
-                </uidata>
-                <default>
-                    <layout>
-                        <g id='properties' rows='1' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                            <g id='tangramtabctrl_Page2' objid="nucleus" caption=''></g>
-                            <g id='test1'></g>
-                        </g>
-                    </layout>
-                </default>
-            </treeView1>
-        </object>
-        <object type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <g>
-                            <g id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,sunnyForms2" caption='Form3'></g>
-                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,sunnyForms2" caption='Form4'></g>
-                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,sunnyForms2" caption='Form5'></g>
-                        </g>
-                    </layout>
-                </default>
-            </mainpanel>
-        </object>
-        <object type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <g>
-                            <g id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,sunnyForms2" caption='Form3'></g>
-                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,sunnyForms2" caption='Form4'></g>
-                            <g id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,sunnyForms2" caption='Form5'></g>
-                        </g>
-                    </layout>
-                </default>
-            </mainpanel>
-        </object>
-        <object type="winform" objid="sunnyForms2.Form3,sunnyForms2" caption="Form3@SunnyForm2" id="create_form_3" width="2000" height="1600">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <g id='tangramtabctrl_Page1' url="host:webpage\cwr.html|host:sunny2.html" caption='Form3'></g>
-                    </layout>
-                </default>
-            </mainpanel>
-        </object>
-        <object type="winform" objid="sunnyForms2.Form4,sunnyForms2" caption="Form4@SunnyForm2" id="create_form_4" width="2000" height="1600">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <g rows="1" cols="2" width="500,200" masterrow="0" mastercol="0">
-                            <g rows="2" cols="1" height="400,200" masterrow="0" mastercol="0">
-                                <g id='Page1' url="host:webpage\cwr.html|host:sunny2.html"></g>
-                            </g>
-                            <g id='Page2' caption='Form3'></g>
-                        </g>
-                    </layout>
-                </default>
-            </mainpanel>
-        </object>
-    </Forms>
 </body>
 </html>
