@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Welcome to a new. Net world. I'm your friend Sunny</title>
+    <title>欢迎您进入一个全新的.NET世界, 我是您的朋友艳阳</title>
     <link rel="icon" href="webpage/app.png" sizes="32x32">
     <style type="text/css">
         .comments {
@@ -301,37 +301,80 @@
 <body background="image/sunny.jpg">
     <!-- Define new DOM elements -->
     <define tagName="mainWindow"></define>
+    <define tagName="application"></define>
     <define tagName="webViewport"></define>
     <define tagName="gridTemplate"></define>
     <!-- End Define new DOM elements -->
     <!-- The "application" element is required, it can provide application-level configuration. -->
+    <application>
+        <modules>
+            <module libname="Sunny.exe" objname="Sunny.WebDelegate" functionname="Init"></module>
+        </modules>
+        <ntp>
+            <layout>
+                <grid id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
+                    <grid objid="Sunny.ntpctrl,host"></grid>
+                    <grid objid="nucleus"></grid>
+                </grid>
+            </layout>
+        </ntp>
+        <defaultworkbench>
+            <layout>
+                <grid style="18">
+                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
+                    <grid id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></grid>
+                    <grid id='test2 y' caption='Page 3'></grid>
+                    <grid id='test3 z' caption='Page 4'></grid>
+                </grid>
+            </layout>
+        </defaultworkbench>
+        <urls>
+            <url url="https://www.tangram.dev"></url>
+            <url url="host:WebPage/sunny.html"></url>
+        </urls>
+    </application>
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,host" represents
         the Sunny.MDIParent1 class in the current executable program. -->
+    <mainWindow objid="Sunny.SunnyForm,host" caption="Sunny" width="2400" height="1600">
+        <panel1 id="mainworkclient">
+            <default>
+                <layout>
+                    <grid style="39" activepage="1">
+                        <grid caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
+                            <grid objid="nucleus"></grid>
+                            <grid objid="Sunny.ntpctrl,host" id="Sunny_ntpctrl"></grid>
+                        </grid>
+                        <grid caption="Common Web Runtime for Application" url="host"></grid>
+                    </grid>
+                </layout>
+            </default>
+        </panel1>
+    </mainWindow>
     <gridTemplate type="usercontrol" objid="Sunny.NavControl,host" uikey="navDetails">
         <treeView1>
-            <uidata key="uidata" treenode="true" text="Welcome to Sunny's New World of .Net...">
+            <uidata key="uidata" treenode="true" text="欢迎您来到Sunny的.NET新世界...">
                 <treeView1_tag name="startup"></treeView1_tag>
-                <node1 treenode="true" text="This is a new world of .Net applications"></node1>
+                <node1 treenode="true" text="这里是一个全新的.NET应用世界"></node1>
                 <node1_tag name="content1"></node1_tag>
                 <node_organize_app_tag name="content_organize_app"></node_organize_app_tag>
                 <virtuallayoutengine treenode="true" text="Common Layout Engine(CLE)">
-                    <grid treenode="true" text="Grid"></grid>
+                    <grid treenode="true" text="网格(Grid)"></grid>
                     <grid_tag name="content_grid"></grid_tag>
-                    <tabgrid treenode="true" text="Tabbed Window"></tabgrid>
+                    <tabgrid treenode="true" text="标签(选项卡，Tabbed Window)"></tabgrid>
                     <tabgrid_tag name="tabgrid"></tabgrid_tag>
-                    <node6 treenode="true" text="Multi-Level Grid"></node6>
+                    <node6 treenode="true" text="多层网格嵌套(Multi-Level Grid)"></node6>
                     <node6_tag name="compositegrid"></node6_tag>
                 </virtuallayoutengine>
                 <virtuallayoutengine_tag name="contentcle"></virtuallayoutengine_tag>
                 <openwebruntime treenode="true" text="Common Web Runtime(CWR)">
-                    <usingbuiltbrowser treenode="true" text="Using Web Pages"></usingbuiltbrowser>
+                    <usingbuiltbrowser treenode="true" text="使用应用Web页面"></usingbuiltbrowser>
                     <usingbuiltbrowser_tag name="content_using_browser"></usingbuiltbrowser_tag>
                 </openwebruntime>
                 <openwebruntime_tag name="content_cwr"></openwebruntime_tag>
                 <openeclipseruntime treenode="true" text="Common EclipseRuntime(CER)">
-                    <node_workbench treenode="true" text="Using WorkBench"></node_workbench>
+                    <node_workbench treenode="true" text="使用WorkBench"></node_workbench>
                     <node_workbench_tag name="content_using_workbench"></node_workbench_tag>
-                    <node_swt treenode="true" text="Using SWT"></node_swt>
+                    <node_swt treenode="true" text="使用SWT"></node_swt>
                     <node_swt_tag name="content_using_swt"></node_swt_tag>
                 </openeclipseruntime>
                 <openeclipseruntime_tag name="content_cer"></openeclipseruntime_tag>
@@ -578,15 +621,15 @@
     </Forms>
     <div class="contents">
         <article class="show startup markdown-body">
-            <strong style="font-size:32px; color:black">Welcome <i style="color:fuchsia">to </i><i style="color:blue">Sunny's </i><b style="color:coral">.NET Desktop Programming World</b>!</strong>
+            <strong style="font-size:32px; color:black">欢迎<i style="color:fuchsia">您来到</i><i style="color:blue">Sunny的 </i><b style="color:coral">.NET桌面编程世界</b>!</strong>
             <p style="font-size: 20px; font-weight:bold; color:black">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny is a <i style="color:chocolate">disruptive, Internet-facing </i> <b style="color:Highlight">open source</b> desktop software development framework,
-                the key feature of which is the <i style="color:orangered">integration of Microsoft .NET, Chromium Project, and IBM Eclipse</i> three open source projects,
-                making .NET desktop applications can support the .NET, Java, and Web software ecosystems in a consistent manner.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny是一款<i style="color:chocolate">颠覆式的、面向互联网的 </i>开源桌面软件开发框架，
+                其关键特点是通过整合<i style="color:orangered">Microsoft .NET、Chromium Project以及IBM Eclipse</i>三个开源项目，
+                使得.NET桌面应用可以按照一致的方式同时支持.NET、Java、Web软件生态链。
             </p>
             <p>
-                <h1 style="font-size: 16px; color:darkgreen">
-                    <a href="#" onclick="OpenNewWebURL();"><i style="font-size:64px; color:darkgreen">Click</i>here to start...</a>
+                <h1 style="font-size: 16px; color:chocolate">
+                    <a href="#" onclick="OpenNewWebURL();"><i style="font-size:64px; color:darkgreen">点击</i>这里开始...</a>
                     <a href="#" onclick="OpenCLEURL();" style="color:forestgreen">Common Layout Engine</a>
                     <a href="#" onclick="OpenCWRURL();" style="color:blue"><i style="font-size: 20px;">Common Web Runtime</i></a>
                     <a href="#" onclick="OpenCERURL();" style="color:forestgreen">Common Eclipse Runtime</a>
@@ -596,69 +639,85 @@
                 <table class="sunnysolution" border="1" cellpadding="10">
                     <thead>
                         <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
-                            <th> <i style="color:crimson">Three key problems</i> of modern desktop software
-                            <th> Sunny's solution
+                            <th> 现代桌面软件面临的<i style="color:crimson">三个关键问题</i>
+                            <th> Sunny的解决方案
                         </tr>
                     <tbody>
                         <tr>
                             <td class="sunnysolution" width="50%">
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        The lack of a suitable <i style="font-style:oblique; color:chocolate">software ecosystem</i>,  which directly leads to the accumulation of a large number of mature software components (.NET, Java, COM, C++, Web components),
-                                        as well as a wide range of software human resources difficult to form targeted software value-added services according to the corresponding software,
-                                        will fundamentally restrict the software to become the <i style="color:orangered">front-end link of Internet services</i>, more difficult to build a <i style="color:fuchsia">service-oriented back-end services</i>；
+                                        缺乏与之适配的<i style="font-style:oblique; color:chocolate">软件生态</i>，这一点直接导致大量成熟的软件组件（.NET、Java、COM、C++、Web组件）积累，
+                                        以及广泛的软件人力资源难以根据对应的软件形成有针对性的软件增值服务，
+                                        会在根本上制约软件成为互联网服务的<i style="color:orangered">前端环节</i>，更难以为之建立具有服务性质的<i style="color:fuchsia">后端服务</i>；
                                     </li>
                                     <li>
-                                        Lack of <i style=" color:chocolate">docking with mainstream open source projects </i>leaves software-dependent critical technologies without strong technical community support. In the case of Chrome and Eclipse, because it is open source,
-                                        it has natural community support，so that the development of the software itself will become benign and has the basis for sustainable survival;
+                                        与<i style=" color:chocolate">主流开源项目 </i>缺乏对接，使得软件依赖的关键技术缺乏强有力的技术社区支持。以Chrome、Eclipse为
+                                        例，由于是开源的，拥有了天然的社区支持，使得软件本身的发展会变得良性、有持续生存的依据；
                                     </li>
                                     <li>
-                                        The modern browser itself is a desktop software, which enriches the content ecosystem by supporting html documents. There is no doubt that many qualities of browser software are limited to the browser itself, which is a kind of imprisonment to software productivity, and many advantages of the browser itself are precisely what desktop software does not have, that is, desktop software lacks the inherent structure of the browser. This is why it is difficult to adapt to the development of the Internet.
+                                        现代浏览器本身就是一款桌面软件，由于支持html文档，使得内容生态变得非常丰富。毋庸置疑，
+                                        浏览器软件的很多品质局限于浏览器本身是对软件生产力的一种禁锢，
+                                        而浏览器本身的很多优势恰恰是桌面软件缺乏的，就是说，桌面软件缺乏<i style="color:chocolate">浏览器内在的结构</i>，
+                                        使得其适应互联网的发展方面显得力不从心。
                                     </li>
                                 </ol>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFrom a technical, the scope of technical manpower reserve and other point of view, the above three issues, <i style="font-weight:bold; color:chocolate">greatly beyond a software team's technical control range and the scope of technical manpower reserve can bear the boundaries</i>, that is, it is difficult to imagine a team can face the system at the same time as the above three problems. Desktop software development has been nearly 30 years of history, mature technologies from .Net, Java, COM, C++, Web and other fields are massive,  <ins  style="font-size: 16px; font-weight:bold; color:forestgreen">whether there is a general technical approach, so that software teams can avoid the limitations of overall technology and human resources, and directly apply mature technologies to the software services they are concerned about is a challenging problem</ins>.
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp从技术、人力等角度看，以上三个问题，<i style="font-weight:bold; color:chocolate">极大的超越了一个软件团队的技术驾驭范围以及人力基础能够承载的界限</i>，
+                                    也就是说，很难想象一个团队可以同时系统的面对如上三个问题。桌面软件发展至今有接近30年的历史了，来自.NET、
+                                    Java、COM、C++、Web等领域的成熟技术是海量的，有没有一个<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件团队可以规避整体的技术、人力储备局限，
+                                    直接将成熟的技术用于他们关注的软件服务本身，这个问题是一个富有挑战性的问题。
                                 </p>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFrom the point of view of software reuse, the software service team should not focus on how to achieve a wide range of integration of specific technologies, in fact, there should be a <i style="font-weight:bold; color:chocolate">common technical approach</i>, so that the software service team focused on how to use mature software resources content "organization" software services, which needs to solve a reasonable, universal fit problem at a macro level, that is, <b style="font-size: 16px; font-weight:bold; color:darkblue"><ins>the current environment needs a simple type of technology, so that the application in the infrastructure of the root link, a one-time (relatively independent of technology) to solve a desktop software and "Web, .NET, Java" and other mainstream technologies based on ecological technology convergence, this convergence for the software service team is consistent, almost thresholdless, can maximize the use of software components and human resources "one-stop" solution.</ins></b>
-</p>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp从软件复用的角度看，软件服务团队，不应该将精力放在如何实现大范围整合的具体技术上，
+                                    事实上，应该有一种<i style="font-weight:bold; color:chocolate">通用的技术途径</i>，使得软件服务团队专注于如何用成熟的软件资源内容“组织”软件服务，这一点需要在宏观上解决一个合理的、
+                                    通用的适配问题，也就是说，<b style="font-size: 16px; font-weight:bold; color:darkblue">
+                                        <ins>
+                                            当前大环境需要一类简单的技术，使得应用程序在基础结构的根基环节，
+                                            一次性的（与技术相对无关的）解决好一个桌面软件与“Web、.NET、Java”等主流技术的基于生态技术的衔接问题，
+                                            这个衔接对软件服务团队而言是一致的、几乎无门槛的、可以最大限度利用软件组件资源以及人力资源的“一站式”解决方案
+                                        </ins>
+                                    </b>。
+                                </p>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny defines <i style="color:brown">the infrastructure</i> of an application, giving a one-stop solution that will:
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny定义了一个应用程序的<i style="color:brown">基础结构</i>，
+                                    给出了一站式的解决方案，一步到位的将：
                                 </p>
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
-                                    <li><b style="color:chocolate">Software Eco Chain</b>(for .Net resources, Java resources, Web resources)</li>
-                                    <li><b>Mainstream open source project docking (Chromium Project, Eclipse, .NET Core, etc.)</b></li>
-                                    <li><b>Integrated modern browser full functionality (full-featured Build-in WebBrowser support)</b></li>
+                                    <li><b style="color:chocolate">软件生态链</b>(面向.NET组件资源、Java资源、Web资源的内容生态链)</li>
+                                    <li><b>主流开源项目对接（Chromium Project、Eclipse、.NET Core等开源项目）</b></li>
+                                    <li><b>集成现代浏览器全部功能（全功能Built-in WebBrowser 支持）</b></li>
                                 </ol>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThrough a single technology architecture, one-time to software architects, 
-                                    each Sunny technology-based .NET desktop application has the following key features directly:
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp通过一个单一的技术架构，一次性的提供给软件架构者，使得每一款基于Sunny技术开发
+                                    的.NET桌面应用，直接具备以下几个关键特征：
                                 </p>
                                 <ol style="font-size: 16px; font-weight:bold; color:midnightblue">
                                     <li>
-                                        <b>Support <a href="#" onclick="OpenCLEURL();" style="font-size: 20px; color:forestgreen">Common Layout Engine</a></b>：Refreshing dynamic layout engine, will in turn in a variety of activities .NET components, C++ and Web components... 
-                                        lay the foundation for a realistic software ecosystem.<br />
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">Dynamic Layout One</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">Dynamic Layout Two</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout2()">Dynamic Layout Three</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout3()">Dynamic Layout Four</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout4()">Dynamic Layout Five</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout5()">Dynamic Layout Six</button>
+                                        <b>支持<a href="#" onclick="OpenCLEURL();" style="font-size: 20px; color:forestgreen">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
+                                        将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。<br />
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout3()">动态布局四</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout4()">动态布局五</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout5()">动态布局六</button>
                                     </li>
                                     <li>
-                                        <b>Support <a href="#" onclick="OpenCWRURL();" style="font-size: 20px; color:forestgreen">Common Web Runtime</a></b>：Unique Build-in browser technology allows you to harness "Web-Desktop" hybrid content in a variety of flexible ways, 
-                                        your desktop software can adapt to Internet services in the most flexible way possible, and a larger DOM allows you to achieve optimal Web-to-desktop control, making application paged into reality, 
-                                        which in turn enables software to build an Internet content ecosystem based on Web technology.
+                                        <b>支持<a href="#" onclick="OpenCWRURL();" style="font-size: 20px; color:forestgreen">Common Web Runtime</a></b>：独特的Built-in浏览器技术，
+                                        使得您可以以各种灵活的方式驾驭"Web-Desktop"混合内容，您的桌面软件可以最大限度、最灵活的方式适应互联网各种服务，一个更大的DOM，
+                                        允许您实现Web端对桌面端最佳的控制，使得应用页面化成为现实，进而使得软件可以基于Web技术构建互联网内容生态。
                                     </li>
                                     <li>
-                                        <b>Support<a href="#" onclick="OpenCERURL();" style="font-size: 20px; color:forestgreen">Common Eclipse Runtime</a></b>：Bulit-in Eclipses enables you to freely navigate Java components, combining Java, .Net, 
-                                        and JavaScript to enable powerful "web-desktop" interoperability. Combined with Eclipse's own ecological technology, Sunny uses CER to enable application developers to build Java-based application ecosystems.
+                                        <b>支持<a href="#" onclick="OpenCERURL();" style="font-size: 20px; color:forestgreen">Common Eclipse Runtime</a></b>：Bulit-in Eclips支持，
+                                        使得您可以自由驾驭Java组件，将Java、.Net、JavaScript巧妙的融合在一起，实现强大的“Web-桌面端”的互操作。
+                                        结合Eclipse本身的生态技术，Sunny借助于CER，使得应用开发者可以构建以Java基础的应用生态。
                                     </li>
                                 </ol>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny is trying to integrate through a single technology architecture:
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSunny试图通过一个单一的技术架构，整合:
                                     <ul style="font-size: 16px; font-weight:bold; color:midnightblue">
                                         <li>Microsoft .NET(Core)</li>
                                         <li>Google Chromium</li>
@@ -666,8 +725,7 @@
                                     </ul>
                                 </p>
                                 <p style="font-size: 16px; font-weight:bold; color:blueviolet">
-                                    So that the software ecosystem can be built on the basis of a large technology community, while making Internet services become a fundamental part of desktop software, 
-                                    developers only need to make full use of, without worrying about bridging problems.
+                                    使得软件生态可以建立在庞大技术社区基础之上，同时使得<i style="color:brown">互联网服务 </i>成为桌面软件的基础部分，开发者只需充分利用，而不用担心衔接问题。
                                 </p>
                             </td>
                     </tbody>
@@ -684,9 +742,9 @@
             </startup>
         </article>
         <article class="hidden content1 markdown-body">
-            <x style="font-size:40px; color:crimson">Sunny's <i style="font-size:40px; color:fuchsia">New </i>World of .NET</x>
-            <center><p style="font-size: 32px; font-weight: bold; color: blue"><i style="color:brown">DOM </i>Define .NET</p></center>
-            <h4>Using DOM to define new .Net elements enables us to add new elements to the application system with the help of web pages outside a software system</h4>
+            <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
+            <center><p style="font-size: 32px; font-weight: bold; color: blue"><i style="color:brown">DOM </i>定义.NET</p></center>
+            <h4>用DOM定义新的.NET元素，使得我们可以在一个软件系统之外借助Web页面给应用系统增加新元素</h4>
             <p>
                 Common Web Runtime constructs a new mixed world of native UI elements and web elements.
                 In this world, a new web page is defined. While taking into account the standard web page,
@@ -703,42 +761,43 @@
             </content1>
         </article>
         <article class="hidden contentcle markdown-body">
-            <x style="font-size:40px; color:crimson">Sunny's <i style="font-size:40px; color:fuchsia">New </i>World of .NET<strong></strong></x>
+            <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
             <center style="font-size:40px; color:green"><h2>Common Layout Engine</h2></center>
-            <p style="font-size: 28px;font-weight: bold; color: black">Common Layout Engine is a Multi-Level, Gridded, Nestable, easy to describe UI layout description engine.</p>
+            <p style="font-size: 28px;font-weight: bold; color: black">Common Layout Engine是一个多层次、网格化、可嵌套、易于描述的UI布局描述引擎。</p>
             <p style="font-size: 24px;font-weight: bold; color: blue">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe so-called <i style="color:brown">grid</i> is a window matrix with m rows and n columns (a grid with 1 row and n columns can be understood as a tab window with n tabs), 
-                and nestable means that each "grid" in the matrix can be Multiple grid layers are dynamically nested, and only one layer is visible at runtime.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp所谓<i style="color:brown">网格</i>，是一个m行n列的窗口矩阵（1行n列的网格可以理解为有n个选项卡的<b>选项卡窗口</b>），
+                而可嵌套是指矩阵中的每个“格”可以动态嵌套多个网格层，运行时只有一层可见。
             </p>
             <p style="font-size: 24px;font-weight: bold; color:cornflowerblue">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGenerally speaking, a layout may be uncertain at design time and can be dynamically generated at runtime. 
-                Due to different scenarios, permissions and other factors, different dynamic matching may be carried out. In fact, flexible layout is the result of dynamic changes of multi-layer grid.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp一般说来，某个布局在设计时可能是不确定的，并且可以在运行时动态生成，由于不同的场景、权限等因素，
+                可能会进行不同的动态匹配。实际上，柔性布局是多层网格动态变化的结果。
             </p>
             <p style="font-size: 24px;font-weight: bold; color:burlywood">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThere are two ways to describe grid: one is based on XML, which can be used in various programming languages; the other is based on DOM element of web page. 
-                The advantage of this scheme is that it is easy to connect with mainstream Internet technology.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
+                DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
             </p>
             <contentcle target="mainClient">
                 <layout>
                     <grid objid="nucleus"></grid>
                 </layout>
             </contentcle>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">Dynamic Layout One</button>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">Dynamic Layout Two</button>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">Dynamic Layout Three</button>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout3()">Dynamic Layout Four</button>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout4()">Dynamic Layout Five</button>
-            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout5()">Dynamic Layout Six</button>
-            <h3>Dynamic layout DOM description (press a button to see DOM output):</h3>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout3()">动态布局四</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout4()">动态布局五</button>
+            <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout5()">动态布局六</button>
+            <h3>动态布局DOM描述（按某个按钮看DOM输出）：</h3>
             <center><textarea name="dynlayoutdomelement" id="dynlayoutdomelement" class="tb" disabled="disabled" style="width: 96%; height: 300px; margin: 0px;"></textarea></center>
         </article>
         <article class="hidden content_grid markdown-body">
-            <center style="font-size:36px; color:blue"><b>Grid</b></center>
+            <center style="font-size:36px; color:blue"><b>网格：Grid</b></center>
             <p style="font-size:24px; color:chocolate">
                 <b>
-                    <i>Grid</i> 
-                    <x style="font-size:24px; color:black">
-                         is a window matrix with M rows and N columns. As a container, a specific "grid" in the grid can host a new grid or a programmable object, such as .Net UserControl, WinForm or WPF object, or other objects implemented by C + +, such as MFC CView……
+                    <i>网格</i> <x style="font-size:24px; color:black">
+                        是一个m行n列的窗口矩阵，做为一个容器，网格中的一个具体的"格"可以承载新的网格，
+                        或者承载一个可编程对象，例如可以承载.NET Usercontrol,可以承载WinForm或者WPF对象，
+                        也可以是C++实现的其他对象，例如MFC CView……
                     </x>
                 </b>
             </p>
@@ -759,8 +818,9 @@
             </content_grid>
             <p>
                 <b style="font-size:24px; color:black">
-                    In a specific web page or an XML document, a DOM element corresponding to "grid" can be defined in the following format. Here, a description of DOM corresponding to a grid structure of 3 rows and 3 columns is given. Please refer to Sunny.index.html
-                    <xmp style="font-size:28px; color:blue"><content_grid target="mainClient">
+                    在一个具体的页面内或者一个XML文档中，可以用如下格式定义一个与“网格”对应的DOM元素，
+                    这里给出一个3行3列的网格结构对应的DOM描述，具体请参考Sunny.index.html
+                    <xmp style="font-size:28px; color:red"><content_grid target="mainClient">
     <layout>
         <grid rows="3" cols="3" width="150,100,100" height="200,180,100">
             <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
@@ -779,30 +839,35 @@
                 </b>
             </p>
             <h3>
-                A grid without child nodes can host specific programmable objects, or the runtime can host a new grid structure, depending on the specific programming requirements. When we clearly need a grid to hold a specific object, we need to specify the "objid" attribute of the object.
+                一个没有子节点的网格，可以承载具体的可编程对象，或者运行时承载一个新的网格结构，取决于具体的编程需求。
+                当我们明确需要一个网格可以承载具体对象的时候，我们需要指定对象的“objid”属性。
             </h3>
             <h3>
-                Currently Sunny can support several types of programmable objects, including:
+                当前Sunny可以支持几类可编程对象，具体包括：
                 <ol style="font-size:28px; color:red">
-                    <li><b>.NET UI Object</b></li>
-                    <li><b>ActiveX Control</b></li>
-                    <li><b>C++ objects conforming to certain specifications</b></li>
-                    <li><b>Web Page</b></li>
+                    <li><b>.NET UI对象</b></li>
+                    <li><b>ActiveX控件对象</b></li>
+                    <li><b>符合一定规范的C++对象</b></li>
+                    <li><b>Web页面</b></li>
                 </ol>
             </h3>
             <h3>
-                For .Net UI, we generally refer to WinForm, UserControl and WPF, and UWP support will be added in subsequent versions. When a grid loads the. Net UI, the objid attribute is the AssemblyQualifiedName of the object. Usually, it is a string such as "A.B, C", where a is the object's namespace, B is the class name, and C is the component name.
+                对于.NET UI，我们泛指WinForm、Usercontrol、WPF，后续版本将增加UWP支持。一个网格加载.NET UI，
+                objid属性就是该对象的AssemblyQualifiedName，通常情况下，就是“a.b,c”这样的字符串，其中a是对象的NameSpace，
+                b是类名字，c是组件名。
             </h3>
             <h3>
-                For example, suppose we have a .Net component library xxx.dll , where there is a formx object whose namespace is "mynamespace", then objid is“ MyNamespace.FormX,XXX ", and the corresponding grid nodes are as follows：
+                例如，假设我们有一个.NET组件库xxx.dll，其中有一个FormX对象，其NameSpace是“MyNamespace”，
+                那么objid即为“MyNamespace.FormX,xxx”,对应的网格节点如下：
             </h3>
             <b><xmp style="font-size:30px; color:blue"><grid objid="MyNamespace.FormX,xxx"></grid></xmp></b>
         </article>
         <article class="hidden tabgrid markdown-body">
-            <center style="font-size:36px; color:blue"><b>Tab</b></center>
+            <center style="font-size:36px; color:blue"><b>标签（选项卡）</b></center>
             <p style="font-size:24px; color:black">
                 <b>
-                    If a grid element contains child nodes, and the grid does not have "rows" and "cols" attributes, sunny interprets it as a "tab", and the number of tabs it contains is the number of its child nodes.
+                    如果一个网格元素包含子节点，同时这个网格没有“rows”、“cols”属性，Sunny将其解释为一个“选项卡（标签）”，
+                    其包含的选项卡个数就是其子节点个数。
                 </b>
             </p>
             <tabgrid target="mainClient">
@@ -817,7 +882,9 @@
             <figcaption>
                 <p>
                     <b>
-                        Tab style: set with style attribute, style = "mn" (the default value is "19"), where the value of m can be 1 (left), 2 (top), 3 (right) and 4 (bottom), respectively, corresponding to four edges; the value of n can be 0-9, corresponding to 10 different tab display styles.
+                        标签风格:用style属性设定，style="mn"(默认值是"19"),
+                        其中m的值可以为1(左)、2(顶)、3(右)、4(底)，分别对应
+                        四个边；n的值可以取0-9，对应10种不同的选项卡显示样式。
                     </b>
                 </p>
             </figcaption>
@@ -826,16 +893,16 @@
                     <thead>
                         <tr>
                             <th> Tabbed Layout
-                            <th> Script
+                            <th> 描述
 
                     <tbody>
                         <tr>
                             <td> <img src="image/tabbed.png" width="300" height="280" />
                             <td>
                                 <b>
-                                    The display style = "23" indicates that the tab is the left tab
+                                    显示风格style="23"表明标签是左侧标签
                                     <p>
-                                        On a web page or in XML, a tab can be described as follows:
+                                        在Web页面上或者XML中，可以按照如下方式描述一个标签(选项卡)：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
         <grid style="23">
@@ -852,9 +919,9 @@
                             <td> <img src="image/tabbed19.png" width="300" height="280" />
                             <td>
                                 <b>
-                                    The display style = "19" indicates that the tab is the top tab
+                                    显示风格style="19"表明标签是上侧标签
                                     <p>
-                                        On a web page or in XML, a tab can be described as follows:
+                                        在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
         <grid style="19">
@@ -871,9 +938,9 @@
                             <td> <img src="image/tabbed18.png" width="300" height="280" />
                             <td>
                                 <b>
-                                    The display style = "18" indicates that the label is a outlook bar type tab
+                                    显示风格style="18"表明标签是抽屉式标签
                                     <p>
-                                        On a web page or in XML, a tab can be described as follows:
+                                        在Web页面上或者XML中，可以按照如下方式描述一个标签结构：
                                         <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
     <layout>
         <grid style="18">
@@ -892,7 +959,10 @@
         <article class="hidden compositegrid markdown-body">
             <center style="font-size: 36px; font-weight: 900; color: blue"><b>Multi-Level Grid Layout</b></center>
             <p style="font-size: 24px; font-weight: 900; color: black">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe grid layout structure supports any level of "grid composite", because the "tab structure" can have multiple "styles", and each specific sub-grid can carry various programmable objects, which can form a more general basis With an integrated and integrated layout structure, the host application system can present a web application ecology with the dual advantages of native applications and web applications through web pages. Here is how to express the DOM structure of a "three-level composite" grid on a Web page or in xml:
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格布局结构支持任意级别的“网格复合“，因为“tab结构”可以有多种“样式”，每个特定的子网格可以
+                承载各种可编程对象，以此为基础可以形成更加一般化、综合的布局结构，宿主应用系统可以通过网
+                页呈现出<b>兼具原生应用与web应用的双重优势的网页应用生态</b>。这里显示的是Web页面上或者xml
+                中如何表达一个“三级复合”网格的DOM结构：
                 <xmp style=" font-size: 24px; font-weight: 900; color: blue"><compositegrid target="mainClient">
     <layout>
         <grid style="23">
@@ -941,38 +1011,39 @@
                     </grid>
                 </layout>
             </compositegrid>
-            <p style=" font-size: 24px; font-weight: 900; color: blue">For more composite structures, you can click the following buttons:</p>
+            <p style=" font-size: 24px; font-weight: 900; color: blue">更多的复合结构，可以点击以下按钮：</p>
             <center>
-                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid1()">Composite grid 1</button>
-                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid2()">Composite grid 2</button>
-                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid3()">Composite grid 3</button>
-                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid4()">Composite grid 4</button>
+                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid1()">复合网格一</button>
+                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid2()">复合网格二</button>
+                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid3()">复合网格三</button>
+                <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid4()">复合网格四</button>
             </center>
         </article>
         <article class="hidden content_cwr markdown-body">
-            <p style="font-size:40px; color:forestgreen">Sunny's <i style="font-size:40px; color:fuchsia">New </i>World of .NET<strong></strong></p>
+            <p style="font-size:40px; color:forestgreen">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
             <center style="font-size:40px; color:tomato"><h2>Common Web Runtime</h2></center>
-            <p style="font-size:32px; color:darkblue">Common Web Runtime(CWR) is the dynamic link library version of <strong><i style="font-size:32px; color:darkviolet">Google Chromium Project</i></strong></p>
+            <p style="font-size:32px; color:darkblue">Common Web Runtime(CWR)是<strong><i style="font-size:32px; color:darkviolet">Google Chromium </i>项目的动态链接库版本</strong></p>
             <p>
                 <b style="font-size:20px; color:Highlight">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe CWR contains all the code for the chromium project. Its goal is to make the windows desktop application implement the built-in modern browser model according to the consistent scheme, 
-                    and make the host desktop software become the modern web browser naturally. Different from the traditional browser, the application integrated with CWR has its own application object model. 
-                    Because all functions of browser are provided based on DLL mode, CWR does not know what the host application is and what object model the host application contains. CWR solves the connection problem between host model and browser standard model, 
-                    the real browser model can only be determined after a specific host application is defined.
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCWR包含Chromium项目的所有代码。其目标是使Windows桌面应用程序按照一致的方案实现内置的现代浏览器模型，
+                    使宿主桌面软件自然成为现代web浏览器。与传统浏览器不同的是，与CWR集成的应用程序有自己的应用对象模型，
+                    由于浏览器部分的所有功能都是基于dll模式提供的，CWR事先并不知道宿主应用程序是什么，也不清楚宿主应用
+                    程序包含什么对象模型，CWR解决了宿主模型和浏览器标准模型之间的连接问题，因此只有在定义了特定的宿主应用
+                    程序之后才能确定真正的浏览器模型。
                 </b>
             </p>
             <p>
                 <b style="font-size:20px; color:blue">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe DOM model of the host application will be a superset of the DOM model of the standard browser. In other words, the host application system will provide parts of the application model that cannot be provided in the standard browser. 
-                    The actual DOM model of the host application may include members that are not part of the standard browser DOM model, which means that the host application supports both standard and application based web pages (there is no application based web page in standard browser mode). 
-                    Because the host application has all the functions of chromium project built in, application developers can develop new application content for host application based on Web technology, and make host application become software ecosystem based on Web technology.
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp宿主应用程序的DOM模型将是标准浏览器的DOM模型的一个超集。换句话说，宿主应用程序系统将提供标准浏览器中无法提供的应用
+                    模型部分。宿主应用程序的实际DOM模型可能包括不属于标准浏览器DOM模型的成员，这意味着宿主应用程序同时支持标准网页和基于
+                    应用程序的网页（标准浏览器模式下没有基于应用程序的网页）。由于宿主应用程序内置了Chromium项目的所有功能，应用程序开发
+                    人员可以基于Web技术为宿主应用程序开发新的应用程序内容，使宿主应用程序成为基于Web技术的软件生态系统。
                 </b>
             </p>
             <p>
                 <b style="font-size:20px; color:black">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspIn terms of DOM, CWR adds the support of. Net framework, which allows DOM elements for. Net UI to be written with DOM rules on Web pages. 
-                    That is to say, WinForm, UserControl, WPF and other objects can be embodied in the actual development as part of page elements, 
-                    which is very important for the formation of application ecology.
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCWR在DOM方面，增加了.NET Framework的支持，允许在Web页面上用DOM的规则写针对.NET UI的DOM元素，也就是说
+                    WinForm、Usercontrol、WPF等对象可以做为页面元素的一部分体现在实际的开发之中，这一点对形成应用生态非常重要。
                 </b>
             </p>
             <content_cwr target="mainClient">
@@ -987,10 +1058,10 @@
             <center><img src="image/chrome.png" width="750" height="500" /></center>
         </article>
         <article class="hidden content_using_browser markdown-body">
-            <strong style="font-size:40px; color:navy">Using <i style="font-size:40px; color:fuchsia">Browser </i>Window</strong>
+            <strong style="font-size:40px; color:navy">使用<i style="font-size:40px; color:fuchsia">浏览器 </i>窗口</strong>
             <h4><a href="#" onclick="OpenAppURL();" style="font-size:32px;color:forestgreen">Web App 1</a></h4>
             <h4><a href="#" onclick="OpenAppURL2();" style="font-size:32px;color:forestgreen">Web App 2</a></h4>
-            <strong style="font-size:40px; color:navy">Using <i style="font-size:40px; color:fuchsia">.NET UI </i>Object</strong>
+            <strong style="font-size:40px; color:navy">使用<i style="font-size:40px; color:fuchsia">.NET UI </i>对象</strong>
             <p>
                 <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form1_SunnyForms2()">Form App 1</button>
                 <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form2_SunnyForms2()">Form App 2</button>
@@ -1008,24 +1079,25 @@
             </content_using_browser>
         </article>
         <article class="hidden content_cer markdown-body">
-            <p style="font-size:40px; color:blue">Sunny's <i style="font-size:40px; color:fuchsia">New </i>World of .NET<strong></strong></p>
+            <p style="font-size:40px; color:blue">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
             <center style="font-size:40px; color:blue"><h2>Common Eclipse Runtime</h2></center>
-            <p style="font-size:32px; color:crimson">The Common Eclipse Runtime(CER) is the dynamic link library version of the <strong><i style="font-size:32px; color:fuchsia">Eclipse </i>Project</strong></p>
+            <p style="font-size:32px; color:crimson">Common Eclipse Runtime(CER)是<strong><i style="font-size:32px; color:fuchsia">Eclipse </i>项目的动态链接库版本</strong></p>
             <h3>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspIt contains all the code for the eclipse project. Its goal is to make the windows desktop application implement the built-in eclipse model according to the consistent scheme, 
-                and make the host desktop software become the startup program of eclipse naturally.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp它包含Eclipse项目的所有代码。其目标是使windows桌面应用程序按照一致的方案实现内置的Eclipse模型，
+                使宿主桌面软件自然成为Eclipse的启动程序。
             </h3>
             <h3>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDifferent from the traditional eclipse, the application integrated with CER (Common Eclipse Runtime) has its own application object model. 
-                Since all the functions of the eclipse part are provided based on the dll mode, CER does not know in advance whether the host application is What, what object model the host application contains, 
-                CER solves the connection problem between the host model and the eclipse standard model, so the real eclipse model can only be determined after the host application is clear. At the same time, 
-                the OSGi model of the host application will be larger than the standard eclipse OSGi model. In other words, the host application system will provide application model parts that are not provided in the standard eclipse.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp与传统的eclipse不同的是，与CER(Common Eclipse Runtime)集成的应用程序有自己的应用程序对象模型，
+                由于eclipse部分的所有功能都是基于dll模式提供的，因此CER事先不知道宿主应用程序是什么，宿主应用程序
+                包含什么对象模型，CER解决了宿主模型和eclipse标准模型之间的连接问题，因此只有在明确宿主应用程序之后才能确定真正的
+                eclipse模型。同时，宿主应用程序的OSGi模型将比标准eclipse的OSGi模型更大。换句话说，宿主应用程序系统将提供标准eclipse中
+                没有提供的应用模型部分。
             </h3>
             <h3>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThe actual OSGi model of the host application may include members that are not part of the standard eclipse OSGi model, 
-                which means that the host application supports both standard eclipse components and application-based eclipse components, and does not provide specific application-oriented components in the standard Eclipse mode eclipse components. 
-                Because the host application has all the functions of the Eclipse project built-in, application developers can develop new application content for the host application based on Eclipse technology, 
-                so that the host application becomes a software ecosystem based on Java technology.
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp宿主应用程序的实际OSGi模型可能包括不属于标准eclipse OSGi模型的成员，这意味着宿主应用程序同时支持标准eclipse组件
+                和基于应用程序的eclipse组件，并且在标准Eclipse模式下没有提供面向具体应用程序的eclipse组件。由于宿主应用程序内置了Eclipse项目
+                的所有功能，应用程序开发人员可以基于Eclipse技术为宿主应用程序开发新的应用程序内容，从而使宿主应用程序成为一个基于Java技术
+                的软件生态系统。
             </h3>
             <content_cer target="mainClient">
                 <layout>
@@ -1034,7 +1106,7 @@
             </content_cer>
         </article>
         <article class="hidden content_using_workbench markdown-body">
-            <p style="font-size:40px; color:crimson">Using <strong><i style="font-size:40px; color:fuchsia">WorkBench </i>Window</strong></p>
+            <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">WorkBench </i>窗口</strong></p>
             <center><img src="image/eclipse.png" width="900" height="450" /></center>
             <content_using_workbench target="mainClient">
                 <layout>
@@ -1047,7 +1119,7 @@
             </content_using_workbench>
         </article>
         <article class="hidden content_using_swt markdown-body">
-            <p style="font-size:40px; color:crimson">Using <strong><i style="font-size:40px; color:fuchsia">SWT </i>Form</strong></p>
+            <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">SWT </i>Form</strong></p>
             <content_using_swt target="mainClient">
                 <layout>
                     <grid style="18">
@@ -1060,7 +1132,7 @@
         </article>
 
         <article class="hidden content_using_winform markdown-body">
-            <p style="font-size:40px; color:darkgreen">Using <strong><i style="font-size:40px; color:fuchsia">WinForm </i>in Web Pages</strong></p>
+            <p style="font-size:40px; color:darkgreen">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
             <content_using_winform target="mainClient">
                 <layout>
                     <grid style="29">

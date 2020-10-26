@@ -185,35 +185,38 @@
 <body background="newworld.jpg">
     <define tagName="webViewport"></define>
     <define tagName="gridTemplate"></define>
-    <strong style="font-size:40px; color:indianred">Sunny's <i style="font-size:40px; color:fuchsia">New </i>World of .NET</strong>
-    <p><center><strong style="font-size:36px; color:blue">A Brand New Web is here...</strong></center></p>
+    <strong style="font-size:40px; color:indianred">艳阳的.NET<i style="color:fuchsia">新 </i>世界</strong>
+    <p><center><strong style="font-size:36px; color:blue">一个全新的Web在这里拉开了帷幕...</strong></center></p>
     <p>
         <button style="font-size: 18px; font-weight:bold; color:darkgreen" onclick="OnDockdemo()"><i>Press me to continus</i>...</button>&nbsp
-        <button style="font-size: 18px; font-weight:bold; color:crimson" onclick="OnDockdemo2()"><i>See how Sunny organizes WinForm objects dynamically</i>...</button>&nbsp
-        <button style="font-size: 18px; font-weight:bold; color:darkmagenta" onclick="OnDockdemo3()"><i>See how Sunny organizes Usercontrol objects</i>...</button>
+        <button style="font-size: 18px; font-weight:bold; color:crimson" onclick="OnDockdemo2()"><i>看看艳阳如何动态组织 WinForm对象</i>...</button>&nbsp
+        <button style="font-size: 18px; font-weight:bold; color:darkmagenta" onclick="OnDockdemo3()"><i>看看艳阳如何组织 Usercontrol对象</i>...</button>
     </p>
     <br />
-    <strong style="font-size:32px; color:darkred">Dock: The attribute of being familiar and unfamiliar</strong>
+    <strong style="font-size:32px; color:darkred">Dock：既熟悉又陌生的属性</strong>
     <p style="font-size: 20px; font-weight:bold; color:midnightblue">
-        Every .NET UI (WinForm, Usercontrol, WPF) object has a Dock property, which has always existed since the birth of the .NET Framework. Over the years, we have become accustomed to the mature use of the Dock attribute, and our thinking has fallen into inertia, forming a blind spot. Generally speaking, the Dock property divides UI objects into two categories, as shown in the table on the right.
+        每一个.NET UI(WinForm、Usercontrol、WPF)对象都拥有Dock属性，自从.NET Framework诞生以来，
+        这个属性一直都存在。长年以来，我们已经习惯了Dock属性的<i style="font-weight:bold; color:red">约定成熟 </i>的使用方式，进而思维陷入了惯性，
+        形成了盲点。一般说来，Dock属性将UI对象分为两大类，如右侧的表所示。
         <center>
             <table class="dock" border="5">
                 <thead>
                     <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
-                        <th> About Dock Attribute
-                        <th width="300"> Controls are classified by Dock Attribute
+                        <th> 关于Dock属性
+                        <th width="300"> 按Dock属性控件分类
                     </tr>
                 <tbody>
                     <tr>
                         <td>
-<p style="font-size: 20px; font-weight:bold; color:midnightblue">
-        Because the Dock attribute is the second type of control, it must depend on a specific control. This dependency determines that <i style=" font-weight: bold; color: red; text-decoration: underline">this type of control generally cannot be the main bearing control of a certain type of content</i>.
+    <p style="font-size: 20px; font-weight:bold; color:midnightblue">
+        由于Dock属性为第二类的控件必须依赖于某个特定的控件，这种依赖关系确定了<i style=" font-weight: bold;
+                                color: red; text-decoration: underline">这类控件一般不能成为某类内容的主体承载控件</i>。
     </p>
     <p style="font-size: 20px; font-weight:bold; color:midnightblue">
-        The first type of control includes the following two situations:
+        第一类控件包含如下两种情况：
         <ul style="font-size: 18px; font-weight:900; color:mediumvioletred">
-            <li>The control itself is a child object of another .NET UI control</li>
-            <li>Is Another Child Window of a non-.NET UI object (DockStyle.None)</li>
+            <li>控件本身是另外一个.NET UI控件的子对象</li>
+            <li>是另外一个非.NET UI对象的子窗口(DockStyle.None)</li>
         </ul>
     </p>
     </td>
@@ -222,8 +225,8 @@
             <table border="1" frame="void" class="dock2">
                 <thead>
                     <tr style="font-size: 18px; font-weight:bold; color:midnightblue">
-                        <th> Dock attribute value of the first type
-                        <th> Dock attribute value of the second type
+                        <th> 第一类Dock属性值
+                        <th> 第二类Dock属性值
                     </tr>
                 <tbody>
                     <tr>
@@ -250,9 +253,9 @@
     </table>
     </center>
     <br />
-    <strong style="font-size:32px; color:darkblue">Dynamic, Descriptive Programming Model starts from the first type of control...</strong>
+    <strong style="font-size:32px; color:darkblue">动态编程、可描述的编程模式从第一类控件开始...</strong>
     <p style="font-size: 20px; font-weight:bold; color:midnightblue">
-        Under normal circumstances, a WinForm form will contain at least one first-class .NET UI object. Let us see what is hidden by the Dock property?
+        一般情况下，一个WinForm窗体，会至少包含一个第一类.NET UI对象，让我们看看，Dock属性究竟隐藏了什么？
     </p>
 
     <layout>
