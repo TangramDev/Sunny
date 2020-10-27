@@ -72,7 +72,7 @@
     </style>
     <script type="text/javascript">
         window.grids = {};
-        hubble.onGridCreated = function (e) {
+        apppage.onGridCreated = function (e) {
             window.grids[e.grid.name] = e.grid;
             switch (e.grid.name) {
                 case "SunnyForm_Form1":
@@ -128,7 +128,7 @@
             }
         }
 
-        hubble.onHubbleMessageReceived = function (e) {
+        apppage.onHubbleMessageReceived = function (e) {
             switch (e.xobj.getStr("msgID")) {
                 case "TANGRAMAPP_READY":
                     {
@@ -172,13 +172,13 @@
             }
         }
         function OnDockdemo() {
-            hubble.Observe("dockdemo", document.getElementById("dockdemo").outerHTML);
+            apppage.Observe("dockdemo", document.getElementById("dockdemo").outerHTML);
         }
         function OnDockdemo2() {
-            hubble.Observe("dockdemo2", document.getElementById("dockdemo2").outerHTML);
+            apppage.Observe("dockdemo2", document.getElementById("dockdemo2").outerHTML);
         }
         function OnDockdemo3() {
-            hubble.Observe("dockdemo3", document.getElementById("dockdemo3").outerHTML);
+            apppage.Observe("dockdemo3", document.getElementById("dockdemo3").outerHTML);
         }
     </script>
 </head>

@@ -28,7 +28,7 @@ namespace Sunny
     {
         public SunnyForm()
         {
-            InitializeComponent();this.Dock = DockStyle.Fill;
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)

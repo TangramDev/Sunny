@@ -53,13 +53,13 @@
         var treegrid = null;
         var mainClient_ = null;
         var CompositeGrid_Splitter_ = null;
-        hubble.onWinFormCreated = function (e) {
+        apppage.onWinFormCreated = function (e) {
             e.xobj.addEventListener("SizeChanged", function (x) {
                 //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
             });
         };
 
-        hubble.onGridCreated = function (e) {
+        apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
                 case "Sunny_ntpctrl":
                     {
@@ -112,7 +112,7 @@
             }
         }
 
-        hubble.onHubbleMessageReceived = function (e) {
+        apppage.onHubbleMessageReceived = function (e) {
             switch (e.xobj.getStr("msgID")) {
                 case "TANGRAMAPP_READY":
                     {
@@ -123,7 +123,7 @@
             }
         }
 
-        hubble.onMessageReceived = function (e) {
+        apppage.onMessageReceived = function (e) {
             if (e.param3 != null) {
                 switch (e.param3) {
                     case "MainMdiForm:ActiveClient":
@@ -136,26 +136,26 @@
             }
         }
 
-        hubble.onBindCLRObject = function (e) {
+        apppage.onBindCLRObject = function (e) {
             //alert(e.name);alert(e.objtype);alert(e.hwnd);//
         }
 
         //****************************************************************
 
         function OpenNewWebURL() {
-            hubble.openUrl("host:WebPage/newweb.html", 2);
+            apppage.openUrl("host:WebPage/newweb.html", 2);
         }
 
         function OpenCLEURL() {
-            hubble.openUrl("host:webpage/CLE.html", 2);
+            apppage.openUrl("host:webpage/CLE.html", 2);
         }
 
         function OpenCWRURL() {
-            hubble.openUrl("host:webpage/CWR.html", 2);
+            apppage.openUrl("host:webpage/CWR.html", 2);
         }
 
         function OpenCERURL() {
-            hubble.openUrl("host:webpage/CER.html", 2);
+            apppage.openUrl("host:webpage/CER.html", 2);
         }
 
         function CompositeGrid1() {
