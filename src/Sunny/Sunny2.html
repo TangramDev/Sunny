@@ -58,6 +58,13 @@
             });
         };
 
+        apppage.onWinFormClosed = function (e) {
+            alert(e.form.xobj.getStr("id"));
+            e.form.xobj.setInt64("CloseInfo", 19921963);
+            e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
+            e.form.sendMessage(e.form.xobj);
+        };
+
         apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
                 case "Sunny_ntpctrl":
@@ -307,7 +314,7 @@
     <!-- End Define new DOM elements -->
     <!-- Determine the main layout of the application, "Sunny.MDIParent1,host" represents
         the Sunny.MDIParent1 class in the current executable program. -->
-    <cloud-form objid="Sunny.SunnyForm,host" caption="Sunny for new form" width="2400" height="1600">
+    <cloud-form objid="Sunny.SunnyForm,host" caption="Sunny for new form" width="2400" height="1600" queryonclose="true" id="FormX">
         <panel1 id="mainworkclient">
             <default>
                 <layout>

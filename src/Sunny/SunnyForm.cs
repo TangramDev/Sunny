@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.8							*
+*					Sunny - version 1.0.0.9							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -45,7 +45,8 @@ namespace Sunny
               "</content1>";
             Grid node = Hubble.Observe(listView1, "test", xml);
             if(node!=null)
-                node.OnTabChange += Node_OnTabChange1; node.OnIPCMessageReceived += Node_OnIPCMessageReceived; ;
+                node.OnTabChange += Node_OnTabChange1; node.OnIPCMessageReceived += Node_OnIPCMessageReceived;
+            Hubble.CreateBrowser((IntPtr)1,"host:sunny2.html|host:WebPage/newweb.html"); 
         }
 
         private void Node_OnIPCMessageReceived(string strFrom, string strTo, string strMsgId, string strPayload, string strExtra)

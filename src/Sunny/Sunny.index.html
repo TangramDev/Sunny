@@ -57,6 +57,12 @@
                 //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
             });
         };
+        apppage.onWinFormClosed = function (e) {
+            alert(2000);
+            e.form.xobj.setInt64("CloseInfo", 19921963);
+            e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
+            e.form.sendMessage(e.form.xobj);
+        };
 
         apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
@@ -91,7 +97,7 @@
                     {
                     }
                     break;
-                default:
+               default:
                     break;
             }
         }
@@ -158,6 +164,10 @@
             apppage.openUrl("host:sunny2.html|host:WebPage/newweb.html", 200);
         }
 
+        function OpenAppURL2() {
+            apppage.openUrl("host:webpage/newweb.html", 100);
+        }
+
         function OnCreate_Form1_SunnyForms2() {
             var xform = apppage.createWinForm(document.getElementById("create_form_1").outerHTML,
                 0,
@@ -202,10 +212,6 @@
                         //x.form.xobj.setStr("textBox1", "test modify textbox");
                     });
                 });
-        }
-
-        function OpenAppURL2() {
-            apppage.openUrl("host:webpage/newweb.html", 100);
         }
 
         function OpenCWRURL() {
