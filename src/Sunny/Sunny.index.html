@@ -58,7 +58,7 @@
             });
         };
         apppage.onWinFormClosed = function (e) {
-            alert(2000);
+            alert(e.form.xobj.getStr("id"));
             e.form.xobj.setInt64("CloseInfo", 19921963);
             e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
             e.form.sendMessage(e.form.xobj);
@@ -1052,19 +1052,87 @@
         </article>
         <article class="hidden content_using_browser markdown-body">
             <strong style="font-size:32px; color:navy">Using <i style="font-size:32px; color:fuchsia">Browser </i>Window</strong>
-            <h4><a href="#" onclick="OpenAppURL();" style="font-size:24px;color:forestgreen">Create a WinForm App</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#" onclick="OpenAppURL2();" style="font-size:24px;color:forestgreen">Create a WebPage App</a></h4>
+            <center>
+                <table class="sunnysolution" border="1" cellpadding="10">
+                    <thead>
+                        <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
+                            <th> Create WebPage App
+                            <th> Introductuon
+                        </tr>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <a href="#" onclick="OpenAppURL();" style="font-size:24px;color:forestgreen"><b>Create a WinForm App</b></a>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                                
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <a href="#" onclick="OpenAppURL2();" style="font-size:24px;color:forestgreen"><b>Create a WebPage App</b></a>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                                
+                            </td>
+                    </tbody>
+                </table>
+            </center>
             <hr />
             <strong style="font-size:32px; color:navy">Using <i style="font-size:32px; color:fuchsia">Browser as Child Window </i>Object</strong>
-            <p>
-                <button onclick="BrowserFormApp1()"><b style="font-size:24px; color:darkgreen">Browser Form App 1</b></button>
-                <button onclick="BrowserFormApp2()"><b style="font-size:24px; color:darkgreen">Browser Form App 2</b></button>
-            </p>
+            <center>
+                <table class="sunnysolution" border="1" cellpadding="10">
+                    <thead>
+                        <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
+                            <th> Create BrowserForm
+                            <th> Introduction
+                        </tr>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <button onclick="BrowserFormApp1()"><b style="font-size:24px; color:darkgreen">Browser Form App 1</b></button>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <button onclick="BrowserFormApp2()"><b style="font-size:24px; color:darkgreen">Browser Form App 2</b></button>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                </table>
+            </center>
             <hr />
             <strong style="font-size:32px; color:navy">Using <i style="font-size:32px; color:fuchsia">.NET UI </i>Object</strong>
-            <p>
-                <button onclick="OnCreate_Form1_SunnyForms2()"><b style="font-size:24px; color:darkgreen">Form App 1</b></button>
-                <button onclick="OnCreate_Form2_SunnyForms2()"><b style="font-size:24px; color:darkgreen">Form App 2</b></button>
-            </p>
+            <center>
+                <table class="sunnysolution" border="1" cellpadding="10">
+                    <thead>
+                        <tr style="font-size: 16px; font-weight:bold; color:midnightblue">
+                            <th> Create Win Form
+                            <th> Introduction
+                        </tr>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <button onclick="OnCreate_Form1_SunnyForms2()"><b style="font-size:24px; color:darkgreen">Form App 1</b></button>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <button onclick="OnCreate_Form2_SunnyForms2()"><b style="font-size:24px; color:darkgreen">Form App 2</b></button>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                </table>
+            </center>
             <hr />
             <content_using_browser target="mainClient">
                 <layout>
