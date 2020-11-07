@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Your First Cloud Form Application</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" id="viewport" />
+    <meta content="" id="description" />
+    <meta content="" id="author" />
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+
+        ;
+        .show {
+            display: block;
+        }
+
+        ;
+    </style>
+    <script type="text/javascript">
+        var testNode = null;
+        var mainform = null;
+        apppage.onWinFormCreated = function (e) {
+            alert("winform created:" + e.xobj.getStr("formname"));
+        };
+        apppage.onGridCreated = function (e) {
+            //alert("grid created:" + e.grid.handle);
+        };
+
+        apppage.onHubbleWindowCreated = function (e) {
+            var wnd = e.window;
+            wnd.onGridCreated = function (x) {
+                var Node = x.grid;
+                if (x.name == "testsunnymdiformsSubCtrlEvent") {
+                    Node.addEventListener("button1", "OnClick", function (e) {
+                        var xform = apppage.createWinForm(document.getElementById("testform").outerHTML,
+                            0,
+                            function (x) {
+                                x.form.addEventListener("button1", "OnClick", function (e) {
+                                    alert("hi" + "  --  " + x.form.handle);
+                                    x.form.xobj.setStr("textBox1", "test modify textbox");
+                                });
+                                x.form.SyncCtrlTextChange("textBox1;button1", function (e) {
+                                    alert("hi" + "  --  " + e.getStr("textBox1"));
+                                });
+
+                                xform.onTangramNodeCreated = function (e) {
+                                };
+                            });
+                    })
+                    Node.addEventListener("treeView1", "OnAfterSelect", function (e) {
+                        var eventtarget = e.getStr("onafterselect");
+                        var list = document.getElementsByTagName(eventtarget);
+                        for (var i = 0; i < list.length; i++) {
+                            var target = list[i].getAttribute("target");
+                            if (target != null) {
+                                apppage.sendMessage("TANGRAM_UI_MESSAGE", eventtarget, e.getInt64("subobjhandle"), list[i].outerHTML, target);
+                            }
+                        }
+
+                        var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
+                        for (var i = 0; i < sunnymdiformsElements.length; i++) {
+                            var contentElement = sunnymdiformsElements[i];
+                            if (contentElement.classList.contains(eventtarget)) {
+                                contentElement.classList.remove("hidden");
+                                contentElement.classList.add("show");
+                            } else {
+                                contentElement.classList.remove("show");
+                                contentElement.classList.add("hidden");
+                            }
+                        }
+                    })
+                }
+            };
+        };
+        apppage.onMdiChildActivate = function (e) {
+            var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
+            for (var i = 0; i < sunnymdiformsElements.length; i++) {
+                var contentElement = sunnymdiformsElements[i];
+                if (contentElement.classList.contains((e.param4 != "") ? e.param4 : "mainWindow")) {
+                    contentElement.classList.remove("hidden");
+                    contentElement.classList.add("show");
+                    for (var j = 0; j < contentElement.children.length; j++) {
+                        var x = contentElement.children[j];
+
+                        if (x.tagName.toLowerCase() == "formui") {
+                            apppage.Observe(e.param1, x.outerHTML);
+                            break;
+                        }
+                    }
+                } else {
+                    contentElement.classList.remove("show");
+                    contentElement.classList.add("hidden");
+                }
+            }
+        };
+
+        apppage.onMessageReceived = function (e) {
+            switch (e.param3) {
+                case "MainMdiForm:ActiveClient":
+                    {
+                        var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
+                        if (e.param4 != "") {
+                            for (var i = 0; i < sunnymdiformsElements.length; i++) {
+                                var contentElement = sunnymdiformsElements[i];
+                                if (contentElement.classList.contains("mainWindow")) {
+                                    contentElement.classList.remove("hidden");
+                                    contentElement.classList.add("show");
+                                    apppage.Observe("__VIEWPORT_DEFAULT__", "");
+                                } else {
+                                    contentElement.classList.remove("show");
+                                    contentElement.classList.add("hidden");
+                                }
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        apppage.onHubbleMessageReceived = function (e) {
+            switch (e.xobj.getStr("msgID")) {
+                case "TANGRAMAPP_READY":
+                    {
+                        //if (mainform == null) {
+                        //    mainform = apppage.createWinForm(document.getElementById("Mainform").outerHTML,
+                        //        0,
+                        //        function (x) {
+                        //        });
+                        //}
+                    }
+                    break;
+            }
+        }
+
+        apppage.onBindCLRObject = function (e) {
+            alert(e.name);
+            alert(e.objtype);
+            alert(e.hwnd);
+            e.xobj.addEventListener("SizeChanged", function (x) {
+                alert(x.getStr("currentevent") + " " +
+                    "Form width:" + x.getLong("width") +
+                    "\nheight:" + x.getLong("height"));
+            });
+        }
+
+        function open_win1() {
+            apppage.sendMessage("TO_TOPFRAME", "__VIEWPORT_DEFAULT__", "<default><layout><grid id='tangram' nodetype='HostView'/></layout></default>", "chrome_proxy:tangram", "__VIEWPORT_DEFAULT__", "");
+        }
+
+        function open_win2() {
+            apppage.sendMessage("TO_TOPFRAME", "2", "<tangramproperties><layout><grid id='properties' rows='3' cols='1' height ='350,250,200' width='500,' middlecolor='RGB(255,224,192)'><grid id='tangramtabctrl_Page2' caption='tangramtabctrl_Page1'/><grid id='propertiesView' objid='nucleus'/><grid id='tangramtabctrl_Page1' caption='tangramtabctrl_Page1'/></grid></layout></tangramproperties>", "chrome_proxy:tangram", "2", "");
+        }
+
+    </script>
+</head>
+<body>
+    <define tagName="mainWindow"></define>
+    <define tagName="application"></define>
+    <define tagName="webViewport"></define>
+    <define tagName="gridTemplate"></define>
+    <gridTemplate type="winform" objid="sunnymdiforms.Form1,sunnymdiforms" uikey="form1" caption="test child form1" id="testform">
+        <mainpanel>
+            <default>
+                <layout>
+                    <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                        <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                        <grid id='test1'></grid>
+                    </grid>
+                </layout>
+            </default>
+        </mainpanel>
+        <panel1 id="test3">
+        </panel1>
+        <treeView1>
+            <treeview1_onafterselect>
+                <maincontent target="test1">
+                    <layout>
+                        <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                            <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                            <grid id='test1'></grid>
+                        </grid>
+                    </layout>
+                </maincontent>
+                <maincontent target="test3">
+                    <layout>
+                        <grid id="Start_S0001" style="19">
+                            <grid id="Page3" caption="Create your own NTP Page" objid="sunnymdiforms.UserControl1,sunnymdiforms"></grid>
+                            <grid id="Page4" caption="Customize your own WebBrowser"></grid>
+                        </grid>
+                    </layout>
+                </maincontent>
+                <maincontent target="hostclient">
+                    <layout>
+                        <grid id="Start_S0001" style="39">
+                            <grid id="Page1" caption="xxxxxxx" objid="nucleus"></grid>
+                            <grid id="Page2" caption="yyy"></grid>
+                            <grid id="Page3" caption="Create your own NTP Page"></grid>
+                            <grid id="Page4" caption="Customize your own WebBrowser"></grid>
+                        </grid>
+                    </layout>
+                </maincontent>
+                <$safeprojectname_lower$ target="test1">
+                    <layout>
+                        <grid id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                            <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                            <grid id='test1'></grid>
+                            <grid id='test2'></grid>
+                            <grid id='test3'></grid>
+                        </grid>
+                    </layout>
+                </$safeprojectname_lower$>
+                <$safeprojectname_lower$ target="test3">
+                    <layout>
+                        <grid id="Start_S0001" style="17">
+                            <grid id="Page3" caption="sunnymdiforms Page"></grid>
+                            <grid id="Page4" caption="sunnymdiforms Page2"></grid>
+                        </grid>
+                    </layout>
+                </$safeprojectname_lower$>
+                <$safeprojectname_lower$ target="hostclient">
+                    <layout>
+                        <grid id="Start_S0001" style="18">
+                            <grid id="Page1" caption="111111" objid="nucleus"></grid>
+                            <grid id="Page2" caption="222222"></grid>
+                            <grid id="Page3" caption="33333 your own NTP Page"></grid>
+                        </grid>
+                    </layout>
+                </$safeprojectname_lower$>
+            </treeview1_onafterselect>
+            <treeview1_onnodemousedoubleclick></treeview1_onnodemousedoubleclick>
+            <uidata key="ntpdata" treenode="true" width="0" height="0" text="Welcome to the World of Tangram!">
+                <featurelist treenode="true" text="Feature Lists">
+                    <node1 treenode="true" text="Welcome to the New Cloud-Desktop Mixed World"></node1>
+                    <node1_tag action="openurl" onafterselect="maincontent">
+                    </node1_tag>
+                    <node2 treenode="true" text="ChromeRuntime Support"></node2>
+                    <node2_tag target="test1" onafterselect="sunnymdiforms>
+                    </node2_tag>
+                    <node3 treenode="true" text="JavaRuntime Support"></node3>
+                    <node3_tag action="doubleclick" target="test3">
+                    </node3_tag>
+                    <node4 treenode="true" text="CLR Support"></node4>
+                    <node4_tag action="openurl">
+                        <openurl url="http://www.apppage.dev"></openurl>
+                    </node4_tag>
+                    <node5 treenode="true" text="COM Support"></node5>
+                    <node5_tag action="openurl">
+                        <openurl url="http://www.apppage.dev"></openurl>
+                    </node5_tag>
+                    <node6 treenode="true" text="C++ Support"></node6>
+                    <node6_tag action="openurl">
+                        <openurl url="http://www.apppage.dev"></openurl>
+                    </node6_tag>
+                    <node7 treenode="true" text="Office Support"></node7>
+                    <node7_tag action="openurl">
+                        <openurl url="http://www.apppage.dev"></openurl>
+                    </node7_tag>
+                </featurelist>
+                <Samples treenode="true" text="Samples for Tangram">
+                    <sample1 treenode="true" text="Tangram Sample1(doubleclick me)"></sample1>
+                    <sample1_tag action="openurl">
+                        <openurl url="http://www.apppage.dev/sample/sample1.html"></openurl>
+                    </sample1_tag>
+                    <sample2 treenode="true" text="Tangram Sample2(doubleclick me)"></sample2>
+                    <sample2_tag action="openurl">
+                        <openurl url="http://www.apppage.dev/sample/sample2.html"></openurl>
+                    </sample2_tag>
+                    <sample3 treenode="true" text="Tangram Sample3(doubleclick me)"></sample3>
+                    <sample3_tag action="openurl">
+                        <openurl url="http://www.apppage.dev/sample/sample3.html"></openurl>
+                    </sample3_tag>
+                    <sample4 treenode="true" text="Tangram Sample4(doubleclick me)"></sample4>
+                    <sample4_tag action="openurl">
+                        <openurl url="http://www.apppage.dev/sample/sample4.html"></openurl>
+                    </sample4_tag>
+                </Samples>
+            </uidata>
+            <default>
+                <layout>
+                    <grid id='properties' rows='1' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                        <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                        <grid id='test1'></grid>
+                    </grid>
+                </layout>
+            </default>
+        </treeView1>
+    </gridTemplate>
+    <gridTemplate type="usercontrol" objid="sunnymdiforms.usercontrol,sunnymdiforms" uikey="control1">
+        <button1 id="testButtonatctrl">
+        </button1>
+        <listview1 id="test1">
+            <default>
+                <layout>
+                    <grid id='properties' rows='1' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                        <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                        <grid id='test1'></grid>
+                    </grid>
+                </layout>
+            </default>
+        </listview1>
+    </gridTemplate>
+    <webViewport>
+        <layout>
+            <grid nodetype="splitter" rows="1" cols="2" width="350,100,">
+                <grid objid="sunnymdiforms.Form1,sunnymdiforms" uikey="form1" id="testsunnymdiformsSubCtrlEvent"></grid>
+                <grid nodetype="splitter" rows="2" cols="1" height="350,100," id="asasdasd">
+                    <grid objid="nucleus" id="hostclient"></grid>
+                    <grid objid="sunnymdiforms.usercontrol1,sunnymdiforms" uikey="control1"></grid>
+                </grid>
+            </grid>
+        </layout>
+    </webViewport>
+    <application>
+        <ntp>
+            <layout>
+                <grid id='splitter' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='10' middlecolor='RGB(180,180,180)'>
+                    <grid objid="nucleus"></grid>
+                    <grid objid="sunnymdiforms.UserControl1,sunnymdiforms"></grid>
+                </grid>
+            </layout>
+        </ntp>
+        <urls>
+            <test url="host:startpage.html"></test>
+            <test url="host:winapp3.html"></test>
+            <test url="http://www.baidu.com"></test>
+            <test url="http://www.csdn.net"></test>
+        </urls>
+    </application>
+    <div class="sunnymdiformscontents">
+        <div class="show mainWindow maincontent">
+            <mainWindow type="winform"
+                        formname="test"
+                        mainwindow="true"
+                        objid="sunnymdiforms.MDIForm2,sunnymdiforms"
+                        mdibkpageid="sunnymdiforms.bk,sunnymdiforms"
+                        showstartup="true"
+                        caption="Your First WinForm MDI Application Using Chromium Anywhere"
+                        id="Mainform">
+                <mdiclient>
+                    <default>
+                        <layout>
+                            <grid url="host" id="mainworkclient">
+                            </grid>
+                        </layout>
+                    </default>
+                    <sunnymdiforms_mdichild_1>
+                        <layout>
+                            <grid id='properties' rows='1' cols='2' width='300,600,'
+                                  middlecolor='RGB(255,224,192)'>
+                                <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                                <grid id="mainworkclient"></grid>
+                            </grid>
+                        </layout>
+                    </sunnymdiforms_mdichild_1>
+                    <sunnymdiforms_mdichild_2>
+                        <layout>
+                            <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                                <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                                <grid id="mainworkclient"></grid>
+                            </grid>
+                        </layout>
+                    </sunnymdiforms_mdichild_2>
+                    <sunnymdiforms_mdichild_3>
+                        <layout>
+                            <grid id='properties' rows='1' cols='2' width='600,200,' middlecolor='RGB(255,224,192)'>
+                                <grid id="mainworkclient"></grid>
+                                <grid id="tangramtabctrl" style="18">
+                                    <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
+                                    <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                                    <grid id="mainworkclient" caption="Tangram for Eclipse"></grid>
+                                </grid>
+                            </grid>
+                        </layout>
+                    </sunnymdiforms_mdichild_3>
+                </mdiclient>
+                <mdichild>
+                    <sunnymdiforms_mdichild_1 objid="sunnymdiforms.Form1,sunnymdiforms" caption="test child form1">
+                        <mainpanel>
+                            <default>
+                                <layout>
+                                    <grid id='properties' rows='1' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                                        <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                                        <grid id='test1' objid="sunnymdiforms.UserControl1,sunnymdiforms"></grid>
+                                    </grid>
+                                </layout>
+                            </default>
+                        </mainpanel>
+                    </sunnymdiforms_mdichild_1>
+                    <sunnymdiforms_mdichild_2 objid="sunnymdiforms.Form2,sunnymdiforms" tooltips="test sunnymdiforms_mdichild_2" caption="test child form2">
+                        <mainpanel>
+                            <default>
+                                <layout>
+                                    <grid id="tangramtabctrl" style="19">
+                                        <grid id='splitter' rows='1' cols='2' height='250,' width='400,100,' caption="Tangram Solution for sunnymdiforms">
+                                            <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                                            <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                                        </grid>
+                                    </grid>
+                                </layout>
+                            </default>
+                        </mainpanel>
+                    </sunnymdiforms_mdichild_2>
+                    <sunnymdiforms_mdichild_3 objid="sunnymdiforms.Form3,sunnymdiforms" caption="test child mdi form 2">
+                        <mainpanel>
+                            <default>
+                                <layout>
+                                    <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                                        <grid id='tangramtabctrl_Page2' objid='nucleus'></grid>
+                                        <grid id="tangramtabctrl" style="19">
+                                            <grid id="winform" caption="Tangram for WinForm Developer"></grid>
+                                            <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                                            <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                                        </grid>
+                                    </grid>
+                                </layout>
+                            </default>
+                        </mainpanel>
+                    </sunnymdiforms_mdichild_3>
+                </mdichild>
+            </mainWindow>
+            <input type=button value="Test Tangram 1" onclick="open_win1()" />
+            <input type=button value="Test Tangram 2" onclick="open_win2()" />
+            <input type=button value="Test Tangram 3" onclick="open_win3()" />
+            <input type=button value="Test Tangram 4" onclick="open_win4()" />
+            test: <input id="textName" type="text"><br>
+            <h1 align=center style='text-align:center'>About Cloud MDI WinForm</h1>
+            <p><b><span lang=EN-US style='font-size:20.0pt;font-family: "Times New Roman",serif'>Welcome to a Wonderful Web-Desktop Hybrid Programming World, where you will experience an Extended DOM Environment for developing desktop software using web-desktop mixed technology.</span></b></p>
+            <p><b><span lang=EN-US style='font-size:20.0pt;font-family: "Times New Roman",serif'>This is a New and Dynamic Desktop Software World where you can combine most of the existing component frameworks, such as .NET, Java, COM, C++, Web and Office etc. ...</span></b></p>
+            <formui>
+                <layout>
+                    <grid id="tangramtabctrl" style="13">
+                        <grid id="winform" caption="main div" objid="nucleus"></grid>
+                        <grid id="mfc" caption="test1"></grid>
+                        <grid id="eclipse" caption="test2"></grid>
+                    </grid>
+                </layout>
+            </formui>
+        </div>
+        <div class="hidden sunnymdiforms>
+            <h1>About Cloud Form</h1>
+            <p>
+                <b>
+                    <span lang=EN-US style='font-size:14.0pt'>
+                        <a href="test.html">Click me to see what will happen ...</a>
+                    </span>
+                </b>
+                <input type="button" value="Send Message" onclick="" />
+            <p />
+        </div>
+        <div class="hidden sunnymdiforms_mdichild_1">
+            <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 1</h1>
+            <formui>
+                <layout>
+                    <grid id="tangramtabctrl" style="27">
+                        <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
+                        <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                        <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                    </grid>
+                </layout>
+            </formui>
+            <p>
+                <b>
+                    <span lang=EN-US style='font-size:14.0pt'>
+                        <a href="test.html">Hi, Im a Active Child Form</a>
+                    </span>
+                </b>
+                <input type="button" value="Send Message" onclick="" />
+            <p />
+        </div>
+        <div class="hidden sunnymdiforms_mdichild_2">
+            <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 2</h1>
+            <formui>
+                <layout>
+                    <grid id="tangramtabctrl" style="43">
+                        <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
+                        <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                        <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                    </grid>
+                </layout>
+            </formui>
+            <p>
+                First name: <input type="text" id="fname"><br>
+                Last name: <input type="text" id="lname"><br>
+            <p />
+        </div>
+        <div class="hidden sunnymdiforms_mdichild_3">
+            <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 3</h1>
+            <formui>
+                <layout>
+                    <grid id="tangramtabctrl" style="18">
+                        <grid id="winform" caption="xxxxxxxxx" objid="nucleus"></grid>
+                        <grid id="mfc" caption="yyyyyyyyy"></grid>
+                        <grid id="eclipse" caption="zzzzzzzz"></grid>
+                    </grid>
+                </layout>
+            </formui>
+            <p>
+                <b>
+                    <span lang=EN-US style='font-size:14.0pt'>
+                        <a href="test.html">Hi, Im a Active Child Form</a>
+                    </span>
+                </b>
+                <input type="button" value="Send Message" onclick="" />
+            <p />
+        </div>
+    </div>
+</body>
+</html>

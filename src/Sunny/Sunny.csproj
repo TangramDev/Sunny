@@ -170,6 +170,16 @@
     <Content Include="WebPage\mainproblem.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\output\WebPage\mdiform1.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>WebPage\mdiform1.html</Link>
+    </Content>
+    <Content Include="WebPage\mdiform2.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WebPage\mdiform3.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="WebPage\NewWeb.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

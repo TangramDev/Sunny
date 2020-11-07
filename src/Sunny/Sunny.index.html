@@ -58,7 +58,6 @@
             });
         };
         apppage.onWinFormClosed = function (e) {
-            alert(e.form.xobj.getStr("id"));
             e.form.xobj.setInt64("CloseInfo", 19921963);
             e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
             e.form.sendMessage(e.form.xobj);
@@ -162,6 +161,18 @@
 
         function OpenAppURL() {
             apppage.openUrl("host:sunny2.html|host:WebPage/newweb.html", 200);
+        }
+
+        function OpenMdiApp1() {
+            apppage.openUrl("host:WebPage/mdiform1.html|host:webpage/CWR.html", 200);
+        }
+
+        function OpenMdiApp2() {
+            apppage.openUrl("host:WebPage/mdiform2.html", 200);
+        }
+
+        function OpenMdiApp3() {
+            apppage.openUrl("host:WebPage/mdiform3.html", 200);
         }
 
         function OpenAppURL2() {
@@ -1065,7 +1076,30 @@
                                 <a href="#" onclick="OpenAppURL();" style="font-size:24px;color:forestgreen"><b>Create a WinForm App</b></a>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
-                                
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <a href="#" onclick="OpenMdiApp1();" style="font-size:24px;color:forestgreen"><b>Create a WinMDIForm App 1</b></a>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <a href="#" onclick="OpenMdiApp2();" style="font-size:24px;color:forestgreen"><b>Create a WinMDIForm App 2</b></a>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
+                            </td>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="sunnysolution" width="50%">
+                                <a href="#" onclick="OpenMdiApp3();" style="font-size:24px;color:forestgreen"><b>Create a WinMDIForm App 3</b></a>
+                            </td>
+                            <td class="sunnysolution" width="50%" rowspan=5>
                             </td>
                     </tbody>
                     <tbody>
@@ -1074,7 +1108,6 @@
                                 <a href="#" onclick="OpenAppURL2();" style="font-size:24px;color:forestgreen"><b>Create a WebPage App</b></a>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
-                                
                             </td>
                     </tbody>
                 </table>
