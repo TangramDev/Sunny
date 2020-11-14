@@ -31,34 +31,37 @@
                         };
 
                         e.form.onLoadMdiChildWinForm = function (e) {
-                            alert(e.form.name);
                             e.form.onGridCreated = function (e) {
-                                //alert("bind mdi grid handle:"+e.grid.parentForm.mdibindgrid.handle);
                             }
-                        };
 
-                        e.form.onMdiChildActivate = function (e) {
-                            var activechildform = e.form;
-                            var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
-                            for (var i = 0; i < sunnymdiformsElements.length; i++) {
-                                var contentElement = sunnymdiformsElements[i];
-                                if (contentElement.classList.contains(activechildform.name)) {
-                                    contentElement.classList.remove("hidden");
-                                    contentElement.classList.add("show");
-                                    for (var j = 0; j < contentElement.children.length; j++) {
-                                        var x = contentElement.children[j];
+                            e.form.onMdiChildWinFormReady = function (e) {
+                                alert(this.mdibindgrid.handle+":ready");
+                                alert(this.mdiwebbindgrid.handle + ":ready");
+                            }
 
-                                        if (x.tagName.toLowerCase() == "formui") {
-                                            apppage.Observe(activechildform.name, x.outerHTML);
-                                            break;
-                                        }
+                            e.form.onMdiChildActivate = function (e) {
+                                var contentsElements = document.getElementsByClassName(this.mdiParent.name + "contents")[0].children;
+                                for (var i = 0; i < contentsElements.length; i++) {
+                                    var contentElement = contentsElements[i];
+                                    if (contentElement.classList.contains(this.name)) {
+                                        contentElement.classList.remove("hidden");
+                                        contentElement.classList.add("show");                                        
+                                    } else {
+                                        contentElement.classList.remove("show");
+                                        contentElement.classList.add("hidden");
                                     }
-                                } else {
-                                    contentElement.classList.remove("show");
-                                    contentElement.classList.add("hidden");
                                 }
-                            }
+                                switch (this.name) {
+                                    case "sunnymdiforms_mdichild_1":
+                                        break;
+                                    case "sunnymdiforms_mdichild_2":
+                                        break;
+                                    case "sunnymdiforms_mdichild_3":
+                                        break;
+                                }
+                            };
                         };
+
                     }
                     break;
                 case "mdiform2":
@@ -84,40 +87,6 @@
         };
 
         apppage.onMessageReceived = function (e) {
-            switch (e.param3) {
-                case "MainMdiForm:ActiveClient":
-                    {
-                        var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
-                        if (e.param4 != "") {
-                            for (var i = 0; i < sunnymdiformsElements.length; i++) {
-                                var contentElement = sunnymdiformsElements[i];
-                                if (contentElement.classList.contains("mainWindow")) {
-                                    contentElement.classList.remove("hidden");
-                                    contentElement.classList.add("show");
-                                    apppage.sendMessage("TANGRAM_UI_MESSAGE", "__VIEWPORT_DEFAULT__", e.param2);
-                                } else {
-                                    contentElement.classList.remove("show");
-                                    contentElement.classList.add("hidden");
-                                }
-                            }
-                        }
-                        else {
-                            for (var i = 0; i < sunnymdiformsElements.length; i++) {
-                                var contentElement = sunnymdiformsElements[i];
-                                if (contentElement.classList.toLowerCase().contains("mainWindow")) {
-                                    contentElement.classList.remove("hidden");
-                                    contentElement.classList.add("show");
-                                } else {
-                                    contentElement.classList.remove("show");
-                                    contentElement.classList.add("hidden");
-                                }
-                            }
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
         }
 
         apppage.onHubbleMessageReceived = function (e) {
@@ -210,6 +179,15 @@
                         </layout>
                     </default>
                 </mainpanel>
+                <webui>
+                    <layout>
+                        <grid id="tangramtabctrl" style="27">
+                            <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
+                            <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                            <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                        </grid>
+                    </layout>
+                </webui>
             </sunnymdiforms_mdichild_1>
             <sunnymdiforms_mdichild_2 objid="sunnymdiforms.Form2,SunnyMDIForms" tooltips="test sunnymdiforms_mdichild_2" caption="test child form2">
                 <mainpanel>
@@ -224,6 +202,15 @@
                         </layout>
                     </default>
                 </mainpanel>
+                <webui>
+                    <layout>
+                        <grid id="tangramtabctrl" style="43">
+                            <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
+                            <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
+                            <grid id="eclipse" caption="Tangram for Eclipse"></grid>
+                        </grid>
+                    </layout>
+                </webui>
             </sunnymdiforms_mdichild_2>
             <sunnymdiforms_mdichild_3 objid="sunnymdiforms.Form3,SunnyMDIForms" caption="test child mdi form 3">
                 <mainpanel>
@@ -240,6 +227,15 @@
                         </layout>
                     </default>
                 </mainpanel>
+                <webui>
+                    <layout>
+                        <grid id="tangramtabctrl" style="18">
+                            <grid id="winform" caption="xxxxxxxxx" objid="nucleus"></grid>
+                            <grid id="mfc" caption="yyyyyyyyy"></grid>
+                            <grid id="eclipse" caption="zzzzzzzz"></grid>
+                        </grid>
+                    </layout>
+                </webui>
             </sunnymdiforms_mdichild_3>
         </mdichild>
     </cloud-form>
@@ -395,23 +391,7 @@
             </grid>
         </layout>
     </webViewport>
-    <!--<application>
-        <ntp>
-            <layout>
-                <grid id='splitter' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='10' middlecolor='RGB(180,180,180)'>
-                    <grid objid="nucleus"></grid>
-                    <grid objid="sunnymdiforms.UserControl1,SunnyMDIForms"></grid>
-                </grid>
-            </layout>
-        </ntp>
-        <urls>
-            <test url="host:startpage.html"></test>
-            <test url="host:winapp3.html"></test>
-            <test url="http://www.baidu.com"></test>
-            <test url="http://www.csdn.net"></test>
-        </urls>
-    </application>-->
-    <div class="sunnymdiformscontents">
+    <div class="Mainformcontents">
         <div class="show mainWindow maincontent">
             <input type=button value="Test Tangram 1" onclick="open_win1()" />
             <input type=button value="Test Tangram 2" onclick="open_win2()" />
@@ -421,15 +401,6 @@
             <h1 align=center style='text-align:center'>About Cloud MDI WinForm</h1>
             <p><b><span lang=EN-US style='font-size:20.0pt;font-family: "Times New Roman",serif'>Welcome to a Wonderful Web-Desktop Hybrid Programming World, where you will experience an Extended DOM Environment for developing desktop software using web-desktop mixed technology.</span></b></p>
             <p><b><span lang=EN-US style='font-size:20.0pt;font-family: "Times New Roman",serif'>This is a New and Dynamic Desktop Software World where you can combine most of the existing component frameworks, such as .NET, Java, COM, C++, Web and Office etc. ...</span></b></p>
-            <formui>
-                <layout>
-                    <grid id="tangramtabctrl" style="13">
-                        <grid id="winform" caption="main div" objid="nucleus"></grid>
-                        <grid id="mfc" caption="test1"></grid>
-                        <grid id="eclipse" caption="test2"></grid>
-                    </grid>
-                </layout>
-            </formui>
         </div>
         <div class="hidden sunnymdiforms">
             <h1>About Cloud Form</h1>
@@ -444,15 +415,6 @@
         </div>
         <div class="hidden sunnymdiforms_mdichild_1">
             <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 1</h1>
-            <formui>
-                <layout>
-                    <grid id="tangramtabctrl" style="27">
-                        <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
-                        <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
-                        <grid id="eclipse" caption="Tangram for Eclipse"></grid>
-                    </grid>
-                </layout>
-            </formui>
             <p>
                 <b>
                     <span lang=EN-US style='font-size:14.0pt'>
@@ -464,15 +426,6 @@
         </div>
         <div class="hidden sunnymdiforms_mdichild_2">
             <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 2</h1>
-            <formui>
-                <layout>
-                    <grid id="tangramtabctrl" style="43">
-                        <grid id="winform" caption="Tangram for WinForm Developer" objid="nucleus"></grid>
-                        <grid id="mfc" caption="Tangram for MFC/C++ Developer"></grid>
-                        <grid id="eclipse" caption="Tangram for Eclipse"></grid>
-                    </grid>
-                </layout>
-            </formui>
             <p>
                 First name: <input type="text" id="fname"><br>
                 Last name: <input type="text" id="lname"><br>
@@ -480,15 +433,6 @@
         </div>
         <div class="hidden sunnymdiforms_mdichild_3">
             <h1 align=center style='text-align:center'>About Cloud MDI Child WinForm 3</h1>
-            <formui>
-                <layout>
-                    <grid id="tangramtabctrl" style="18">
-                        <grid id="winform" caption="xxxxxxxxx" objid="nucleus"></grid>
-                        <grid id="mfc" caption="yyyyyyyyy"></grid>
-                        <grid id="eclipse" caption="zzzzzzzz"></grid>
-                    </grid>
-                </layout>
-            </formui>
             <p>
                 <b>
                     <span lang=EN-US style='font-size:14.0pt'>
