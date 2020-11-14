@@ -171,7 +171,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\output\WebPage\mdiform1.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>WebPage\mdiform1.html</Link>
     </Content>
     <Content Include="WebPage\mdiform2.html">

@@ -21,7 +21,7 @@
         ;
     </style>
     <script type="text/javascript">
-        apppage.onWinFormCreated = function (e) {
+        apppage.onLoadWinForm = function (e) {
         };
         apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
@@ -326,7 +326,7 @@
     </application>-->
     <div class="sunnymdiformscontents">
         <div class="show mainWindow maincontent">
-            <cloud-form objid="SunnyMDIForms.MDIForm3,SunnyMDIForms"
+            <cloud-form objid="SunnyMDIForms.MDIForm3,SunnyMDIForms" mdibkpageid="sunnymdiforms.bk2,SunnyMDIForms" 
                         caption="Your First WinForm MDI Application: MDIForm3"
                         id="Mainform">
                 <mdiclient>

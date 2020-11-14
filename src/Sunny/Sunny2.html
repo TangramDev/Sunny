@@ -52,14 +52,81 @@
         var treegrid = null;
         var mainClient_ = null;
         var CompositeGrid_Splitter_ = null;
-        apppage.onWinFormCreated = function (e) {
-            e.xobj.addEventListener("SizeChanged", function (x) {
-                //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
-            });
+        apppage.onLoadMdiWinForm = function (e) {
+            // e.form.onGridCreated = function (e) {
+            //     switch (e.grid.name) {
+            //         case "Sunny_ntpctrl":
+            //             {
+            //                 e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
+            //                 e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
+            //             }
+            //             break;
+            //         case "CompositeGrid_Splitter":
+            //             {
+            //                 CompositeGrid_Splitter_ = e.grid;
+            //             }
+            //             break;
+            //     }
+            // };
+            //e.xobj.addEventListener("SizeChanged", function (x) {
+            //     //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
+            // });
         };
-
+        apppage.onLoadWinForm = function (e) {
+            switch (e.form.name) {
+                case "FormX":
+                    {
+                        e.form.onGridCreated = function (e) {
+                            alert(e.grid.name);
+                            switch (e.grid.name) {
+                                case "navCtrl":
+                                    {
+                                        treegrid = e.grid;
+                                        e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
+                                            var name = e.getStr("name");
+                                            var list = document.getElementsByTagName(name);
+                                            for (var i = 0; i < list.length; i++) {
+                                                var target = list[i].getAttribute("target");
+                                                if (target != null) {
+                                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
+                                                }
+                                            }
+                                            var contentElements = document.getElementsByClassName("contents")[0].children;
+                                            for (var i = 0; i < contentElements.length; i++) {
+                                                var classList = contentElements[i].classList;
+                                                var bContains = classList.contains(name);
+                                                classList.remove(bContains ? "hidden" : "show");
+                                                classList.add(bContains ? "show" : "hidden");
+                                            }
+                                        });
+                                    }
+                                    break;
+                                case "mainClient":
+                                    {
+                                        mainClient_ = e.grid;
+                                    }
+                                    break;
+                                case "Sunny_ntpctrl":
+                                    {
+                                        e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
+                                        e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
+                                    }
+                                    break;
+                                case "CompositeGrid_Splitter":
+                                    {
+                                        CompositeGrid_Splitter_ = e.grid;
+                                    }
+                                    break;
+                            }
+                        };
+                        e.xobj.addEventListener("SizeChanged", function (x) {
+                            //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
+                        });
+                    }
+                    break;
+            }
+        };
         apppage.onWinFormClosed = function (e) {
-            alert(e.form.xobj.getStr("id"));
             e.form.xobj.setInt64("CloseInfo", 19921963);
             e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
             e.form.sendMessage(e.form.xobj);
@@ -67,26 +134,31 @@
 
         apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
-                case "Sunny_ntpctrl":
-                    {
-                        e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
-                        e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
-                    }
-                    break;
                 case "navCtrl":
                     {
                         treegrid = e.grid;
-                        e.grid.addEventListener("treeView1", "OnAfterSelect", navCtrl_treeView1_OnAfterSelect);
+                        e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
+                            var name = e.getStr("name");
+                            var list = document.getElementsByTagName(name);
+                            for (var i = 0; i < list.length; i++) {
+                                var target = list[i].getAttribute("target");
+                                if (target != null) {
+                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
+                                }
+                            }
+                            var contentElements = document.getElementsByClassName("contents")[0].children;
+                            for (var i = 0; i < contentElements.length; i++) {
+                                var classList = contentElements[i].classList;
+                                var bContains = classList.contains(name);
+                                classList.remove(bContains ? "hidden" : "show");
+                                classList.add(bContains ? "show" : "hidden");
+                            }
+                        });
                     }
                     break;
                 case "mainClient":
                     {
                         mainClient_ = e.grid;
-                    }
-                    break;
-                case "CompositeGrid_Splitter":
-                    {
-                        CompositeGrid_Splitter_ = e.grid;
                     }
                     break;
             }

@@ -21,73 +21,65 @@
         ;
     </style>
     <script type="text/javascript">
-        apppage.onWinFormCreated = function (e) {
-            //alert("winform created:" + e.xobj.getStr("formname"));
+        apppage.onLoadWinForm = function (e) {
+        };
+        apppage.onLoadMdiWinForm = function (e) {
+            switch (e.form.name) {
+                case "Mainform":
+                    {
+                        e.form.onGridCreated = function (e) {
+                        };
+
+                        e.form.onLoadMdiChildWinForm = function (e) {
+                            alert(e.form.name);
+                            e.form.onGridCreated = function (e) {
+                                //alert("bind mdi grid handle:"+e.grid.parentForm.mdibindgrid.handle);
+                            }
+                        };
+
+                        e.form.onMdiChildActivate = function (e) {
+                            var activechildform = e.form;
+                            var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
+                            for (var i = 0; i < sunnymdiformsElements.length; i++) {
+                                var contentElement = sunnymdiformsElements[i];
+                                if (contentElement.classList.contains(activechildform.name)) {
+                                    contentElement.classList.remove("hidden");
+                                    contentElement.classList.add("show");
+                                    for (var j = 0; j < contentElement.children.length; j++) {
+                                        var x = contentElement.children[j];
+
+                                        if (x.tagName.toLowerCase() == "formui") {
+                                            apppage.Observe(activechildform.name, x.outerHTML);
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    contentElement.classList.remove("show");
+                                    contentElement.classList.add("hidden");
+                                }
+                            }
+                        };
+                    }
+                    break;
+                case "mdiform2":
+                    break;
+            }
         };
         apppage.onGridCreated = function (e) {
             switch (e.grid.name) {
-                case "testSunnyMDIFormsSubCtrlEvent":
-                    e.grid.addEventListener("button1", "OnClick", function (e) {
-                        var xform = apppage.createWinForm(document.getElementById("testform").outerHTML,
-                            0,
-                            function (x) {
-                                x.form.addEventListener("button1", "OnClick", function (e) {
-                                    alert("hi" + "  --  " + x.form.handle);
-                                    x.form.xobj.setStr("textBox1", "test modify textbox");
-                                });
-                                x.form.SyncCtrlTextChange("textBox1;button1", function (e) {
-                                    alert("hi" + "  --  " + e.getStr("textBox1"));
-                                });
-
-                                xform.onTangramNodeCreated = function (e) {
-                                };
-                            });
-                    })
+                case "testsunnymdiformsSubCtrlEvent":
                     e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
                         var eventtarget = e.getStr("onafterselect");
                         var list = document.getElementsByTagName(eventtarget);
                         for (var i = 0; i < list.length; i++) {
                             var target = list[i].getAttribute("target");
                             if (target != null) {
-                                apppage.sendMessage("TANGRAM_UI_MESSAGE", eventtarget, e.getInt64("subobjhandle"), list[i].outerHTML, target);
-                            }
-                        }
-
-                        var SunnyMDIFormsElements = document.getElementsByClassName("SunnyMDIFormscontents")[0].children;
-                        for (var i = 0; i < SunnyMDIFormsElements.length; i++) {
-                            var contentElement = SunnyMDIFormsElements[i];
-                            if (contentElement.classList.contains(eventtarget)) {
-                                contentElement.classList.remove("hidden");
-                                contentElement.classList.add("show");
-                            } else {
-                                contentElement.classList.remove("show");
-                                contentElement.classList.add("hidden");
+                                alert(list[i].outerHTML);
+                                e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
                             }
                         }
                     })
                     break;
-            }
-        };
-
-        apppage.onMdiChildActivate = function (e) {
-            var sunnymdiformsElements = document.getElementsByClassName("sunnymdiformscontents")[0].children;
-            for (var i = 0; i < sunnymdiformsElements.length; i++) {
-                var contentElement = sunnymdiformsElements[i];
-                if (contentElement.classList.contains((e.param4 != "") ? e.param4 : "mainWindow")) {
-                    contentElement.classList.remove("hidden");
-                    contentElement.classList.add("show");
-                    for (var j = 0; j < contentElement.children.length; j++) {
-                        var x = contentElement.children[j];
-
-                        if (x.tagName.toLowerCase() == "formui") {
-                            apppage.Observe(e.param1, x.outerHTML);
-                            break;
-                        }
-                    }
-                } else {
-                    contentElement.classList.remove("show");
-                    contentElement.classList.add("hidden");
-                }
             }
         };
 
@@ -122,7 +114,6 @@
                             }
                         }
                     }
-                    break;
                     break;
                 default:
                     break;
@@ -169,7 +160,7 @@
     <define tagName="webViewport"></define>
     <define tagName="gridTemplate"></define>
     <define tagName="cloud-form"></define>
-    <cloud-form objid="sunnymdiforms.MDIForm1,SunnyMDIForms" mdibkpageid="sunnymdiforms.bkctrl,SunnyMDIForms" caption="Your First WinForm MDI Application Using Chromium Anywhere" id="Mainform">
+    <cloud-form objid="sunnymdiforms.MDIForm1,SunnyMDIForms" mdibkpageid="sunnymdiforms.bk,SunnyMDIForms" caption="Your First WinForm MDI Application Using Chromium Anywhere" id="Mainform">
         <mdiclient>
             <default>
                 <layout>
@@ -396,7 +387,7 @@
     <webViewport>
         <layout>
             <grid nodetype="splitter" rows="1" cols="2" width="350,100,">
-                <grid objid="sunnymdiforms.Form1,SunnyMDIForms" uikey="form1" id="testsunnymdiformsSubCtrlEvent"></grid>
+                <grid objid="form1" id="testsunnymdiformsSubCtrlEvent"></grid>
                 <grid nodetype="splitter" rows="2" cols="1" height="350,100," id="asasdasd">
                     <grid objid="nucleus" id="hostclient"></grid>
                     <grid objid="sunnymdiforms.usercontrol1,SunnyMDIForms" uikey="control1"></grid>

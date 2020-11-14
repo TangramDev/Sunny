@@ -21,7 +21,7 @@
         ;
     </style>
     <script type="text/javascript">
-        apppage.onWinFormCreated = function (e) {
+        apppage.onLoadWinForm = function (e) {
             //alert("winform created:" + e.xobj.getStr("formname"));
         };
         apppage.onGridCreated = function (e) {
@@ -323,7 +323,7 @@
         </urls>
     </application>-->
     <cloud-form objid="sunnymdiforms.MDIForm2,sunnymdiforms"
-                mdibkpageid=""
+                mdibkpageid="sunnymdiforms.bk1,SunnyMDIForms"
                 caption="Your WinForm MDI Application: MDIForm2"
                 queryonclose="true" 
                 id="Mainform">
