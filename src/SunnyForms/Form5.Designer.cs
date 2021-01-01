@@ -6,7 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        Cosmos.Grid hostGrid = null;
+        Universe.Xobj hostXobj = null;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>

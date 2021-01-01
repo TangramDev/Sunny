@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -13,7 +13,7 @@
 
 using System;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace Sunny
 {
@@ -27,7 +27,7 @@ namespace Sunny
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Hubble.Run();
+            Cosmos.Run();
         }
     }
 }

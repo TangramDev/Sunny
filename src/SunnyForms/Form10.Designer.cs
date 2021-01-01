@@ -61,6 +61,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form10";
             this.Text = "Form10";
+            this.Load += new System.EventHandler(this.Form10_Load);
             this.ResumeLayout(false);
 
         }

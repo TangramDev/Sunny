@@ -72,32 +72,32 @@
     </style>
     <script type="text/javascript">
         window.grids = {};
-        apppage.onGridCreated = function (e) {
-            window.grids[e.grid.name] = e.grid;
-            switch (e.grid.name) {
+        cosmos.onXobjCreated = function (e) {
+            window.grids[e.xobj.name] = e.grid;
+            switch (e.xobj.name) {
                 case "SunnyForm_Form1":
                 case "SunnyForm_Form3":
                 case "SunnyForm_Form5":
                     {
                         e.grid.addEventListener("button1", "OnClick", function (e) {
-                            switch (e.grid.name) {
+                            switch (e.xobj.name) {
                                 case "SunnyForm_Form1":
                                     {
-                                        e.grid.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
+                                        e.grid.Observe("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
                                         var grid_ = window.grids['SunnyForm_Form6'];
                                         if (!!grid_) {
-                                            grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
+                                            grid_.Observe("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
                                         }
 
                                         grid_ = window.grids['SunnyForm_Form4'];
                                         if (!!grid_) {
-                                            grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_2").outerHTML);
+                                            grid_.Observe("panel1", "panel1", document.getElementById("form_panel1_2").outerHTML);
                                         }
                                     }
                                     break;
                                 case "SunnyForm_Form3":
                                     {
-                                        e.grid.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
+                                        e.grid.Observe("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
                                     }
                                     break;
                             }
@@ -105,20 +105,20 @@
                     }
                     break;
                 case "SunnyCtrl_UserControl4":
-                    alert("UserControl Created: " + e.grid.name);
+                    alert("UserControl Created: " + e.xobj.name);
                     e.grid.addEventListener("button1", "OnClick", function (e) {
-                        switch (e.grid.name) {
+                        switch (e.xobj.name) {
                             case "SunnyCtrl_UserControl4":
                                 {
-                                    e.grid.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
+                                    e.grid.Observe("panel1", "panel1", document.getElementById("form_panel1_0").outerHTML);
                                     var grid_ = window.grids['SunnyCtrl_UserControl6'];
                                     if (!!grid_) {
-                                        grid_.ObserveCtrl("panel1", "xxx", document.getElementById("form_panel1_1").outerHTML);
+                                        grid_.Observe("panel1", "xxx", document.getElementById("form_panel1_1").outerHTML);
                                     }
 
                                     grid_ = window.grids['SunnyCtrl_UserControl1'];
                                     if (!!grid_) {
-                                        grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_2").outerHTML);
+                                        grid_.Observe("panel1", "panel1", document.getElementById("form_panel1_2").outerHTML);
                                     }
                                 }
                                 break;
@@ -128,7 +128,7 @@
             }
         }
 
-        apppage.onHubbleMessageReceived = function (e) {
+        cosmos.onCosmosMessageReceived = function (e) {
             switch (e.xobj.getStr("msgID")) {
                 case "TANGRAMAPP_READY":
                     {
@@ -139,7 +139,7 @@
                         var grid_ = window.grids['SunnyForm_Form10'];
                         grid_ = window.grids['SunnyForm_Form10'];
                         if (!!grid_) {
-                            grid_.ObserveCtrl("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
+                            grid_.Observe("panel1", "panel1", document.getElementById("form_panel1_1").outerHTML);
                         }
                         grid_ = window.grids['SunnyForm_Form5'];
                         if (!!grid_) {
@@ -172,13 +172,13 @@
             }
         }
         function OnDockdemo() {
-            apppage.Observe("dockdemo", document.getElementById("dockdemo").outerHTML);
+            cosmos.Observe("dockdemo", document.getElementById("dockdemo").outerHTML);
         }
         function OnDockdemo2() {
-            apppage.Observe("dockdemo2", document.getElementById("dockdemo2").outerHTML);
+            cosmos.Observe("dockdemo2", document.getElementById("dockdemo2").outerHTML);
         }
         function OnDockdemo3() {
-            apppage.Observe("dockdemo3", document.getElementById("dockdemo3").outerHTML);
+            cosmos.Observe("dockdemo3", document.getElementById("dockdemo3").outerHTML);
         }
     </script>
 </head>
@@ -258,110 +258,110 @@
         一般情况下，一个WinForm窗体，会至少包含一个第一类.NET UI对象，让我们看看，Dock属性究竟隐藏了什么？
     </p>
 
-    <layout>
+    <cluster> 
         <dockdemo id="dockdemo">
-            <layout>
-                <grid style="17">
-                    <grid rows="1" cols="2" width="200,600" caption="New Web,New World">
-                        <grid rows="2" cols="1" height="200,600">
-                            <grid objid="nucleus"></grid>
-                            <grid objid="SunnyCtrl.democtrl,SunnyCtrl"></grid>
-                        </grid>
-                        <grid style="18" caption="Introduction to Open Universe">
-                            <grid caption="Using WinForm"></grid>
-                            <grid caption="Using WPF Control"></grid>
-                            <grid caption="Using UserControl"></grid>
-                        </grid>
-                    </grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj style="17">
+                    <xobj rows="1" cols="2" width="200,600" caption="New Web,New World">
+                        <xobj rows="2" cols="1" height="200,600">
+                            <xobj objid="nucleus"></xobj>
+                            <xobj objid="SunnyCtrl.democtrl,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj style="18" caption="Introduction to Open Universe">
+                            <xobj caption="Using WinForm"></xobj>
+                            <xobj caption="Using WPF Control"></xobj>
+                            <xobj caption="Using UserControl"></xobj>
+                        </xobj>
+                    </xobj>
+                </xobj>
+            </cluster> 
         </dockdemo>
         <dockdemo id="dockdemo2">
-            <layout>
-                <grid style="17">
-                    <grid rows="1" cols="2" width="400,600" caption="New Web,New World">
-                        <grid style="18" caption="Introduction to Open Universe">
-                            <grid objid="SunnyForms.Form1,SunnyForms" caption="SunnyForm-Form1" id="SunnyForm_Form1"></grid>
-                            <grid objid="SunnyForms.Form2,SunnyForms" caption="SunnyForm-Form2" id="SunnyForm_Form2"></grid>
-                            <grid objid="SunnyForms.Form3,SunnyForms" caption="SunnyForm-Form3" id="SunnyForm_Form3"></grid>
-                        </grid>
-                        <grid rows="2" cols="1" height="400,600">
-                            <grid rows="1" cols="2" width="400,300">
-                                <grid objid="nucleus"></grid>
-                                <grid style="47">
-                                    <grid objid="SunnyForms.Form4,SunnyForms" caption="SunnyForm-Form4" id="SunnyForm_Form4"></grid>
-                                    <grid objid="SunnyForms.Form5,SunnyForms" caption="SunnyForm-Form5" id="SunnyForm_Form5"></grid>
-                                </grid>
-                            </grid>
-                            <grid style="17">
-                                <grid objid="SunnyForms.Form6,SunnyForms" caption="SunnyForm-Form6" id="SunnyForm_Form6"></grid>
-                                <grid objid="SunnyForms.Form7,SunnyForms" caption="SunnyForm-Form7" id="SunnyForm_Form7"></grid>
-                                <grid objid="SunnyForms.Form8,SunnyForms" caption="SunnyForm-Form8" id="SunnyForm_Form8"></grid>
-                            </grid>
-                        </grid>
-                    </grid>
-                    <grid objid="SunnyForms.Form9,SunnyForms" caption="SunnyForm-Form9" id="SunnyForm_Form9"></grid>
-                    <grid objid="SunnyForms.Form10,SunnyForms" caption="SunnyForm-Form10" id="SunnyForm_Form10"></grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj style="17">
+                    <xobj rows="1" cols="2" width="400,600" caption="New Web,New World">
+                        <xobj style="18" caption="Introduction to Open Universe">
+                            <xobj objid="SunnyForms.Form1,SunnyForms" caption="SunnyForm-Form1" id="SunnyForm_Form1"></xobj>
+                            <xobj objid="SunnyForms.Form2,SunnyForms" caption="SunnyForm-Form2" id="SunnyForm_Form2"></xobj>
+                            <xobj objid="SunnyForms.Form3,SunnyForms" caption="SunnyForm-Form3" id="SunnyForm_Form3"></xobj>
+                        </xobj>
+                        <xobj rows="2" cols="1" height="400,600">
+                            <xobj rows="1" cols="2" width="400,300">
+                                <xobj objid="nucleus"></xobj>
+                                <xobj style="47">
+                                    <xobj objid="SunnyForms.Form4,SunnyForms" caption="SunnyForm-Form4" id="SunnyForm_Form4"></xobj>
+                                    <xobj objid="SunnyForms.Form5,SunnyForms" caption="SunnyForm-Form5" id="SunnyForm_Form5"></xobj>
+                                </xobj>
+                            </xobj>
+                            <xobj style="17">
+                                <xobj objid="SunnyForms.Form6,SunnyForms" caption="SunnyForm-Form6" id="SunnyForm_Form6"></xobj>
+                                <xobj objid="SunnyForms.Form7,SunnyForms" caption="SunnyForm-Form7" id="SunnyForm_Form7"></xobj>
+                                <xobj objid="SunnyForms.Form8,SunnyForms" caption="SunnyForm-Form8" id="SunnyForm_Form8"></xobj>
+                            </xobj>
+                        </xobj>
+                    </xobj>
+                    <xobj objid="SunnyForms.Form9,SunnyForms" caption="SunnyForm-Form9" id="SunnyForm_Form9"></xobj>
+                    <xobj objid="SunnyForms.Form10,SunnyForms" caption="SunnyForm-Form10" id="SunnyForm_Form10"></xobj>
+                </xobj>
+            </cluster> 
         </dockdemo>
         <dockdemo id="dockdemo3">
-            <layout>
-                <grid style="19">
-                    <grid rows="1" cols="2" width="200,600" caption="New Web,New World">
-                        <grid rows="2" cols="1" height="300,600">
-                            <grid rows="1" cols="2" width="400,300">
-                                <grid style="29">
-                                    <grid objid="SunnyCtrl.Usercontrol4,SunnyCtrl" caption="SunnyCtrl-UserControl4" id="SunnyCtrl_UserControl4"></grid>
-                                    <grid objid="SunnyCtrl.Usercontrol5,SunnyCtrl" caption="SunnyCtrl-UserControl5" id="SunnyCtrl_UserControl5"></grid>
-                                </grid>
-                                <grid objid="nucleus"></grid>
-                            </grid>
-                            <grid style="13">
-                                <grid objid="SunnyCtrl.Usercontrol6,SunnyCtrl" caption="SunnyCtrl-UserControl6" id="SunnyCtrl_UserControl6"></grid>
-                                <grid objid="SunnyCtrl.Usercontrol7,SunnyCtrl" caption="SunnyCtrl-UserControl7" id="SunnyCtrl_UserControl7"></grid>
-                                <grid objid="SunnyCtrl.Usercontrol8,SunnyCtrl" caption="SunnyCtrl-UserControl8" id="SunnyCtrl_UserControl8"></grid>
-                            </grid>
-                        </grid>
-                        <grid style="18" caption="Introduction to Open Universe">
-                            <grid objid="SunnyCtrl.Usercontrol1,SunnyCtrl" caption="SunnyCtrl-UserControl1" id="SunnyCtrl_UserControl1"></grid>
-                            <grid objid="SunnyCtrl.Usercontrol2,SunnyCtrl" caption="SunnyCtrl-UserControl2" id="SunnyCtrl_UserControl2"></grid>
-                            <grid objid="SunnyCtrl.Usercontrol3,SunnyCtrl" caption="SunnyCtrl-UserControl3" id="SunnyCtrl_UserControl3"></grid>
-                        </grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.Usercontrol9,SunnyCtrl" caption="SunnyCtrl-UserControl9" id="SunnyCtrl_UserControl9"></grid>
-                    <grid objid="SunnyCtrl.Usercontrol10,SunnyCtrl" caption="SunnyCtrl-UserControl10" id="SunnyCtrl_UserControl10"></grid>
-                    <grid caption="Introduction of Open Universe"></grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj style="19">
+                    <xobj rows="1" cols="2" width="200,600" caption="New Web,New World">
+                        <xobj rows="2" cols="1" height="300,600">
+                            <xobj rows="1" cols="2" width="400,300">
+                                <xobj style="29">
+                                    <xobj objid="SunnyCtrl.Usercontrol4,SunnyCtrl" caption="SunnyCtrl-UserControl4" id="SunnyCtrl_UserControl4"></xobj>
+                                    <xobj objid="SunnyCtrl.Usercontrol5,SunnyCtrl" caption="SunnyCtrl-UserControl5" id="SunnyCtrl_UserControl5"></xobj>
+                                </xobj>
+                                <xobj objid="nucleus"></xobj>
+                            </xobj>
+                            <xobj style="13">
+                                <xobj objid="SunnyCtrl.Usercontrol6,SunnyCtrl" caption="SunnyCtrl-UserControl6" id="SunnyCtrl_UserControl6"></xobj>
+                                <xobj objid="SunnyCtrl.Usercontrol7,SunnyCtrl" caption="SunnyCtrl-UserControl7" id="SunnyCtrl_UserControl7"></xobj>
+                                <xobj objid="SunnyCtrl.Usercontrol8,SunnyCtrl" caption="SunnyCtrl-UserControl8" id="SunnyCtrl_UserControl8"></xobj>
+                            </xobj>
+                        </xobj>
+                        <xobj style="18" caption="Introduction to Open Universe">
+                            <xobj objid="SunnyCtrl.Usercontrol1,SunnyCtrl" caption="SunnyCtrl-UserControl1" id="SunnyCtrl_UserControl1"></xobj>
+                            <xobj objid="SunnyCtrl.Usercontrol2,SunnyCtrl" caption="SunnyCtrl-UserControl2" id="SunnyCtrl_UserControl2"></xobj>
+                            <xobj objid="SunnyCtrl.Usercontrol3,SunnyCtrl" caption="SunnyCtrl-UserControl3" id="SunnyCtrl_UserControl3"></xobj>
+                        </xobj>
+                    </xobj>
+                    <xobj objid="SunnyCtrl.Usercontrol9,SunnyCtrl" caption="SunnyCtrl-UserControl9" id="SunnyCtrl_UserControl9"></xobj>
+                    <xobj objid="SunnyCtrl.Usercontrol10,SunnyCtrl" caption="SunnyCtrl-UserControl10" id="SunnyCtrl_UserControl10"></xobj>
+                    <xobj caption="Introduction of Open Universe"></xobj>
+                </xobj>
+            </cluster> 
         </dockdemo>
         <testpanel id="form_panel1_0">
-            <layout>
-                <grid rows="3" cols="1" height="200,300,100">
-                    <grid objid="SunnyCtrl.Usercontrol7,SunnyCtrl"></grid>
-                    <grid objid="nucleus"></grid>
-                    <grid objid="SunnyCtrl.Usercontrol8,SunnyCtrl"></grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj rows="3" cols="1" height="200,300,100">
+                    <xobj objid="SunnyCtrl.Usercontrol7,SunnyCtrl"></xobj>
+                    <xobj objid="nucleus"></xobj>
+                    <xobj objid="SunnyCtrl.Usercontrol8,SunnyCtrl"></xobj>
+                </xobj>
+            </cluster> 
         </testpanel>
         <testpanel id="form_panel1_1">
-            <layout>
-                <grid style="33">
-                    <grid objid="nucleus" caption="I'm panel1"></grid>
-                    <grid objid="SunnyForms.Form6,SunnyForms" caption="SunnyForms-Form6"></grid>
-                    <grid objid="SunnyForms.Form9,SunnyForms" caption="SunnyForms-Form9"></grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj style="33">
+                    <xobj objid="nucleus" caption="I'm panel1"></xobj>
+                    <xobj objid="SunnyForms.Form6,SunnyForms" caption="SunnyForms-Form6"></xobj>
+                    <xobj objid="SunnyForms.Form9,SunnyForms" caption="SunnyForms-Form9"></xobj>
+                </xobj>
+            </cluster> 
         </testpanel>
         <testpanel id="form_panel1_2">
-            <layout>
-                <grid style="23">
-                    <grid objid="nucleus" caption="I'm panel1"></grid>
-                    <grid objid="SunnyCtrl.Usercontrol7,SunnyCtrl" caption="SunnyCtrl-UserControl2"></grid>
-                    <grid objid="SunnyCtrl.Usercontrol8,SunnyCtrl" caption="SunnyCtrl-UserControl3"></grid>
-                </grid>
-            </layout>
+            <cluster> 
+                <xobj style="23">
+                    <xobj objid="nucleus" caption="I'm panel1"></xobj>
+                    <xobj objid="SunnyCtrl.Usercontrol7,SunnyCtrl" caption="SunnyCtrl-UserControl2"></xobj>
+                    <xobj objid="SunnyCtrl.Usercontrol8,SunnyCtrl" caption="SunnyCtrl-UserControl3"></xobj>
+                </xobj>
+            </cluster> 
         </testpanel>
-    </layout>
+    </cluster> 
 </body>
 </html>

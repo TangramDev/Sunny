@@ -6,7 +6,7 @@
     <title>Common Layout Engine 与 Dock属性</title>
     <script type="text/javascript">
         function OnTestDockProperty() {
-            apppage.Observe("xx",document.getElementById("dockpropertydemo").outerHTML);
+            cosmos.Observe("xx",document.getElementById("dockpropertydemo").outerHTML);
             document.getElementById("testbtn").style.display = "none";
         }
     </script>
@@ -36,17 +36,17 @@
     </h5>
 
     <dockpropertydemo id="dockpropertydemo">
-        <layout>
-            <grid activepage="1" style="17">
-                <grid objid="nucleus" id="mainClient" caption="WebContent"></grid>
-                <grid id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Dock Property in Usercontrol"></grid>
-                <grid id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Dock Property in WinForm"></grid>
-                <grid id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Java Script driven Usercontrol"></grid>
-                <grid id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Java Script driven WinForm"></grid>
-                <grid id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="更加复杂的 Usercontrol"></grid>
-                <grid id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="更加复杂的  WinForm"></grid>
-            </grid>
-        </layout>
+        <cluster> 
+            <xobj activepage="1" style="17">
+                <xobj objid="nucleus" id="mainClient" caption="WebContent"></xobj>
+                <xobj id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Dock Property in Usercontrol"></xobj>
+                <xobj id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Dock Property in WinForm"></xobj>
+                <xobj id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="Java Script driven Usercontrol"></xobj>
+                <xobj id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="Java Script driven WinForm"></xobj>
+                <xobj id="navCtrl" objid="SunnyCtrl.DemoCtrl,SunnyCtrl" caption="更加复杂的 Usercontrol"></xobj>
+                <xobj id="navCtrl" objid="SunnyForms.DemoForm,SunnyForms" caption="更加复杂的  WinForm"></xobj>
+            </xobj>
+        </cluster> 
     </dockpropertydemo>
 </body>
 </html>

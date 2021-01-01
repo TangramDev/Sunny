@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyCtrl2
 {
@@ -34,19 +34,19 @@ namespace SunnyCtrl2
         private void StartBtn_Click(object sender, EventArgs e)
         {
             Button bt = sender as Button;
-            Hubble.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
+            Cosmos.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
         }
 
         private void StartBtn1_Click(object sender, EventArgs e)
         {
             Button bt = sender as Button;
-            Hubble.Observe(panel1, bt.Name, "..\\xml\\"+bt.Name+".xml");
+            Cosmos.Observe(panel1, bt.Name, "..\\xml\\"+bt.Name+".xml");
         }
 
         private void StartBtn2_Click(object sender, EventArgs e)
         {
             Button bt = sender as Button;
-            Hubble.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
+            Cosmos.Observe(panel1, bt.Name, "..\\xml\\" + bt.Name + ".xml");
         }
     }
 }

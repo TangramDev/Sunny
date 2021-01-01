@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -20,13 +20,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyForms2
 {
     public partial class Form4 : Form
     {
-        Grid hostGrid = null;
+        Xobj hostXobj = null;
         public Form4()
         {
             InitializeComponent();
@@ -34,14 +34,14 @@ namespace SunnyForms2
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            if (Hubble.CreatingGrid != null)
+            if (Cosmos.CreatingXobj != null)
             {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+                hostXobj = Cosmos.CreatingXobj;
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
             }
         }
 
-        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
     }

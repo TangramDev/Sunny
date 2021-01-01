@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyCtrl
 {
     public partial class UserControl6 : UserControl
     {
-        private Grid hostGrid = null;
+        private Xobj hostXobj = null;
         public UserControl6()
         {
             InitializeComponent();
@@ -21,14 +21,12 @@ namespace SunnyCtrl
 
         private void UserControl6_Load(object sender, EventArgs e)
         {
-            if (Hubble.CreatingGrid != null)
-            {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
-            }
+            hostXobj = Cosmos.CreatingXobj;
+            if (hostXobj != null)
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
         }
 
-        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
             string strMsgID = cloudSession.GetString("msgID");
             switch (strMsgID)
@@ -46,11 +44,11 @@ namespace SunnyCtrl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (hostGrid != null)
+            if (hostXobj != null)
             {
-                hostGrid.Wormhole.InsertString("msgID", "UserControl6_testButton1_click");
-                hostGrid.Wormhole.InsertString("testVal", "this is a test for Usercontrol");
-                hostGrid.Wormhole.SendMessage();
+                hostXobj.Wormhole.InsertString("msgID", "UserControl6_testButton1_click");
+                hostXobj.Wormhole.InsertString("testVal", "this is a test for Usercontrol");
+                hostXobj.Wormhole.SendMessage();
             }
         }
     }

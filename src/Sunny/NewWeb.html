@@ -71,23 +71,25 @@
         }
     </style>
     <script type="text/javascript">
+        window.grids = {};
         cosmos.onXobjCreated = function (e) {
+            window.grids[e.xobj.name] = e.grid;
             switch (e.xobj.name) {
                 case "SunnyForm_Form1":
                 case "SunnyForm_Form3":
                 case "SunnyForm_Form5":
                     {
-                        e.xobj.addEventListener("button1", "OnClick", function (e) {
+                        e.grid.addEventListener("button1", "OnClick", function (e) {
                             switch (e.name) {
                                 case "SunnyForm_Form1":
                                     {
-                                        e.grid.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
-                                        var grid_ = e.getXobj("SunnyForm_Form6");
+                                        e.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
+                                        var grid_ = window.grids['SunnyForm_Form6'];
                                         if (!!grid_) {
                                             grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_1").outerHTML);
                                         }
 
-                                        grid_ = e.getXobj("SunnyForm_Form4");
+                                        grid_ = window.grids['SunnyForm_Form4'];
                                         if (!!grid_) {
                                             grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_2").outerHTML);
                                         }
@@ -95,78 +97,33 @@
                                     break;
                                 case "SunnyForm_Form3":
                                     {
-                                        e.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
+                                        e.grid.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
                                     }
                                     break;
                             }
                         });
-                        e.xobj.onCloudMessageForXobj = function (e) {
-                            switch (e.name) {
-                                case "SunnyForm_Form1":
-                                    {
-                                        switch (e.msgID) {
-                                            case "testButton1_click":
-                                                {
-                                                    var grid_ = e.xobj.getXobj("SunnyForm_Form10");
-                                                    if (!!grid_) {
-                                                        grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_1").outerHTML);
-                                                    }
-                                                    grid_ = e.xobj.getXobj("SunnyForm_Form5");
-                                                    if (!!grid_) {
-
-                                                        grid_.setStr("msgID", "testButtonClickCallback");
-                                                        grid_.setStr("callbackval", "just a test");
-                                                        grid_.sendMessage(grid_);
-                                                    }
-                                                }
-                                                break;
-                                        }
-                                   }
-                                    break;
-                            }
-                        }
-                    }
-                    break;
-                case "SunnyCtrl_UserControl1":
-                    {
-                        e.xobj.onCloudMessageForXobj = function (e) {
-                            switch (e.msgID) {
-                                case "UserControl1_testButton1_click":
-                                    {
-                                        var grid_ = e.xobj.getXobj("SunnyCtrl_UserControl6");
-                                        if (!!grid_) {
-
-                                            grid_.setStr("msgID", "UserControl6_testButtonClickCallback");
-                                            grid_.setStr("callbackval", "just a test");
-                                            grid_.sendMessage(grid_);
-                                        }
-                                        grid_ = e.xobj.getXobj("SunnyCtrl_UserControl1")
-                                        if (!!grid_) {
-                                            grid_.setStr("msgID", "UserControl6_testButtonClickCallback");
-                                            grid_.setStr("callbackval", "just a test");
-                                            grid_.sendMessage(grid_);
-                                        }
-                                    }
-                                    break;
-                            }
-                        }
                     }
                     break;
                 case "SunnyCtrl_UserControl4":
-                    e.xobj.addEventListener("button1", "OnClick", function (xobj) {
-                        xobj.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
-                        var grid_ = xobj.getXobj("SunnyCtrl_UserControl6");
-                        if (!!grid_) {
-                            grid_.Observe("panel1", "xxx", cosmos.getElementById("form_panel1_1").outerHTML);
-                        }
+                    alert("UserControl Created: " + e.xobj.name);
+                    e.xobj.addEventListener("button1", "OnClick", function (e) {
+                        switch (e.name) {
+                            case "SunnyCtrl_UserControl4":
+                                {
+                                    e.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_0").outerHTML);
+                                    var grid_ = window.grids['SunnyCtrl_UserControl6'];
+                                    if (!!grid_) {
+                                        grid_.Observe("panel1", "xxx", cosmos.getElementById("form_panel1_1").outerHTML);
+                                    }
 
-                        grid_ = xobj.getXobj("SunnyCtrl_UserControl1");
-                        if (!!grid_) {
-                            grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_2").outerHTML);
+                                    grid_ = window.grids['SunnyCtrl_UserControl1'];
+                                    if (!!grid_) {
+                                        grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_2").outerHTML);
+                                    }
+                                }
+                                break;
                         }
                     });
-                    e.xobj.onCloudMessageForXobj = function (e) {
-                    }
                     break;
             }
         }
@@ -175,6 +132,42 @@
             switch (e.xobj.getStr("msgID")) {
                 case "TANGRAMAPP_READY":
                     {
+                    }
+                    break;
+                case "testButton1_click":
+                    {
+                        if (e.sender.name == "SunnyForm_Form1");
+                        {
+                            var grid_ = window.grids['SunnyForm_Form10'];
+                            grid_ = window.grids['SunnyForm_Form10'];
+                            if (!!grid_) {
+                                grid_.Observe("panel1", "panel1", cosmos.getElementById("form_panel1_1").outerHTML);
+                            }
+                            grid_ = window.grids['SunnyForm_Form5'];
+                            if (!!grid_) {
+
+                                grid_.setStr("msgID", "testButtonClickCallback");
+                                grid_.setStr("callbackval", "just a test");
+                                grid_.sendMessage(grid_);
+                            }
+                        }
+                    }
+                    break;
+                case "UserControl1_testButton1_click":
+                    {
+                        var grid_ = window.grids['SunnyCtrl_UserControl6'];
+                        if (!!grid_) {
+
+                            grid_.setStr("msgID", "UserControl6_testButtonClickCallback");
+                            grid_.setStr("callbackval", "just a test");
+                            grid_.sendMessage(grid_);
+                        }
+                        grid_ = window.grids['SunnyCtrl_UserControl1'];
+                        if (!!grid_) {
+                            grid_.setStr("msgID", "UserControl6_testButtonClickCallback");
+                            grid_.setStr("callbackval", "just a test");
+                            grid_.sendMessage(grid_);
+                        }
                     }
                     break;
                 default:

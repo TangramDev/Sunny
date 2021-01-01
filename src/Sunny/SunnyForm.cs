@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace Sunny
 {
@@ -43,23 +43,17 @@ namespace Sunny
                     "</grid>" +
                 "</layout>" +
               "</content1>";
-            Grid node = Hubble.Observe(listView1, "test", xml);
+            Xobj node = Cosmos.Observe(listView1, "test", xml);
             if(node!=null)
-                node.OnTabChange += Node_OnTabChange1; node.OnIPCMessageReceived += Node_OnIPCMessageReceived;
-            Hubble.CreateBrowser((IntPtr)1,"host:sunny2.html|host:WebPage/newweb.html"); 
+                node.OnTabChange += Node_OnTabChange;  
+            Cosmos.CreateBrowser((IntPtr)1,"host:sunny2.html|host:WebPage/newweb.html"); 
         }
 
-        private void Node_OnIPCMessageReceived(string strFrom, string strTo, string strMsgId, string strPayload, string strExtra)
+        private void Node_OnTabChange(Xobj ActiveXobj, Xobj OldXobj)
         {
-            throw new NotImplementedException();
-        }
-
-        private void Node_OnTabChange1(Grid ActiveGrid, Grid OldGrid)
-        {
-            //throw new NotImplementedException();
-            string s1 = ActiveGrid.Caption;
-            string s2 = OldGrid.Caption;
-            ActiveGrid.Caption = s1 + "test";
+            string s1 = ActiveXobj.Caption;
+            string s2 = OldXobj.Caption;
+            ActiveXobj.Caption = s1 + "test";
         }
     }
 }

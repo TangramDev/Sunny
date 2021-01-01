@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -20,13 +20,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyForms2
 {
     public partial class Form1 : Form
     {
-        Grid hostGrid = null;
+        Xobj hostXobj = null;
         public Form1()
         {
             InitializeComponent();
@@ -34,24 +34,24 @@ namespace SunnyForms2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(hostGrid!=null)
+            if(hostXobj!=null)
             {
-                hostGrid.Wormhole.InsertString("msgID", "testButton1_click");
-                hostGrid.Wormhole.InsertString("testVal", "this is a test");
-                hostGrid.Wormhole.SendMessage();
+                hostXobj.Wormhole.InsertString("msgID", "testButton1_click");
+                hostXobj.Wormhole.InsertString("testVal", "this is a test");
+                hostXobj.Wormhole.SendMessage();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(Hubble.CreatingGrid!=null)
+            if(Cosmos.CreatingXobj!=null)
             {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
+                hostXobj= Cosmos.CreatingXobj;
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
             }
         }
 
-        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
             string strMsgID = cloudSession.GetString("msgID");
             switch(strMsgID)

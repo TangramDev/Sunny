@@ -49,95 +49,206 @@
     </style>
 
     <script type="text/javascript">
+        var form = null;
         var treegrid = null;
-        var mainClient_ = null;
+        var panel1_ = null;
+        var Splitter_ = null;
         var CompositeGrid_Splitter_ = null;
-        apppage.onLoadMdiWinForm = function (e) {
-           // e.form.onGridCreated = function (e) {
-           //     switch (e.grid.name) {
-           //         case "Sunny_ntpctrl":
-           //             {
-           //                 e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
-           //                 e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
-           //             }
-           //             break;
-           //         case "CompositeGrid_Splitter":
-           //             {
-           //                 CompositeGrid_Splitter_ = e.grid;
-           //             }
-           //             break;
-           //     }
-           // };
-           //e.xobj.addEventListener("SizeChanged", function (x) {
-           //     //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
-           // });
+        cosmos.onLoadMdiWinForm = function (e) {
         };
-        apppage.onLoadWinForm = function (e) {
-            switch (e.form.name) {
+        cosmos.onLoadWinForm = function (e) {
+            form = e.form;
+            switch (form.name) {
                 case "mainForm":
                     {
-                        e.form.onGridCreated = function (e) {
-                            switch (e.grid.name) {
-                                case "Sunny_ntpctrl":
+                        form.onGalaxyCreated = function (e) {
+                        }
+                        form.onXobjCreated = function (e) {
+                           var galaxy = e.xobj.getStr("galaxy");
+                            var cluster = e.xobj.getStr("cluster");
+                            switch (galaxy) {
+                                case "panel1":
                                     {
-                                        e.grid.addEventListener("button1", "OnClick", Sunny_ntpctrl_Button_OnClick);
-                                        e.grid.addEventListener("button2", "OnClick", Sunny_ntpctrl_Button2_OnClick);
+                                        panel1_ = e.galaxy;
+                                        switch (cluster) {
+                                            case "default":
+                                                {
+                                                    switch (e.xobj.name) {
+                                                        case "Sunny_ntpctrl":
+                                                            {
+                                                                e.xobj.onCloudMessageForXobj = function (e) {
+                                                                    switch (this.msgID) {
+                                                                        case "button1_OnClick":
+                                                                            {
+                                                                                alert(this.docFragment.firstChild.outerHTML);
+                                                                            }
+                                                                            break;
+                                                                    }
+                                                                }
+                                                            }
+                                                            break;
+                                                        case "Splitter1":
+                                                            {
+                                                                Splitter_ = e.grid;
+                                                            }
+                                                            break;
+                                                    }
+                                                }
+                                                break;
+                                        }
                                     }
                                     break;
-                                case "CompositeGrid_Splitter":
+                                case "mainclient@__viewport_default__@default_frame":
                                     {
-                                        CompositeGrid_Splitter_ = e.grid;
+                                        switch (cluster) {
+                                            case "startup":
+                                                break;
+                                            case "compositegrid":
+                                                {
+                                                    switch (e.xobj.name) {
+                                                        case "CompositeGrid_Splitter":
+                                                            CompositeGrid_Splitter_ = e.grid;
+                                                            break;
+                                                    }
+                                                }
+                                                break;
+                                        }
                                     }
                                     break;
                             }
                         };
-                        e.xobj.addEventListener("SizeChanged", function (x) {
-                            //alert(x.getStr("currentevent") + " " + "Form width:" + x.getLong("width") + "\nheight:" + x.getLong("height"));
-                        });
+                    }
+                    break;
+                case "create_form_1":
+                    {
+                        form.onCloudMessageForWinForm = function (e) {
+                            switch (e.msgID) {
+                                case "button1_OnClick":
+                                    {
+                                        alert("您好\n"+e.form.workElement.outerHTML + "****\n" + e.form.getStr("textBox1"));
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                    break;
+                case "create_form_2":
+                    {
+                        //alert(form);
                     }
                     break;
             }
         };
-        apppage.onWinFormClosed = function (e) {
-            e.form.xobj.setInt64("CloseInfo", 19921963);
-            e.form.xobj.setStr("msgID", "WINFORM_ONCLOSE");
-            e.form.sendMessage(e.form.xobj);
+        cosmos.onWinFormClosed = function (e) {
+            e.form.setInt64("CloseInfo", 19921963);
+            e.form.msgID = "WINFORM_ONCLOSE";
+            e.form.sendMessage(e.form);
         };
 
-        apppage.onGridCreated = function (e) {
-            switch (e.grid.name) {
-                case "navCtrl":
+        cosmos.onGalaxyCreated = function (e) {
+            //alert(e.galaxy);
+        }
+        cosmos.onXobjCreated = function (e) {
+           var galaxy = e.xobj.getStr("galaxy");
+            var cluster = e.xobj.getStr("cluster");
+            switch (galaxy) {
+                case "default":
                     {
-                        treegrid = e.grid;
-                        e.grid.addEventListener("treeView1", "OnAfterSelect", function (e) {
-                            var name = e.getStr("name");
-                            var list = document.getElementsByTagName(name);
-                            for (var i = 0; i < list.length; i++) {
-                                var target = list[i].getAttribute("target");
-                                if (target != null) {
-                                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
+                        switch (cluster) {
+                            case "__viewport_default__":
+                                {
+                                    switch (e.xobj.name) {
+                                        case "navCtrl":
+                                            {
+                                                e.xobj.onCloudMessageForXobj = function (e) {
+                                                    switch (this.msgID) {
+                                                        case "treeView1_OnAfterSelect":
+                                                            break;
+                                                        case "button1_OnClick":
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                            break;
+                                        case "mainClient":
+                                            {
+                                                e.xobj.onCloudMessageForXobj = function (e) {
+                                                    switch (this.msgID) {
+                                                        case "treeView1_OnAfterSelect":
+                                                            {
+                                                                if (!!this.workElement) {
+                                                                    this.Observe(this.workElement.getAttribute("targetcluster"), this.workElement.outerHTML);
+                                                                   if (this.objtype == "nucleus") {
+                                                                       this.ShowWebContent("contents", this.workElement.getAttribute("content"));
+                                                                   }
+                                                                } 
+                                                            }
+                                                            break;
+                                                        case "DynLayoutBtn_OnClick":
+                                                            {
+                                                                if (!!this.workElement) {
+                                                                    this.Observe(this.workElement.getAttribute("targetcluster") +"_OnClick", this.workElement.outerHTML);
+                                                                    if (this.objtype == "nucleus") {
+                                                                        this.ShowWebContent("contents", this.workElement.getAttribute("content"));
+                                                                    }
+                                                                } 
+                                                            }
+                                                            break;
+                                                        case "button1_OnClick":
+                                                            {
+                                                                if (!!this.workElement) {
+                                                                    var xobj = this.sender;
+                                                                    this.element.setAttribute("w12", "12345678");
+                                                                    if (!!xobj) {
+                                                                        xobj.ObserveEx("key1", cosmos.getElementById("mainwindow_1"));
+                                                                        if (xobj.parent != null && xobj.parent.getLong("gridtype") == 4) {
+                                                                            xobj.parent.Observe(0, 0, "key1", cosmos.getElementById("mainwindow_2").outerHTML);
+                                                                        }
+                                                                    } else {
+                                                                        alert(this.sender+" sender is form");
+                                                                    }
+                                                                    this.Observe(this.workElement.getAttribute("targetcluster"), this.workElement.outerHTML);
+                                                                }
+
+                                                                if (this.objtype == "nucleus") {
+                                                                    this.ShowWebContent("contents", this.workElement.getAttribute("content"));
+                                                                }
+                                                            }
+                                                            break;
+                                                        case "button2_OnClick":
+                                                            {
+                                                                if (!!this.workElement) {
+                                                                    var xobj = this.sender;
+                                                                    var xml = cosmos.getElementById("mainwindow_2").outerHTML;
+                                                                    xobj.Observe("key2", xml);
+                                                                    if (xobj.parent != null && xobj.parent.getLong("gridtype") == 4) {
+                                                                        xobj.parent.ObserveEx(0, 0, "key2", cosmos.getElementById("mainwindow_1"));
+                                                                    }
+                                                                    this.ObserveEx(this.workElement.getAttribute("targetcluster"), this.workElement);
+                                                                    if (this.objtype == "nucleus") {
+                                                                        this.ShowWebContent("contents", this.workElement.getAttribute("content"));
+                                                                    }
+                                                               }
+                                                            }
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                            break;
+                                    }
                                 }
-                            }
-                            var contentElements = document.getElementsByClassName("contents")[0].children;
-                            for (var i = 0; i < contentElements.length; i++) {
-                                var classList = contentElements[i].classList;
-                                var bContains = classList.contains(name);
-                                classList.remove(bContains ? "hidden" : "show");
-                                classList.add(bContains ? "show" : "hidden");
-                            }
-                        });
-                    }
-                    break;
-                case "mainClient":
-                    {
-                        mainClient_ = e.grid;
+                                break;
+                        }
                     }
                     break;
             }
         }
 
-        apppage.onHubbleMessageReceived = function (e) {
-            switch (e.xobj.getStr("msgID")) {
+        //var visibleElem = null;
+        cosmos.onCosmosMessageReceived = function (e) {
+            switch (e.xobj.msgID) {
                 case "TANGRAMAPP_READY":
                     {
                     }
@@ -147,110 +258,80 @@
             }
         }
 
-        apppage.onMessageReceived = function (e) {
+        cosmos.onMessageReceived = function (e) {
             if (e.param3 != null) {
                 switch (e.param3) {
-                    case "MainMdiForm:ActiveClient":
-                        {
-                        }
-                        break;
                     default:
                         break;
                 }
             }
         }
 
-        apppage.onBindCLRObject = function (e) {
-            //alert(e.name);alert(e.objtype);alert(e.hwnd);
+        cosmos.onBindCLRObject = function (e) {
+            alert(e.name);alert(e.objtype);alert(e.hwnd);
         }
 
         //****************************************************************
-        function Sunny_ntpctrl_Button_OnClick(e) {
-            e.grid.Observe("key1", document.getElementById("mainwindow_1").outerHTML);
-            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
-                e.grid.parentGrid.ObserveEx("key1", document.getElementById("mainwindow_2").outerHTML);
-            }
-        }
-
-        function Sunny_ntpctrl_Button2_OnClick(e) {
-            e.grid.Observe("key2", document.getElementById("mainwindow_2").outerHTML);
-            if (e.grid.parentGrid != null && e.grid.parentGrid.xobj.getLong("gridtype") == 4) {
-                e.grid.parentGrid.ObserveEx("key2", document.getElementById("mainwindow_1").outerHTML);
-            }
-        }
-
-        function navCtrl_treeView1_OnAfterSelect(e) {
-            var name = e.getStr("name");
-            var list = document.getElementsByTagName(name);
-            for (var i = 0; i < list.length; i++) {
-                var target = list[i].getAttribute("target");
-                if (target != null) {
-                    e.grid.parentGrid.ObserveEx(name, list[i].outerHTML, 0, 1);
-                }
-            }
-            var contentElements = document.getElementsByClassName("contents")[0].children;
-            for (var i = 0; i < contentElements.length; i++) {
-                var classList = contentElements[i].classList;
-                var bContains = classList.contains(name);
-                classList.remove(bContains ? "hidden" : "show");
-                classList.add(bContains ? "show" : "hidden");
-            }
-        }
-
-        function OpenNewWebURL() {
-            apppage.openUrl("host:WebPage/newweb.html", 2);
+        function OpenNewWebURL(e) {
+            cosmos.openUrl("host:WebPage/newweb.html", 2);
         }
 
         function OpenCLEURL() {
-            apppage.openUrl("host:webpage/CLE.html", 2);
+            cosmos.openUrl("host:webpage/CLE.html", 2);
         }
 
-        function OpenAppURL() {
-            apppage.openUrl("host:sunny2.html|host:WebPage/newweb.html", 200);
+        function OpenAppURL(e) {
+            alert(e+"123");
+            cosmos.openUrl("host:sunny2.html|host:WebPage/newweb.html", 200);
         }
 
         function OpenMdiApp1() {
-            apppage.openUrl("host:WebPage/mdiform1.html|host:webpage/CWR.html", 200);
+            cosmos.openUrl("host:WebPage/mdiform1.html|host:webpage/CWR.html", 200);
         }
 
         function OpenMdiApp2() {
-            apppage.openUrl("host:WebPage/mdiform2.html", 200);
+            cosmos.openUrl("host:WebPage/mdiform2.html", 200);
         }
 
         function OpenMdiApp3() {
-            apppage.openUrl("host:WebPage/mdiform3.html", 200);
+            cosmos.openUrl("host:WebPage/mdiform3.html", 200);
         }
 
         function OpenAppURL2() {
-            apppage.openUrl("host:webpage/newweb.html", 100);
+            cosmos.openUrl("host:webpage/newweb.html", 100);
         }
 
         function OnCreate_Form1_SunnyForms2() {
-            var xform = apppage.createWinForm(document.getElementById("create_form_1").outerHTML,
+            var elem = cosmos.getElementById("create_form_1");
+            var xform = cosmos.createWinForm(elem,
                 0,
-                function (x) {
-                    x.form.addEventListener("button1", "OnClick", function (e) {
-                        x.form.xobj.setStr("textBox1", "fill textbox by javascript: " + x.form.handle);
+                function (form) {
+                    form.addEventListener("button1", "OnClick", function (e) {
+                       e.setStr("textBox1", "fill textbox by javascript: " + e.handle);
                     });
-                    x.form.SyncCtrlTextChange("textBox1;button1", function (e) {
-                        //alert("hi" + "  --  " + e.getStr("textBox1"));
+                    form.BindCtrlValue("textBox1;button1", function (e) {
+                        alert("hi" + "  --  " + e.getStr("textBox1"));
                     });
                 });
         }
 
         function OnCreate_Form2_SunnyForms2() {
-            var xform = apppage.createWinForm(document.getElementById("create_form_2").outerHTML,
+            var xform = cosmos.createWinForm(cosmos.getElementById("create_form_2"),
                 0,
                 function (x) {
-                    x.form.addEventListener("button1", "OnClick", function (e) {
-                        alert("hi" + "  --  " + x.form.handle);
-                        //x.form.xobj.setStr("textBox1", "test modify textbox");
+                    x.addEventListener("button1", "OnClick", function (e) {
+                        alert(e);
+                        alert("hi" + "  --  " + e.handle);
+                        e.setStr("textBox1", "test modify textbox");
+                    });
+                    x.BindCtrlValue("textBox1", function (e) {
+                        //alert("hi" + "  --  " + e.getStr("textBox1"));
                     });
                 });
         }
 
         function BrowserFormApp1() {
-            var xform = apppage.createWinForm(document.getElementById("create_form_3").outerHTML,
+            var xform = cosmos.createWinForm(cosmos.getElementById("create_form_3"),
                 0,
                 function (x) {
                     x.form.addEventListener("button1", "OnClick", function (e) {
@@ -261,7 +342,7 @@
         }
 
         function BrowserFormApp2() {
-            var xform = apppage.createWinForm(document.getElementById("create_form_4").outerHTML,
+            var xform = cosmos.createWinForm(cosmos.getElementById("create_form_4"),
                 0,
                 function (x) {
                     x.form.addEventListener("button1", "OnClick", function (e) {
@@ -272,403 +353,623 @@
         }
 
         function OpenCWRURL() {
-            apppage.openUrl("host:webpage/CWR.html", 2);
+            cosmos.openUrl("host:webpage/CWR.html", 2);
         }
 
         function OpenCERURL() {
-            apppage.openUrl("host:webpage/CER.html", 2);
+            cosmos.openUrl("host:webpage/CER.html", 2);
         }
 
         function CompositeGrid1() {
-            if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_1", document.getElementById("layout_1").outerHTML);
+            var grid = cosmos.getXobj("default", "__viewport_default__", "navCtrl");
+            var node = form.getXobj("mainclient@__viewport_default__@default_frame", "compositegrid", "CompositeGrid_Splitter");
+            if (node) {
+                node.getChild(0, 1).Observe("layout_1", document.getElementById("layout_1").outerHTML);
             }
         }
 
         function CompositeGrid2() {
             if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_2", document.getElementById("layout_2").outerHTML);
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_2", cosmos.getElementById("layout_2").outerHTML);
             }
         }
 
         function CompositeGrid3() {
             if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_3", document.getElementById("layout_3").outerHTML);
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_3", cosmos.getElementById("layout_3").outerHTML);
             }
         }
 
         function CompositeGrid4() {
             if (CompositeGrid_Splitter_) {
-                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_4", document.getElementById("layout_4").outerHTML);
+                CompositeGrid_Splitter_.getChild(0, 1).Observe("layout_4", cosmos.getElementById("layout_4").outerHTML);
             }
         }
 
         //**********************************************
         function DynLayout() {
+            alert(2);
             if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_1", document.getElementById("layout_1").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_1").outerHTML;
+                treegrid.parent.Observe(0, 0, "layout_1", cosmos.getElementById("layout_1").outerHTML, 0, 1);
+                cosmos.getElementById("dynlayoutdomelement").value = cosmos.getElementById("layout_1").outerHTML;
             }
         }
 
-        function DynLayout1() {
-            if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_2", document.getElementById("layout_2").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_2").outerHTML;
-            }
+        function DynLayout1(e) {
+            cosmos.OnMessage(e, "OnClick"); 
         }
 
         function DynLayout2() {
             if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_3", document.getElementById("layout_3").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_3").outerHTML;
+                treegrid.parent.Observe(0, 0, "layout_3", cosmos.getElementById("layout_3").outerHTML, 0, 1);
+                cosmos.getElementById("dynlayoutdomelement").value = cosmos.getElementById("layout_3").outerHTML;
             }
         }
 
         function DynLayout3() {
             if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_4", document.getElementById("layout_4").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_4").outerHTML;
+                treegrid.parent.Observe(0, 0, "layout_4", cosmos.getElementById("layout_4").outerHTML, 0, 1);
+                cosmos.getElementById("dynlayoutdomelement").value = cosmos.getElementById("layout_4").outerHTML;
             }
         }
 
         function DynLayout4() {
             if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_5", document.getElementById("layout_5").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_5").outerHTML;
+                treegrid.parent.Observe(0, 0, "layout_5", cosmos.getElementById("layout_5").outerHTML, 0, 1);
+                cosmos.getElementById("dynlayoutdomelement").value = cosmos.getElementById("layout_5").outerHTML;
             }
         }
 
         function DynLayout5() {
             if (treegrid) {
-                treegrid.parentGrid.ObserveEx("layout_6", document.getElementById("layout_6").outerHTML, 0, 1);
-                document.getElementById("dynlayoutdomelement").value = document.getElementById("layout_6").outerHTML;
-            }
-        }
-
-        function OnSubversion() {
-            if (mainClient_) {
-                mainClient_.parentGrid.ObserveEx("subversion", document.getElementById("subversion").outerHTML, 0, 1);
-                var name = "startup";
-                var contentElements = document.getElementsByClassName("contents")[0].children;
-                for (var i = 0; i < contentElements.length; i++) {
-                    var classList = contentElements[i].classList;
-                    var bContains = classList.contains(name);
-                    classList.remove(bContains ? "hidden" : "show");
-                    classList.add(bContains ? "show" : "hidden");
-                }
+                treegrid.parent.Observe(0, 0, "layout_6", cosmos.getElementById("layout_6").outerHTML, 0, 1);
+                cosmos.getElementById("dynlayoutdomelement").value = cosmos.getElementById("layout_6").outerHTML;
             }
         }
     </script>
 </head>
 <body background="image/sunny.jpg">
-    <!-- Define new DOM elements -->
-    <define tagName="mainWindow"></define>
-    <define tagName="application"></define>
-    <define tagName="webViewport"></define>
-    <define tagName="gridTemplate"></define>
-    <!-- End Define new DOM elements -->
-    <!-- The "application" element is required, it can provide application-level configuration. -->
-    <application>
-        <modules>
-            <module libname="Sunny.exe" objname="Sunny.WebDelegate" functionname="Init"></module>
-        </modules>
-        <ntp>
-            <layout>
-                <grid id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
-                    <grid objid="Sunny.ntpctrl,host"></grid>
-                    <grid objid="nucleus"></grid>
-                </grid>
-            </layout>
-        </ntp>
-        <defaultworkbench>
-            <layout>
-                <grid style="18">
-                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
-                    <grid id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></grid>
-                    <grid id='test2 y' caption='Page 3'></grid>
-                    <grid id='test3 z' caption='Page 4'></grid>
-                </grid>
-            </layout>
-        </defaultworkbench>
-        <urls>
-            <url url="https://www.tangram.dev"></url>
-            <url url="host:WebPage/sunny.html"></url>
-        </urls>
-    </application>
-    <!-- Determine the main layout of the application, "Sunny.MDIParent1,host" represents
-        the Sunny.MDIParent1 class in the current executable program. -->
-    <mainWindow objid="Sunny.SunnyForm,host" caption="Sunny" width="2400" height="1600" id="mainForm">
-        <panel1 id="mainworkclient">
-            <default>
-                <layout>
-                    <grid style="39" activepage="1">
-                        <grid caption="Cloud Application" id='grid' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
-                            <grid objid="nucleus"></grid>
-                            <grid objid="Sunny.ntpctrl,host" id="Sunny_ntpctrl"></grid>
-                        </grid>
-                        <grid caption="Common Web Runtime for Application" url="host"></grid>
-                    </grid>
-                </layout>
-            </default>
-        </panel1>
-    </mainWindow>
-    <gridTemplate type="usercontrol" objid="Sunny.NavControl,host" uikey="navDetails">
-        <treeView1>
-            <uidata key="uidata" treenode="true" text="欢迎您来到Sunny的.NET新世界...">
-                <treeView1_tag name="startup"></treeView1_tag>
-                <node1 treenode="true" text="这里是一个全新的.NET应用世界"></node1>
-                <node1_tag name="content1"></node1_tag>
-                <node_organize_app_tag name="content_organize_app"></node_organize_app_tag>
-                <virtuallayoutengine treenode="true" text="Common Layout Engine(CLE)">
-                    <grid treenode="true" text="网格(Grid)"></grid>
-                    <grid_tag name="content_grid"></grid_tag>
-                    <tabgrid treenode="true" text="标签(选项卡，Tabbed Window)"></tabgrid>
-                    <tabgrid_tag name="tabgrid"></tabgrid_tag>
-                    <node6 treenode="true" text="多层网格嵌套(Multi-Level Grid)"></node6>
-                    <node6_tag name="compositegrid"></node6_tag>
-                </virtuallayoutengine>
-                <virtuallayoutengine_tag name="contentcle"></virtuallayoutengine_tag>
-                <openwebruntime treenode="true" text="Common Web Runtime(CWR)">
-                    <usingbuiltbrowser treenode="true" text="使用应用Web页面"></usingbuiltbrowser>
-                    <usingbuiltbrowser_tag name="content_using_browser"></usingbuiltbrowser_tag>
-                </openwebruntime>
-                <openwebruntime_tag name="content_cwr"></openwebruntime_tag>
-                <openeclipseruntime treenode="true" text="Common EclipseRuntime(CER)">
-                    <node_workbench treenode="true" text="使用WorkBench"></node_workbench>
-                    <node_workbench_tag name="content_using_workbench"></node_workbench_tag>
-                    <node_swt treenode="true" text="使用SWT"></node_swt>
-                    <node_swt_tag name="content_using_swt"></node_swt_tag>
-                </openeclipseruntime>
-                <openeclipseruntime_tag name="content_cer"></openeclipseruntime_tag>
-            </uidata>
-        </treeView1>
-    </gridTemplate>
-    <webViewport>
-        <layout>
-            <grid rows="1" cols="2" width="750,">
-                <grid objid="navDetails" id="navCtrl"></grid>
-                <grid objid="nucleus" id="mainClient"></grid>
-            </grid>
-        </layout>
-    </webViewport>
-    <layout>
-        <layout_1 id="layout_1">
-            <layout>
-                <grid style="18">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="39" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_1>
-        <layout_2 id="layout_2">
-            <layout>
-                <grid style="33">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="18" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_2>
-        <layout_3 id="layout_3">
-            <layout>
-                <grid style="23">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="18" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_3>
-        <layout_4 id="layout_4">
-            <layout>
-                <grid style="43">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="29" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_4>
-        <layout_5 id="layout_5">
-            <layout>
-                <grid style="37">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="19" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_5>
-        <layout_6 id="layout_6">
-            <layout>
-                <grid style="18">
-                    <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                        <grid style="18" activepage="1">
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                            <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                    <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-            </layout>
-        </layout_6>
+    <cosmos>
+        <!-- Define new DOM elements -->
+        <define tagName="mainWindow"></define>
+        <define tagName="application"></define>
+        <define tagName="webViewport"></define>
+        <!-- End Define new DOM elements -->
+        <!-- The "application" element is required, it can provide application-level configuration. -->
+        <application>
+            <modules>
+                <module libname="Sunny.exe" objname="Sunny.WebDelegate" functionname="Init"></module>
+            </modules>
+            <ntp>
+                <cluster> 
+                    <xobj id='grid' rows='1' cols='2' width='350,350,' splitterwidth='6'>
+                        <xobj objid="Sunny.ntpctrl,host"></xobj>
+                        <xobj objid="nucleus"></xobj>
+                    </xobj>
+                </cluster> 
+            </ntp>
+            <defaultworkbench>
+                <cluster> 
+                    <xobj style="18">
+                        <xobj id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></xobj>
+                        <xobj id='test1 x' caption='Page 2' url="https://www.csdn.net|https://www.tangram.dev"></xobj>
+                        <xobj id='test2 y' caption='Page 3'></xobj>
+                        <xobj id='test3 z' caption='Page 4'></xobj>
+                    </xobj>
+                </cluster> 
+            </defaultworkbench>
+            <urls>
+                <url url="https://www.tangram.dev"></url>
+                <url url="host:WebPage/sunny.html"></url>
+            </urls>
+        </application>
+        <CosmosObject>
+            <xxx.yyy.zz>
+                <ObjectTypeTag>
+                    <messagemap></messagemap>
+                    <eventmap></eventmap>
+                </ObjectTypeTag>
+            </xxx.yyy.zz>
+            <xxx.yyy.zz1>
+                <ObjectTypeTag>
+                    <messagemap></messagemap>
+                    <eventmap></eventmap>
+                </ObjectTypeTag>
+            </xxx.yyy.zz1>
+        </CosmosObject>
+        <!-- Determine the main layout of the application, "Sunny.MDIParent1,host" represents
+    the Sunny.MDIParent1 class in the current executable program. -->
+        <mainWindow objid="Sunny.SunnyForm,host" caption="Sunny" width="2400" height="1600" id="mainForm">
+            <panel1 id="mainworkclient">
+                <default>
+                    <cluster> 
+                        <xobj style="39" activepage="1">
+                            <xobj caption="Cloudx Application" id='Splitter1' rows='1' cols='2' height='250,' width='350,350,' borderwidth='0' splitterwidth='6'>
+                                <xobj objid="nucleus">
+                                    <messagemap>
+                                        <messa></messa>
+                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                    </messagemap>
+                                    <eventmap></eventmap>
+                                </xobj>
+                                <xobj objid="Sunny.NtpCtrl,host" id="Sunny_ntpctrl">
+                                    <referencemap>
+                                        <test refname="xxxx" target="mainClient" cluster="__viewport_default__" galaxy="default" content="startup" targetcluster="startup">
+                                    </referencemap>
+                                    <eventmap>
+                                        <button1 event="OnClick">
+                                            <btn content="content_using_browser" targetcluster="content_using_browser2">
+                                                <cluster> 
+                                                    <xobj style="29">
+                                                        <xobj objid="nucleus" caption="test button onclick 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </btn>
+                                            <xxxx target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_browser" targetcluster="content_using_browser2">
+                                                <cluster> 
+                                                    <xobj style="18">
+                                                        <xobj objid="nucleus" caption="test button onclick 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </xxxx>
+                                        </button1>
+                                        <button2 event="OnClick">
+                                            <btn target="mainClient" cluster="__viewport_default__" galaxy="default" content="startup" targetcluster="content_using_browser3">
+                                                <cluster> 
+                                                    <xobj style="39">
+                                                        <xobj objid="nucleus" caption="test button onclick 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page 2"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </btn>
+                                        </button2>
+                                    </eventmap>
+                                </xobj>
+                            </xobj>
+                            <xobj caption="Common Web Runtime for Application" url="host"></xobj>
+                        </xobj>
+                    </cluster> 
+                </default>
+            </panel1>
+        </mainWindow>
+        <webViewport>
+            <cluster> 
+                <xobj rows="1" cols="2" width="750," id="xxx">
+                    <xobj objid="Sunny.NavControl,host" id="navCtrl">
+                        <eventmap>
+                            <treeView1 event="OnAfterSelect">
+                                <Client target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_grid" targetcluster="content_grid">
+                                    <cluster> 
+                                        <xobj rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                            <xobj objid="nucleus"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                        </xobj>
+                                    </cluster> 
+                                </Client>
+                            </treeView1>
+                        </eventmap>
+                        <treeView1>
+                            <uidata key="uidata" treenode="true" text="欢迎您来到Sunny的.NET新世界...">
+                                <treeView1_tag>
+                                    <onafterselect>
+                                        <startup target="mainClient" cluster="__viewport_default__" galaxy="default" content="startup" targetcluster="startup">
+                                            <cluster> 
+                                                <xobj>
+                                                    <xobj caption="New Web, New Desktop World" objid="nucleus"></xobj>
+                                                    <xobj caption="New Start point" objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </startup>
+                                    </onafterselect>
+                                </treeView1_tag>
+                                <node1 treenode="true" text="这里是一个全新的.NET应用世界"></node1>
+                                <node1_tag>
+                                    <onafterselect>
+                                        <content target="mainClient" cluster="__viewport_default__" galaxy="default" content="content1" targetcluster="content1">
+                                            <cluster> 
+                                                <xobj style="18" id="test">
+                                                    <xobj caption="The mixed world of web and native UI" objid="nucleus"></xobj>
+                                                    <xobj caption="Second Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    <xobj caption="Third Page" objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </content>
+                                    </onafterselect>
+                                </node1_tag>
+                                <virtuallayoutengine treenode="true" text="Common Layout Engine(CLE)">
+                                    <xobj treenode="true" text="网格(Grid)"></xobj>
+                                    <xobj_tag>
+                                        <OnAfterSelect>
+                                            <mainClient target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_grid" targetcluster="content_grid">
+                                                <cluster> 
+                                                    <xobj rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                        <xobj objid="nucleus"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    </xobj>
+                                                    <ddd-www-aaa></ddd-www-aaa>
+                                                </cluster> 
+                                            </mainClient>
+                                        </OnAfterSelect>
+                                    </xobj_tag>
+                                    <tabgrid treenode="true" text="标签(选项卡，Tabbed Window)"></tabgrid>
+                                    <tabgrid_tag>
+                                        <tab_grid target="mainClient" cluster="__viewport_default__" galaxy="default" content="tabgrid" targetcluster="tabgrid">
+                                            <cluster> 
+                                                <xobj>
+                                                    <xobj caption="Introduction to Tabbed Grid" objid="nucleus"></xobj>
+                                                    <xobj caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                    <xobj caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </tab_grid>
+                                    </tabgrid_tag>
+                                    <node6 treenode="true" text="多层网格嵌套(Multi-Level Grid)"></node6>
+                                    <node6_tag>
+                                        <compositegrid target="mainClient" cluster="__viewport_default__" galaxy="default" content="compositegrid" targetcluster="compositegrid">
+                                            <cluster> 
+                                                <xobj style="23">
+                                                    <xobj caption="Start Page" id="CompositeGrid_Splitter" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                                                        <xobj style="18" activepage="1">
+                                                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                                            <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                                                        </xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    </xobj>
+                                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </compositegrid>
+                                    </node6_tag>
+                                </virtuallayoutengine>
+                                <virtuallayoutengine_tag>
+                                    <contentcle target="mainClient" cluster="__viewport_default__" galaxy="default" content="contentcle" targetcluster="contentcle">
+                                        <cluster> 
+                                            <xobj objid="nucleus"></xobj>
+                                        </cluster> 
+                                    </contentcle>
+                                </virtuallayoutengine_tag>
+                                <openwebruntime treenode="true" text="Common Web Runtime(CWR)">
+                                    <usingbuiltbrowser treenode="true" text="使用应用Web页面"></usingbuiltbrowser>
+                                    <usingbuiltbrowser_tag>
+                                        <onafterselect>
+                                            <content_using_browser target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_browser" targetcluster="content_using_browser">
+                                                <cluster> 
+                                                    <xobj style="43">
+                                                        <xobj objid="nucleus" caption="Using Browser Window"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </content_using_browser>
+                                        </onafterselect>
+                                    </usingbuiltbrowser_tag>
+                                </openwebruntime>
+                                <openwebruntime_tag>
+                                    <OnAfterSelect>
+                                        <content_cwr target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_cwr" targetcluster="content_cwr">
+                                            <cluster> 
+                                                <xobj style="27">
+                                                    <xobj objid="nucleus" caption="Common WebBrowser Runtime"></xobj>
+                                                    <xobj caption="Page1"></xobj>
+                                                    <xobj caption="Page2"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </content_cwr>
+                                    </OnAfterSelect>
+                                </openwebruntime_tag>
+                                <openeclipseruntime treenode="true" text="Common EclipseRuntime(CER)">
+                                    <node_workbench treenode="true" text="使用WorkBench"></node_workbench>
+                                    <node_workbench_tag>
+                                        <content_using_workbench target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_workbench" targetcluster="content_using_workbench">
+                                            <cluster> 
+                                                <xobj style="29">
+                                                    <xobj objid="nucleus" caption="Using Eclipse Workbench"></xobj>
+                                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                </xobj>
+                                            </cluster> 
+                                        </content_using_workbench>
+                                    </node_workbench_tag>
+                                    <node_swt treenode="true" text="使用SWT"></node_swt>
+                                    <node_swt_tag>
+                                        <OnAfterSelect>
+                                            <content_using_swt target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_swt">
+                                                <cluster> 
+                                                    <xobj style="18">
+                                                        <xobj objid="nucleus" caption="Using java swt"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </content_using_swt>
+                                        </OnAfterSelect>
 
-        <form1 id="mainwindow_1">
-            <layout>
-                <grid id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>
-                    <grid id='test1'></grid>
-                </grid>
-            </layout>
-        </form1>
-        <form id="mainwindow_2">
-            <layout>
-                <grid style="18">
-                    <grid id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></grid>
-                    <grid id='test1' caption='Page 2'></grid>
-                    <grid id='test2' caption='Page 3'></grid>
-                    <grid id='test3' caption='Page 4'></grid>
-                </grid>
-            </layout>
-        </form>
-        <subversion id="subversion">
-            <layout>
-                <grid rows="2" cols="1" height="400,500">
-                    <grid objid="nucleus"></grid>
-                    <grid url="host:WebPage\webdesktop.html"></grid>
-                </grid>
-            </layout>
-        </subversion>
-    </layout>
-    <Forms>
-        <Form1 type="winform" objid="sunnyForms2.Form1,sunnyForms2" caption="Form1@SunnyForm2" id="create_form_1" width="1600" height="1200">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <grid id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
-                            <grid id='tangramtabctrl_Page2' objid="nucleus" caption=''></grid>
-                            <grid id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2"></grid>
-                        </grid>
-                    </layout>
-                </default>
-            </mainpanel>
-        </Form1>
-        <Form2 type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <grid>
-                            <grid id='tangramtabctrl_Page1' objid="sunnyForms2.Form3,SunnyForms2" caption='Form3'></grid>
-                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form4,SunnyForms2" caption='Form4'></grid>
-                            <grid id='tangramtabctrl_Page2' objid="sunnyForms2.Form5,SunnyForms2" caption='Form5'></grid>
-                        </grid>
-                    </layout>
-                </default>
-            </mainpanel>
-        </Form2>
-        <Form3 type="winform" objid="sunnyForms2.Form3,sunnyForms2" caption="Form3@SunnyForm2" id="create_form_3" width="2000" height="1600">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <grid id='tangramtabctrl_Page1' url="host:webpage\cwr.html" caption='Form3'></grid>
-                    </layout>
-                </default>
-            </mainpanel>
-        </Form3>
-        <Form4 type="winform" objid="sunnyForms2.Form4,sunnyForms2" caption="Form4@SunnyForm2" id="create_form_4" width="2000" height="1600">
-            <mainpanel>
-                <default>
-                    <layout>
-                        <grid rows="1" cols="2" width="500,200" masterrow="0" mastercol="0">
-                            <grid rows="2" cols="1" height="400,200" masterrow="0" mastercol="0">
-                                <grid id='Page1' url="host:webpage\cwr.html|host:sunny2.html"></grid>
-                            </grid>
-                            <grid id='Page2' caption='Form3'></grid>
-                        </grid>
-                    </layout>
-                </default>
-            </mainpanel>
-        </Form4>
-    </Forms>
+                                    </node_swt_tag>
+                                </openeclipseruntime>
+                                <openeclipseruntime_tag>
+                                    <content_cer target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_cer">
+                                        <cluster> 
+                                            <xobj objid="nucleus"></xobj>
+                                        </cluster> 
+                                    </content_cer>
+                                </openeclipseruntime_tag>
+                            </uidata>
+                        </treeView1>
+                    </xobj>
+                    <xobj objid="nucleus" id="mainClient">
+                    </xobj>
+                </xobj>
+            </cluster> 
+        </webViewport>
+        <cluster> 
+            <layout_1 id="layout_1">
+                <cluster> 
+                    <xobj style="18">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="39" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_1>
+            <layout_2 id="layout_2">
+                <cluster> 
+                    <xobj style="33">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="18" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_2>
+            <layout_3 id="layout_3">
+                <cluster> 
+                    <xobj style="23">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="18" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_3>
+            <layout_4 id="layout_4">
+                <cluster> 
+                    <xobj style="43">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="29" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_4>
+            <layout_5 id="layout_5">
+                <cluster> 
+                    <xobj style="37">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="19" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_5>
+            <layout_6 id="layout_6">
+                <cluster> 
+                    <xobj style="18">
+                        <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                            <xobj style="18" activepage="1">
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                        </xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
+            </layout_6>
+
+            <form1 id="mainwindow_1">
+                <cluster> 
+                    <xobj id='properties' rows='2' cols='2' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                        <xobj id='tangramtabctrl_Page2' objid="nucleus" caption=''></xobj>
+                        <xobj id='test1'></xobj>
+                    </xobj>
+                </cluster> 
+            </form1>
+            <form id="mainwindow_2">
+                <cluster> 
+                    <xobj style="18">
+                        <xobj id='tangramtabctrl_Page2' objid="nucleus" caption='Page 1'></xobj>
+                        <xobj id='test1' caption='Page 2'></xobj>
+                        <xobj id='test2' caption='Page 3'></xobj>
+                        <xobj id='test3' caption='Page 4'></xobj>
+                    </xobj>
+                </cluster> 
+            </form>
+            <subversion id="subversion">
+                <cluster> 
+                    <xobj rows="2" cols="1" height="400,500">
+                        <xobj objid="nucleus"></xobj>
+                        <xobj url="host:WebPage\webdesktop.html"></xobj>
+                    </xobj>
+                </cluster> 
+            </subversion>
+        </cluster> 
+        <Forms>
+            <Form1 objid="sunnyForms2.Form1,sunnyForms2" caption="Form1@SunnyForm2" id="create_form_1" width="1600" height="1200">
+                <mainpanel id="123">
+                    <default>
+                        <cluster> 
+                            <xobj id='properties' rows='2' cols='1' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                                <xobj id='tangramtabctrl_Page2' objid="nucleus" caption=''></xobj>
+                                <xobj id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2"></xobj>
+                            </xobj>
+                        </cluster> 
+                    </default>
+                </mainpanel>
+                <eventmap>
+                    <button1 event="OnClick">
+                        <btn content="content_using_browser" targetcluster="content_using_browser2">
+                            <cluster> 
+                                <xobj style="29">
+                                    <xobj objid="nucleus" caption="test button onclick 2"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page 2"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                </xobj>
+                            </cluster> 
+                        </btn>
+                        <btn target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_browser" targetcluster="content_using_browser2">
+                            <cluster> 
+                                <xobj style="18">
+                                    <xobj objid="nucleus" caption="test button onclick 2 from a form button click"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page 2"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                </xobj>
+                            </cluster> 
+                        </btn>
+                    </button1>
+                </eventmap>
+            </Form1>
+            <Form2 type="winform" objid="sunnyForms2.Form2,sunnyForms2" caption="Form2@SunnyForm2" id="create_form_2" width="1600" height="1200">
+                <mainpanel>
+                    <default>
+                        <cluster> 
+                            <xobj id='properties' height='300,250,100,' width='300,200,100,' middlecolor='RGB(255,224,192)'>
+                                <xobj id='tangramtabctrl_Page2' objid="nucleus" caption='111'></xobj>
+                                <xobj id='create_form_message' objid="sunnyForms2.Form4,sunnyForms2" caption='222'></xobj>
+                                <xobj id='create_form_message2' objid="sunnyForms2.Form4,sunnyForms3" caption='333'></xobj>
+                            </xobj>
+                        </cluster> 
+                    </default>
+                </mainpanel>
+            </Form2>
+            <Form3 type="winform" objid="sunnyForms2.Form3,sunnyForms2" caption="Form3@SunnyForm2" id="create_form_3" width="2000" height="1600">
+                <mainpanel>
+                    <default>
+                        <cluster> 
+                            <xobj id='tangramtabctrl_Page1' url="host:webpage\cwr.html" caption='Form3'></xobj>
+                        </cluster> 
+                    </default>
+                </mainpanel>
+            </Form3>
+            <Form4 type="winform" objid="sunnyForms2.Form4,sunnyForms2" caption="Form4@SunnyForm2" id="create_form_4" width="2000" height="1600">
+                <mainpanel>
+                    <default>
+                        <cluster> 
+                            <xobj rows="1" cols="2" width="500,200" masterrow="0" mastercol="0">
+                                <xobj rows="2" cols="1" height="400,200" masterrow="0" mastercol="0">
+                                    <xobj id='Page1' url="host:webpage\cwr.html|host:sunny2.html"></xobj>
+                                </xobj>
+                                <xobj id='Page2' caption='Form3'></xobj>
+                            </xobj>
+                        </cluster> 
+                    </default>
+                </mainpanel>
+            </Form4>
+        </Forms>
+    </cosmos>
     <div class="contents">
         <article class="show startup markdown-body">
             <strong style="font-size:32px; color:black">欢迎<i style="color:fuchsia">您来到</i><i style="color:blue">Sunny的 </i><b style="color:coral">.NET桌面编程世界</b>!</strong>
@@ -679,7 +980,7 @@
             </p>
             <p>
                 <h1 style="font-size: 16px; color:chocolate">
-                    <a href="#" onclick="OpenNewWebURL();"><i style="font-size:64px; color:darkgreen">点击</i>这里开始...</a>
+                    <a href="#" onclick="OpenNewWebURL(this);"><i style="font-size:64px; color:darkgreen">点击</i>这里开始...</a>
                     <a href="#" onclick="OpenCLEURL();" style="color:forestgreen">Common Layout Engine</a>
                     <a href="#" onclick="OpenCWRURL();" style="color:blue"><i style="font-size: 20px;">Common Web Runtime</i></a>
                     <a href="#" onclick="OpenCERURL();" style="color:forestgreen">Common Eclipse Runtime</a>
@@ -749,7 +1050,20 @@
                                         <b>支持<a href="#" onclick="OpenCLEURL();" style="font-size: 20px; color:forestgreen">Common Layout Engine</a></b>：耳目一新的动态布局引擎，
                                         将盘活各种.NET组件、C++组件以及Web组件...，为形成软件生态奠定现实的基础。<br />
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout()">动态布局一</button>
-                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout1()">动态布局二</button>
+                                        <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="cosmos.OnMessage(this, 'OnClick')" id="DynLayoutBtn">
+                                            动态布局二
+                                            <yyyyyy>
+                                                <btn target="mainClient" cluster="__viewport_default__" galaxy="default" content="content_using_browser" targetcluster="content_using_browser">
+                                                    <cluster> 
+                                                        <xobj style="18">
+                                                            <xobj objid="nucleus" caption="test button onclick"></xobj>
+                                                            <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                                            <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                                                        </xobj>
+                                                    </cluster> 
+                                                </btn>
+                                            </yyyyyy>
+                                        </button>
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout2()">动态布局三</button>
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout3()">动态布局四</button>
                                         <button style="font-size: 16px; font-weight:bold; color:chocolate" onclick="DynLayout4()">动态布局五</button>
@@ -781,15 +1095,6 @@
                     </tbody>
                 </table>
             </center>
-
-            <startup target="mainClient">
-                <layout>
-                    <grid>
-                        <grid caption="New Web, New Desktop World" objid="nucleus"></grid>
-                        <grid caption="New Start point" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                    </grid>
-                </layout>
-            </startup>
         </article>
         <article class="hidden content1 markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
@@ -800,15 +1105,6 @@
                 In this world, a new web page is defined. While taking into account the standard web page,
                 the ability to use native components as DOM elements is added ...
             </p>
-            <content1 target="mainClient">
-                <layout>
-                    <grid style="18">
-                        <grid caption="The mixed world of web and native UI" objid="nucleus"></grid>
-                        <grid caption="Second Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid caption="Third Page" objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                    </grid>
-                </layout>
-            </content1>
         </article>
         <article class="hidden contentcle markdown-body">
             <x style="font-size:40px; color:crimson">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></x>
@@ -826,11 +1122,6 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网格有两种描述方式：其一是基于XML，这样的描述可以用于各种编程语言；其二是基于Web页面的
                 DOM元素，这个方案的优势是易于与主流的互联网技术衔接。
             </p>
-            <contentcle target="mainClient">
-                <layout>
-                    <grid objid="nucleus"></grid>
-                </layout>
-            </contentcle>
             <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout()">动态布局一</button>
             <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout1()">动态布局二</button>
             <button style="font-size: 24px;font-weight: bold; color:crimson" onclick="DynLayout2()">动态布局三</button>
@@ -851,40 +1142,26 @@
                     </x>
                 </b>
             </p>
-            <content_grid target="mainClient">
-                <layout>
-                    <grid rows="3" cols="3" width="150,100,100" height="200,180,100">
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="nucleus"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                </layout>
-            </content_grid>
             <p>
                 <b style="font-size:24px; color:black">
                     在一个具体的页面内或者一个XML文档中，可以用如下格式定义一个与“网格”对应的DOM元素，
                     这里给出一个3行3列的网格结构对应的DOM描述，具体请参考Sunny.index.html
-                    <xmp style="font-size:28px; color:red"><content_grid target="mainClient">
-    <layout>
-        <grid rows="3" cols="3" width="150,100,100" height="200,180,100">
-            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-            <grid objid="nucleus"></grid>
-            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-        </grid>
-    </layout>
-</content_grid>
+                    <xmp style="font-size:28px; color:red">
+                        <content_grid target="mainClient">
+                            <cluster> 
+                                <xobj rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                    <xobj objid="nucleus"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                </xobj>
+                            </cluster> 
+                        </content_grid>
                     </xmp>
                 </b>
             </p>
@@ -910,7 +1187,7 @@
                 例如，假设我们有一个.NET组件库xxx.dll，其中有一个FormX对象，其NameSpace是“MyNamespace”，
                 那么objid即为“MyNamespace.FormX,xxx”,对应的网格节点如下：
             </h3>
-            <b><xmp style="font-size:30px; color:blue"><grid objid="MyNamespace.FormX,xxx"></grid></xmp></b>
+            <b><xmp style="font-size:30px; color:blue"><xobj objid="MyNamespace.FormX,xxx"></xobj></xmp></b>
         </article>
         <article class="hidden tabgrid markdown-body">
             <center style="font-size:36px; color:blue"><b>标签（选项卡）</b></center>
@@ -920,15 +1197,6 @@
                     其包含的选项卡个数就是其子节点个数。
                 </b>
             </p>
-            <tabgrid target="mainClient">
-                <layout>
-                    <grid>
-                        <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
-                        <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                        <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                    </grid>
-                </layout>
-            </tabgrid>
             <figcaption>
                 <p>
                     <b>
@@ -953,15 +1221,16 @@
                                     显示风格style="23"表明标签是左侧标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签(选项卡)：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <grid style="23">
-            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
-            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-        </grid>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <cluster> 
+                                                    <xobj style="23">
+                                                        <xobj caption="Introduction to Tabbed Grid" objid="nucleus"></xobj>
+                                                        <xobj caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -972,15 +1241,16 @@
                                     显示风格style="19"表明标签是上侧标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个Tabbed Grid：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <grid style="19">
-            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
-            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-        </grid>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <cluster> 
+                                                    <xobj style="19">
+                                                        <xobj caption="Introduction to Tabbed Grid" objid="nucleus"></xobj>
+                                                        <xobj caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -991,15 +1261,16 @@
                                     显示风格style="18"表明标签是抽屉式标签
                                     <p>
                                         在Web页面上或者XML中，可以按照如下方式描述一个标签结构：
-                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue"><tabgrid target="mainClient">
-    <layout>
-        <grid style="18">
-            <grid caption="Introduction to Tabbed Grid" objid="nucleus"></grid>
-            <grid caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-            <grid caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-        </grid>
-    </layout>
-</tabgrid>
+                                        <xmp style=" font-size: 10px; font-weight: 900; color: blue">
+                                            <tabgrid target="mainClient">
+                                                <cluster> 
+                                                    <xobj style="18">
+                                                        <xobj caption="Introduction to Tabbed Grid" objid="nucleus"></xobj>
+                                                        <xobj caption="Second Page" objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                                        <xobj caption="Third Page" objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                                    </xobj>
+                                                </cluster> 
+                                            </tabgrid>
                                         </xmp>
                                     </p>
                                 </b>
@@ -1013,54 +1284,32 @@
                 承载各种可编程对象，以此为基础可以形成更加一般化、综合的布局结构，宿主应用系统可以通过网
                 页呈现出<b>兼具原生应用与web应用的双重优势的网页应用生态</b>。这里显示的是Web页面上或者xml
                 中如何表达一个“三级复合”网格的DOM结构：
-                <xmp style=" font-size: 24px; font-weight: 900; color: blue"><compositegrid target="mainClient">
-    <layout>
-        <grid style="23">
-            <grid caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                <grid style="18" activepage="1">
-                    <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                    <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                    <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                </grid>
-                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-            </grid>
-            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-        </grid>
-    </layout>
-</compositegrid>
+                <xmp style=" font-size: 24px; font-weight: 900; color: blue">
+                    <compositegrid target="mainClient">
+                        <cluster> 
+                            <xobj style="23">
+                                <xobj caption="Start Page" rows="3" cols="3" width="150,100,100" height="200,180,100">
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyForms.Form1,SunnyForms"></xobj>
+                                    <xobj style="18" activepage="1">
+                                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></xobj>
+                                        <xobj objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></xobj>
+                                        <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></xobj>
+                                    </xobj>
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl1,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl"></xobj>
+                                    <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl"></xobj>
+                                </xobj>
+                                <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                                <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                            </xobj>
+                        </cluster> 
+                    </compositegrid>
                 </xmp>
             </p>
-            <compositegrid target="mainClient">
-                <layout>
-                    <grid style="23">
-                        <grid caption="Start Page" id="CompositeGrid_Splitter" rows="3" cols="3" width="150,100,100" height="200,180,100">
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                            <grid objid="SunnyForms.Form1,SunnyForms"></grid>
-                            <grid style="18" activepage="1">
-                                <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="First Page"></grid>
-                                <grid objid="nucleus" caption="Compound grid World Gives You An Unexpected Surprise"></grid>
-                                <grid objid="SunnyCtrl.UserControl1,SunnyCtrl" caption="Third Page"></grid>
-                            </grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                            <grid objid="SunnyCtrl.UserControl1,SunnyCtrl"></grid>
-                            <grid objid="SunnyCtrl.UserControl3,SunnyCtrl"></grid>
-                            <grid objid="SunnyCtrl.UserControl2,SunnyCtrl"></grid>
-                        </grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                    </grid>
-                </layout>
-            </compositegrid>
             <p style=" font-size: 24px; font-weight: 900; color: blue">更多的复合结构，可以点击以下按钮：</p>
             <center>
                 <button style=" font-size: 24px; font-weight: 900; color: black" onclick="CompositeGrid1()">复合网格一</button>
@@ -1096,15 +1345,6 @@
                     WinForm、Usercontrol、WPF等对象可以做为页面元素的一部分体现在实际的开发之中，这一点对形成应用生态非常重要。
                 </b>
             </p>
-            <content_cwr target="mainClient">
-                <layout>
-                    <grid style="27">
-                        <grid objid="nucleus" caption="Common WebBrowser Runtime"></grid>
-                        <grid caption="Page1"></grid>
-                        <grid caption="Page2"></grid>
-                    </grid>
-                </layout>
-            </content_cwr>
             <center><img src="image/chrome.png" width="750" height="500" /></center>
         </article>
         <article class="hidden content_using_browser markdown-body">
@@ -1119,7 +1359,7 @@
                     <tbody>
                         <tr>
                             <td class="sunnysolution" width="50%">
-                                <a href="#" onclick="OpenAppURL();" style="font-size:24px;color:forestgreen"><b>Create a WinForm App</b></a>
+                                <a href="#" onclick="OpenAppURL(this);" style="font-size:24px;color:forestgreen"><b>Create a WinForm App</b></a>
                             </td>
                             <td class="sunnysolution" width="50%" rowspan=5>
                             </td>
@@ -1213,15 +1453,6 @@
                 </table>
             </center>
             <hr />
-            <content_using_browser target="mainClient">
-                <layout>
-                    <grid style="43">
-                        <grid objid="nucleus" caption="Using Browser Window"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                    </grid>
-                </layout>
-            </content_using_browser>
         </article>
         <article class="hidden content_cer markdown-body">
             <p style="font-size:40px; color:blue">艳阳的.NET<strong><i style="font-size:40px; color:fuchsia">新 </i>世界</strong></p>
@@ -1244,48 +1475,25 @@
                 的所有功能，应用程序开发人员可以基于Eclipse技术为宿主应用程序开发新的应用程序内容，从而使宿主应用程序成为一个基于Java技术
                 的软件生态系统。
             </h3>
-            <content_cer target="mainClient">
-                <layout>
-                    <grid objid="nucleus"></grid>
-                </layout>
-            </content_cer>
         </article>
         <article class="hidden content_using_workbench markdown-body">
             <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">WorkBench </i>窗口</strong></p>
             <center><img src="image/eclipse.png" width="900" height="450" /></center>
-            <content_using_workbench target="mainClient">
-                <layout>
-                    <grid style="29">
-                        <grid objid="nucleus" caption="Using Eclipse Workbench"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                    </grid>
-                </layout>
-            </content_using_workbench>
         </article>
         <article class="hidden content_using_swt markdown-body">
             <p style="font-size:40px; color:crimson">使用<strong><i style="font-size:40px; color:fuchsia">SWT </i>Form</strong></p>
-            <content_using_swt target="mainClient">
-                <layout>
-                    <grid style="18">
-                        <grid objid="nucleus" caption="Using java swt"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                    </grid>
-                </layout>
-            </content_using_swt>
         </article>
 
         <article class="hidden content_using_winform markdown-body">
             <p style="font-size:40px; color:darkgreen">Web页面中使用<strong><i style="font-size:40px; color:fuchsia">WinForm </i>窗口</strong></p>
             <content_using_winform target="mainClient">
-                <layout>
-                    <grid style="29">
-                        <grid objid="nucleus" caption="Using Window Form"></grid>
-                        <grid objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></grid>
-                        <grid objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></grid>
-                    </grid>
-                </layout>
+                <cluster> 
+                    <xobj style="29">
+                        <xobj objid="nucleus" caption="Using Window Form"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl3,SunnyCtrl" caption="Second Page"></xobj>
+                        <xobj objid="SunnyCtrl.UserControl2,SunnyCtrl" caption="Third Page"></xobj>
+                    </xobj>
+                </cluster> 
             </content_using_winform>
             <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form1_SunnyForms2()">Form App 1</button>
             <button style="font-size:32px; font-weight: 900; color:darkgreen" onclick="OnCreate_Form2_SunnyForms2()">Form App 2</button>

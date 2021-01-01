@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyForms
 {
@@ -20,14 +20,12 @@ namespace SunnyForms
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            if (Hubble.CreatingGrid != null)
-            {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
-            }
+            hostXobj = Cosmos.GetXobjFromControl(this);
+            if (hostXobj != null)
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
         }
 
-        private void HostGrid_OnCloudMessageReceived(Cosmos.Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
             string strMsgID = cloudSession.GetString("msgID");
             switch (strMsgID)

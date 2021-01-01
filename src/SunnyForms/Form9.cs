@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyForms
 {
     public partial class Form9 : Form
     {
-        Grid hostGrid = null;
+        Xobj hostXobj = null;
         public Form9()
         {
             InitializeComponent();
@@ -26,14 +26,12 @@ namespace SunnyForms
 
         private void Form9_Load(object sender, EventArgs e)
         {
-            if (Hubble.CreatingGrid != null)
-            {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
-            }
+            hostXobj = Cosmos.GetXobjFromControl(this);
+            if (hostXobj != null)
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
         }
 
-        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
     }

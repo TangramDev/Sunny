@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001						    *
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -13,7 +13,7 @@
 
 using System;
 using System.Xml;
-using Cosmos;
+using Universe;
 using System.Windows.Forms;
 
 namespace Sunny
@@ -22,17 +22,17 @@ namespace Sunny
     {
         private static int Init(string argument)
         {
-            Hubble.OnBindCLRObjToWebPage += Cosmos_OnBindCLRObjToWebPage;
-            Hubble.OnGetSubObjForWebPage += Tangram_OnGetSubObjForWebPage;
-            Hubble.OnHubbleMsg += Cosmos_OnHubbleMsg;
-            Hubble.OnCustomizedDOMElement += Cosmos_OnCustomizedDOMElement;
-            Hubble.OnHubbleMsgReceived += Cosmos_OnHubbleMsgReceived;
+            Cosmos.OnBindCLRObjToWebPage += Cosmos_OnBindCLRObjToWebPage;
+            Cosmos.OnGetSubObjForWebPage += Tangram_OnGetSubObjForWebPage;
+            Cosmos.OnCosmosMsg += Cosmos_OnHubbleMsg;
+            Cosmos.OnCustomizedDOMElement += Cosmos_OnCustomizedDOMElement;
+            Cosmos.OnCosmosMsgReceived += Cosmos_OnHubbleMsgReceived;
             return 0;
         }
 
         private static void Cosmos_OnHubbleMsgReceived(Wormhole cloudWormhole)
         {
-            if(cloudWormhole!=null)
+            if (cloudWormhole != null)
             {
                 string strMsgID = cloudWormhole.GetString("msgID");
                 IntPtr nHandle = (IntPtr)cloudWormhole.GetInt64("nodehandle");
@@ -59,13 +59,21 @@ namespace Sunny
                 case "SizeChanged":
                     {
                         Form thisForm = SourceObj as Form;
+                        eventWormhole.AddEventInfo(SourceObj, eventName);
+                        //string strData = "@" + thisForm.Handle.ToString() + "@";
+                        //string strData = "@" + thisForm.Name + "@";
+                        //eventWormhole.EventBindInfo += strData;
                         thisForm.SizeChanged += ThisForm_SizeChanged;
                     }
                     break;
                 case "OnClick":
+                case "onclick":
                     {
                         Button thisbtn = SourceObj as Button;
                         thisbtn.Click += Thisbtn_Click;
+                        eventWormhole.AddEventInfo(SourceObj, eventName);
+                        //string strData = "@" + thisbtn.Handle.ToString() + "@";
+                        //eventWormhole.EventBindInfo += strData;
                     }
                     break;
                 case "TextChanged":
@@ -73,6 +81,8 @@ namespace Sunny
                         TextBox textBox = SourceObj as TextBox;
                         if (textBox != null)
                         {
+                            //eventWormhole.EventBindInfo = "@" + textBox.Handle.ToString() + "@";
+                            eventWormhole.AddEventInfo(SourceObj, eventName);
                             textBox.TextChanged += TextBox_TextChanged;
                         }
                     }
@@ -82,14 +92,19 @@ namespace Sunny
                         Sunny.ucButtonsAndTextBoxes ucButtonsAndTextBoxes = SourceObj as Sunny.ucButtonsAndTextBoxes;
                         if (ucButtonsAndTextBoxes != null)
                         {
+                            eventWormhole.AddEventInfo(SourceObj, eventName);
                             ucButtonsAndTextBoxes.MyCustomClick += UcButtonsAndTextBoxes_MyCustomClick;
                         }
                     }
                     break;
                 case "OnAfterSelect":
+                case "onafterselect":
                     {
                         TreeView thisTreeview = SourceObj as TreeView;
+                        eventWormhole.AddEventInfo(SourceObj, eventName);
+                        //string strData = "@" + thisTreeview.Handle.ToString() + "@";
                         thisTreeview.AfterSelect += ThisTreeview_AfterSelect;
+                        //eventWormhole.EventBindInfo += strData;
                     }
                     break;
             }
@@ -97,7 +112,7 @@ namespace Sunny
 
         private static void UcButtonsAndTextBoxes_MyCustomClick(object sender, Sunny.ucButtonsAndTextBoxes.MyEventArgs e)
         {
-            if (Cosmos.Hubble.Wormholes.TryGetValue(sender, out Wormhole thisWormhole))
+            if (Cosmos.Wormholes.TryGetValue(sender, out Wormhole thisWormhole))
             {
                 Control ctrl = sender as Control;
                 if (ctrl != null)
@@ -115,7 +130,7 @@ namespace Sunny
 
         private static void TextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Cosmos.Hubble.Wormholes.TryGetValue(sender, out Wormhole thisSession))
+            if (Cosmos.Wormholes.TryGetValue(sender, out Wormhole thisSession))
             {
                 TextBox ctrl = sender as TextBox;
                 if (ctrl != null)
@@ -131,7 +146,7 @@ namespace Sunny
 
         private static void ThisTreeview_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (Hubble.Wormholes.TryGetValue(sender, out Wormhole thisSession))
+            if (Cosmos.Wormholes.TryGetValue(sender, out Wormhole thisSession))
             {
                 if (e.Node.Tag != null)
                 {
@@ -142,6 +157,8 @@ namespace Sunny
                     {
                         thisSession.InsertString(attribute.Name, attribute.Value);
                     }
+                    thisSession.InsertString("OnAfterSelectXml", strTag);
+                    thisSession.InsertString("OnAfterSelectTagName", xml.FirstChild.Name);
                 }
                 TreeView treeview = sender as TreeView;
                 thisSession.InsertString("msgID", "FIRE_EVENT");
@@ -160,12 +177,20 @@ namespace Sunny
                     }
                 }
                 thisSession.SendMessage();
+                //string strWebcontent = thisSession.GetString("webcontent");
+                //if(string.IsNullOrEmpty(strWebcontent) ==false)
+                //{
+                //    thisSession.InsertString("msgID", "SHOW_APPCONTENT");
+                //    thisSession.InsertString("content_show", strWebcontent);
+                //    thisSession.InsertString("content_parent", "contents");
+                //    thisSession.SendMessage();
+                //}
             }
         }
 
         private static void Thisbtn_Click(object sender, EventArgs e)
         {
-            if (Cosmos.Hubble.Wormholes.TryGetValue(sender, out Wormhole thisSession))
+            if (Cosmos.Wormholes.TryGetValue(sender, out Wormhole thisSession))
             {
                 Control ctrl = sender as Control;
                 thisSession.InsertString("msgID", "FIRE_EVENT");
@@ -180,6 +205,8 @@ namespace Sunny
                     {
                         thisSession.InsertString(attribute.Name, attribute.Value);
                     }
+                    //thisSession.InsertString("OnClickXml", strTag);
+                    //thisSession.InsertString("OnClickTagName", xml.FirstChild.Name);
                 }
                 thisSession.SendMessage();
             }
@@ -187,7 +214,7 @@ namespace Sunny
 
         private static void ThisForm_SizeChanged(object sender, EventArgs e)
         {
-            if (Hubble.Wormholes.TryGetValue(sender, out Wormhole thisSession))
+            if (Cosmos.Wormholes.TryGetValue(sender, out Wormhole thisSession))
             {
                 Form xform = sender as Form;
                 thisSession.InsertString("msgID", "FIRE_EVENT");

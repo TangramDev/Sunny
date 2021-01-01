@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace SunnyCtrl
 {
     public partial class UserControl7 : UserControl
     {
-        Grid hostGrid = null;
+        Xobj hostXobj = null;
         public UserControl7()
         {
             InitializeComponent();
@@ -21,14 +21,12 @@ namespace SunnyCtrl
 
         private void UserControl7_Load(object sender, EventArgs e)
         {
-            if (Hubble.CreatingGrid != null)
-            {
-                hostGrid = Hubble.CreatingGrid;
-                hostGrid.OnCloudMessageReceived += HostGrid_OnCloudMessageReceived;
-            }
+            hostXobj = Cosmos.CreatingXobj;
+            if (hostXobj != null)
+                hostXobj.OnCloudMessageReceived += HostXobj_OnCloudMessageReceived;
         }
 
-        private void HostGrid_OnCloudMessageReceived(Wormhole cloudSession)
+        private void HostXobj_OnCloudMessageReceived(Wormhole cloudSession)
         {
         }
     }

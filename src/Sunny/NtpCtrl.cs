@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*					Sunny - version 1.0.0.9							*
+*					Sunny - version 1.0.0.202101010001							*
 *********************************************************************************
 * Copyright (C) 2002-2020 by Tangram Team.   All Rights Reserved.				*
 *
@@ -20,13 +20,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cosmos;
+using Universe;
 
 namespace Sunny
 {
     public partial class NtpCtrl : UserControl
     {
-        Grid thisNode = null;
+        Xobj thisNode = null;
         public NtpCtrl()
         {
             InitializeComponent();
@@ -72,7 +72,7 @@ namespace Sunny
 
         private void NtpCtrl_Load(object sender, EventArgs e)
         {
-            thisNode = Hubble.CreatingGrid;
+            thisNode = Cosmos.CreatingXobj;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace Sunny
                 "</grid>" +
             "</layout>" +
             "</content1>";
-            Grid grid = Hubble.Observe(this, "test", xml);
+            Xobj grid = Cosmos.Observe(this, "test", xml);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace Sunny
                     "</grid>" +
                 "</layout>" +
               "</content1>";
-            Grid grid = Hubble.Observe(treeView1, "test", xml);
+            Xobj grid = Cosmos.Observe(treeView1, "test", xml);
         }
     }
 
